@@ -1,4 +1,3 @@
-import React from "react";
 import ReservationForm from "../../components/molecules/ReservationForm/ReservationForm";
 import Button from "../../components/atoms/Button/Button";
 import styles from "./MainPage.module.css";
