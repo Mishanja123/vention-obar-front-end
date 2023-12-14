@@ -16,6 +16,7 @@ const TimePicker = ({ formik, fieldName }: TimePickerProps) => {
   return (
     <>
       <MUITimePicker
+        ampm={false}
         defaultValue={todayHourFromNow}
         disablePast
         onChange={(newTime) => formik.setFieldValue(fieldName, newTime)}
