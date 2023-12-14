@@ -1,0 +1,32 @@
+.headerWrapper {
+    font-size: var(--font-size-l);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 5.625rem;
+    background-color: var(--darkBG-color);
+    color: var(--light-color);
+}
+
+.logoWrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    font-size: var(--font-size-xl);
+}
+
+.logoWrapper,
+.cart,
+.profile,
+.reserveTable,
+.menu,
+.orders {
+    color: var(--light-color);
+    vertical-align: middle;
+    text-decoration: none;
+}
+
+.logo, .cart, .profile {
+    height: 2.8rem;
+    width: 3rem;
+}
