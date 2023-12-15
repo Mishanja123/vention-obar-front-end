@@ -1,6 +1,6 @@
-import { FormikValues } from "formik";
-import styles from "./NumberInput.module.css";
-import { PeopleAltIcon } from "../../../assets/icons";
+import { FormikValues } from 'formik';
+import styles from './NumberInput.module.css';
+import { PeopleAltIcon } from '../../../assets/icons';
 
 type NumberInputProps = {
   formik: {
@@ -9,10 +9,11 @@ type NumberInputProps = {
   };
   id: string;
   name: string;
+  min: number;
   max?: number;
 };
 
-const NumberInput = ({ formik, id, name, max }: NumberInputProps) => {
+const NumberInput = ({ formik, id, name, min, max }: NumberInputProps) => {
   return (
     <div className={styles.numberInput}>
       <input
@@ -21,6 +22,7 @@ const NumberInput = ({ formik, id, name, max }: NumberInputProps) => {
         name={name}
         value={formik.values[name] || 0}
         onChange={formik.handleChange}
+        min={min}
         max={max}
       />
       <PeopleAltIcon />
