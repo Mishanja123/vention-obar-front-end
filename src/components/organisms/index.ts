@@ -1,4 +1,4 @@
-export { default as Account } from "./Account/Account";
+export { default as AccountPageSection } from "./AccountPageSection/AccountPageSection";
 export { default as BookTable } from "./BookTable/BookTable";
 export { default as Cart } from "./Cart/Cart";
 export { default as DishesSwiper } from "./DishesSwiper/DishesSwiper";

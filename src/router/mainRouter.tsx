@@ -17,7 +17,7 @@ import MenuPage from "../pages/MenuPage";
 import { PATHS } from "../constants/paths";
 
 import PrivatePage from "../routes/PrivateRoute";
-import CheckoutPage from "../pages/CheckoutPage";
+import CheckoutPage from "../pages/CheckoutPage/CheckoutPage";
 import OrdersPage from "../pages/OrdersPage";
 import { OrderTakeout } from "../components/organisms";
 
@@ -32,7 +32,7 @@ const mainRoutes = [
     children: [
       { path: PATHS.ROOT, element: <MainPage /> },
       { path: PATHS.MENU, element: <MenuPage /> },
-      { path: PATHS.MENUITEM, element: <MenuItem /> },
+      { path: PATHS.MENU_ITEM, element: <MenuItem /> },
       { path: PATHS.CART, element: <CartPage /> },
       {
         path: PATHS.ACCOUNT,
@@ -67,3 +67,5 @@ const mainRoutes = [
 ];
 
 export default mainRoutes;
+
+// please move it to organism in accountPageSection or something like this, because in Page you need to define a high-order part of page (like header, mainSection, footer etc)

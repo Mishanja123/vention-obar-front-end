@@ -3,7 +3,7 @@ export enum PATHS {
   HOME = "main",
   AUTH = "/auth",
   MENU = "/menu",
-  MENUITEM = "/menu:id",
+  MENU_ITEM = "/menu:id",
   CART = "/cart",
   ACCOUNT = "/account",
   USER_INFO = "userInfoForm",
