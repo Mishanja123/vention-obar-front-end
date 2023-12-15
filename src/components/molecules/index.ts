@@ -10,3 +10,5 @@ export { default as RegistrationForm } from "./RegistrationForm/RegistrationForm
 export { default as SummaryPayment } from "./SummaryPayment/SummaryPayment";
 export { default as TimePickerContainer } from "./TimePickerContainer/TimePickerContainer";
 export { default as UserInfoForm } from "./UserInfoForm/UserInfoForm";
+export { default as OrderedReservarionForm } from "./OrderedReservarionForm/OrderedReservarionForm";
+export { default as OrderConfirmation } from "./OrderConfirmation/OrderConfirmation";
