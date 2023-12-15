@@ -23,24 +23,26 @@ const startOfWorkingDay = setMinutes(setHours(startOfDay(new Date()), 8), 0);
 const endOfWorkingDay = setMinutes(setHours(startOfDay(new Date()), 23), 0);
 const hourBeforeClosing = sub(endOfWorkingDay, { hours: 1 });
 
-const validationSchema = yup.object({
-  date: yup
-    .date()
-    .required('Date is required')
-    .min(startofTheDay, 'Selected date must be today or a future date')
-    .max(oneMonthLater, 'Select date within next month'),
-  time: yup
-    .date()
-    .required('Time is required')
-    .max(hourBeforeClosing, 'Select time within working hours'),
-  guests: yup
-    .number()
-    .integer('Guests must be a whole number')
-    .min(1, 'There must be at least one guest')
-    .max(50, 'Cannot exceed 50 guests'),
-});
-
 const ReservationForm = () => {
+  const [minTime, setMinTime] = useState(today);
+
+  const validationSchema = yup.object({
+    date: yup
+      .date()
+      .required('Date is required')
+      .min(startofTheDay, 'Selected date must be today or a future date')
+      .max(oneMonthLater, 'Select date within next month'),
+    time: yup
+      .date()
+      .required('Time is required')
+      .min(minTime, 'Select following time, not the past!')
+      .max(hourBeforeClosing, 'Select time within working hours'),
+    guests: yup
+      .number()
+      .integer('Guests must be a whole number')
+      .min(1, 'There must be at least one guest')
+      .max(50, 'Cannot exceed 50 guests'),
+  });
   const formik = useFormik({
     initialValues: {
       date: today,
@@ -76,8 +78,10 @@ const ReservationForm = () => {
     const formattedCurrentDate = format(today, 'MM/dd/yyyy');
     if (formattedSelectedDate === formattedCurrentDate) {
       disablePast = true;
+      setMinTime(add(today, { minutes: 1 }));
     } else {
       disablePast = false;
+      setMinTime(startOfWorkingDay);
     }
   };
   return (
