@@ -1,6 +1,4 @@
-/* eslint-disable import/extensions */
-/* eslint-disable import/no-unresolved */
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useFormik, FormikValues } from 'formik';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';

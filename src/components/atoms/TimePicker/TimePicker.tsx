@@ -1,9 +1,8 @@
 import {
-  DateValidationError,
   TimePicker as MUITimePicker,
   TimeValidationError,
 } from '@mui/x-date-pickers';
-import { add, setHours, setMinutes, startOfDay, sub } from 'date-fns';
+import { setHours, setMinutes, startOfDay, sub } from 'date-fns';
 import { FormikValues, FormikHelpers } from 'formik';
 import React from 'react';
 
