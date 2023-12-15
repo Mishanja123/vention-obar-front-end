@@ -2,7 +2,7 @@ import { FormikValues } from "formik";
 import styles from "./NumberInput.module.css";
 import { PeopleAltIcon } from "../../../assets/icons";
 
-type NumberInputProps = {
+interface NumberInputProps {
   formik: {
     values: FormikValues;
     handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -10,7 +10,7 @@ type NumberInputProps = {
   id: string;
   name: string;
   max?: number;
-};
+}
 
 const NumberInput = ({ formik, id, name, max }: NumberInputProps) => {
   return (

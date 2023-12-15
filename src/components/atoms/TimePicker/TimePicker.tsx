@@ -2,13 +2,13 @@ import { TimePicker as MUITimePicker } from "@mui/x-date-pickers";
 import { add } from "date-fns";
 import { FormikValues, FormikHelpers } from "formik";
 
-type TimePickerProps = {
+interface TimePickerProps {
   formik: {
     values: FormikValues;
     setFieldValue: FormikHelpers<FormikValues>["setFieldValue"];
   };
   fieldName: string;
-};
+}
 
 const TimePicker = ({ formik, fieldName }: TimePickerProps) => {
   const today = new Date();
