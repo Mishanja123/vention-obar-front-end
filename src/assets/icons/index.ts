@@ -1,3 +1,5 @@
-import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 
-export { PeopleAltIcon };
+export const icons = {
+  people: PeopleAltIcon,
+};

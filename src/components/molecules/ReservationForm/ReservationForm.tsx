@@ -101,13 +101,7 @@ const ReservationForm = () => {
             pastEnabled={disablePast}
           />
         </LocalizationProvider>
-        <NumberInput
-          formik={formik}
-          id="guests"
-          name="guests"
-          min={1}
-          max={50}
-        />
+        <NumberInput formik={formik} name="guests" min={1} max={50} />
         <Button variant="contained" type="submit" isValid={!formik.isValid}>
           Reserve
         </Button>
