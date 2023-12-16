@@ -1,8 +1,12 @@
-import { userInfoFormInputs } from '../../../content/accountForms/userInfoFormInputs';
-import { userFormSchema } from '../../../validationSchemas/userFormSchema';
-import { TextInput } from '../../atoms';
-import styles from './UserInfoForm.module.css';
 import { useFormik, FormikValues } from 'formik';
+
+import styles from './UserInfoForm.module.css';
+
+import sprite from '@/assets/sprite.svg';
+
+import { userInfoFormInputs } from '@/content/accountForms/userInfoFormInputs';
+import { userFormSchema } from '@/validationSchemas/userFormSchema';
+import { TextInput } from '@/components/atoms';
 
 const UserInfoForm = () => {
   const formik = useFormik({
@@ -28,10 +32,7 @@ const UserInfoForm = () => {
     <div className={styles.user_info_section}>
       <div className={styles.user_image_wrapper}>
         <svg width="150" height="150">
-          <use
-            href="../../../src/assets/sprite.svg#icon-avatar"
-            aria-expanded="true"
-          ></use>
+          <use href={`${sprite}#icon-avatar`} aria-expanded="true"></use>
         </svg>
         <button className={styles.image_change_button}>Change</button>
       </div>

@@ -1,10 +1,11 @@
 import { useFormik, FormikValues } from 'formik';
 
 import styles from './DeliveryAddressForm.module.css';
-import { TextInput } from '../../atoms';
-// import { deliveryAddressFormSchema } from '@/validationSchemas/deliveryAddressFormSchema';
-import { deliveryAddressFormSchema } from '../../../validationSchemas/deliveryAddressFormSchema';
-import { deliveryAddressFormInputs } from '../../../content/accountForms/deliveryAddressFormInputs';
+
+import { deliveryAddressFormSchema } from '@/validationSchemas/deliveryAddressFormSchema';
+import { deliveryAddressFormInputs } from '@/content/accountForms/deliveryAddressFormInputs';
+
+import { TextInput } from '@/components/atoms';
 
 const DeliveryAddressForm = () => {
   const formik = useFormik({

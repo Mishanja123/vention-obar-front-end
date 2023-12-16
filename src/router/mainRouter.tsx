@@ -5,21 +5,21 @@ import {
   OrderedReservarionForm,
   Payment,
   SharedLayout,
-  UserInfoForm
-} from "../components/molecules";
+  UserInfoForm,
+} from '../components/molecules';
 
-import AccountPage from "../pages/AccountPage/AccountPage";
-import CartPage from "../pages/CartPage";
-import ErrorPage from "../pages/ErrorPage";
-import MainPage from "../pages/MainPage/MainPage";
-import MenuPage from "../pages/MenuPage";
+import AccountPage from '../pages/AccountPage/AccountPage';
+import CartPage from '../pages/CartPage';
+import ErrorPage from '../pages/ErrorPage';
+import MainPage from '../pages/MainPage/MainPage';
+import MenuPage from '../pages/MenuPage';
 
-import { PATHS } from "../constants/paths";
+import { PATHS } from '../constants/paths';
 
-import PrivatePage from "../routes/PrivateRoute";
-import CheckoutPage from "../pages/CheckoutPage/CheckoutPage";
-import OrdersPage from "../pages/OrdersPage";
-import { OrderTakeout } from "../components/organisms";
+import PrivatePage from '../routes/PrivateRoute';
+import CheckoutPage from '../pages/CheckoutPage/CheckoutPage';
+import OrdersPage from '../pages/OrdersPage';
+import { OrderTakeout } from '../components/organisms';
 
 const mainRoutes = [
   {
@@ -40,8 +40,8 @@ const mainRoutes = [
         children: [
           { path: PATHS.USER_INFO, element: <UserInfoForm /> },
           { path: PATHS.DELIVERY_ADDRESS, element: <DeliveryAddressForm /> },
-          { path: PATHS.PAYMENT, element: <Payment /> }
-        ]
+          { path: PATHS.PAYMENT, element: <Payment /> },
+        ],
       },
       {
         path: PATHS.CHECKOUT,
@@ -51,21 +51,19 @@ const mainRoutes = [
           { path: PATHS.DELIVERY, element: <DeliveryAddressForm /> },
           {
             path: PATHS.TAKEOUT,
-            element: <OrderTakeout />
+            element: <OrderTakeout />,
           },
           { path: PATHS.ORDER_PAYMENT, element: <Payment /> },
-          { path: PATHS.ORDER_CONFIRMATION, element: <OrderConfirmation /> }
-        ]
+          { path: PATHS.ORDER_CONFIRMATION, element: <OrderConfirmation /> },
+        ],
       },
       {
         path: PATHS.ORDERS,
-        element: <OrdersPage />
-      }
-    ]
+        element: <OrdersPage />,
+      },
+    ],
   },
-  { path: "*", element: <ErrorPage /> }
+  { path: '*', element: <ErrorPage /> },
 ];
 
 export default mainRoutes;
-
-// please move it to organism in accountPageSection or something like this, because in Page you need to define a high-order part of page (like header, mainSection, footer etc)

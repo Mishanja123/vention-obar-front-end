@@ -1,7 +1,6 @@
 import React, { ReactNode } from 'react';
 import styles from './TextInput.module.css';
 import { TextInputProps } from '@/types/textInputProps';
-// import { TextInputProps } from '../../../types/textInputProps';
 
 const TextInput: React.FC<TextInputProps> = ({
   formik,

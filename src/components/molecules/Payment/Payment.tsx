@@ -1,11 +1,13 @@
 import { useFormik, FormikValues } from 'formik';
 
 import styles from './Payment.module.css';
-import { TextInput } from '../../atoms';
-import { paymentSchema } from '../../../validationSchemas/userPaymentSchema';
-import { paymentFormInputs } from '../../../content/accountForms/paymentFormInputs';
-import { cardExpirationDate } from '../../../content/accountForms/cardExpirationDate';
-import SelectInput from '../../atoms/SelectInput/SelectInput';
+
+import { paymentSchema } from '@/validationSchemas/userPaymentSchema';
+import { paymentFormInputs } from '@/content/accountForms/paymentFormInputs';
+import { cardExpirationDate } from '@/content/accountForms/cardExpirationDate';
+
+import { TextInput } from '@/components/atoms';
+import SelectInput from '@/components/atoms/SelectInput/SelectInput';
 
 const Payment = () => {
   const formik = useFormik({

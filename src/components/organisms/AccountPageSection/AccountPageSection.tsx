@@ -1,6 +1,7 @@
 import { NavLink, Outlet } from 'react-router-dom';
+
 import styles from './AccountPageSection.module.css';
-import { PATHS } from '../../../constants/paths';
+import { PATHS } from '@/constants/paths';
 
 const AccountPageSection = () => {
   const navLinkStyle = ({ isActive }: { isActive: boolean }) => ({
