@@ -1,0 +1,33 @@
+.user_image_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user_info_section {
+  display: flex;
+  gap: 50px;
+  width: 70%;
+}
+
+.image_change_button {
+  border: none;
+  padding: 10px;
+  color: #000;
+
+  font-size: 30px;
+  font-weight: 400;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+
+  &:hover {
+    background-color: #354ec1;
+    color: #fff;
+  }
+}
+
+.user_info_form {
+  display: flex;
+  flex-direction: column;
+}

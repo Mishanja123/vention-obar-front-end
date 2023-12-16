@@ -1,0 +1,62 @@
+.delivery_address_section {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.bulding_address_wrapper {
+  display: flex;
+  gap: 20px;
+}
+
+.delivery_form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+}
+
+.delivery_address_button {
+  width: 500px;
+  border: none;
+  padding: 10px;
+  color: #000;
+  margin-bottom: 30px;
+  font-size: 30px;
+  font-weight: 400;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+
+  &:hover {
+    background-color: #354ec1;
+    color: #fff;
+  }
+}
+
+.user_info_form {
+  display: flex;
+  flex-direction: column;
+}
+
+.building_input {
+  max-width: 200px;
+  width: 200px;
+
+  padding: 15px 0;
+  padding-left: 10px;
+
+  margin-bottom: 15px;
+
+  color: #000;
+
+  font-size: 25px;
+  font-weight: 400;
+  border-radius: 20px;
+
+  border: none;
+}
+
+.delivery_address_label {
+  /* width: 300px; */
+}
