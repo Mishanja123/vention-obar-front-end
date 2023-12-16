@@ -11,6 +11,7 @@ import styles from './ReservationForm.module.css';
 import Button from '../../atoms/Button/Button';
 import Swal from 'sweetalert2';
 
+//Date options
 const today = new Date();
 let disablePast: boolean = true;
 const currentTime = add(today, { minutes: 1 });
@@ -22,6 +23,7 @@ const endOfWorkingDay = setMinutes(setHours(startOfDay(new Date()), 23), 0);
 const hourBeforeClosing = sub(endOfWorkingDay, { hours: 1 });
 
 const ReservationForm = () => {
+  //Minimum time for vaidation logic
   const [minTime, setMinTime] = useState(today);
 
   const validationSchema = yup.object({
@@ -52,6 +54,7 @@ const ReservationForm = () => {
       date = format(date, 'MM/dd/yyyy');
       time = format(time, 'HH:mm');
 
+      //Modal confirmation
       Swal.fire({
         title: 'Confirmation',
         text: `You sure you want to reserve a table on this date: ${date}, time: ${time}, with this amount of guests: ${guests}`,
@@ -71,17 +74,19 @@ const ReservationForm = () => {
       });
     },
   });
+
   const handleChange = (date: Date) => {
     const formattedSelectedDate = format(date, 'MM/dd/yyyy');
     const formattedCurrentDate = format(today, 'MM/dd/yyyy');
     if (formattedSelectedDate === formattedCurrentDate) {
       disablePast = true;
-      setMinTime(add(today, { minutes: 1 }));
+      setMinTime(add(today, { minutes: 1 })); //adding 1 minute to avoid error
     } else {
       disablePast = false;
       setMinTime(startOfWorkingDay);
     }
   };
+
   return (
     <div className={styles.reservationForm_container}>
       <form onSubmit={formik.handleSubmit} className={styles.reservationForm}>
@@ -99,7 +104,7 @@ const ReservationForm = () => {
             pastEnabled={disablePast}
           />
         </LocalizationProvider>
-        <NumberInput formik={formik} name="guests" min={1} max={50} />
+        <NumberInput formik={formik} name="guests" />
         <Button variant="contained" type="submit" isValid={!formik.isValid}>
           Reserve
         </Button>
