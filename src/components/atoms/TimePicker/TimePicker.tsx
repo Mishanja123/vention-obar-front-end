@@ -7,6 +7,7 @@ import { FormikValues, FormikHelpers } from 'formik';
 import React from 'react';
 
 interface TimePickerProps {
+interface TimePickerProps {
   formik: {
     values: FormikValues;
     setFieldValue: FormikHelpers<FormikValues>['setFieldValue'];
