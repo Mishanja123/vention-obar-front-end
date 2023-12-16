@@ -6,24 +6,24 @@
 
 .user_info_section {
   display: flex;
-  gap: 50px;
-  width: 70%;
+  gap: 3.1rem;
 }
 
 .image_change_button {
-  border: none;
-  padding: 10px;
-  color: #000;
+  color: var(--text-color);
+  font-size: var(--font-size-xxl);
+  font-weight: var(--font-weight-regular);
 
-  font-size: 30px;
-  font-weight: 400;
-  border-radius: 15px;
+  padding: 0.6rem;
+
+  border-radius: 1rem;
+  border: none;
   cursor: pointer;
   transition: all 0.5s ease;
 
   &:hover {
-    background-color: #354ec1;
-    color: #fff;
+    background-color: var(--accent-color);
+    color: var(--light-color);
   }
 }
 

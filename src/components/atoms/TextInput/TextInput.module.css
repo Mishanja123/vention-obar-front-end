@@ -1,16 +1,15 @@
 .text_input {
   width: 100%;
-  padding: 15px 0;
-  padding-left: 10px;
-
-  margin-bottom: 15px;
 
   color: var(--text-color);
+  font-size: var(--font-size-xxl);
+  font-weight: var(--font-weight-regular);
 
-  font-size: 30px;
-  font-weight: 400;
-  border-radius: 20px;
+  padding-left: 0.6rem;
+  margin-bottom: 1.8rem;
+  padding: 1rem 0.5rem;
 
+  border-radius: 1.25rem;
   border: none;
 }
 
@@ -18,9 +17,9 @@
   color: var(--error-color);
   padding: 0;
   margin: 0;
-  margin-top: -10px;
+  margin-top: -0.6rem;
 }
 
 .error_border {
-  border: 2px solid var(--error-color);
+  border: 0.125rem solid var(--error-color);
 }

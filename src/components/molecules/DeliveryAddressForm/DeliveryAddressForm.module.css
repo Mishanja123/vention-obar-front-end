@@ -1,36 +1,39 @@
 .delivery_address_section {
   display: flex;
   flex-direction: column;
-  width: 70%;
 }
 
-.bulding_address_wrapper {
+.building_address_wrapper {
   display: flex;
-  gap: 20px;
+  gap: 1.25rem;
 }
 
 .delivery_form {
+  width: 28rem;
+
   align-items: center;
   display: flex;
   flex-direction: column;
-  width: 450px;
 }
 
 .delivery_address_button {
-  width: 500px;
+  width: 31rem;
+
+  color: var(--text-color);
+  font-size: var(--font-size-xxl);
+  font-weight: var(--font-weight-regular);
+
+  padding: 0.6rem;
+  margin-bottom: 1.8rem;
   border: none;
-  padding: 10px;
-  color: #000;
-  margin-bottom: 30px;
-  font-size: 30px;
-  font-weight: 400;
-  border-radius: 15px;
+  border-radius: 0.9375rem;
+
   cursor: pointer;
   transition: all 0.5s ease;
 
   &:hover {
-    background-color: #354ec1;
-    color: #fff;
+    background-color: var(--accent-color);
+    color: var(--light-color);
   }
 }
 
@@ -40,23 +43,16 @@
 }
 
 .building_input {
-  max-width: 200px;
-  width: 200px;
+  max-width: 12.5rem;
+  width: 12.5rem;
 
-  padding: 15px 0;
-  padding-left: 10px;
+  color: var(--text-color);
+  font-size: var(--font-size-xxl);
+  font-weight: var(--font-weight-regular);
 
-  margin-bottom: 15px;
-
-  color: #000;
-
-  font-size: 25px;
-  font-weight: 400;
-  border-radius: 20px;
-
+  border-radius: 1.25rem;
   border: none;
-}
-
-.delivery_address_label {
-  /* width: 300px; */
+  padding-left: 0.6rem;
+  margin-bottom: 1.8rem;
+  padding: 1.8rem 0;
 }

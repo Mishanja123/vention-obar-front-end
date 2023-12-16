@@ -40,13 +40,9 @@ const DeliveryAddressForm = () => {
             <TextInput {...input} formik={formik} />
           </label>
         ))}
-        <div className={styles.bulding_address_wrapper}>
+        <div className={styles.building_address_wrapper}>
           {deliveryAddressFormInputs.slice(3).map((input, i) => (
-            <label
-              htmlFor={input.name}
-              className={styles.delivery_address_label}
-              key={i}
-            >
+            <label htmlFor={input.name} key={i}>
               <TextInput {...input} formik={formik} />
             </label>
           ))}
