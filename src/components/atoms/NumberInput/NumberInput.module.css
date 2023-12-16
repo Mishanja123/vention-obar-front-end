@@ -1,3 +1,9 @@
+:root {
+  --error-color: #d32f30;
+  --commonBorder-color: #cdcdcd;
+  --focused-border: #007bff;
+}
+
 .inputContainer {
   display: flex;
   flex-direction: column;
@@ -8,17 +14,17 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid rgb(205, 205, 205);
+  border: 1px solid var(--commonBorder-color);
   border-radius: 5px;
   padding: 0 15px;
 }
 
 .errorInput {
-  border: 1px solid #d32f30; /* Add any styles to highlight the input on error */
+  border: 1px solid var(--error-color); /* Add any styles to highlight the input on error */
 }
 
 .numberInput:focus-within {
-  border: 2px solid #007bff;
+  border: 2px solid var(--focused-border);
 }
 
 .numberInput input[type='number'],
@@ -37,6 +43,6 @@
 .errorText {
   display: flex;
   align-self: center;
-  color: #d32f30;
+  color: var(--error-color);
   font-size: 12px;
 }

@@ -39,10 +39,10 @@ const CalendarInput = ({ formik, fieldName, onChange }: CalendarInputProps) => {
     }
   }, [error]);
 
-  const handleChange = (newDate: Date) => {
-    formik.setFieldValue(fieldName, newDate);
+  const handleChange = (newDate: Date | null) => {
+    formik.setFieldValue(fieldName, newDate || undefined);
     if (onChange) {
-      onChange(newDate);
+      onChange(newDate as Date);
     }
   };
 
