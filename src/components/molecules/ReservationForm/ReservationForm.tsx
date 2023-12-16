@@ -2,47 +2,26 @@ import { useState } from 'react';
 import { useFormik, FormikValues } from 'formik';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-import { add, format, setHours, setMinutes, startOfDay, sub } from 'date-fns';
-import * as yup from 'yup';
+import { add, format, setHours, setMinutes, startOfDay } from 'date-fns';
 import CalendarInput from '../../atoms/CalendarInput/CalendarInput';
 import TimePicker from '../../atoms/TimePicker/TimePicker';
 import NumberInput from '../../atoms/NumberInput/NumberInput';
 import styles from './ReservationForm.module.css';
 import Button from '../../atoms/Button/Button';
 import Swal from 'sweetalert2';
+import { getValidationSchema } from '../../../validationSchemas/MainPageReservationFormSchema';
 
 //Date options
 const today = new Date();
 let disablePast: boolean = true;
 const currentTime = add(today, { minutes: 1 });
-const oneMonthLater: Date = new Date();
-oneMonthLater.setMonth(oneMonthLater.getMonth() + 1);
-const startofTheDay = startOfDay(today);
 const startOfWorkingDay = setMinutes(setHours(startOfDay(new Date()), 8), 0);
-const endOfWorkingDay = setMinutes(setHours(startOfDay(new Date()), 23), 0);
-const hourBeforeClosing = sub(endOfWorkingDay, { hours: 1 });
 
 const ReservationForm = () => {
   //Minimum time for vaidation logic
   const [minTime, setMinTime] = useState(today);
 
-  const validationSchema = yup.object({
-    date: yup
-      .date()
-      .required('Date is required')
-      .min(startofTheDay, 'Selected date must be today or a future date')
-      .max(oneMonthLater, 'Select date within next month'),
-    time: yup
-      .date()
-      .required('Time is required')
-      .min(minTime, 'Select following time, not the past!')
-      .max(hourBeforeClosing, 'Select time within working hours'),
-    guests: yup
-      .number()
-      .integer('Guests must be a whole number')
-      .min(1, 'There must be at least one guest')
-      .max(50, 'Cannot exceed 50 guests'),
-  });
+  const validationSchema = getValidationSchema(minTime);
   const formik = useFormik({
     initialValues: {
       date: today,
