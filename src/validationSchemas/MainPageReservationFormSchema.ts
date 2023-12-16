@@ -8,7 +8,7 @@ const startofTheDay = startOfDay(today);
 const endOfWorkingDay = setMinutes(setHours(startOfDay(new Date()), 23), 0);
 const hourBeforeClosing = sub(endOfWorkingDay, { hours: 1 });
 
-export const getValidationSchema = (minTime) => {
+export const getValidationSchema = (minTime: Date) => {
   return yup.object({
     date: yup
       .date()
