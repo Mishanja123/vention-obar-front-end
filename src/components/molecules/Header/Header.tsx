@@ -5,7 +5,7 @@ import {IconContext} from 'react-icons';
 import styles from './Header.module.css'
 import {SearchInput} from '../../atoms/SearchInput/SearchInput';
 
-export const Header = () => {
+const Header = () => {
     return (
         <div className={styles.headerWrapper}>
             <a href={'/main'} className={styles.logoWrapper}>
@@ -27,3 +27,5 @@ export const Header = () => {
         </div>
     )
 }
+
+export default Header;

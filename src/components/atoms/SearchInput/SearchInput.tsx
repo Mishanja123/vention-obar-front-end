@@ -2,7 +2,7 @@ import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
 import styles from './SearchInput.module.css';
 
-export const SearchInput = () => {
+const SearchInput = () => {
     return <TextField
         type={"search"}
         label={'Search...'}
@@ -13,3 +13,5 @@ export const SearchInput = () => {
         }}
     />
 }
+
+export default SearchInput;
