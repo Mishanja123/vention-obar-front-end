@@ -1,8 +1,12 @@
 import { Outlet } from 'react-router-dom';
 
 const SharedLayout = () => {
-  // return <div>SharedLayout</div>;
-  return <Outlet />;
+  return (
+    <div>
+      SharedLayout
+      <Outlet />
+    </div>
+  );
 };
 
 export default SharedLayout;

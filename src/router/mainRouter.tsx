@@ -6,6 +6,8 @@ import {
   Payment,
   SharedLayout,
   UserInfoForm,
+} from '../components/molecules';
+  UserInfoForm,
   SenriseSpecials,
   CulinaryClassics,
   BarBliss,
@@ -80,5 +82,3 @@ const mainRoutes = [
 ];
 
 export default mainRoutes;
-
-// please move it to organism in accountPageSection or something like this, because in Page you need to define a high-order part of page (like header, mainSection, footer etc)
