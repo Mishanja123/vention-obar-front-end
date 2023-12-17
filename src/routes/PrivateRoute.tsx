@@ -1,5 +1,5 @@
-import { ReactNode, FC, useState } from "react";
-import { Navigate } from "react-router-dom";
+import { ReactNode, FC, useState } from 'react';
+import { Navigate } from 'react-router-dom';
 
 interface PrivatePageProps {
   children: ReactNode;
@@ -8,7 +8,7 @@ interface PrivatePageProps {
 
 const PrivatePage: FC<PrivatePageProps> = ({
   children,
-  redirectTo = "/auth"
+  redirectTo = '/auth',
 }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 

@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { NavLink } from 'react-router-dom';
 import { SiIfood } from 'react-icons/si';
 import { PiShoppingCartLight } from 'react-icons/pi';
@@ -10,35 +11,45 @@ import styles from './Header.module.css';
 
 function Header() {
   return (
-    <div className={styles.headerWrapper}>
-      <NavLink to={PATHS.ROOT} className={styles.logoLink}>
+    <div className={styles.header_wrapper}>
+      <NavLink to={PATHS.ROOT} className={styles.logo_link}>
         OBar
-        <IconContext.Provider value={{ className: styles.logoImg }}>
+        <IconContext.Provider value={{ className: styles.logo_img }}>
           <SiIfood />
         </IconContext.Provider>
       </NavLink>
       <SearchInput />
-      <NavLink to={PATHS.MENU} className={styles.menuLink}>
-        Menu
-      </NavLink>
-      <NavLink to={PATHS.BOOK_TABLE} className={styles.reserveTableLink}>
-        Reserve a table
-      </NavLink>
-      <NavLink to={PATHS.ORDERS} className={styles.ordersLink}>
-        Orders
-      </NavLink>
-      <NavLink to={PATHS.CART} className={styles.cartLink}>
-        <IconContext.Provider value={{ className: styles.cartImg }}>
+      <HeaderNavLink to={PATHS.MENU}>Menu</HeaderNavLink>
+      <HeaderNavLink to={PATHS.BOOK_TABLE}>Reserve a table</HeaderNavLink>
+      <HeaderNavLink to={PATHS.ORDERS}>Orders</HeaderNavLink>
+      <HeaderNavLink to={PATHS.CART}>
+        <IconContext.Provider value={{ className: styles.cart_img }}>
           <PiShoppingCartLight />
         </IconContext.Provider>
-      </NavLink>
-      <NavLink to={PATHS.ACCOUNT} className={styles.profileLink}>
-        <IconContext.Provider value={{ className: styles.profileImg }}>
+      </HeaderNavLink>
+      <HeaderNavLink to={PATHS.ACCOUNT}>
+        <IconContext.Provider value={{ className: styles.profile_img }}>
           <GoPerson />
         </IconContext.Provider>
-      </NavLink>
+      </HeaderNavLink>
     </div>
   );
 }
 
 export default Header;
+
+type Props = {
+  to: string;
+  children: React.ReactNode;
+};
+
+function HeaderNavLink({ to, children }: Props) {
+  return (
+    <NavLink
+      to={to}
+      className={({ isActive }) => (isActive ? styles.active : '')}
+    >
+      {children}
+    </NavLink>
+  );
+}

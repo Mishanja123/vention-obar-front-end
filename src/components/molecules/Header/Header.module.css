@@ -1,4 +1,4 @@
-.headerWrapper {
+.header_wrapper {
     font-size: var(--font-size-l);
     display: flex;
     justify-content: space-around;
@@ -8,29 +8,22 @@
     color: var(--light-color);
 }
 
-.logoLink {
+.header_wrapper a {
+    text-decoration: none;
+}
+
+.logo_link {
     display: flex;
     align-items: center;
     gap: 0.2rem;
     font-size: var(--font-size-xl);
 }
 
-.logoLink,
-.cartLink,
-.profileLink,
-.reserveTableLink,
-.menuLink,
-.ordersLink {
-    color: var(--light-color);
-    vertical-align: middle;
-    text-decoration: none;
-}
-
-.logoImg, .cartImg, .profileImg {
+.logo_img, .cart_img, .profile_img {
     height: 2.8rem;
     width: 3rem;
 }
 
-.headerWrapper a.active {
+.header_wrapper a.active {
     color: lightblue;
 }
