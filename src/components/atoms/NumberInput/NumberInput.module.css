@@ -1,17 +1,34 @@
-.numberInput {
+:root {
+  --error-color: #d32f30;
+  --commonBorder-color: #cdcdcd;
+  --focused-border: #007bff;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.numberInput,
+.errorInput {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid rgb(205, 205, 205);
+  border: 1px solid var(--commonBorder-color);
   border-radius: 5px;
   padding: 0 15px;
 }
 
-.numberInput:focus-within {
-  border: 2px solid #007bff;
+.errorInput {
+  border: 1px solid var(--error-color); /* Add any styles to highlight the input on error */
 }
 
-.numberInput input[type="number"] {
+.numberInput:focus-within {
+  border: 2px solid var(--focused-border);
+}
+
+.numberInput input[type='number'],
+.errorInput input[type='number'] {
   border: none;
   padding: 17px 0;
   font-size: 16px;
@@ -19,6 +36,13 @@
   background-color: transparent;
 }
 
-.numberInput input[type="number"]:focus {
-  border: 0px solid transparent; /* Set to transparent to override the default focus border */
+.numberInput input[type='number']:focus {
+  border: 0px solid transparent;
+}
+
+.errorText {
+  display: flex;
+  align-self: center;
+  color: var(--error-color);
+  font-size: 12px;
 }
