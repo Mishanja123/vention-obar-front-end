@@ -1,5 +1,11 @@
+import Header from '../Header/Header.tsx';
+
 const SharedLayout = () => {
-  return <div>SharedLayout</div>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 };
 
 export default SharedLayout;
