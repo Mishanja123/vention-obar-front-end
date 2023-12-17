@@ -7,12 +7,6 @@ import {
   SharedLayout,
   UserInfoForm,
 } from '../components/molecules';
-  UserInfoForm,
-  SenriseSpecials,
-  CulinaryClassics,
-  BarBliss,
-  ChefsPick,
-} from '../components/molecules';
 
 import AccountPage from '../pages/AccountPage/AccountPage';
 import CartPage from '../pages/CartPage';
@@ -40,12 +34,6 @@ const mainRoutes = [
       {
         path: PATHS.MENU,
         element: <MenuPage />,
-        children: [
-          { path: PATHS.SUNRISE_SPECIALS, element: <SenriseSpecials /> },
-          { path: PATHS.CULINARY_CLASSICS, element: <CulinaryClassics /> },
-          { path: PATHS.BAR_BLISS, element: <BarBliss /> },
-          { path: PATHS.CHEFS_PICK, element: <ChefsPick /> },
-        ],
       },
       { path: PATHS.MENU_ITEM, element: <MenuItem /> },
       { path: PATHS.CART, element: <CartPage /> },
