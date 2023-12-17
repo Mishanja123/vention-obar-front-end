@@ -12,7 +12,3 @@ export { default as TimePickerContainer } from './TimePickerContainer/TimePicker
 export { default as UserInfoForm } from './UserInfoForm/UserInfoForm';
 export { default as OrderedReservarionForm } from './OrderedReservarionForm/OrderedReservarionForm';
 export { default as OrderConfirmation } from './OrderConfirmation/OrderConfirmation';
-export { default as SenriseSpecials } from './SenriseSpecials/SenriseSpecials';
-export { default as CulinaryClassics } from './CulinaryClassics/CulinaryClassics';
-export { default as BarBliss } from './BarBliss/BarBliss';
-export { default as ChefsPick } from './ChefsPick/ChefsPick';

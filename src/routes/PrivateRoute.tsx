@@ -10,7 +10,7 @@ const PrivatePage: FC<PrivatePageProps> = ({
   children,
   redirectTo = '/auth',
 }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return isLoggedIn ? <Navigate to={redirectTo} /> : children;
 };
