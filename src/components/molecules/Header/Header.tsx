@@ -1,31 +1,44 @@
-import {SiIfood} from 'react-icons/si';
-import {PiShoppingCartLight} from 'react-icons/pi';
-import {GoPerson} from 'react-icons/go';
-import {IconContext} from 'react-icons';
-import styles from './Header.module.css'
-import {SearchInput} from '../../atoms/SearchInput/SearchInput';
+import { NavLink } from 'react-router-dom';
+import { SiIfood } from 'react-icons/si';
+import { PiShoppingCartLight } from 'react-icons/pi';
+import { GoPerson } from 'react-icons/go';
+import { IconContext } from 'react-icons';
 
-const Header = () => {
-    return (
-        <div className={styles.headerWrapper}>
-            <a href={'/main'} className={styles.logoWrapper}>
-                OBar
-                <IconContext.Provider value={{className: styles.logo}}>
-                    <SiIfood/>
-                </IconContext.Provider>
-            </a>
-            <SearchInput/>
-            <a href={'/menu'} className={styles.menu}>Menu</a>
-            <a href={'/cart'} className={styles.reserveTable}>Reserve a table</a>
-            <a href={'/orders'} className={styles.orders}>Orders</a>
-            <IconContext.Provider value={{className: styles.cart}}>
-                <a href={'/cart'}><PiShoppingCartLight/></a>
-            </IconContext.Provider>
-            <IconContext.Provider value={{className: styles.profile}}>
-                <a href={'/profile'}><GoPerson/></a>
-            </IconContext.Provider>
-        </div>
-    )
+import SearchInput from '../../atoms/SearchInput/SearchInput.tsx';
+import { PATHS } from '../../../constants/paths.ts';
+import styles from './Header.module.css';
+
+function Header() {
+  return (
+    <div className={styles.headerWrapper}>
+      <NavLink to={PATHS.ROOT} className={styles.logoLink}>
+        OBar
+        <IconContext.Provider value={{ className: styles.logoImg }}>
+          <SiIfood />
+        </IconContext.Provider>
+      </NavLink>
+      <SearchInput />
+      <NavLink to={PATHS.MENU} className={styles.menuLink}>
+        Menu
+      </NavLink>
+      <NavLink to={PATHS.BOOK_TABLE} className={styles.reserveTableLink}>
+        Reserve a table
+      </NavLink>
+      <NavLink to={PATHS.ORDERS} className={styles.ordersLink}>
+        Orders
+      </NavLink>
+      <NavLink to={PATHS.CART} className={styles.cartLink}>
+        <IconContext.Provider value={{ className: styles.cartImg }}>
+          <PiShoppingCartLight />
+        </IconContext.Provider>
+      </NavLink>
+      <NavLink to={PATHS.ACCOUNT} className={styles.profileLink}>
+        <IconContext.Provider value={{ className: styles.profileImg }}>
+          <GoPerson />
+        </IconContext.Provider>
+      </NavLink>
+    </div>
+  );
 }
 
 export default Header;
