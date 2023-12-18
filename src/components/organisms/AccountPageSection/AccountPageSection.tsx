@@ -1,9 +1,19 @@
-import { NavLink, Outlet } from 'react-router-dom';
-
+import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import styles from './AccountPageSection.module.css';
 import { PATHS } from '@/constants/paths';
+import { useEffect } from 'react';
 
 const AccountPageSection = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (location.pathname === PATHS.ACCOUNT) {
+      navigate(PATHS.USER_INFO);
+    }
+    
+  }, [location.pathname, navigate]);
+
   const navLinkStyle = ({ isActive }: { isActive: boolean }) => ({
     fontWeight: isActive ? '600' : '300',
   });
