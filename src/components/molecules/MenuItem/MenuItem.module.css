@@ -1,0 +1,33 @@
+.menu_item {
+  padding: 50px 20px 20px;
+  list-style: none;
+  flex: 0 0 22%;
+  box-sizing: border-box;
+  border: 1px solid var(--text-color);
+  text-align: center;
+}
+
+.menu_item_img {
+  width: 180px;
+  height: 170px;
+}
+
+.add_to_cart_btn {
+  font-weight: var(--font-weight-bold);
+  padding: 10px 25px;
+  border: none;
+  background-color: var(--bg-color);
+  transition: all 0.3s;
+  border: 2px solid var(--btn-rgba);
+}
+
+.add_to_cart_btn:hover {
+  border: 2px solid var(--text-color);
+  transform: scale(1.1);
+}
+
+.menu_link {
+  color: var(--text-color);
+  text-decoration: none;
+  cursor: pointer;
+}

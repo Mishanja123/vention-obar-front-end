@@ -1,0 +1,184 @@
+[
+  {
+    "id": 1,
+    "title": "Title 1",
+    "price": 10.99,
+    "image": "https://via.placeholder.com/100",
+    "category": "SUNRISE_SPECIALS"
+  },
+  {
+    "id": 2,
+    "title": "Title 2",
+    "price": 15.99,
+    "image": "https://via.placeholder.com/100",
+    "category": "SUNRISE_SPECIALS"
+  },
+  {
+    "id": 3,
+    "title": "Title 3",
+    "price": 20.99,
+    "image": "https://via.placeholder.com/100",
+    "category": "SUNRISE_SPECIALS"
+  },
+  {
+    "id": 4,
+    "title": "Title 4",
+    "price": 25.99,
+    "image": "https://via.placeholder.com/100",
+    "category": "SUNRISE_SPECIALS"
+  },
+  {
+    "id": 5,
+    "title": "Title 5",
+    "price": 30.99,
+    "image": "https://via.placeholder.com/100",
+    "category": "SUNRISE_SPECIALS"
+  },
+  {
+    "id": 6,
+    "title": "Title 6",
+    "price": 35.99,
+    "image": "https://via.placeholder.com/100",
+    "category": "SUNRISE_SPECIALS"
+  },
+  {
+    "id": 7,
+    "title": "Title 7",
+    "price": 40.99,
+    "image": "https://via.placeholder.com/100",
+    "category": "SUNRISE_SPECIALS"
+  },
+  {
+    "id": 8,
+    "title": "Title 8",
+    "price": 45.99,
+    "image": "https://via.placeholder.com/100",
+    "category": "SUNRISE_SPECIALS"
+  },
+  {
+    "id": 9,
+    "title": "Title 9",
+    "price": 50.99,
+    "image": "https://via.placeholder.com/100",
+    "category": "CULINARY_CLASSICS"
+  },
+  {
+    "id": 10,
+    "title": "Title 10",
+    "price": 55.99,
+    "image": "https://via.placeholder.com/100",
+    "category": "CULINARY_CLASSICS"
+  },
+  {
+    "id": 11,
+    "title": "Title 11",
+    "price": 60.99,
+    "image": "https://via.placeholder.com/100",
+    "category": "CULINARY_CLASSICS"
+  },
+  {
+    "id": 12,
+    "title": "Title 12",
+    "price": 65.99,
+    "image": "https://via.placeholder.com/100",
+    "category": "CULINARY_CLASSICS"
+  },
+  {
+    "id": 13,
+    "title": "Title 13",
+    "price": 70.99,
+    "image": "https://via.placeholder.com/100",
+    "category": "CULINARY_CLASSICS"
+  },
+  {
+    "id": 14,
+    "title": "Title 14",
+    "price": 75.99,
+    "image": "https://via.placeholder.com/100",
+    "category": "CULINARY_CLASSICS"
+  },
+  {
+    "id": 15,
+    "title": "Title 15",
+    "price": 80.99,
+    "image": "https://via.placeholder.com/100",
+    "category": "CULINARY_CLASSICS"
+  },
+  {
+    "id": 16,
+    "title": "Title 16",
+    "price": 85.99,
+    "image": "https://via.placeholder.com/100",
+    "category": "CULINARY_CLASSICS"
+  },
+  {
+    "id": 17,
+    "title": "Title 17",
+    "price": 90.99,
+    "image": "https://via.placeholder.com/100",
+    "category": "BAR_BLISS"
+  },
+  {
+    "id": 18,
+    "title": "Title 18",
+    "price": 95.99,
+    "image": "https://via.placeholder.com/100",
+    "category": "BAR_BLISS"
+  },
+  {
+    "id": 19,
+    "title": "Title 19",
+    "price": 100.99,
+    "image": "https://via.placeholder.com/100",
+    "category": "BAR_BLISS"
+  },
+  {
+    "id": 20,
+    "title": "Title 20",
+    "price": 105.99,
+    "image": "https://via.placeholder.com/100",
+    "category": "BAR_BLISS"
+  },
+  {
+    "id": 21,
+    "title": "Title 21",
+    "price": 110.99,
+    "image": "https://via.placeholder.com/100",
+    "category": "BAR_BLISS"
+  },
+  {
+    "id": 22,
+    "title": "Title 22",
+    "price": 115.99,
+    "image": "https://via.placeholder.com/100",
+    "category": "BAR_BLISS"
+  },
+  {
+    "id": 23,
+    "title": "Title 23",
+    "price": 120.99,
+    "image": "https://via.placeholder.com/100",
+    "category": "BAR_BLISS"
+  },
+  {
+    "id": 24,
+    "title": "Title 24",
+    "price": 125.99,
+    "image": "https://via.placeholder.com/100",
+    "category": "BAR_BLISS"
+  },
+  {
+    "id": 25,
+    "title": "Title 25",
+    "price": 130.99,
+    "image": "https://via.placeholder.com/100",
+    "category": "CHEFS_PICK"
+  },
+  {
+    "id": 26,
+    "title": "Title 26",
+    "price": 135.99,
+    "image": "https://via.placeholder.com/100",
+    "category": "CHEFS_PICK"
+  }
+]

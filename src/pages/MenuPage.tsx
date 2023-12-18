@@ -1,5 +1,11 @@
+import MenuSection from '../components/organisms/MenuSection/MenuSection';
+
 const MenuPage = () => {
-  return <div>MenuPage</div>;
+  return (
+    <>
+      <MenuSection />
+    </>
+  );
 };
 
 export default MenuPage;

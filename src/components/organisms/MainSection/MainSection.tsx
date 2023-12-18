@@ -1,7 +1,6 @@
-import React from "react";
-import styles from "./MainSection.module.css";
-import ReservationForm from "../../molecules/ReservationForm/ReservationForm";
-import Button from "../../atoms/Button/Button";
+import styles from './MainSection.module.css';
+import ReservationForm from '../../molecules/ReservationForm/ReservationForm';
+import Button from '../../atoms/Button/Button';
 
 const MainSection = () => {
   return (
