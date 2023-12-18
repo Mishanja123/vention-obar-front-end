@@ -4,7 +4,7 @@ type Props = {
   variant: ButtonProps['variant'];
   children: React.ReactNode;
   type?: 'button' | 'submit' | 'reset' | undefined;
-  isValid: boolean;
+  isValid?: boolean;
 };
 
 const Button = ({ variant, children, type, isValid }: Props) => {
