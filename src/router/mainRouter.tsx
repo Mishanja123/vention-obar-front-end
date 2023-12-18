@@ -1,6 +1,5 @@
 import {
   DeliveryAddressForm,
-  MenuItem,
   OrderConfirmation,
   OrderedReservarionForm,
   Payment,
@@ -19,7 +18,7 @@ import { PATHS } from '../constants/paths';
 import PrivatePage from '../routes/PrivateRoute';
 import CheckoutPage from '../pages/CheckoutPage/CheckoutPage';
 import OrdersPage from '../pages/OrdersPage';
-import { OrderTakeout } from '../components/organisms';
+import { MenuItemInfo, MenuList, OrderTakeout } from '../components/organisms';
 
 const mainRoutes = [
   {
@@ -31,8 +30,21 @@ const mainRoutes = [
     ),
     children: [
       { path: PATHS.ROOT, element: <MainPage /> },
-      { path: PATHS.MENU, element: <MenuPage /> },
-      { path: PATHS.MENU_ITEM, element: <MenuItem /> },
+      {
+        path: PATHS.MENU,
+        element: <MenuPage />,
+        children: [
+          {
+            path: PATHS.MENU,
+            element: <MenuList />,
+          },
+          {
+            path: PATHS.MENU_ITEM,
+            element: <MenuItemInfo />,
+          },
+        ],
+      },
+
       { path: PATHS.CART, element: <CartPage /> },
       {
         path: PATHS.ACCOUNT,

@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "title": "Spaghetti Bolognese",
+    "price": 12.99,
+    "image": "https://placehold.co/400",
+    "portion": 200,
+    "ingredients": [
+      { "title": "Spaghetti", "is_required": true },
+      { "title": "Ground Beef", "is_required": true },
+      { "title": "Tomato Sauce", "is_required": true },
+      { "title": "Onions", "is_required": false },
+      { "title": "Garlic", "is_required": false }
+    ]
+  }
+]

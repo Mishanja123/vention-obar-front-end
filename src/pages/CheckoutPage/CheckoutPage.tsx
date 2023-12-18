@@ -1,11 +1,11 @@
-import { Outlet } from "react-router-dom";
+import { Outlet } from 'react-router-dom';
 
 const CheckoutPage = () => {
   return (
-    <div>
-      CheckoutPage
+    <>
+      <h1>CheckoutPage</h1>
       <Outlet />;
-    </div>
+    </>
   );
 };
 
