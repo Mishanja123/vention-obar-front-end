@@ -1,8 +1,10 @@
 :root {
-    --accent-color: #ff6642;
-    --text-color: #1c2329;
-    --light-color: #fff;
-    --darkBG-color: #1e3044;
-    --lightBG-color: #e1e9f0;
-    --error-color: #cc1439;
+  --accent-color: #ff6642;
+  --text-color: #1c2329;
+  --light-color: #fff;
+  --darkBG-color: #1e3044;
+  --lightBG-color: #e1e9f0;
+  --bg-color: #d9d9d9;
+  --error-color: #cc1439;
+  --btn-rgba: rgba(255, 255, 255, 0.1);
 }

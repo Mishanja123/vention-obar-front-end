@@ -41,6 +41,7 @@ const MenuItemInfo = () => {
       </div>
       <div className={styles.menu_item_details}>
         <h3 className={styles.menu_item_title}>{title}</h3>
+        <p className={styles.ingredients_title}>Ingredients:</p>
         <ul className={styles.ingredients_list}>
           {ingredients.map(({ title, is_required }, index) => (
             <li className={styles.ingredients_item} key={index}>

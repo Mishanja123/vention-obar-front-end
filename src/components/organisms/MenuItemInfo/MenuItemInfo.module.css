@@ -1,6 +1,6 @@
 .menu_item_container {
   display: flex;
-  border: 2px solid black;
+  border: 2px solid var(--text-color);
   padding: 3rem;
 }
 
@@ -17,21 +17,27 @@
 }
 
 .menu_item_title {
-  font-size: 2rem;
+  font-size: var(--font-size-xxl);
   margin: 0;
 }
+.ingredients_title {
+  margin-bottom: 0;
+  text-align: left;
+  font-weight: var(--font-weight-bold);
+}
 .ingredients_list {
+  margin: 0;
   padding: 0;
   text-align: left;
   list-style: none;
 }
 .menu_item_ingredients {
-  font-size: 1rem;
+  font-size: var(--font-size-m);
   margin-bottom: 0.5rem;
 }
 .required_span {
   margin-left: 0.5rem;
-  color: red;
+  color: var(--error-color);
 }
 
 .menu_item_portion {
@@ -42,17 +48,17 @@
 
 .menu_item_price {
   text-align: start;
-  font-size: 1.125rem;
+  font-size: var(--font-size-l);
   margin-bottom: 0.5rem;
 }
 
 .menu_button {
   position: absolute;
-  top: 70px;
+  top: 45px;
   border: none;
   text-align: left;
   background-color: transparent;
-  font-size: 1.2rem;
+  font-size: var(--font-size-m);
   cursor: pointer;
   transition: all 0.4s;
 }
@@ -62,15 +68,15 @@
 }
 
 .menu_button_cart {
-  font-weight: bold;
+  font-weight: var(--font-weight-bold);
   padding: 15px 35px;
   border: none;
-  background-color: #d9d9d9;
+  background-color: var(--bg-color);
   transition: all 0.4s;
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  border: 2px solid var(--btn-rgba);
   cursor: pointer;
 }
 .menu_button_cart:hover {
-  border: 2px solid black;
+  border: 2px solid var(--text-color);
   transform: scale(1.1);
 }
