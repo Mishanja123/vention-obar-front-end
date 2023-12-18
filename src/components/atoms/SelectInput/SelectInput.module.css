@@ -1,5 +1,6 @@
-.text_input {
+.select_input {
   width: 100%;
+  width: 200px;
 
   color: var(--text-color);
   font-size: var(--font-size-xxl);

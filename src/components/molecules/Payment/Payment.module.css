@@ -1,0 +1,42 @@
+.add_payment_button {
+  width: 31rem;
+  border: none;
+  margin-bottom: 1.8rem;
+  border-radius: 1rem;
+
+  color: var(--text-color);
+  font-size: var(--font-size-xxl);
+  font-weight: var(--font-weight-regular);
+
+  margin-top: 1.8rem;
+  padding: 0.6rem;
+
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--accent-color);
+    color: var(--light-color);
+  }
+}
+
+.payment_input_wrapper {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.delivery_address_form {
+  display: flex;
+  flex-direction: column;
+  width: 37.5rem;
+}
+
+.payment_select_wrapper {
+  flex: 1;
+}
+
+.expiration_select_wrapper {
+  display: flex;
+  gap: 2.5rem;
+}
