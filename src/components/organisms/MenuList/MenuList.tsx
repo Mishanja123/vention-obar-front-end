@@ -1,6 +1,5 @@
-import React from 'react';
 import MenuItem from '../../molecules/MenuItem/MenuItem';
-import menuData from '../../../menuData.json';
+import menuData from '@/menuData/menuData.json';
 import styles from './MenuList.module.css';
 
 type MenuItemData = {

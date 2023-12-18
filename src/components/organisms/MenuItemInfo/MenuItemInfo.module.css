@@ -1,0 +1,76 @@
+.menu_item_container {
+  display: flex;
+  border: 2px solid black;
+  padding: 3rem;
+}
+
+.menu_item_image {
+  flex: 1;
+}
+
+.menu_item_details {
+  position: relative;
+  flex: 2;
+}
+.dish_img {
+  margin-right: 3rem;
+}
+
+.menu_item_title {
+  font-size: 2rem;
+  margin: 0;
+}
+.ingredients_list {
+  padding: 0;
+  text-align: left;
+  list-style: none;
+}
+.menu_item_ingredients {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+.required_span {
+  margin-left: 0.5rem;
+  color: red;
+}
+
+.menu_item_portion {
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+  text-align: start;
+}
+
+.menu_item_price {
+  text-align: start;
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+}
+
+.menu_button {
+  position: absolute;
+  top: 70px;
+  border: none;
+  text-align: left;
+  background-color: transparent;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+.menu_button:hover {
+  transform: scale(1.1);
+}
+
+.menu_button_cart {
+  font-weight: bold;
+  padding: 15px 35px;
+  border: none;
+  background-color: #d9d9d9;
+  transition: all 0.4s;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+.menu_button_cart:hover {
+  border: 2px solid black;
+  transform: scale(1.1);
+}

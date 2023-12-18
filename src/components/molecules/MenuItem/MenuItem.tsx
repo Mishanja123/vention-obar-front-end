@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './MenuItem.module.css';
 import { PATHS } from '@/constants/paths';
 import { Link } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
 
 type MenuItemProps = {
   id: number;
