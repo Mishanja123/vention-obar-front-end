@@ -5,11 +5,17 @@ type Props = {
   children: React.ReactNode;
   type?: 'button' | 'submit' | 'reset' | undefined;
   isValid?: boolean;
+  onClick?: () => void;
 };
 
-const Button = ({ variant, children, type, isValid }: Props) => {
+const Button = ({ variant, children, type, isValid, onClick }: Props) => {
   return (
-    <MUIButton variant={variant} type={type} disabled={isValid}>
+    <MUIButton
+      onClick={onClick}
+      variant={variant}
+      type={type}
+      disabled={isValid}
+    >
       {children}
     </MUIButton>
   );

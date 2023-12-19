@@ -1,0 +1,5 @@
+.empty_cart_wrapper {
+    margin-top: 150px;
+    place-items: center;
+    display: grid;
+}
