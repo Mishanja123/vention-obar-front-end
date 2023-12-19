@@ -1,0 +1,58 @@
+.delivery_address_section {
+  display: flex;
+  flex-direction: column;
+}
+
+.building_address_wrapper {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.delivery_form {
+  width: 28rem;
+
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.delivery_address_button {
+  width: 31rem;
+
+  color: var(--text-color);
+  font-size: var(--font-size-xxl);
+  font-weight: var(--font-weight-regular);
+
+  padding: 0.6rem;
+  margin-bottom: 1.8rem;
+  border: none;
+  border-radius: 0.9375rem;
+
+  cursor: pointer;
+  transition: all 0.5s ease;
+
+  &:hover {
+    background-color: var(--accent-color);
+    color: var(--light-color);
+  }
+}
+
+.user_info_form {
+  display: flex;
+  flex-direction: column;
+}
+
+.building_input {
+  max-width: 12.5rem;
+  width: 12.5rem;
+
+  color: var(--text-color);
+  font-size: var(--font-size-xxl);
+  font-weight: var(--font-weight-regular);
+
+  border-radius: 1.25rem;
+  border: none;
+  padding-left: 0.6rem;
+  margin-bottom: 1.8rem;
+  padding: 1.8rem 0;
+}
