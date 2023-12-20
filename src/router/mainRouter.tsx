@@ -8,7 +8,7 @@ import {
 } from '../components/molecules';
 
 import AccountPage from '../pages/AccountPage/AccountPage';
-import CartPage from '../pages/CartPage';
+import CartPage from '../pages/CartPage/CartPage';
 import ErrorPage from '../pages/ErrorPage';
 import MainPage from '../pages/MainPage/MainPage';
 import MenuPage from '../pages/MenuPage';

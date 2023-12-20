@@ -1,0 +1,21 @@
+.cart {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.cart_remove_all_btn {
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    
+    font-size: var(--font-size-xxl);
+    font-weight: var(--font-weight-regular);
+    color: var(--text-color);
+    text-align: end;
+}
+
+.cart_list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--font-size-xxl);
+}

@@ -12,3 +12,5 @@ export { default as TimePickerContainer } from './TimePickerContainer/TimePicker
 export { default as UserInfoForm } from './UserInfoForm/UserInfoForm';
 export { default as OrderedReservarionForm } from './OrderedReservarionForm/OrderedReservarionForm';
 export { default as OrderConfirmation } from './OrderConfirmation/OrderConfirmation';
+export { default as EmptyCart } from './EmptyCart/EmptyCart';
+export { default as QuantityCounter } from './QuantityCounter/QuantityCounter';

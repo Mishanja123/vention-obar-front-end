@@ -2,6 +2,7 @@ import { CartStatus } from '@/constants/cartStatus';
 
 export type ICartItem = {
   id: string;
+  imageURL: string;
   title: string;
   quantity: number;
   price: number;
@@ -10,4 +11,4 @@ export type ICartItem = {
   createdAt: Date;
   reservationDate: Date;
   reservationTime: Date;
-}
+};
