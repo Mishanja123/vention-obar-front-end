@@ -13,7 +13,7 @@ export enum PATHS {
   BOOK_TABLE = 'booktable',
   DELIVERY = 'delivery',
   TAKEOUT = 'takeout',
-  ORDER_PAYMENT = 'orderPayment',
+  ORDER_PAYMENT = 'orderpayment',
   ORDER_CONFIRMATION = 'confirmation',
   ORDERS = '/orders',
   ERROR = '*',

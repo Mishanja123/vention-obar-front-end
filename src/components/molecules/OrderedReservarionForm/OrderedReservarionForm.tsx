@@ -1,7 +1,11 @@
-import React from "react";
+import ReservationForm from '../ReservationForm/ReservationForm';
 
 const OrderedReservarionForm = () => {
-  return <div>OrderedReservarionForm</div>;
+  return (
+    <>
+      <ReservationForm />;
+    </>
+  );
 };
 
 export default OrderedReservarionForm;
