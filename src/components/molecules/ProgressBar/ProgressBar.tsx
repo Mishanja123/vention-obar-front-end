@@ -18,28 +18,32 @@ const ProgressBar: React.FC = () => {
   }, [location]);
 
   return (
-    <div className={styles.progressBar_container}>
-      <div className={styles.stepContainer}>
-        <div className={`${styles.circle} ${styles.isActive}`}></div>
-        <div className="">Order Type</div>
-      </div>
-      <div className={styles.line}></div>
-      <div className={styles.stepContainer}>
-        <div
-          className={`${styles.circle} ${progress >= 1 ? styles.isActive : ''}`}
-        ></div>
-        <div className="">Confirmation</div>
-      </div>
-      <div className={styles.line}></div>
-      <div className={styles.stepContainer}>
-        <div
-          className={`${styles.circle} ${
-            progress === 2 ? styles.isActive : ''
-          }`}
-        ></div>
-        <div className="">Payment</div>
-      </div>
-    </div>
+    <>
+      <ol className={styles.progressBar_container}>
+        <li className={styles.stepContainer}>
+          <div className={`${styles.circle} ${styles.isActive}`}></div>
+          <p className="">Order Type</p>
+        </li>
+        <div className={styles.line}></div>
+        <li className={styles.stepContainer}>
+          <div
+            className={`${styles.circle} ${
+              progress >= 1 ? styles.isActive : ''
+            }`}
+          ></div>
+          <p className="">Confirmation</p>
+        </li>
+        <div className={styles.line}></div>
+        <li className={styles.stepContainer}>
+          <div
+            className={`${styles.circle} ${
+              progress === 2 ? styles.isActive : ''
+            }`}
+          ></div>
+          <p className="">Payment</p>
+        </li>
+      </ol>
+    </>
   );
 };
 
