@@ -35,7 +35,7 @@ const Cart = () => {
 
   return (
     <div className={styles.cart}>
-      <button>Remove all</button>
+      <button className={styles.cart_remove_all_btn}>Remove all</button>
       <ul className={styles.cart_list}>
         {cartItems.map((item) => (
           <CartItem key={item.id} {...item} />
