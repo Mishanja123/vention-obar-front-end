@@ -1,3 +1,4 @@
+import ProgressBar from '@/components/molecules/ProgressBar/ProgressBar';
 import { FormControl } from '@mui/base';
 import { InputLabel, Select } from '@mui/material';
 
@@ -7,6 +8,7 @@ const CheckoutPage = () => {
   return (
     <>
       <h1>CheckoutPage</h1>
+      <ProgressBar />
       <FormControl>
         <InputLabel id="method_selection">
           Select a reservation method
