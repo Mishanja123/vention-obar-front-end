@@ -1,10 +1,12 @@
 import OrderMethodSelection from '@/components/molecules/OrderMethodSelection/OrderMethodSelection';
 import styles from './CheckoutPage.module.css';
 import { Outlet } from 'react-router-dom';
+import ProgressBar from '@/components/molecules/ProgressBar/ProgressBar';
 
 const CheckoutPage = () => {
   return (
     <div className={styles.main_container}>
+      <ProgressBar />
       <div className={styles.info_container}>
         <div className={styles.method_container}>
           <h1>CheckoutPage</h1>
