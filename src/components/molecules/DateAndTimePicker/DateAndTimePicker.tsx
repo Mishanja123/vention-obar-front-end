@@ -3,15 +3,14 @@ import { useFormik, FormikValues } from 'formik';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { add, format, setHours, setMinutes, startOfDay } from 'date-fns';
-import CalendarInput from '../../atoms/CalendarInput/CalendarInput';
-import TimePicker from '../../atoms/TimePicker/TimePicker';
-import Button from '../../atoms/Button/Button';
+import { Button, CalendarInput } from '@/components/atoms';
 import Swal from 'sweetalert2';
 import { getValidationSchema } from '@/validationSchemas/dateAndTimePickerSchema';
 import styles from './DateAndTimePicker.module.css';
 import { useNavigate } from 'react-router-dom';
 import { PATHS } from '@/constants/paths';
-//Date options
+import { TimePicker } from '@/components/atoms';
+
 const today = new Date();
 let disablePast: boolean = true;
 const currentTime = add(today, { minutes: 1 });
@@ -43,11 +42,6 @@ const DateAndTimePicker = () => {
         confirmButtonText: 'Yes',
       }).then((result) => {
         if (result.isConfirmed) {
-          //   Swal.fire({
-          //     title: 'Confirmed!',
-          //     text: 'Thank you for your reservation! We are looking forward to see you!',
-          //     icon: 'success',
-          //   });
           navigate(`${PATHS.CHECKOUT}/${PATHS.ORDER_CONFIRMATION}`);
         }
       });
@@ -59,7 +53,7 @@ const DateAndTimePicker = () => {
     const formattedCurrentDate = format(today, 'MM/dd/yyyy');
     if (formattedSelectedDate === formattedCurrentDate) {
       disablePast = true;
-      setMinTime(add(today, { minutes: 1 })); //adding 1 minute to avoid error
+      setMinTime(add(today, { minutes: 1 }));
     } else {
       disablePast = false;
       setMinTime(startOfWorkingDay);
