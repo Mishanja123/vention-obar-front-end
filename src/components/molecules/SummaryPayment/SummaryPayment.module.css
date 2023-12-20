@@ -1,0 +1,47 @@
+.summary_section {
+  border: 1px solid #000;
+  width: 500px;
+  background: #fefefe;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.summary_title {
+  color: #000;
+  text-align: center;
+  font-size: 35px;
+  font-weight: 700;
+}
+.summary_list {
+  list-style: none;
+}
+.summary_item {
+  color: #000;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 300;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.summary_item:last-child {
+  width: 100%;
+  background-color: black;
+}
+
+.summary_item_accent {
+  font-weight: 400;
+}
+.summary_total {
+  color: #000;
+  font-family: Inter;
+  font-size: 25px;
+  font-weight: 700;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
