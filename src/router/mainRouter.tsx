@@ -19,6 +19,7 @@ import PrivatePage from '../routes/PrivateRoute';
 import CheckoutPage from '../pages/CheckoutPage/CheckoutPage';
 import OrdersPage from '../pages/OrdersPage';
 import { MenuItemInfo, MenuList, OrderTakeout } from '../components/organisms';
+import OrderPayment from '@/components/organisms/OrderPayment/OrderPayment';
 
 const mainRoutes = [
   {
@@ -65,7 +66,7 @@ const mainRoutes = [
             path: PATHS.TAKEOUT,
             element: <OrderTakeout />,
           },
-          { path: PATHS.ORDER_PAYMENT, element: <Payment /> },
+          { path: PATHS.ORDER_PAYMENT, element: <OrderPayment /> },
           { path: PATHS.ORDER_CONFIRMATION, element: <OrderConfirmation /> },
         ],
       },
