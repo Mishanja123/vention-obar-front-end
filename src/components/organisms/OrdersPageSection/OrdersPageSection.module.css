@@ -1,0 +1,41 @@
+.orders_list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+.orders_item {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.order_table_header{
+    position: relative;
+}
+.order_table_header::after{
+    content: '';
+    top: 0;
+    bottom: 0;
+    right: -20px;
+    width: 2px;
+    background-color: #000;
+    position: absolute;
+}
+.orders_status_wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.orders_image {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.order_table {
+  border: 1px solid #000;
+  background: #e9e5e5;
+  padding: 30px;
+  border-radius: 20px;
+}
+.order_table_item {
+  padding: 30px;
+}

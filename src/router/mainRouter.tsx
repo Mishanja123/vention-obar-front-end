@@ -17,7 +17,7 @@ import { PATHS } from '../constants/paths';
 
 import PrivatePage from '../routes/PrivateRoute';
 import CheckoutPage from '../pages/CheckoutPage/CheckoutPage';
-import OrdersPage from '../pages/OrdersPage';
+import OrdersPage from '../pages/OrdersPage/OrdersPage';
 import {
   MenuItemInfo,
   MenuList,
