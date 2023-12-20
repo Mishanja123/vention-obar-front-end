@@ -42,9 +42,6 @@ const OrderPayment = () => {
           {method === 'New' && <Payment />}
         </div>
       </div>
-      <div className={styles.summarySection_container}>
-        SummarySectionHolder
-      </div>
     </div>
   );
 };
