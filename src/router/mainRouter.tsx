@@ -18,7 +18,12 @@ import { PATHS } from '../constants/paths';
 import PrivatePage from '../routes/PrivateRoute';
 import CheckoutPage from '../pages/CheckoutPage/CheckoutPage';
 import OrdersPage from '../pages/OrdersPage';
-import { MenuItemInfo, MenuList, OrderTakeout } from '../components/organisms';
+import {
+  MenuItemInfo,
+  MenuList,
+  OrderDelivery,
+  OrderTakeout,
+} from '../components/organisms';
 
 const mainRoutes = [
   {
@@ -60,7 +65,7 @@ const mainRoutes = [
         element: <CheckoutPage />,
         children: [
           { path: PATHS.BOOK_TABLE, element: <OrderedReservarionForm /> },
-          { path: PATHS.DELIVERY, element: <DeliveryAddressForm /> },
+          { path: PATHS.DELIVERY, element: <OrderDelivery /> },
           {
             path: PATHS.TAKEOUT,
             element: <OrderTakeout />,

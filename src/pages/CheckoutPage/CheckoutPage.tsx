@@ -1,22 +1,19 @@
-import ProgressBar from '@/components/molecules/ProgressBar/ProgressBar';
-import { FormControl } from '@mui/base';
-import { InputLabel, Select } from '@mui/material';
-
+import OrderMethodSelection from '@/components/molecules/OrderMethodSelection/OrderMethodSelection';
+import styles from './CheckoutPage.module.css';
 import { Outlet } from 'react-router-dom';
 
 const CheckoutPage = () => {
   return (
-    <>
-      <h1>CheckoutPage</h1>
-      <ProgressBar />
-      <FormControl>
-        <InputLabel id="method_selection">
-          Select a reservation method
-        </InputLabel>
-        <Select labelId="method_selection" id="method_selection"></Select>
-      </FormControl>
-      <Outlet />
-    </>
+    <div className={styles.main_container}>
+      <div className={styles.info_container}>
+        <div className={styles.method_container}>
+          <h1>CheckoutPage</h1>
+          <OrderMethodSelection />
+          <Outlet />
+        </div>
+        <div className={styles.summarySection}>Placeholder</div>
+      </div>
+    </div>
   );
 };
 
