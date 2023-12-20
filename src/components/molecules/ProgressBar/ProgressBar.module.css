@@ -19,7 +19,7 @@
 
 .circle {
   position: relative;
-  border: 6px solid var(--bar-color);
+  border: 0.4rem solid var(--bar-color);
   height: 4rem;
   width: 4rem;
   border-radius: 50%;
