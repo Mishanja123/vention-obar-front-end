@@ -25,13 +25,13 @@ const OrderPayment = () => {
         </div>
         <div className={styles.paymentMethod_container}>
           <FormControl>
-            <InputLabel id="deliveryAdress_selection">
+            <InputLabel id="deliveryAddress_selection">
               Select a payment method
             </InputLabel>
             <Select
-              labelId="deliveryAdress_selection"
-              id="deliveryAdress_selection"
-              label="Delivery Adress"
+              labelId="deliveryAddress_selection"
+              id="deliveryAddress_selection"
+              label="Delivery Address"
               value={method}
               onChange={handleMethodChange}
             >
