@@ -5,18 +5,25 @@ import { PATHS } from '@/constants/paths';
 
 const ProgressBar: React.FC = () => {
   const [progress, setProgress] = useState<number>(0);
-  const location: Location<unknown> = useLocation();
+  const location: Location = useLocation();
+  const path = location.pathname;
 
   useEffect(() => {
-    if (location.pathname.includes(PATHS.ORDER_CONFIRMATION)) {
-      setProgress(1);
-    } else if (location.pathname.includes(PATHS.ORDER_PAYMENT)) {
-      setProgress(2);
-    } else {
-      setProgress(0);
-    }
-  }, [location]);
+    let progress;
 
+    switch (true) {
+      case path.includes(PATHS.ORDER_CONFIRMATION.toLowerCase()):
+        progress = 1;
+        break;
+      case path.includes(PATHS.ORDER_PAYMENT.toLowerCase()):
+        progress = 2;
+        break;
+      default:
+        progress = 0;
+    }
+
+    setProgress(progress);
+  }, [path]);
   return (
     <>
       <ol className={styles.progressBar_container}>
