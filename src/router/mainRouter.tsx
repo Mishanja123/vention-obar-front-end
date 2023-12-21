@@ -24,6 +24,7 @@ import {
   OrderDelivery,
   OrderTakeout,
 } from '../components/organisms';
+import OrderPayment from '@/components/organisms/OrderPayment/OrderPayment';
 
 const mainRoutes = [
   {
