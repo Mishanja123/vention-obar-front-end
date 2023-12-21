@@ -1,8 +1,8 @@
 export { default as SharedLayout } from './SharedLayout/SharedLayout';
 export { default as CartItem } from './CartItem/CartItem';
 export { default as DeliveryAddressForm } from './DeliveryAddressForm/DeliveryAddressForm';
-export { default as Footer } from './Footer/Footer';
 export { default as Header } from './Header/Header';
+export { default as Footer } from './Footer/Footer';
 export { default as LoginForm } from './LoginForm/LoginForm';
 export { default as MenuItem } from './MenuItem/MenuItem';
 export { default as Payment } from './Payment/Payment';

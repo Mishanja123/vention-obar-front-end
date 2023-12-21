@@ -5,7 +5,6 @@ const MainPage = () => {
   return (
     <>
       <MainSection />
-      {/* Footer (OB-25 Ticket) */}
     </>
   );
 };
