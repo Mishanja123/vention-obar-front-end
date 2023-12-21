@@ -1,16 +1,712 @@
 [
   {
     "id": 1,
-    "title": "Spaghetti Bolognese",
-    "price": 12.99,
+    "title": "Avocado Toast with Smoked Salmon",
+    "price": 27.5,
+    "image": "https://placehold.co/400",
+    "portion": 300,
+    "ingredients": [
+      {
+        "title": "Avocado",
+        "is_required": true
+      },
+      {
+        "title": "Sliced bread,",
+        "is_required": true
+      },
+      {
+        "title": "Smoked salmon",
+        "is_required": false
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Spinach and Feta Omelette",
+    "price": 42.53,
+    "image": "https://placehold.co/400",
+    "portion": 250,
+    "ingredients": [
+      {
+        "title": "Eggs",
+        "is_required": true
+      },
+      {
+        "title": "Spinach",
+        "is_required": true
+      },
+      {
+        "title": "Feta cheese",
+        "is_required": false
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Greek Yogurt Parfait with Fresh Berries",
+    "price": 49.69,
+    "image": "https://placehold.co/400",
+    "portion": 300,
+    "ingredients": [
+      {
+        "title": "Greek yogurt",
+        "is_required": true
+      },
+      {
+        "title": "Granola",
+        "is_required": false
+      },
+      {
+        "title": "Mixed berries",
+        "is_required": true
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Pancakes with Maple Syrup and Banana Slices",
+    "price": 13.27,
+    "image": "https://placehold.co/400",
+    "portion": 250,
+    "ingredients": [
+      {
+        "title": "Pancake mix",
+        "is_required": true
+      },
+      {
+        "title": "Maple syrup",
+        "is_required": true
+      },
+      {
+        "title": "Banana",
+        "is_required": false
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Quinoa Breakfast Bowl with Almond Milk",
+    "price": 49.84,
+    "image": "https://placehold.co/400",
+    "portion": 340,
+    "ingredients": [
+      {
+        "title": "Quinoa",
+        "is_required": true
+      },
+      {
+        "title": "Almond milk",
+        "is_required": true
+      },
+      {
+        "title": "Chopped nuts",
+        "is_required": false
+      },
+      {
+        "title": "dried fruits",
+        "is_required": false
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Egg and Avocado Breakfast Burrito",
+    "price": 22.82,
+    "image": "https://placehold.co/400",
+    "portion": 250,
+    "ingredients": [
+      {
+        "title": "Flour tortilla",
+        "is_required": true
+      },
+      {
+        "title": "Scrambled eggs",
+        "is_required": true
+      },
+      {
+        "title": "Avocado",
+        "is_required": true
+      },
+      {
+        "title": "corn",
+        "is_required": false
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Smoothie Bowl with Mango and Coconut",
+    "price": 28.75,
+    "image": "https://placehold.co/400",
+    "portion": 270,
+    "ingredients": [
+      {
+        "title": "Frozen mango chunks",
+        "is_required": true
+      },
+      {
+        "title": "Greek yogurt",
+        "is_required": true
+      },
+      {
+        "title": "Coconut flakes",
+        "is_required": false
+      },
+      {
+        "title": "chocolate",
+        "is_required": false
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Bagel with Cream Cheese and Smoked Turkey",
+    "price": 23.13,
+    "image": "https://placehold.co/400",
+    "portion": 190,
+    "ingredients": [
+      {
+        "title": "Bagel",
+        "is_required": true
+      },
+      {
+        "title": "Cream cheese",
+        "is_required": true
+      },
+      {
+        "title": "Smoked turkey slices",
+        "is_required": true
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Chia Seed Pudding with Mixed Berries",
+    "price": 38.67,
+    "image": "https://placehold.co/400",
+    "portion": 270,
+    "ingredients": [
+      {
+        "title": "Chia seeds",
+        "is_required": true
+      },
+      {
+        "title": "Almond milk",
+        "is_required": true
+      },
+      {
+        "title": "Mixed berries",
+        "is_required": true
+      },
+      {
+        "title": "fruits",
+        "is_required": false
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Cinnamon French Toast with Caramelised Apples",
+    "price": 25.49,
     "image": "https://placehold.co/400",
     "portion": 200,
     "ingredients": [
-      { "title": "Spaghetti", "is_required": true },
-      { "title": "Ground Beef", "is_required": true },
-      { "title": "Tomato Sauce", "is_required": true },
-      { "title": "Onions", "is_required": false },
-      { "title": "Garlic", "is_required": false }
+      {
+        "title": "Sliced bread",
+        "is_required": true
+      },
+      {
+        "title": "Eggs",
+        "is_required": true
+      },
+      {
+        "title": "Cinnamon",
+        "is_required": true
+      },
+      {
+        "title": "Apples",
+        "is_required": true
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "title": "Chicken Alfredo Pasta",
+    "price": 47.23,
+    "image": "https://placehold.co/400",
+    "portion": 370,
+    "ingredients": [
+      {
+        "title": "Fettuccine pasta",
+        "is_required": true
+      },
+      {
+        "title": "Chicken breast",
+        "is_required": true
+      },
+      {
+        "title": "Alfredo sauce",
+        "is_required": true
+      },
+      {
+        "title": "mayo",
+        "is_required": false
+      },
+      {
+        "title": "corn",
+        "is_required": false
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "title": "Beef Lasagna with Ricotta",
+    "price": 37.17,
+    "image": "https://placehold.co/400",
+    "portion": 430,
+    "ingredients": [
+      {
+        "title": "Lasagna noodles",
+        "is_required": true
+      },
+      {
+        "title": "Ground beef",
+        "is_required": true
+      },
+      {
+        "title": "Ricotta cheese",
+        "is_required": false
+      },
+      {
+        "title": "Dandelion",
+        "is_required": false
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "title": "Spaghetti Bolognese",
+    "price": 40.0,
+    "image": "https://placehold.co/400",
+    "portion": 300,
+    "ingredients": [
+      {
+        "title": "Spaghetti",
+        "is_required": true
+      },
+      {
+        "title": "Ground beef,",
+        "is_required": true
+      },
+      {
+        "title": "Tomato sauce",
+        "is_required": true
+      },
+      {
+        "title": "parmesan",
+        "is_required": false
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "title": "Classic Caesar Salad with Grilled Chicken",
+    "price": 43.64,
+    "image": "https://placehold.co/400",
+    "portion": 340,
+    "ingredients": [
+      {
+        "title": "Romaine lettuce",
+        "is_required": true
+      },
+      {
+        "title": "Grilled chicken breast",
+        "is_required": true
+      },
+      {
+        "title": "Caesar dressing",
+        "is_required": false
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "title": "Shrimp Scampi Linguine",
+    "price": 11.97,
+    "image": "https://placehold.co/400",
+    "portion": 350,
+    "ingredients": [
+      {
+        "title": "Linguine pasta",
+        "is_required": true
+      },
+      {
+        "title": "Shrimp",
+        "is_required": true
+      },
+      {
+        "title": "Garlic butter sauce",
+        "is_required": false
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "title": "Beef Stroganoff with Egg Noodles",
+    "price": 41.51,
+    "image": "https://placehold.co/400",
+    "portion": 350,
+    "ingredients": [
+      {
+        "title": "Egg noodles",
+        "is_required": true
+      },
+      {
+        "title": "Beef strips",
+        "is_required": true
+      },
+      {
+        "title": "Sour cream",
+        "is_required": false
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "title": "Vegetarian Margherita Pizza",
+    "price": 20.31,
+    "image": "https://placehold.co/400",
+    "portion": 400,
+    "ingredients": [
+      {
+        "title": "Pizza dough",
+        "is_required": true
+      },
+      {
+        "title": "Tomato sauce",
+        "is_required": true
+      },
+      {
+        "title": "Fresh mozzarella",
+        "is_required": true
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "title": "Salmon with Lemon Dill Sauce",
+    "price": 10.02,
+    "image": "https://placehold.co/400",
+    "portion": 300,
+    "ingredients": [
+      {
+        "title": "Salmon fillet",
+        "is_required": true
+      },
+      {
+        "title": "Lemon dill sauce",
+        "is_required": true
+      },
+      {
+        "title": " Roasted tomato",
+        "is_required": false
+      },
+      {
+        "title": "Roasted potato",
+        "is_required": false
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "title": "Mushroom Risotto with Parmesan",
+    "price": 22.59,
+    "image": "https://placehold.co/400",
+    "portion": 300,
+    "ingredients": [
+      {
+        "title": "Arborio rice",
+        "is_required": true
+      },
+      {
+        "title": "Mushrooms",
+        "is_required": true
+      },
+      {
+        "title": "Parmesan cheese",
+        "is_required": false
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "title": "Beef Burger with Caramelised Onions",
+    "price": 12.37,
+    "image": "https://placehold.co/400",
+    "portion": 250,
+    "ingredients": [
+      {
+        "title": "Beef patty",
+        "is_required": true
+      },
+      {
+        "title": "Brioche bun",
+        "is_required": true
+      },
+      {
+        "title": "Caramelised onions",
+        "is_required": false
+      },
+      {
+        "title": "Roasted tomato",
+        "is_required": false
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "title": "Margarita Pizza Rolls",
+    "price": 30.01,
+    "image": "https://placehold.co/400",
+    "portion": 350,
+    "ingredients": [
+      {
+        "title": "Pizza dough",
+        "is_required": true
+      },
+      {
+        "title": "Marinara sauce",
+        "is_required": true
+      },
+      {
+        "title": "Mozzarella cheese",
+        "is_required": true
+      },
+      {
+        "title": "Garlic",
+        "is_required": false
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "title": "Buffalo Chicken Wings",
+    "price": 26.97,
+    "image": "https://placehold.co/400",
+    "portion": 350,
+    "ingredients": [
+      {
+        "title": "Chicken wings",
+        "is_required": true
+      },
+      {
+        "title": "Buffalo sauce",
+        "is_required": true
+      },
+      {
+        "title": "Garlic",
+        "is_required": false
+      },
+      {
+        "title": "Blue cheese dressing",
+        "is_required": false
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "title": "Loaded Nachos with Guacamole and Salsa",
+    "price": 11.31,
+    "image": "https://placehold.co/400",
+    "portion": 340,
+    "ingredients": [
+      {
+        "title": "Tortilla chips",
+        "is_required": true
+      },
+      {
+        "title": "Cheddar cheese",
+        "is_required": true
+      },
+      {
+        "title": "Guacamole",
+        "is_required": false
+      },
+      {
+        "title": "Salsa",
+        "is_required": false
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "title": "Spinach and Artichoke Dip",
+    "price": 26.45,
+    "image": "https://placehold.co/400",
+    "portion": 230,
+    "ingredients": [
+      {
+        "title": "Spinach",
+        "is_required": true
+      },
+      {
+        "title": "Artichoke hearts",
+        "is_required": true
+      },
+      {
+        "title": "Cream cheese",
+        "is_required": true
+      },
+      {
+        "title": "Garlic",
+        "is_required": false
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "title": "Shrimp Tacos with Chipotle Mayo",
+    "price": 15.89,
+    "image": "https://placehold.co/400",
+    "portion": 300,
+    "ingredients": [
+      {
+        "title": "Shrimp",
+        "is_required": true
+      },
+      {
+        "title": "Corn tortillas",
+        "is_required": true
+      },
+      {
+        "title": "Cabbage slaw",
+        "is_required": true
+      },
+      {
+        "title": "Chipotle mayo",
+        "is_required": false
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "title": "Beer-Battered Onion Rings",
+    "price": 6.28,
+    "image": "https://placehold.co/400",
+    "portion": 250,
+    "ingredients": [
+      {
+        "title": "Onion rings",
+        "is_required": true
+      },
+      {
+        "title": " Beer batter",
+        "is_required": true
+      },
+      {
+        "title": "Sriracha mayo",
+        "is_required": false
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "title": "BBQ Pulled Pork Sliders",
+    "price": 44.2,
+    "image": "https://placehold.co/400",
+    "portion": 300,
+    "ingredients": [
+      {
+        "title": "Pulled pork",
+        "is_required": true
+      },
+      {
+        "title": "Mini slider buns",
+        "is_required": true
+      },
+      {
+        "title": "Garlic",
+        "is_required": false
+      },
+      {
+        "title": "BBQ sauce",
+        "is_required": false
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "title": "Crispy Calamari with Garlic Aioli",
+    "price": 8.1,
+    "image": "https://placehold.co/400",
+    "portion": 250,
+    "ingredients": [
+      {
+        "title": "Calamari rings",
+        "is_required": true
+      },
+      {
+        "title": "Panko breadcrumbs",
+        "is_required": true
+      },
+      {
+        "title": "Garlic",
+        "is_required": false
+      },
+      {
+        "title": "Garlic aioli",
+        "is_required": false
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "title": "Classic Martini with Stuffed Olives",
+    "price": 43.98,
+    "image": "https://placehold.co/400",
+    "portion": 100,
+    "ingredients": [
+      {
+        "title": "Dry vermouth",
+        "is_required": true
+      },
+      {
+        "title": "Stuffed olives for garnish",
+        "is_required": false
+      },
+      {
+        "title": "gin",
+        "is_required": true
+      },
+      {
+        "title": "vodka",
+        "is_required": false
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "title": "Chocolate Espresso Martini",
+    "price": 30.92,
+    "image": "https://placehold.co/400",
+    "portion": 90,
+    "ingredients": [
+      {
+        "title": "Vodka",
+        "is_required": false
+      },
+      {
+        "title": "Coffee liqueur",
+        "is_required": true
+      },
+      {
+        "title": "Espresso",
+        "is_required": true
+      },
+      {
+        "title": "Chocolate shavings",
+        "is_required": false
+      }
     ]
   }
 ]
