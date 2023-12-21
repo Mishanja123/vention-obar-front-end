@@ -6,3 +6,4 @@ export { default as MenuItemInfo } from "./MenuItemInfo/MenuItemInfo";
 export { default as MenuList } from "./MenuList/MenuList";
 export { default as OrderDelivery } from "./OrderDelivery/OrderDelivery";
 export { default as OrderTakeout } from "./OrderTakeout/OrderTakeout";
+export { default as CheckoutSummary } from "./CheckoutSummary/CheckoutSummary";
