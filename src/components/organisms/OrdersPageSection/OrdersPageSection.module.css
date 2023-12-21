@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 30px;
+  gap: 2rem;
 
   max-width: 50rem;
   margin: 0 auto;
@@ -45,7 +45,7 @@
   padding: 2rem;
   background: #e9e5e5;
   border: 0.1rem solid var(--border-color);
-  border-radius: 20px;
+  border-radius: 1rem;
 }
 .order_table_item {
   position: relative;
