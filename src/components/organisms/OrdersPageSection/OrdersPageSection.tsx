@@ -23,7 +23,7 @@ const orders = [
         guests: 2,
         dishURL: sprite,
         quantity: 5,
-        title: 'sssssssss',
+        title: 'Soup',
         price: 400,
       },
     ],
@@ -48,7 +48,7 @@ const orders = [
         guests: 2,
         dishURL: sprite,
         quantity: 5,
-        title: 'sss',
+        title: 'Eggs',
         price: 400,
       },
     ],
@@ -73,14 +73,14 @@ const orders = [
         guests: 2,
         dishURL: sprite,
         quantity: 5,
-        title: 'ssss',
+        title: 'Soup',
         price: 400,
       },
       {
         guests: 2,
         dishURL: sprite,
         quantity: 5,
-        title: 'ssss',
+        title: 'Steak',
         price: 400,
       },
     ],
@@ -107,7 +107,7 @@ const OrdersPageSection = () => {
                 <th>Price</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className={styles.table_body}>
               {order.cart.map((item, index, cart) => (
                 <tr key={index} className={styles.order_table_item}>
                   <td className={styles.orders_image}>
@@ -124,7 +124,7 @@ const OrdersPageSection = () => {
                 </tr>
               ))}
             </tbody>
-            <tfoot>{`You reserved table for ${order.orderDate} at ${order.orderTime} for ${order.guests} guests`}</tfoot>
+            <tfoot >{`You reserved table for ${order.orderDate} at ${order.orderTime} for ${order.guests} guests`}</tfoot>
           </table>
         </li>
       ))}

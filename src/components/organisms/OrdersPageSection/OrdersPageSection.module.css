@@ -1,41 +1,67 @@
 .orders_list {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 30px;
+
+  max-width: 50rem;
+  margin: 0 auto;
 }
+
 .orders_item {
-  list-style: none;
-  padding: 0;
+  width: 100%;
   margin: 0;
+  padding: 0;
+  list-style: none;
 }
-.order_table_header{
-    position: relative;
+
+.order_table_header {
+  position: relative;
+  width: 100%;
 }
-.order_table_header::after{
-    content: '';
-    top: 0;
-    bottom: 0;
-    right: -20px;
-    width: 2px;
-    background-color: #000;
-    position: absolute;
+
+.order_table_header::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 1.2rem;
+  width: 100%;
+  height: 0.1rem;
+  background-color: var(--darkBG-color);
 }
+
 .orders_status_wrapper {
   display: flex;
   justify-content: space-between;
 }
 .orders_image {
   display: flex;
-  gap: 20px;
   align-items: center;
+  gap: 1.2rem;
 }
 .order_table {
-  border: 1px solid #000;
+  width: 100%;
+  padding: 2rem;
   background: #e9e5e5;
-  padding: 30px;
+  border: 0.1rem solid var(--border-color);
   border-radius: 20px;
 }
 .order_table_item {
-  padding: 30px;
+  position: relative;
+  padding: 2rem;
+}
+
+.order_table_item::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 1.2rem;
+  width: 100%;
+  height: 0.1rem;
+  background-color: var(--darkBG-color);
+}
+
+.table_body {
+  margin-bottom: 3rem;
 }
