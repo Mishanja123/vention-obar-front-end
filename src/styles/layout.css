@@ -1,41 +1,59 @@
 html {
-    box-sizing: border-box;
-    font-size: 16px;
-
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
 }
 
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
-}
-
-input,
-button,
-select,
-textarea,
-optgroup,
-option {
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    font-style: inherit;
-    color: inherit;
-}
-
-a:visited {
-    color: inherit;
+  box-sizing: inherit;
 }
 
 body {
-    margin: 0;
-    padding: 0;
+  font-family: var(--font-family-primary);
+  background-repeat: no-repeat;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
 
-    font-family: var(--font-family-primary), sans-serif;
-    line-height: var(--line-height-m);
-    color: var(--text-color);
+  line-height: var(--line-height-m);
+  color: var(--text-color);
 
-    background-color: var(--lightBG-color);
+  background-color: var(--lightBG-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
 }

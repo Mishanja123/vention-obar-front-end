@@ -1,7 +1,11 @@
 .cart {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    padding-top: 5rem;
+    
 }
 .cart_remove_all_btn {
     background-color: transparent;
@@ -11,11 +15,19 @@
     font-size: var(--font-size-xxl);
     font-weight: var(--font-weight-regular);
     color: var(--text-color);
-    text-align: end;
+    text-align: start;
+    margin-top: 1rem;
 }
 
 .cart_list {
     display: flex;
+    padding: 0;
+    margin: 0;
     flex-direction: column;
     gap: var(--font-size-xxl);
+}
+.cart_list_wrapper{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
 }

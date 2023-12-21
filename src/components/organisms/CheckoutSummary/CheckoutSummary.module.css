@@ -1,0 +1,15 @@
+.summary_btn_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  max-width: fit-content;
+  margin: 0 auto;
+}
+
+.summary_section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
