@@ -21,6 +21,6 @@
 
 .auth_wrapper {
   display: flex;
-  gap: 200px;
-  margin-top: 50px;
+  gap: 13rem;
+  margin-top: 3rem;
 }
