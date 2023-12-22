@@ -1,7 +1,7 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter } from 'react-router-dom';
 
-import authRouter from "./authRouter";
-import mainRouter from "./mainRouter";
+import authRouter from './authRouter';
+import mainRouter from './mainRouter';
 
 const routes = [...authRouter, ...mainRouter];
 

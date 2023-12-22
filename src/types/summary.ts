@@ -1,5 +1,4 @@
 export type ISummary = {
-    quantity: number;
-    subtotal: number;
-  }
-  
+  quantity: number;
+  subtotal: number;
+};

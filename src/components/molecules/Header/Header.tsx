@@ -9,6 +9,16 @@ import SearchInput from '../../atoms/SearchInput/SearchInput.tsx';
 import { PATHS } from '../../../constants/paths.ts';
 import styles from './Header.module.css';
 
+function HeaderNavLink({ to, children }: Props) {
+  return (
+    <NavLink
+      to={to}
+      className={({ isActive }) => (isActive ? styles.active : '')}>
+      {children}
+    </NavLink>
+  );
+}
+
 function Header() {
   return (
     <div className={styles.header_wrapper}>
@@ -42,14 +52,3 @@ type Props = {
   to: string;
   children: React.ReactNode;
 };
-
-function HeaderNavLink({ to, children }: Props) {
-  return (
-    <NavLink
-      to={to}
-      className={({ isActive }) => (isActive ? styles.active : '')}
-    >
-      {children}
-    </NavLink>
-  );
-}

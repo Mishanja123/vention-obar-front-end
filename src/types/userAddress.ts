@@ -6,4 +6,4 @@ export type UserAddress = {
   houseNumber: string;
   unit: string;
   flat: string;
-}
+};

@@ -28,8 +28,7 @@ const OrderMethodSelection: React.FC = () => {
           id="deliveryAdress_selection"
           label="Delivery Adress"
           value={method}
-          onChange={handleMethodChange}
-        >
+          onChange={handleMethodChange}>
           <MenuItem value={'Reservation'}>
             <NavLink to={PATHS.BOOK_TABLE} style={{ width: '100%' }}>
               Reserve a table

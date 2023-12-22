@@ -1,4 +1,4 @@
-export enum CartStatus {
+export enum CARTSTATUS {
   ACTIVE = 'Active',
   PAID = 'Paid',
   WILL_BE_PAID_ON_THE_SPOT = 'Will be paid on the spot',

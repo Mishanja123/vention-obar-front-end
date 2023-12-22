@@ -1,4 +1,4 @@
-import  { useState } from 'react';
+import { useState } from 'react';
 import styles from './QuantityCounter.module.css';
 import { CiCirclePlus } from 'react-icons/ci';
 import { CiCircleMinus } from 'react-icons/ci';

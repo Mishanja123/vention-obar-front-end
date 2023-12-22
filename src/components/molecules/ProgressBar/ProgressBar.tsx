@@ -9,6 +9,7 @@ const ProgressBar: React.FC = () => {
   const path = location.pathname;
 
   useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-shadow
     let progress;
 
     switch (true) {
@@ -36,8 +37,7 @@ const ProgressBar: React.FC = () => {
           <div
             className={`${styles.circle} ${
               progress >= 1 ? styles.isActive : ''
-            }`}
-          ></div>
+            }`}></div>
           <p className="">Confirmation</p>
         </li>
         <div className={styles.line}></div>
@@ -45,8 +45,7 @@ const ProgressBar: React.FC = () => {
           <div
             className={`${styles.circle} ${
               progress === 2 ? styles.isActive : ''
-            }`}
-          ></div>
+            }`}></div>
           <p className="">Payment</p>
         </li>
       </ol>

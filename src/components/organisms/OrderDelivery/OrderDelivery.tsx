@@ -37,8 +37,7 @@ const OrderDelivery = () => {
           id="method_selection"
           label="Method"
           value={deliveryAdress}
-          onChange={handleDeliveryAdressChange}
-        >
+          onChange={handleDeliveryAdressChange}>
           <MenuItem value={'existing'}>Existing Adress</MenuItem>
           <MenuItem value={'new'}>New Delivery Adress</MenuItem>
         </Select>

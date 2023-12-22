@@ -1,7 +1,7 @@
-import { PATHS } from "../constants/paths";
+import { PATHS } from '../constants/paths';
 
-import PrivatePage from "../routes/PrivateRoute";
-import AuthPage from "../pages/AuthPage/AuthPage";
+import PrivatePage from '../routes/PrivateRoute';
+import AuthPage from '../pages/AuthPage/AuthPage';
 
 const authRoutes = [
   {
@@ -10,8 +10,8 @@ const authRoutes = [
       <PrivatePage>
         <AuthPage />
       </PrivatePage>
-    )
-  }
+    ),
+  },
 ];
 
 export default authRoutes;

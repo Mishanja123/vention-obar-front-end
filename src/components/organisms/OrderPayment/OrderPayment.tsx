@@ -33,8 +33,7 @@ const OrderPayment = () => {
               id="deliveryAddress_selection"
               label="Delivery Address"
               value={method}
-              onChange={handleMethodChange}
-            >
+              onChange={handleMethodChange}>
               <MenuItem value="New">Add new card</MenuItem>
               <MenuItem value="Existing">Existing card</MenuItem>
             </Select>
