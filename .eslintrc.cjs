@@ -7,13 +7,12 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
-    // 'plugin:react/recommended',
     'plugin:react/jsx-runtime',
     'plugin:react-hooks/recommended',
     'plugin:jsx-a11y/recommended',
-    // 'plugin:import/recommended',
-    'prettier',
-    // 'airbnb',
+    'airbnb-typescript',
+    'airbnb/hooks',
+    'plugin:prettier/recommended',
   ],
   overrides: [
     {
@@ -26,13 +25,27 @@ module.exports = {
       },
     },
   ],
+  settings: {
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
+    },
+    'import/resolver': {
+      node: {
+        extensions: ['.ts', '.tsx'],
+      },
+    },
+  },
   parser: '@typescript-eslint/parser',
   parserOptions: {
+    project: ['./tsconfig.json'],
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint', 'react'],
+  plugins: ['@typescript-eslint', 'react', 'prettier', 'import'],
   rules: {
     'react/prop-types': 'off',
+    'prettier/prettier': 'error',
+    'import/extensions': 0,
   },
+  ignorePatterns: [".eslintrc.cjs", "vite.config.ts"]
 };

@@ -3,4 +3,4 @@ export type Reservation = {
   reservationDate: Date;
   reservationTime: Date;
   preOrder: boolean;
-}
+};

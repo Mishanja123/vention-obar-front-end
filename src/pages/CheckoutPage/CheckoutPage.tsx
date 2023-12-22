@@ -5,7 +5,6 @@ import ProgressBar from '@/components/molecules/ProgressBar/ProgressBar';
 import { CheckoutSummary } from '@/components/organisms';
 import { useLocation } from 'react-router-dom';
 
-
 const CheckoutPage = () => {
   const location = useLocation();
 
@@ -18,8 +17,8 @@ const CheckoutPage = () => {
           <OrderMethodSelection />
           <Outlet />
         </div>
-        <CheckoutSummary path={location.pathname}/>
-        </div>
+        <CheckoutSummary path={location.pathname} />
+      </div>
     </div>
   );
 };

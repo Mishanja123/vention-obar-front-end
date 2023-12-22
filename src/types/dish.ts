@@ -13,4 +13,4 @@ export type IDish = {
   ingredients: Ingredients[];
   weightGrams: number;
   dateCreated: Date;
-}
+};

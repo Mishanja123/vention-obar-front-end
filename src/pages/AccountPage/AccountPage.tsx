@@ -1,4 +1,4 @@
-import { AccountPageSection } from "../../components/organisms";
+import { AccountPageSection } from '../../components/organisms';
 
 const AccountPage = () => {
   return (

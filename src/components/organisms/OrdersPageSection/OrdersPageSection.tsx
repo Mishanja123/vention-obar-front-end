@@ -1,9 +1,6 @@
 import { orders } from '@/content/ordersData/orders';
 import styles from './OrdersPageSection.module.css';
 
-
-
-
 const OrdersPageSection = () => {
   return (
     <ul className={styles.orders_list}>
@@ -18,7 +15,7 @@ const OrdersPageSection = () => {
           </div>
           <table className={styles.order_table}>
             <thead className={styles.order_table_header}>
-              <tr >
+              <tr>
                 <th></th>
                 <th>QTY</th>
                 <th>Price</th>
@@ -31,8 +28,7 @@ const OrdersPageSection = () => {
                     <svg width="150" height="150">
                       <use
                         href={`${item.dishURL}#icon-avatar`}
-                        aria-expanded="true"
-                      ></use>
+                        aria-expanded="true"></use>
                     </svg>
                     <h3>{item.title}</h3>
                   </td>
@@ -41,7 +37,7 @@ const OrdersPageSection = () => {
                 </tr>
               ))}
             </tbody>
-            <tfoot >{`You reserved table for ${order.orderDate} at ${order.orderTime} for ${order.guests} guests`}</tfoot>
+            <tfoot>{`You reserved table for ${order.orderDate} at ${order.orderTime} for ${order.guests} guests`}</tfoot>
           </table>
         </li>
       ))}
