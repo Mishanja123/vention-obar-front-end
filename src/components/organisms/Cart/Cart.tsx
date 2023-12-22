@@ -1,7 +1,8 @@
-import { CartItem, EmptyCart } from '@/components/molecules';
+import { CartItem, EmptyCart, SummaryPayment } from '@/components/molecules';
 
 import sprite from '@/assets/sprite.svg';
 import styles from './Cart.module.css';
+import { Button } from '@/components/atoms';
 
 const cartItems = [
   {
@@ -28,19 +29,26 @@ const cartItems = [
 ];
 
 const Cart = () => {
-  
   if (cartItems.length === 0) {
     return <EmptyCart />;
   }
 
   return (
     <div className={styles.cart}>
-      <button className={styles.cart_remove_all_btn}>Remove all</button>
-      <ul className={styles.cart_list}>
-        {cartItems.map((item) => (
-          <CartItem key={item.id} {...item} />
-        ))}
-      </ul>
+      <div className={styles.cart_list_wrapper}>
+        <button className={styles.cart_remove_all_btn}>Remove all</button>
+        <ul className={styles.cart_list}>
+          {cartItems.map((item) => (
+            <CartItem key={item.id} {...item} />
+          ))}
+        </ul>
+      </div>
+
+      <SummaryPayment quantity={20} subtotal={50} total={500}>
+        <Button variant="contained" type="button">
+          Checkout
+        </Button>
+      </SummaryPayment>
     </div>
   );
 };

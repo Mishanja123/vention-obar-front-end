@@ -2,8 +2,13 @@ import OrderMethodSelection from '@/components/molecules/OrderMethodSelection/Or
 import styles from './CheckoutPage.module.css';
 import { Outlet } from 'react-router-dom';
 import ProgressBar from '@/components/molecules/ProgressBar/ProgressBar';
+import { CheckoutSummary } from '@/components/organisms';
+import { useLocation } from 'react-router-dom';
+
 
 const CheckoutPage = () => {
+  const location = useLocation();
+
   return (
     <div className={styles.main_container}>
       <ProgressBar />
@@ -13,8 +18,8 @@ const CheckoutPage = () => {
           <OrderMethodSelection />
           <Outlet />
         </div>
-        <div className={styles.summarySection}>Placeholder</div>
-      </div>
+        <CheckoutSummary path={location.pathname}/>
+        </div>
     </div>
   );
 };
