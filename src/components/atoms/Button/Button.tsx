@@ -14,8 +14,7 @@ const Button = ({ variant, children, type, isValid, onClick }: Props) => {
       onClick={onClick}
       variant={variant}
       type={type}
-      disabled={isValid}
-    >
+      disabled={isValid}>
       {children}
     </MUIButton>
   );

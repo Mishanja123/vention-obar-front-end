@@ -22,8 +22,7 @@ const SelectInput: React.FC<SelectInputProps> = ({
         name={name}
         value={values[name]}
         onChange={handleChange}
-        id={id}
-      >
+        id={id}>
         <option value="" label={placeholder} disabled />
         {options.map((option) => (
           <option key={option.value} value={option.value}>

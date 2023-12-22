@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-shadow */
 import { useState } from 'react';
 import dishMoreInfo from '@/menuData/dishMoreInfo.json';
 import styles from './MenuItemInfo.module.css';

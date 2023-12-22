@@ -26,8 +26,7 @@ const MenuNavigator = () => {
             className={`${styles.menu_navigation_btn} ${
               activeCategory === category && styles.active
             }`}
-            onClick={() => handleCategoryClick(category)}
-          >
+            onClick={() => handleCategoryClick(category)}>
             {category}
           </button>
         ))}

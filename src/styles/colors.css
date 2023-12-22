@@ -10,5 +10,7 @@
   --error-color: #cc1439;
   --btn-rgba: rgba(255, 255, 255, 0.1);
 
+  --background-delimiter-color: #000;
+
   --border-color: #000;
 }

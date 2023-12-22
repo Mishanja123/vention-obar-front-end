@@ -5,7 +5,6 @@ import styles from './CheckoutSummary.module.css';
 import { PATHS } from '@/constants/paths';
 
 const CheckoutSummary = ({ path }: { path: string }) => {
-
   const firstButton = path.includes(PATHS.ORDER_CONFIRMATION)
     ? 'Confirm'
     : path.includes(PATHS.ORDER_PAYMENT)

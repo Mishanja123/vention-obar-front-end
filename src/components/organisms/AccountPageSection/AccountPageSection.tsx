@@ -11,7 +11,6 @@ const AccountPageSection = () => {
     if (location.pathname === PATHS.ACCOUNT) {
       navigate(PATHS.USER_INFO);
     }
-    
   }, [location.pathname, navigate]);
 
   const navLinkStyle = ({ isActive }: { isActive: boolean }) => ({
