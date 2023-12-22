@@ -1,20 +1,21 @@
 :root {
-    --font-family-primary: 'Inter', sans-serif;
+  --font-family-primary: 'Inter', sans-serif;
 
-    /* line heights */
-    --line-height-s: 1rem;
-    --line-height-m: 2rem;
-    --line-height-l: 2.25rem;
+  /* line heights */
+  --line-height-s: 1rem;
+  --line-height-m: 2rem;
+  --line-height-l: 2.25rem;
 
-    /* font sizes */
-    --font-size-xs: 0.75rem;
-    --font-size-s: 0.875rem;
-    --font-size-m: 1rem;
-    --font-size-l: 1.125rem;
-    --font-size-xl: 1.25rem;
-    --font-size-xxl: 1.625rem;
+  /* font sizes */
+  --font-size-xs: 0.75rem;
+  --font-size-s: 0.875rem;
+  --font-size-m: 1rem;
+  --font-size-l: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-xxl: 1.625rem;
+  --font-size-xxxl: 2.5rem;
 
-    /* font weights */
-    --font-weight-regular: 400;
-    --font-weight-bold: 700;
+  /* font weights */
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
 }
