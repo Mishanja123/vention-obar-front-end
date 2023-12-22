@@ -4,7 +4,6 @@ import menuData from '@/menuData/menuData.json';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import { PATHS } from '@/constants/paths';
-import SummaryPayment from '../SummaryPayment/SummaryPayment';
 
 const order = menuData.slice(0, 2);
 
