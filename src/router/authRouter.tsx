@@ -1,7 +1,7 @@
 import { PATHS } from "../constants/paths";
 
 import PrivatePage from "../routes/PrivateRoute";
-import AuthPage from "../pages/AuthPage";
+import AuthPage from "../pages/AuthPage/AuthPage";
 
 const authRoutes = [
   {
