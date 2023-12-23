@@ -9,7 +9,6 @@ import {
 
 import AccountPage from '../pages/AccountPage/AccountPage';
 import CartPage from '../pages/CartPage/CartPage';
-import ErrorPage from '../pages/ErrorPage';
 import MainPage from '../pages/MainPage/MainPage';
 import MenuPage from '../pages/MenuPage';
 
@@ -25,6 +24,7 @@ import {
   OrderTakeout,
 } from '../components/organisms';
 import OrderPayment from '@/components/organisms/OrderPayment/OrderPayment';
+import NotFoundPage from '@/pages/NotFoundPage';
 
 const mainRoutes = [
   {
@@ -81,7 +81,7 @@ const mainRoutes = [
       },
     ],
   },
-  { path: '*', element: <ErrorPage /> },
+  { path: '*', element: <NotFoundPage /> },
 ];
 
 export default mainRoutes;

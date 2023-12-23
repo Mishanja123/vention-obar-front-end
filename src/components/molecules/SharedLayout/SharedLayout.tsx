@@ -1,13 +1,15 @@
 import { Outlet } from 'react-router-dom';
 
-import Header from '../Header/Header.tsx';
+import { Header } from '../index.ts';
+import { Footer } from '../index.ts';
 
 const SharedLayout = () => {
   return (
-    <div>
+    <>
       <Header />
       <Outlet />
-    </div>
+      <Footer />
+    </>
   );
 };
 

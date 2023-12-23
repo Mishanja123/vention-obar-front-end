@@ -18,7 +18,7 @@ const MainSection = () => {
           </NavLink>
         </div>
       </section>
-      <div className={styles.form_container}>
+      <div id="reservationForm" className={styles.form_container}>
         <ReservationForm />
       </div>
       <MainMenuSection />

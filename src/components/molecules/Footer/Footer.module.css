@@ -1,0 +1,50 @@
+.footer {
+  background-color: var(--bg-footer);
+  padding: 2.5rem 3.75rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact_box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.footer_heading {
+  font-size: var(--font-size-xxxl);
+  font-weight: var(--font-weight-regular);
+}
+
+.address {
+  font-size: var(--font-size-xl);
+}
+
+.footer_paragraph {
+  display: flex;
+  align-items: center;
+  font-size: var(--font-size-xl);
+}
+
+.icon_span {
+  height: 80%;
+  margin-right: 0.9375rem;
+}
+
+.reservation_btn {
+  margin-left: 1.25rem;
+  padding: 0.9375rem 1.25rem;
+  font-size: var(--font-size-xl);
+  background-color: var(--bg-color);
+  border: 0.125rem solid var(--btn-rgba);
+  transition: all 0.3s;
+}
+
+.reservation_btn:hover {
+  transform: scale(1.1);
+  border: 0.125rem solid var(--text-color);
+}
+
+.map {
+  border: none;
+}
