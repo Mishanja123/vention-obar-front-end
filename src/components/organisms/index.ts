@@ -9,3 +9,4 @@ export { default as OrderTakeout } from './OrderTakeout/OrderTakeout';
 export { default as OrdersPageSection } from './OrdersPageSection/OrdersPageSection';
 export { default as CheckoutSummary } from './CheckoutSummary/CheckoutSummary';
 export { default as NotFoundPageSection } from './NotFoundPageSection/NotFoundPageSection';
+export { default as ErrorPageSection } from './ErrorPageSection/ErrorPageSection';

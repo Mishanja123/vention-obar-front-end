@@ -1,4 +1,4 @@
-.not_found_section {
+.error_section {
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -7,12 +7,12 @@
   gap: 1.5rem;
 }
 
-.not_found_img {
+.error_img {
   transform: rotate(-30deg);
   margin-bottom: 2rem;
 }
 
-.not_found_paragraph {
+.error_paragraph {
   text-align: center;
   width: 40%;
 }

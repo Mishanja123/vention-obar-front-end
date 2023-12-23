@@ -3,13 +3,14 @@ import { NavLink } from 'react-router-dom';
 import { PATHS } from '@/constants/paths';
 
 import styles from './NotFoundPageSection.module.css';
+
 const NotFoundPageSection = () => {
   return (
     <>
       <section className={styles.not_found_section}>
         <img
           className={styles.not_found_img}
-          src="https://placehold.jp/150x150.png"
+          src="https://placehold.jp/180x150.png"
           alt="404 Not found"
         />
         <h1 className={styles.not_found_heading}>PAGE NOT FOUND</h1>

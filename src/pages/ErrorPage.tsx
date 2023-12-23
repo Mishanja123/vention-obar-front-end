@@ -1,5 +1,11 @@
+import { ErrorPageSection } from '@/components/organisms';
+
 const ErrorPage = () => {
-  return <div>ErrorPage</div>;
+  return (
+    <>
+      <ErrorPageSection />
+    </>
+  );
 };
 
 export default ErrorPage;
