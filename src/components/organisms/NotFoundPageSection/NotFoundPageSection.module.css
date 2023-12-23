@@ -1,0 +1,12 @@
+.not_found_section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+.not_found_paragraph {
+  text-align: center;
+  width: 40%;
+}
