@@ -17,9 +17,3 @@
 .form_container {
   padding: 200px 0;
 }
-
-.menu_container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
