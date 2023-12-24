@@ -1,0 +1,10 @@
+.menu_container {
+  max-width: 1200px;
+  margin: auto;
+
+  text-align: center;
+  padding: 100px 0 100px;
+}
+.menu_heading {
+  margin-bottom: 1.3rem;
+}

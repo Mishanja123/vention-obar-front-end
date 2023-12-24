@@ -10,8 +10,11 @@ type SliderProps = {
   speed: number;
   slidesToShow: number;
   slidesToScroll: number;
-  adaptiveHeight: boolean;
-  variableWidth: boolean;
+  swipeToSlide: boolean;
+  focusOnSelect: boolean;
+  centerMode: boolean;
+  centerPadding: number;
+  children?: React.ReactNode;
 };
 
 const SliderWrapper: React.FC<SliderProps> = ({
@@ -22,8 +25,11 @@ const SliderWrapper: React.FC<SliderProps> = ({
   speed,
   slidesToShow,
   slidesToScroll,
-  adaptiveHeight,
-  variableWidth,
+  swipeToSlide,
+  focusOnSelect,
+  centerMode,
+  centerPadding,
+  children,
 }) => {
   const sliderSettings = {
     className: 'slider',
@@ -35,11 +41,17 @@ const SliderWrapper: React.FC<SliderProps> = ({
     infinite: true,
     slidesToShow: slidesToShow,
     slidesToScroll: slidesToScroll,
-    adaptiveHeight: adaptiveHeight,
-    variableWidth: variableWidth,
+    swipeToSlide: swipeToSlide,
+    focusOnSelect: focusOnSelect,
+    centerMode: centerMode,
+    centerPadding: `${centerPadding}px`,
   };
 
-  return <Slider {...sliderSettings}></Slider>;
+  return (
+    <>
+      <Slider {...sliderSettings}>{children}</Slider>
+    </>
+  );
 };
 
 export default SliderWrapper;
