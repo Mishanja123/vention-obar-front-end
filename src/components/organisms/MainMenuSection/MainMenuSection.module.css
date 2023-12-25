@@ -1,9 +1,9 @@
 .menu_container {
-  max-width: 1200px;
+  max-width: 75rem;
   margin: auto;
 
   text-align: center;
-  padding: 100px 0 100px;
+  padding: 6.25rem 0 6.25rem;
 }
 .menu_heading {
   margin-bottom: 1.3rem;
