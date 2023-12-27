@@ -1,9 +1,11 @@
-import MenuItem from '../../molecules/MenuItem/MenuItem';
 import menuData from '@/menuData/menuData.json';
+
+import { MenuItem } from '@/components/molecules';
+
 import styles from './MenuList.module.css';
 
 type MenuItemData = {
-  id: number;
+  id: string;
   title: string;
   price: number;
   image: string;

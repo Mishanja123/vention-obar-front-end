@@ -33,8 +33,7 @@ const Footer = () => {
         </p>
         <button
           className={styles.reservation_btn}
-          onClick={scrollToReservationForm}
-        >
+          onClick={scrollToReservationForm}>
           Make a reservation
         </button>
       </div>
@@ -45,8 +44,7 @@ const Footer = () => {
           width="630"
           height="310"
           className={styles.map}
-          loading="lazy"
-        ></iframe>
+          loading="lazy"></iframe>
       </div>
     </footer>
   );

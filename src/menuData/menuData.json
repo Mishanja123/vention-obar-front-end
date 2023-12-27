@@ -1,260 +1,260 @@
 [
   {
     "id": "fd0e5c8b-de3d-4d2d-ba44-67be4bff6465",
-    "title": "Avocado Toast with Smoked Salmon",
-    "price": "$27.50",
+    "title": "Avocado Toast with Salmon",
+    "price": 27.5,
     "image": "https://via.placeholder.com/100",
     "category": "sunrise specials"
   },
   {
     "id": "6a1342be-9236-42f5-a8d2-1a82a35fb452",
     "title": "Spinach and Feta Omelette",
-    "price": "$42.53",
+    "price": 42.53,
     "image": "https://via.placeholder.com/100",
     "category": "sunrise specials"
   },
   {
     "id": "ad22b0fa-c4f8-472b-843d-208ff2e702f7",
     "title": "Greek Yogurt Parfait with Fresh Berries",
-    "price": "$49.69",
+    "price": 49.69,
     "image": "https://via.placeholder.com/100",
     "category": "sunrise specials"
   },
   {
     "id": "f97ce2f1-b20b-44bd-b374-9b89c82c3f34",
-    "title": "Pancakes with Maple Syrup and Banana Slices",
-    "price": "$13.27",
+    "title": "Pancakes with Maple Syrup",
+    "price": 13.27,
     "image": "https://via.placeholder.com/100",
     "category": "sunrise specials"
   },
   {
     "id": "13f54c4e-fb11-469d-8599-f68f2a17b4c9",
     "title": "Quinoa Breakfast Bowl with Almond Milk",
-    "price": "$49.84",
+    "price": 49.84,
     "image": "https://via.placeholder.com/100",
     "category": "sunrise specials"
   },
   {
     "id": "e478b3ad-0b9a-44b2-93a6-9c3cd5980db8",
     "title": "Egg and Avocado Breakfast Burrito",
-    "price": "$22.82",
+    "price": 22.82,
     "image": "https://via.placeholder.com/100",
     "category": "sunrise specials"
   },
   {
     "id": "075d668d-0410-4188-9403-6a0a9bc438a8",
     "title": "Smoothie Bowl with Mango and Coconut",
-    "price": "$28.75",
+    "price": 28.75,
     "image": "https://via.placeholder.com/100",
     "category": "sunrise specials"
   },
   {
     "id": "1f61104d-8955-4f5e-a413-cf0839f2fdad",
     "title": "Bagel with Cream Cheese and Smoked Turkey",
-    "price": "$23.13",
+    "price": 23.13,
     "image": "https://via.placeholder.com/100",
     "category": "sunrise specials"
   },
   {
     "id": "37db7516-8189-44a7-ad9d-e0a996b17e50",
     "title": "Chia Seed Pudding with Mixed Berries",
-    "price": "$38.67",
+    "price": 38.67,
     "image": "https://via.placeholder.com/100",
     "category": "sunrise specials"
   },
   {
     "id": "d5649eed-28c8-44fe-bc2c-ffc02a274278",
     "title": "Cinnamon French Toast with Caramelised Apples",
-    "price": "$25.49",
+    "price": 25.49,
     "image": "https://via.placeholder.com/100",
     "category": "sunrise specials"
   },
   {
     "id": "2a718f30-bce1-40ed-a6be-bfc761031182",
     "title": "Chicken Alfredo Pasta",
-    "price": "$47.23",
+    "price": 47.23,
     "image": "https://via.placeholder.com/100",
     "category": "culinary classics"
   },
   {
     "id": "34435ea8-e57d-4650-bc02-1af26c29c3d6",
     "title": "Beef Lasagna with Ricotta",
-    "price": "$37.17",
+    "price": 37.17,
     "image": "https://via.placeholder.com/100",
     "category": "culinary classics"
   },
   {
     "id": "295b7dfc-00a4-4383-a31b-04749311d102",
     "title": "Spaghetti Bolognese",
-    "price": "$40.00",
+    "price": 40.0,
     "image": "https://via.placeholder.com/100",
     "category": "culinary classics"
   },
   {
     "id": "3a799390-28f9-4dda-ac69-e567ccb68eeb",
     "title": "Classic Caesar Salad with Grilled Chicken",
-    "price": "$43.64",
+    "price": 43.64,
     "image": "https://via.placeholder.com/100",
     "category": "culinary classics"
   },
   {
     "id": "478771bb-5368-468d-9683-786b36554390",
     "title": "Shrimp Scampi Linguine",
-    "price": "$11.97",
+    "price": 11.97,
     "image": "https://via.placeholder.com/100",
     "category": "culinary classics"
   },
   {
     "id": "3ca04752-0960-4581-9210-5848897551d6",
     "title": "Beef Stroganoff with Egg Noodles",
-    "price": "$41.51",
+    "price": 41.51,
     "image": "https://via.placeholder.com/100",
     "category": "culinary classics"
   },
   {
     "id": "92c66328-6a54-479e-adc5-1bc5a5835e6e",
     "title": "Vegetarian Margherita Pizza",
-    "price": "$20.31",
+    "price": 20.31,
     "image": "https://via.placeholder.com/100",
     "category": "culinary classics"
   },
   {
     "id": "32d7cf9d-6011-4dd5-8979-4fe2d5503bac",
     "title": "Salmon with Lemon Dill Sauce",
-    "price": "$10.02",
+    "price": 10.02,
     "image": "https://via.placeholder.com/100",
     "category": "culinary classics"
   },
   {
     "id": "a7f76aee-afd3-4b6a-8253-b8523e72615d",
     "title": "Mushroom Risotto with Parmesan",
-    "price": "$22.59",
+    "price": 22.59,
     "image": "https://via.placeholder.com/100",
     "category": "culinary classics"
   },
   {
     "id": "9b8b89bf-a240-4320-bc8c-c686cca2300e",
     "title": "Beef Burger with Caramelised Onions",
-    "price": "$12.37",
+    "price": 12.37,
     "image": "https://via.placeholder.com/100",
     "category": "culinary classics"
   },
   {
     "id": "cca33cf9-4f20-4b61-8856-cf549e4683e6",
     "title": "Margarita Pizza Rolls",
-    "price": "$30.01",
+    "price": 30.01,
     "image": "https://via.placeholder.com/100",
     "category": "bar bliss"
   },
   {
     "id": "a6124c83-4b74-4a48-a335-10c946a66ad4",
     "title": "Buffalo Chicken Wings",
-    "price": "$26.97",
+    "price": 26.97,
     "image": "https://via.placeholder.com/100",
     "category": "bar bliss"
   },
   {
     "id": "abe115cb-7db5-4821-85c5-63bd186924f4",
     "title": "Loaded Nachos with Guacamole and Salsa",
-    "price": "$11.31",
+    "price": 11.31,
     "image": "https://via.placeholder.com/100",
     "category": "bar bliss"
   },
   {
     "id": "b0ea555d-ffa5-44b2-ba76-daf7627880aa",
     "title": "Spinach and Artichoke Dip",
-    "price": "$26.45",
+    "price": 26.45,
     "image": "https://via.placeholder.com/100",
     "category": "bar bliss"
   },
   {
     "id": "b1887060-69c3-4e76-8563-fda5835dea6c",
     "title": "Shrimp Tacos with Chipotle Mayo",
-    "price": "$15.89",
+    "price": 15.89,
     "image": "https://via.placeholder.com/100",
     "category": "bar bliss"
   },
   {
     "id": "fd9a5420-da1b-4091-b50c-f18433ac5564",
     "title": "Beer-Battered Onion Rings",
-    "price": "$6.28",
+    "price": 26.28,
     "image": "https://via.placeholder.com/100",
     "category": "bar bliss"
   },
   {
     "id": "96301df2-2401-4cc7-b5e7-1b5d2d0ba6b5",
     "title": "BBQ Pulled Pork Sliders",
-    "price": "$44.20",
+    "price": 44.2,
     "image": "https://via.placeholder.com/100",
     "category": "bar bliss"
   },
   {
     "id": "87b4e543-dede-4678-bbbc-e65032680f76",
     "title": "Crispy Calamari with Garlic Aioli",
-    "price": "$8.10",
+    "price": 38.1,
     "image": "https://via.placeholder.com/100",
     "category": "bar bliss"
   },
   {
     "id": "6f31d0bb-5a74-463e-8383-33c13d2bf09f",
     "title": "Classic Martini with Stuffed Olives",
-    "price": "$43.98",
+    "price": 43.98,
     "image": "https://via.placeholder.com/100",
     "category": "bar bliss"
   },
   {
     "id": "8f604b59-a2ca-432c-8929-cb66c29dcc2b",
     "title": "Chocolate Espresso Martini",
-    "price": "$30.92",
+    "price": 30.92,
     "image": "https://via.placeholder.com/100",
     "category": "bar bliss"
   },
   {
     "id": "c0012dab-d159-4553-be07-102e9076b468",
     "title": "Shrimp Tacos with Chipotle Mayo",
-    "price": "$15.89",
+    "price": 15.89,
     "image": "https://via.placeholder.com/100",
     "category": "chefs picks"
   },
   {
     "id": "3315881a-8cd9-4d10-ae2f-45cc425cf4ba",
     "title": "Classic Martini with Stuffed Olives",
-    "price": "$43.98",
+    "price": 43.98,
     "image": "https://via.placeholder.com/100",
     "category": "chefs picks"
   },
   {
     "id": "00a619b6-f665-45c4-9fec-6cde54f1b166",
     "title": "Mushroom Risotto with Parmesan",
-    "price": "$22.59",
+    "price": 22.59,
     "image": "https://via.placeholder.com/100",
     "category": "chefs picks"
   },
   {
     "id": "79628396-1b76-459c-adf7-5dc5fa394fac",
     "title": "Spinach and Feta Omelette",
-    "price": "$42.53",
+    "price": 42.53,
     "image": "https://via.placeholder.com/100",
     "category": "chefs picks"
   },
   {
     "id": "cb07453c-e1bb-462b-b705-77ec92d66dda",
     "title": "Greek Yogurt Parfait with Fresh Berries",
-    "price": "$49.69",
+    "price": 49.69,
     "image": "https://via.placeholder.com/100",
     "category": "chefs picks"
   },
   {
     "id": "eb44492c-47dd-480e-aa7c-1d312af98a47",
     "title": "Vegetarian Margherita Pizza",
-    "price": "$20.31",
+    "price": 20.31,
     "image": "https://via.placeholder.com/100",
     "category": "chefs picks"
   },
   {
     "id": "557e9d70-bd09-48b4-87f8-5e2629cdcd8d",
     "title": "Chia Seed Pudding with Mixed Berries",
-    "price": "$38.67",
+    "price": 38.67,
     "image": "https://via.placeholder.com/100",
     "category": "chefs picks"
   }
