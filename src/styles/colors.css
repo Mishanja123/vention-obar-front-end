@@ -1,4 +1,5 @@
 :root {
+
   --bg-footer: #f7f6f6;
   --accent-color: #ff6642;
   --text-color: #1c2329;
@@ -13,4 +14,21 @@
   --background-delimiter-color: #000;
 
   --border-color: #000;
+
+
+  /* Colors */
+  --main-color: #800020;
+  --accent-color: #daa520;
+  --neutral-color: #fff5e1;
+  --highlight-color: #556b2f;
+  --complementary-color: #008080;
+  --background-color: #d3d3d3;
+
+  --primary-background: #d3d3d3;
+  --primary-text: #556b2f;
+  --accent-color: #800020;
+  --secondary-accent-color: #daa520;
+  --additional-accent-color: #008080;
+  --neutral-background: #fff5e1;
+
 }

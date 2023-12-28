@@ -1,21 +1,18 @@
 :root {
-  --font-family-primary: 'Inter', sans-serif;
+  /* Font */
 
-  /* line heights */
-  --line-height-s: 1rem;
-  --line-height-m: 2rem;
-  --line-height-l: 2.25rem;
+  --heading-font: 'Montserrat', sans-serif;
+  --heading-font-weight: bold;
 
-  /* font sizes */
-  --font-size-xs: 0.75rem;
-  --font-size-s: 0.875rem;
-  --font-size-m: 1rem;
-  --font-size-l: 1.125rem;
-  --font-size-xl: 1.25rem;
-  --font-size-xxl: 1.625rem;
-  --font-size-xxxl: 2.5rem;
+  --titles-subheadings-font: 'Playfair Display', serif;
+  --titles-subheadings-font-weight: 600;
 
-  /* font weights */
-  --font-weight-regular: 400;
-  --font-weight-bold: 700;
+  --text-font: 'Roboto Slab', serif;
+  --text-font-weight: 400;
+
+  --links-font: 'Dosis', sans-serif;
+  --links-font-weight: 500;
+
+  --buttons-text-font: 'Pacifico', cursive;
+  --buttons-text-font-weight: 400;
 }

@@ -1,0 +1,14 @@
+:root {
+    /* Padding */
+    --desktop-padding: 5rem;
+    --laptop-padding: 2rem;
+    --tablet-padding: 1rem;
+    --mobile-padding: 10px;
+  
+    /* Internal Padding */
+    --desktop-internal-padding: 5rem;
+    --laptop-internal-padding: 4rem;
+    --tablet-internal-padding: 1rem;
+    --mobile-internal-padding: 10px;
+  }
+  
