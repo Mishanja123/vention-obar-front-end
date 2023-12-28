@@ -1,5 +1,5 @@
 import { Footer } from '@/components/molecules';
-import MainSection from '../../components/organisms/MainSection/MainSection';
+import MainSection from '@/components/organisms/MainSection/MainSection';
 
 const MainPage = () => {
   return (
