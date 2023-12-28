@@ -1,0 +1,16 @@
+.main_container {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.info_container {
+    display: flex;
+}
+
+.method_container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+

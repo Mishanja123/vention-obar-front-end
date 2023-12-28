@@ -36,8 +36,7 @@ const Payment = () => {
       <button className={styles.add_payment_button}>Add payment card</button>
       <form
         onSubmit={formik.handleSubmit}
-        className={styles.delivery_address_form}
-      >
+        className={styles.delivery_address_form}>
         {paymentFormInputs.map((input, i) => (
           <div key={i} className={styles.payment_input_wrapper}>
             <label>{input.label}</label>

@@ -1,8 +1,10 @@
-import styles from './MainSection.module.css';
-import ReservationForm from '../../molecules/ReservationForm/ReservationForm';
-import Button from '../../atoms/Button/Button';
-import { NavLink } from 'react-router-dom';
 import { PATHS } from '@/constants/paths';
+import { NavLink } from 'react-router-dom';
+import ReservationForm from '../../molecules/ReservationForm/ReservationForm';
+import MainMenuSection from '../MainMenuSection/MainMenuSection';
+import Button from '../../atoms/Button/Button';
+
+import styles from './MainSection.module.css';
 
 const MainSection = () => {
   return (
@@ -16,12 +18,10 @@ const MainSection = () => {
           </NavLink>
         </div>
       </section>
-      <div className={styles.form_container}>
+      <div id="reservationForm" className={styles.form_container}>
         <ReservationForm />
       </div>
-      <section id="menu" className={styles.menu_container}>
-        <h2>Menu</h2>
-      </section>
+      <MainMenuSection />
     </>
   );
 };

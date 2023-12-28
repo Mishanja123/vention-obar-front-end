@@ -10,6 +10,7 @@ const PrivatePage: FC<PrivatePageProps> = ({
   children,
   redirectTo = '/auth',
 }) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return isLoggedIn ? <Navigate to={redirectTo} /> : children;

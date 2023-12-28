@@ -8,8 +8,7 @@ import {
 } from '../components/molecules';
 
 import AccountPage from '../pages/AccountPage/AccountPage';
-import CartPage from '../pages/CartPage';
-import ErrorPage from '../pages/ErrorPage';
+import CartPage from '../pages/CartPage/CartPage';
 import MainPage from '../pages/MainPage/MainPage';
 import MenuPage from '../pages/MenuPage';
 
@@ -17,8 +16,15 @@ import { PATHS } from '../constants/paths';
 
 import PrivatePage from '../routes/PrivateRoute';
 import CheckoutPage from '../pages/CheckoutPage/CheckoutPage';
-import OrdersPage from '../pages/OrdersPage';
-import { MenuItemInfo, MenuList, OrderTakeout } from '../components/organisms';
+import OrdersPage from '../pages/OrdersPage/OrdersPage';
+import {
+  MenuItemInfo,
+  MenuList,
+  OrderDelivery,
+  OrderTakeout,
+} from '../components/organisms';
+import OrderPayment from '@/components/organisms/OrderPayment/OrderPayment';
+import NotFoundPage from '@/pages/NotFoundPage';
 
 const mainRoutes = [
   {
@@ -60,12 +66,12 @@ const mainRoutes = [
         element: <CheckoutPage />,
         children: [
           { path: PATHS.BOOK_TABLE, element: <OrderedReservarionForm /> },
-          { path: PATHS.DELIVERY, element: <DeliveryAddressForm /> },
+          { path: PATHS.DELIVERY, element: <OrderDelivery /> },
           {
             path: PATHS.TAKEOUT,
             element: <OrderTakeout />,
           },
-          { path: PATHS.ORDER_PAYMENT, element: <Payment /> },
+          { path: PATHS.ORDER_PAYMENT, element: <OrderPayment /> },
           { path: PATHS.ORDER_CONFIRMATION, element: <OrderConfirmation /> },
         ],
       },
@@ -75,7 +81,7 @@ const mainRoutes = [
       },
     ],
   },
-  { path: '*', element: <ErrorPage /> },
+  { path: '*', element: <NotFoundPage /> },
 ];
 
 export default mainRoutes;

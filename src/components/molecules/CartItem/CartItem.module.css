@@ -1,0 +1,20 @@
+.cart_item_wrapper {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.menu_button {
+  transition: all 0.4s;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  font-size: var(--font-size-m);
+  text-align: left;
+}
+
+.trash_icon {
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+}

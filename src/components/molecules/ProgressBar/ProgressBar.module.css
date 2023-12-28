@@ -1,0 +1,45 @@
+:root {
+  --bar-color: rgb(24, 102, 211);
+  --active-dot-color: rgba(45, 127, 234, 0.669);
+}
+
+.progressBar_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stepContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 0 0 0;
+}
+
+.circle {
+  position: relative;
+  border: 0.4rem solid var(--bar-color);
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+}
+
+.line {
+  height: 0.4rem;
+  width: 120px;
+  background-color: var(--bar-color);
+  margin: 1rem;
+}
+
+.circle.isActive:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  background-color: var(--active-dot-color);
+}

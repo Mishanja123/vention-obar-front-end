@@ -1,0 +1,25 @@
+.quantity {
+  display: flex;
+  border-radius: 0.4rem;
+}
+
+.quantity button {
+  height: auto;
+  transition: background-color 0.2s;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  font-size: var(--font-size-xxl);
+  text-align: center;
+}
+
+.quantity_input {
+  outline: none;
+  width: 2.5rem;
+  padding: 0.5rem 0.6rem;
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  font-size: var(--font-size-m);
+  text-align: center;
+}
