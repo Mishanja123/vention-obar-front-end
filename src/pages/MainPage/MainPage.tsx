@@ -1,5 +1,5 @@
 import { Footer } from '@/components/molecules';
-import MainSection from '@/components/organisms/MainSection/MainSection';
+import MainSection from '../../components/organisms/MainSection/MainSection';
 
 import styles from './MainPage.module.css';
 const MainPage = () => {
@@ -7,7 +7,7 @@ const MainPage = () => {
     <div className={styles.main_section_wrapper}>
       <MainSection />
       <Footer />
-    </div>
+    </>
   );
 };
 
