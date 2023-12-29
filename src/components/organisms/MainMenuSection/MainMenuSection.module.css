@@ -1,9 +1,10 @@
 .menu_container {
-  max-width: 75rem;
+  padding: var(--desktop-padding);;
+
   margin: auto;
   text-align: center;
 }
 .menu_heading {
-  color:var(--main-color);
+  color: var(--main-color);
   margin-bottom: 1.3rem;
 }

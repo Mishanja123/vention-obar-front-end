@@ -1,6 +1,6 @@
 .footer {
   background-color: var(--bg-footer);
-  padding: 2.5rem 3.75rem;
+  padding: var(--desktop-padding);
   display: flex;
   justify-content: space-between;
 }
@@ -42,15 +42,13 @@
   border: none;
   transition: var(--transaction);
   border-radius: var(--border-radius);
-  font-family: var(--buttons-text-font) ;
-  font-weight: var(--buttons-text-font-weight) ;
-
+  font-family: var(--buttons-text-font);
+  font-weight: var(--buttons-text-font-weight);
 
   &:hover {
     background-color: var(--accent-color);
     color: var(--light-color);
   }
-
 }
 
 .map {

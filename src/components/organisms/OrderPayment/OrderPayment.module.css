@@ -1,37 +1,37 @@
 .main_container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2rem;
 }
 
 .payment_container {
-  flex: 1;
-  display: flex;
-  gap: 3rem;
+    display: flex;
+    gap: 3rem;
+    flex: 1;
 }
 
 .card_icon_container {
-  display: flex;
-  height: fit-content;
-  padding: 1rem;
-  border: 0.3rem solid var(--darkBG-color);
-  border-radius: 1rem;
+    display: flex;
+    height: fit-content;
+    padding: 1rem;
+    border: 0.3rem solid var(--darkBG-color);
+    border-radius: 1rem;
 }
 
 .card_icon {
-  width: 10rem;
-  height: 10rem;
-  padding: 1rem;
-  transform: rotate(-20deg);
+    transform: rotate(-20deg);
+    width: 10rem;
+    height: 10rem;
+    padding: 1rem;
 }
 
 .paymentMethod_container {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 .summarySection_container {
-  flex: 1;
+    flex: 1;
 }

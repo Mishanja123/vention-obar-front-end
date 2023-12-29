@@ -19,5 +19,6 @@
 }
 
 .form_container {
-  padding: 50px 0;
+  padding: var(--desktop-padding);;
+  margin: 0 auto;
 }

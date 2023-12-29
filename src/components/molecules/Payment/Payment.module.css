@@ -1,18 +1,16 @@
 .add_payment_button {
   width: 31rem;
-  border: none;
   margin-bottom: 1.8rem;
-  border-radius: 1rem;
+  padding: 6px 16px;
 
+  border-radius: var(--border-radius);
   color: var(--neutral-color);
   font-size: var(--font-size-xxl);
-  font-weight: var(--font-weight-regular);
   background-color: var(--main-color);
 
   margin-top: 1.8rem;
-  padding: 0.6rem;
 
-  transition: all 0.5s ease;
+  transition: var(--transaction);
   cursor: pointer;
 
   &:hover {

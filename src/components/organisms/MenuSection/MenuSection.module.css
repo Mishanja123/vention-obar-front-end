@@ -2,8 +2,10 @@
   text-align: center;
   margin: auto;
   background-color: var(--neutral-background);
+  padding: var(--desktop-padding);;
 
 }
 .menu_heading{
   color: var(--main-color);
+  padding-bottom: 5rem;
 }

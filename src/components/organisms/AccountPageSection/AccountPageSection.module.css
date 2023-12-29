@@ -1,7 +1,7 @@
 .account_section {
   display: flex;
   gap: 100px;
-  padding: 40px 60px;
+  padding: var(--desktop-padding);;
 }
 
 .account_list {
