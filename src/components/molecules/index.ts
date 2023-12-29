@@ -14,3 +14,4 @@ export { default as OrderedReservarionForm } from './OrderedReservarionForm/Orde
 export { default as OrderConfirmation } from './OrderConfirmation/OrderConfirmation';
 export { default as EmptyCart } from './EmptyCart/EmptyCart';
 export { default as QuantityCounter } from './QuantityCounter/QuantityCounter';
+export { default as ReservationForm } from './ReservationForm/ReservationForm';
