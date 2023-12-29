@@ -37,7 +37,11 @@ const OrdersPageSection = () => {
                 </tr>
               ))}
             </tbody>
-            <tfoot>{`You reserved table for ${order.orderDate} at ${order.orderTime} for ${order.guests} guests`}</tfoot>
+            <tfoot>
+              <p>
+                {`You reserved table for ${order.orderDate} at ${order.orderTime} for ${order.guests} guests`}
+              </p>
+            </tfoot>
           </table>
         </li>
       ))}

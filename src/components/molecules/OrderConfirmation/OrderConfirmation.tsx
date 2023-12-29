@@ -31,21 +31,25 @@ const OrderConfirmation = () => {
     <div className={styles.order_container}>
       <h3>Order No: id</h3>
       <table className={styles.order_table}>
-        <tr>
-          <th>Dish</th>
-          <th>QTY</th>
-          <th>Price</th>
-        </tr>
-        {order.map((dish) => (
-          <tr key={dish.id}>
-            <td className={styles.dish_info}>
-              <img src={dish.image} alt={dish.title} />
-              <h5>{dish.title}</h5>
-            </td>
-            <td>1</td>
-            <td>{dish.price}</td>
+        <thead>
+          <tr>
+            <th>Dish</th>
+            <th>QTY</th>
+            <th>Price</th>
           </tr>
-        ))}
+        </thead>
+        <tbody>
+          {order.map((dish) => (
+            <tr key={dish.id}>
+              <td className={styles.dish_info}>
+                <img src={dish.image} alt={dish.title} />
+                <h5>{dish.title}</h5>
+              </td>
+              <td>1</td>
+              <td>{dish.price}</td>
+            </tr>
+          ))}
+        </tbody>
       </table>
       <div className={styles.info_container}>
         You are reserving table on MM/DD/YY at HH/MM for N guests
