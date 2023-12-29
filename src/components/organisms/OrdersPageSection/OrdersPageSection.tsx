@@ -30,7 +30,7 @@ const OrdersPageSection = () => {
                         href={`${item.dishURL}#icon-avatar`}
                         aria-expanded="true"></use>
                     </svg>
-                    <h3>{item.title}</h3>
+                    <h3 className={styles.order_title}>{item.title}</h3>
                   </td>
                   <td>{cart.length}</td>
                   <td>{item.price}</td>
@@ -38,9 +38,11 @@ const OrdersPageSection = () => {
               ))}
             </tbody>
             <tfoot>
-              <p>
-                {`You reserved table for ${order.orderDate} at ${order.orderTime} for ${order.guests} guests`}
-              </p>
+              <tr>
+                <td colSpan="3">
+                  {`You reserved table for ${order.orderDate} at ${order.orderTime} for ${order.guests} guests`}
+                </td>
+              </tr>
             </tfoot>
           </table>
         </li>

@@ -18,7 +18,9 @@ function HeaderNavLink({ to, children }: Props) {
   return (
     <NavLink
       to={to}
-      className={({ isActive }) => (isActive ? styles.active : '')}>
+      className={({ isActive }) =>
+        isActive ? styles.active : styles.header_link_item
+      }>
       {children}
     </NavLink>
   );

@@ -2,31 +2,35 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    padding-left: 5rem;
-    padding-right: 5rem;
-    padding-top: 5rem;
-    
+    padding: var(--desktop-padding);
 }
 .cart_remove_all_btn {
-    background-color: transparent;
+    margin-top: 1rem;
+    padding: 6px 16px;
+    transition: var(--transaction);
+    background-color: var(--accent-color);
     cursor: pointer;
     border: none;
-    
+    border-radius: var(--border-radius);
     font-size: var(--font-size-xxl);
-    font-weight: var(--font-weight-regular);
-    color: var(--text-color);
+    font-family: var(--buttons-text-font);
+    color: var(--main-color);
     text-align: start;
-    margin-top: 1rem;
+
+    &:hover {
+      background-color: var(--main-color);
+      color: var(--accent-color);
+  }
 }
 
 .cart_list {
     display: flex;
-    padding: 0;
-    margin: 0;
     flex-direction: column;
     gap: var(--font-size-xxl);
+    margin: 0;
+    padding: var(--desktop-internal-padding);
 }
-.cart_list_wrapper{
+.cart_list_wrapper {
     display: flex;
     flex-direction: row-reverse;
     align-items: flex-start;

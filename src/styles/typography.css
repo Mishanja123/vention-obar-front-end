@@ -1,6 +1,4 @@
 :root {
-  --font-family-primary: 'Inter', sans-serif;
-
   /* line heights */
   --line-height-s: 1rem;
   --line-height-m: 2rem;
@@ -15,7 +13,23 @@
   --font-size-xxl: 1.625rem;
   --font-size-xxxl: 2.5rem;
 
-  /* font weights */
-  --font-weight-regular: 400;
-  --font-weight-bold: 700;
+  /* Font */
+
+  --heading-font: 'Montserrat', sans-serif;
+  --heading-font-weight: bold;
+
+  --titles-subheadings-font: 'Playfair Display', serif;
+  --titles-subheadings-font-weight: 600;
+
+  --text-font: 'Roboto Slab', serif;
+  --text-font-weight: 400;
+
+  --links-font: 'Dosis', sans-serif;
+  --links-font-weight: 500;
+
+  --buttons-text-font: 'Pacifico', cursive;
+  --buttons-text-font-weight: 400;
+
+  /* Transaction */
+  --transaction: all 0.3s ease-in;
 }

@@ -1,5 +1,11 @@
 .menu_section {
   text-align: center;
   margin: auto;
-  max-width: 73.375rem;
+  background-color: var(--neutral-background);
+  padding: var(--desktop-padding);;
+
+}
+.menu_heading{
+  color: var(--main-color);
+  padding-bottom: 5rem;
 }

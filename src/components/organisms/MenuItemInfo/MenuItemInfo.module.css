@@ -1,4 +1,5 @@
 .menu_item_container {
+  color: var(--main-color);
   display: flex;
   border: 2px solid var(--text-color);
   padding: 3rem;
@@ -23,6 +24,7 @@
 .ingredients_title {
   margin-bottom: 0;
   text-align: left;
+  color: var(--main-color);
   font-weight: var(--font-weight-bold);
 }
 .ingredients_list {
@@ -57,10 +59,12 @@
   top: 2.8125rem;
   border: none;
   text-align: left;
-  background-color: transparent;
+  background-color: var(--accent-color);
+  color: var(--main-color);
   font-size: var(--font-size-m);
   cursor: pointer;
   transition: all 0.4s;
+  border-radius: var(--border-radius);
 }
 
 .menu_button:hover {
@@ -75,8 +79,13 @@
   transition: all 0.4s;
   border: 2px solid var(--btn-rgba);
   cursor: pointer;
+  background-color: var(--accent-color);
+  color: var(--main-color);
+  border-radius: var(--border-radius);
+
 }
 .menu_button_cart:hover {
   border: 2px solid var(--text-color);
   transform: scale(1.1);
+
 }

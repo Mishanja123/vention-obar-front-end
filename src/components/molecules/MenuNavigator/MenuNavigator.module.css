@@ -3,6 +3,8 @@
   flex-direction: row;
   justify-content: center;
   gap: 10em;
+
+
 }
 
 .menu_navigation_btn {
@@ -10,6 +12,8 @@
   background-color: transparent;
   border-bottom: solid 2px var(--btn-rgba);
   transition: all 0.4s;
+  color: var(--main-color);
+  
 }
 .menu_navigation_btn:hover {
   border-bottom: solid 2px var(--text-color);
