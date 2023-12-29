@@ -1,13 +1,18 @@
 import * as React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { SiIfood } from 'react-icons/si';
 import { PiShoppingCartLight } from 'react-icons/pi';
 import { GoPerson } from 'react-icons/go';
 import { IconContext } from 'react-icons';
 
-import SearchInput from '../../atoms/SearchInput/SearchInput.tsx';
-import { PATHS } from '../../../constants/paths.ts';
+import { SearchInput } from '@/components/atoms/index.ts';
+import { PATHS } from '@/constants/paths';
 import styles from './Header.module.css';
+import { Button } from '@/components/atoms/index.ts';
+import { scrollToReservationForm } from '@/helpers/scrollToReservation.ts';
+import { ReservationForm } from '@/components/molecules';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
 function HeaderNavLink({ to, children }: Props) {
   return (
@@ -22,6 +27,18 @@ function HeaderNavLink({ to, children }: Props) {
 }
 
 function Header() {
+  const location = useLocation();
+  const path = location.pathname;
+
+  const mySwal = withReactContent(Swal);
+
+  const showReservationModal = () =>
+    mySwal.fire({
+      title: 'Make a reservation',
+      html: <ReservationForm />,
+      confirmButtonText: 'Close',
+    });
+
   return (
     <div className={styles.header_wrapper}>
       <NavLink to={PATHS.ROOT} className={styles.logo_link}>
@@ -32,7 +49,13 @@ function Header() {
       </NavLink>
       <SearchInput />
       <HeaderNavLink to={PATHS.MENU}>Menu</HeaderNavLink>
-      <HeaderNavLink to={PATHS.BOOK_TABLE}>Reserve a table</HeaderNavLink>
+      <Button
+        variant="contained"
+        onClick={
+          path === PATHS.ROOT ? scrollToReservationForm : showReservationModal
+        }>
+        Reserve a table
+      </Button>
       <HeaderNavLink to={PATHS.ORDERS}>Orders</HeaderNavLink>
       <HeaderNavLink to={PATHS.CART}>
         <IconContext.Provider value={{ className: styles.cart_img }}>

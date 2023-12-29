@@ -1,19 +1,9 @@
 import { FaPhone } from 'react-icons/fa6';
 import { BsClockHistory } from 'react-icons/bs';
-
+import { scrollToReservationForm } from '@/helpers/scrollToReservation';
 import styles from './Footer.module.css';
 
 const Footer = () => {
-  const scrollToReservationForm = () => {
-    const reservationForm = document.getElementById('reservationForm');
-
-    if (reservationForm) {
-      reservationForm.scrollIntoView({
-        behavior: 'smooth',
-      });
-    }
-  };
-
   return (
     <footer className={styles.footer}>
       <div className={styles.contact_box}>

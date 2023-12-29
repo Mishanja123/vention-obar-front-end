@@ -3,6 +3,8 @@ import { CartItem, EmptyCart, SummaryPayment } from '@/components/molecules';
 import sprite from '@/assets/sprite.svg';
 import styles from './Cart.module.css';
 import { Button } from '@/components/atoms';
+import { Link } from 'react-router-dom';
+import { PATHS } from '@/constants/paths';
 
 const cartItems = [
   {
@@ -45,9 +47,11 @@ const Cart = () => {
       </div>
 
       <SummaryPayment quantity={20} subtotal={50} total={500}>
-        <Button variant="contained" type="button">
-          Checkout
-        </Button>
+        <Link to={PATHS.CHECKOUT}>
+          <Button variant="contained" type="button">
+            Checkout
+          </Button>
+        </Link>
       </SummaryPayment>
     </div>
   );
