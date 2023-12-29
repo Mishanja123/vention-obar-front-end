@@ -5,12 +5,11 @@ import { PiShoppingCartLight } from 'react-icons/pi';
 import { GoPerson } from 'react-icons/go';
 import { IconContext } from 'react-icons';
 
-import SearchInput from '../../atoms/SearchInput/SearchInput.tsx';
-import { PATHS } from '../../../constants/paths.ts';
+import { SearchInput } from '@/components/atoms/index.ts';
+import { PATHS } from '@/constants/paths';
 import styles from './Header.module.css';
 import { Button } from '@/components/atoms/index.ts';
 import { scrollToReservationForm } from '@/helpers/scrollToReservation.ts';
-import { modalCall as showReservationModal } from '@/helpers/showReservationModal.ts';
 import { ReservationForm } from '@/components/molecules';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
