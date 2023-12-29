@@ -14,13 +14,13 @@
     bottom: 0;
     right: -20px;
     width: 1px;
-    background-color: #000;
+    background-color: var(--background-color);
     position: absolute;
   }
 }
 .account_item {
   text-decoration: none;
-  color: var(--text-color);
+  color: var(--main-color);
 
   font-size: 30px;
   font-weight: 300;

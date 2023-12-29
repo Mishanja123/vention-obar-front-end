@@ -7,8 +7,11 @@
 .reservationForm {
   display: flex;
   flex-direction: column;
-  border: 1px solid gray;
+  border: 1px solid var(--background-color);
   border-radius: 10px;
   padding: 50px 100px;
   gap: 20px;
+}
+.reservation_form_title {
+  color: var(--main-color);
 }

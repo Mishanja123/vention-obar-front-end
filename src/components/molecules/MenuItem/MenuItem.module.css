@@ -25,9 +25,13 @@
   font-weight: var(--font-weight-bold);
   padding: 0.375rem 1.25rem;
   border: none;
-  background-color: var(--bg-color);
+  background-color: var(--accent-color);
+  color: var(--main-color);
   transition: all 0.3s;
   border: 1px solid var(--btn-rgba);
+  border-radius: var(--border-radius);
+  font-family: var(--buttons-text-font) !important;
+  font-weight: var(--buttons-text-font-weight) !important;
 }
 
 .add_to_cart_btn:hover {

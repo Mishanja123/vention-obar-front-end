@@ -9,7 +9,7 @@ const MenuSection: React.FC<MenuSectionProps> = () => {
   return (
     <>
       <section className={styles.menu_section}>
-        <h1>Menu</h1>
+        <h1 className={styles.menu_heading}>Menu</h1>
         <MenuNavigator />
         <Outlet />
       </section>

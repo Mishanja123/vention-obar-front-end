@@ -1,5 +1,9 @@
 .menu_section {
   text-align: center;
   margin: auto;
-  max-width: 73.375rem;
+  background-color: var(--neutral-background);
+
+}
+.menu_heading{
+  color: var(--main-color);
 }

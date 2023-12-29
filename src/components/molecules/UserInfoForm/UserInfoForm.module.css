@@ -10,10 +10,10 @@
 }
 
 .image_change_button {
-  color: var(--text-color);
   font-size: var(--font-size-xxl);
   font-weight: var(--font-weight-regular);
-
+  background-color: var(--main-color);
+  color: var(--neutral-color);
   padding: 0.6rem;
 
   border-radius: 1rem;

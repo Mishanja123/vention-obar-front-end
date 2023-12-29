@@ -1,33 +1,33 @@
 .cart {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding-left: 5rem;
-    padding-right: 5rem;
-    padding-top: 5rem;
-    
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  padding-top: 5rem;
 }
 .cart_remove_all_btn {
-    background-color: transparent;
-    cursor: pointer;
-    border: none;
-    
-    font-size: var(--font-size-xxl);
-    font-weight: var(--font-weight-regular);
-    color: var(--text-color);
-    text-align: start;
-    margin-top: 1rem;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  background-color: var(--accent-color);
+  color: var(--main-color);
+  font-size: var(--font-size-xxl);
+  font-weight: var(--font-weight-regular);
+  text-align: start;
+  margin-top: 1rem;
+  border-radius: var(--border-radius);
 }
 
 .cart_list {
-    display: flex;
-    padding: 0;
-    margin: 0;
-    flex-direction: column;
-    gap: var(--font-size-xxl);
+  display: flex;
+  padding: 0;
+  margin: 0;
+  flex-direction: column;
+  gap: var(--font-size-xxl);
 }
-.cart_list_wrapper{
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: flex-start;
+.cart_list_wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
 }

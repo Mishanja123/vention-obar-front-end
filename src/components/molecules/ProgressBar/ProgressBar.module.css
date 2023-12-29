@@ -25,6 +25,10 @@
   border-radius: 50%;
 }
 
+.progressBar_title{
+  color: var(--main-color);
+}
+
 .line {
   height: 0.4rem;
   width: 120px;

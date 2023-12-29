@@ -30,7 +30,7 @@ const ProgressBar: React.FC = () => {
       <ol className={styles.progressBar_container}>
         <li className={styles.stepContainer}>
           <div className={`${styles.circle} ${styles.isActive}`}></div>
-          <p className="">Order Type</p>
+          <p className={styles.progressBar_title}>Order Type</p>
         </li>
         <div className={styles.line}></div>
         <li className={styles.stepContainer}>
@@ -38,7 +38,7 @@ const ProgressBar: React.FC = () => {
             className={`${styles.circle} ${
               progress >= 1 ? styles.isActive : ''
             }`}></div>
-          <p className="">Confirmation</p>
+          <p className={styles.progressBar_title}>Confirmation</p>
         </li>
         <div className={styles.line}></div>
         <li className={styles.stepContainer}>
@@ -46,7 +46,7 @@ const ProgressBar: React.FC = () => {
             className={`${styles.circle} ${
               progress === 2 ? styles.isActive : ''
             }`}></div>
-          <p className="">Payment</p>
+          <p className={styles.progressBar_title}>Payment</p>
         </li>
       </ol>
     </>

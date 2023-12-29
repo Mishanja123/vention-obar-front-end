@@ -69,7 +69,9 @@ const ReservationForm = () => {
   return (
     <div className={styles.reservationForm_container}>
       <form onSubmit={formik.handleSubmit} className={styles.reservationForm}>
-        <h3>Make a reservation without a preorder</h3>
+        <h3 className={styles.reservation_form_title}>
+          Make a reservation without a preorder
+        </h3>
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <CalendarInput
             formik={formik}

@@ -1,10 +1,9 @@
 .menu_container {
   max-width: 75rem;
   margin: auto;
-
   text-align: center;
-  padding: 6.25rem 0 6.25rem;
 }
 .menu_heading {
+  color:var(--main-color);
   margin-bottom: 1.3rem;
 }

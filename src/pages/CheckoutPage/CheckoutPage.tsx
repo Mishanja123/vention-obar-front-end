@@ -13,7 +13,6 @@ const CheckoutPage = () => {
       <ProgressBar />
       <div className={styles.info_container}>
         <div className={styles.method_container}>
-          <h1>CheckoutPage</h1>
           <OrderMethodSelection />
           <Outlet />
         </div>
