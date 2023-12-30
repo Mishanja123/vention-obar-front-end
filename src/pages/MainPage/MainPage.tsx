@@ -7,7 +7,7 @@ const MainPage = () => {
     <div className={styles.main_section_wrapper}>
       <MainSection />
       <Footer />
-    </>
+    </div>
   );
 };
 
