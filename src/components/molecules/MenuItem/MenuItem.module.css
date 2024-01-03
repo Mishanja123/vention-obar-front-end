@@ -1,9 +1,11 @@
 .menu_item {
-  flex: 0 0 22%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   box-sizing: border-box;
   max-width: 16rem;
   height: 23.75rem;
-  padding: 1.875rem 1.25rem 1.25rem;
+  padding: 0 1rem;
   border: 1px solid var(--text-color);
   text-align: center;
   list-style: none;
