@@ -30,7 +30,7 @@ const MainMenuSection = () => {
           swipeToSlide={true}
           focusOnSelect={true}
           centerMode={true}
-          centerPadding={-28}>
+          centerPadding={-100}>
           {items.map((item) => (
             <MenuItem
               key={item.id}
