@@ -2,7 +2,7 @@ import { useFormik, FormikValues } from 'formik';
 import { userFormSchema } from '@/validationSchemas/userFormSchema';
 import { userInfoFormInputs } from '@/content/accountForms/userInfoFormInputs';
 import { Button, TextInput } from '@/components/atoms';
-
+import axios from 'axios';
 import styles from './RegistrationForm.module.css';
 
 const RegistrationForm = () => {
@@ -23,21 +23,18 @@ const RegistrationForm = () => {
       password,
     }: FormikValues) => {
       console.log(firstName, lastName, email, phone, password);
-      const response = await fetch('http://localhost:3000/api/auth/sign-up', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      const response = axios.post(
+        'http://localhost:3000/api/auth/sign-up',
+        { first_name: firstName, last_name: lastName, email, phone, password },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          withCredentials: true,
         },
-        body: JSON.stringify({
-          first_name: firstName,
-          last_name: lastName,
-          email,
-          phone,
-          password,
-        }),
-      });
+      );
 
-      const result = await response.json();
+      const result = (await response).data;
       console.log(result);
     },
   });
