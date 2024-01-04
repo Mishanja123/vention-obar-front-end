@@ -3,8 +3,6 @@
   flex-direction: row;
   justify-content: center;
   gap: 10em;
-
-
 }
 
 .menu_navigation_btn {
@@ -13,6 +11,8 @@
   border-bottom: solid 2px var(--btn-rgba);
   transition: all 0.4s;
   color: var(--main-color);
+
+  padding-bottom: var(--desktop-internal-padding);
   
 }
 .menu_navigation_btn:hover {
@@ -21,4 +21,5 @@
 .active {
   transform: scale(1.1);
   border-bottom: solid 2px var(--text-color);
+  font-weight: var(--titles-subheadings-font-weight);
 }

@@ -1,4 +1,4 @@
-import { DishCategory } from '@/constants/categoryDish';
+import { DISHCATEGORY } from '@/constants/categoryDish';
 
 type Ingredients = {
   title: string;
@@ -8,9 +8,9 @@ type Ingredients = {
 export type IDish = {
   id: string;
   title: string;
-  photoURL: string;
-  category: DishCategory;
+  price: string;
+  photo_path: string;
+  category: DISHCATEGORY;
   ingredients: Ingredients[];
-  weightGrams: number;
-  dateCreated: Date;
+  weight_grams: number;
 };

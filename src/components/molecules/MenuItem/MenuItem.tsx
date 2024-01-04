@@ -2,19 +2,17 @@ import React from 'react';
 import styles from './MenuItem.module.css';
 import { PATHS } from '@/constants/paths';
 import { Link } from 'react-router-dom';
+import { IDish } from '@/types/dish';
 
-type MenuItemProps = {
-  id: string;
-  title: string;
-  price: number;
-  image: string;
-};
-
-const MenuItem: React.FC<MenuItemProps> = ({ title, price, image, id }) => {
+const MenuItem: React.FC<IDish> = ({ title, price, photo_path, id }) => {
   return (
     <li className={styles.menu_item}>
       <Link className={styles.menu_link} to={`${PATHS.MENU_ITEM}${id}`}>
-        <img className={styles.menu_item_img} src={image} alt="Dish_picture" />
+        <img
+          className={styles.menu_item_img}
+          src={photo_path}
+          alt="Dish_picture"
+        />
         <p className={styles.menu_item_title}>Title: {title}</p>
         <p className={styles.menu_item_price}>Price: {price}$</p>
       </Link>
