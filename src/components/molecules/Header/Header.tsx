@@ -14,6 +14,8 @@ import { ReservationForm } from '@/components/molecules';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 
+import { useCartService } from '@/hooks/useCartService';
+
 function HeaderNavLink({ to, children }: Props) {
   return (
     <NavLink
@@ -39,6 +41,7 @@ function Header() {
       confirmButtonText: 'Close',
     });
 
+  const { getTotal } = useCartService();
   return (
     <div className={styles.header_wrapper}>
       <NavLink to={PATHS.ROOT} className={styles.logo_link}>
@@ -60,6 +63,7 @@ function Header() {
       <HeaderNavLink to={PATHS.CART}>
         <IconContext.Provider value={{ className: styles.cart_img }}>
           <PiShoppingCartLight />
+          <span>${getTotal()}</span>
         </IconContext.Provider>
       </HeaderNavLink>
       <HeaderNavLink to={PATHS.ACCOUNT}>

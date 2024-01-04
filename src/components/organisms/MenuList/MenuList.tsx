@@ -3,6 +3,8 @@ import menuData from '@/menuData/menuData.json';
 import { MenuItem } from '@/components/molecules';
 
 import styles from './MenuList.module.css';
+import { CartItem } from '@/models/cart.model';
+import { useCartService } from '@/hooks/useCartService';
 
 type MenuItemData = {
   id: string;
@@ -14,6 +16,11 @@ type MenuItemData = {
 
 const MenuList = () => {
   const items: MenuItemData[] = menuData;
+  const { addToCart } = useCartService();
+
+  const handleAddToCart = (item: CartItem) => {
+    addToCart(item);
+  };
 
   return (
     <ul className={styles.menu_list}>
@@ -23,7 +30,8 @@ const MenuList = () => {
           id={item.id}
           title={item.title}
           price={item.price}
-          image={item.image}
+          imageURL={item.image}
+          addToCart={handleAddToCart}
         />
       ))}
     </ul>
