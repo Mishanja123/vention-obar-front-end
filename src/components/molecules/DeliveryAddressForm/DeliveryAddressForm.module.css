@@ -9,9 +9,9 @@
 }
 
 .delivery_form {
-  width: 28rem;
+  /* width: 35rem; */
 
-  align-items: center;
+  /* align-items: flex-start; */
   display: flex;
   flex-direction: column;
 }
