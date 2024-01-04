@@ -1,6 +1,6 @@
 .footer {
   background-color: var(--bg-footer);
-  padding: 2.5rem 3.75rem;
+  padding: var(--desktop-padding);
   display: flex;
   justify-content: space-between;
 }
@@ -12,6 +12,7 @@
 }
 
 .footer_heading {
+  color: var(--main-color);
   font-size: var(--font-size-xxxl);
   font-weight: var(--font-weight-regular);
 }
@@ -32,17 +33,22 @@
 }
 
 .reservation_btn {
+  color: var(--neutral-color);
+
   margin-left: 1.25rem;
   padding: 0.9375rem 1.25rem;
   font-size: var(--font-size-xl);
-  background-color: var(--bg-color);
-  border: 0.125rem solid var(--btn-rgba);
-  transition: all 0.3s;
-}
+  background-color: var(--main-color);
+  border: none;
+  transition: var(--transaction);
+  border-radius: var(--border-radius);
+  font-family: var(--buttons-text-font);
+  font-weight: var(--buttons-text-font-weight);
 
-.reservation_btn:hover {
-  transform: scale(1.1);
-  border: 0.125rem solid var(--text-color);
+  &:hover {
+    background-color: var(--accent-color);
+    color: var(--light-color);
+  }
 }
 
 .map {

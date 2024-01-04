@@ -9,10 +9,12 @@ import styles from './MainSection.module.css';
 const MainSection = () => {
   return (
     <>
-      <section className={styles.welcomeBanner}>
-        <div className={styles.welcomeBanner_welcomeContainer}>
+      <section className={styles.welcome_section}>
+        <div className={styles.welcome_wrapper}>
           <img src="" alt="Ocean bar logo" />
-          <h1>Your Culinary Adventure Starts Here</h1>
+          <h1 className={styles.welcome_title}>
+            Your Culinary Adventure Starts Here
+          </h1>
           <NavLink to={PATHS.MENU}>
             <Button variant="outlined">Menu</Button>
           </NavLink>
