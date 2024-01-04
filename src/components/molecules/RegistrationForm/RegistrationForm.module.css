@@ -1,7 +1,32 @@
 .registration_title {
   text-align: center;
+
+  padding-bottom: var(--mobile-internal-padding);
+
+  @media screen and (min-width: 1450px) {
+    padding-bottom: var(--desktop-internal-padding);
+  }
 }
-.registration_btn{
-    width: 100%;
-    text-align: center;
+.registration_btn {
+  width: 100%;
+  text-align: center;
+}
+
+.login_btn {
+  display: block;
+  margin: 0 auto;
+  margin-top: 1rem;
+}
+
+.registration_form {
+  width: 30rem;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  background-image: url('../../../assets/icons/back.png');
+
+  background-size: contain;
+
+  @media screen and (max-width: 570px) {
+    width: 20rem;
+  }
 }

@@ -2,16 +2,6 @@
   display: flex;
   flex-direction: column;
   position: relative;
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: -6.2rem;
-    width: 0.2rem;
-    background-color: var(--background-color);
-  }
 }
 
 .login_btn {
@@ -19,4 +9,33 @@
 }
 .login_title {
   text-align: center;
+  padding-bottom: var(--mobile-internal-padding);
+
+  @media screen and (min-width: 1450px) {
+    padding-bottom: var(--desktop-internal-padding);
+  }
+}
+
+.registration_btn {
+  display: block;
+  margin: 0 auto;
+  margin-top: 1rem;
+}
+.login_form {
+  width: 30rem;
+
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  background-image: url('../../../assets/icons/back.png');
+  background-size: contain;
+
+  @media screen and (max-width: 570px) {
+    width: 20rem;
+  }
+}
+.login_form_label {
+  display: block;
+}
+.forgot_password_btn {
+  margin-top: 1rem;
 }
