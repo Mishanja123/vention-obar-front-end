@@ -13,8 +13,18 @@ const LoginForm = () => {
       password: '',
     },
     validationSchema: loginShema,
-    onSubmit: ({ email, password }: FormikValues) => {
-      console.log(email, password);
+    onSubmit: async ({ email, password }: FormikValues) => {
+      const response = await fetch('http://localhost:3000/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+        credentials: 'include',
+      });
+
+      const result = await response.json();
+      console.log(result);
     },
   });
   return (
