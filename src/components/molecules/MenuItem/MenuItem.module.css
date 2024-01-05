@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
-  max-width: 16rem;
+  width: 16rem;
   height: 23.75rem;
   padding: 0 1rem;
   border: 1px solid var(--text-color);
