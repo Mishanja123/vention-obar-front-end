@@ -1,17 +1,13 @@
 import { PATHS } from '@/constants/paths';
-import { IconContext } from 'react-icons';
-import { SiIfood } from 'react-icons/si';
 import { NavLink, Outlet } from 'react-router-dom';
 import styles from './AuthPage.module.css';
-// import { LoginForm, RegistrationForm } from '@/components/molecules';
+import logo from '@/assets/images/logo.svg';
+
 const AuthPage = () => {
   return (
     <section className={styles.auth_section}>
       <NavLink to={PATHS.ROOT} className={styles.logo_link}>
-        OBar
-        <IconContext.Provider value={{ className: styles.logo_img }}>
-          <SiIfood />
-        </IconContext.Provider>
+        <img src={logo} alt="logo" width={400} style={{ borderRadius: 20 }} />
       </NavLink>
       <div className={styles.auth_wrapper}>
         <Outlet />

@@ -43,8 +43,8 @@ const RegistrationForm = () => {
   });
   return (
     <div>
-      <h3 className={styles.registration_title}>Registration</h3>
       <form onSubmit={formik.handleSubmit} className={styles.registration_form}>
+        <h3 className={styles.registration_title}>Registration</h3>
         {userInfoFormInputs.map((input, i) => (
           <label htmlFor={input.name} key={i}>
             <TextInput {...input} formik={formik} />

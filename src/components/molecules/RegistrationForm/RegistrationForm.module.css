@@ -1,10 +1,10 @@
 .registration_title {
-  text-align: center;
+  text-align: left;
 
+  font-size: var(--font-size-xxl);
   padding-bottom: var(--mobile-internal-padding);
 
   @media screen and (min-width: 1450px) {
-    padding-bottom: var(--desktop-internal-padding);
   }
 }
 .registration_btn {
@@ -28,5 +28,14 @@
 
   @media screen and (max-width: 570px) {
     width: 20rem;
+
+    padding: var(--mobile-internal-padding);
+  }
+
+  @media screen and (min-width: var(--breakpoint-tablet)) {
+    width: 25rem;
+  }
+  @media screen and (min-width: var(--breakpoint-desktop)) {
+    width: 30rem;
   }
 }

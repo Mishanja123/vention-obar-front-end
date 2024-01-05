@@ -37,8 +37,8 @@ const LoginForm = () => {
   });
   return (
     <div className={styles.login_wrapper}>
-      <h3 className={styles.login_title}>Login</h3>
       <form onSubmit={formik.handleSubmit} className={styles.login_form}>
+        <h3 className={styles.login_title}>Login</h3>
         {loginInputs.map((input, i) => (
           <label
             htmlFor={input.name}

@@ -1,0 +1,5 @@
+:root {
+  /* breakpoints */
+  --breakpoint-tablet: 876px;
+  --breakpoint-desktop: 1450px;
+}
