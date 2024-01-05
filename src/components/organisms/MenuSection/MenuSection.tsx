@@ -2,6 +2,8 @@ import React from 'react';
 import styles from './MenuSection.module.css';
 import { Outlet } from 'react-router-dom';
 import MenuNavigator from '@/components/molecules/MenuNavigator/MenuNavigator';
+import Pagination from '@/components/atoms/Pagination/Pagination';
+import { useMenuContext } from '@/context/menuContext';
 
 type MenuSectionProps = object;
 
