@@ -1,38 +1,44 @@
 .header_wrapper {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: var(--desktop-padding);;
-    background-color: var(--main-color);
-    font-size: var(--font-size-l);
-    color: var(--neutral-color);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: var(--desktop-padding);
+  background-color: var(--main-color);
+  font-size: var(--font-size-l);
+  color: var(--neutral-color);
 }
 
 .header_wrapper a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .logo_link {
-    display: flex;
-    align-items: center;
-    gap: 0.2rem;
-    font-size: var(--font-size-xl);
-    color: var(--accent-color);
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: var(--font-size-xl);
+  color: var(--accent-color);
 }
 
 .logo_img,
 .cart_img,
 .profile_img {
-    width: 3rem;
-    height: 2.8rem;
+  width: 3rem;
+  height: 2.8rem;
 }
 
 .header_wrapper a.active {
-    color: lightblue;
+  color: lightblue;
 }
 
 .header_link_item {
-    font-family: var(--links-font);
-    font-weight: var(--links-font-weight);
-    color: var(--accent-color);
+  font-family: var(--links-font);
+  font-weight: var(--links-font-weight);
+  color: var(--accent-color);
+}
+
+@media screen and (max-width: 876px) {
+  .header_wrapper {
+    display: none;
+  }
 }
