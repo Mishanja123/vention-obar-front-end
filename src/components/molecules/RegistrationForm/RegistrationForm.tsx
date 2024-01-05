@@ -2,7 +2,7 @@ import { useFormik, FormikValues } from 'formik';
 import { userFormSchema } from '@/validationSchemas/userFormSchema';
 import { userInfoFormInputs } from '@/content/accountForms/userInfoFormInputs';
 import { Button, TextInput } from '@/components/atoms';
-
+import axios from 'axios';
 import styles from './RegistrationForm.module.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -18,7 +18,7 @@ const RegistrationForm = () => {
       password: '',
     },
     validationSchema: userFormSchema,
-    onSubmit: ({
+    onSubmit: async ({
       firstName,
       lastName,
       email,
@@ -26,6 +26,19 @@ const RegistrationForm = () => {
       password,
     }: FormikValues) => {
       console.log(firstName, lastName, email, phone, password);
+      const response = axios.post(
+        'http://localhost:3000/api/auth/sign-up',
+        { first_name: firstName, last_name: lastName, email, phone, password },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          withCredentials: true,
+        },
+      );
+
+      const result = (await response).data;
+      console.log(result);
     },
   });
   return (

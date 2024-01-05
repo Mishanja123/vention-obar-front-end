@@ -1,7 +1,6 @@
+import axios from 'axios';
 import { useFormik, FormikValues } from 'formik';
-
 import styles from './LoginForm.module.css';
-
 import { loginInputs } from '@/content/authForms/loginInputs';
 import { Button, TextInput } from '@/components/atoms';
 import { loginShema } from '@/validationSchemas/loginShema';
@@ -16,8 +15,24 @@ const LoginForm = () => {
       password: '',
     },
     validationSchema: loginShema,
-    onSubmit: ({ email, password }: FormikValues) => {
-      console.log(email, password);
+    onSubmit: async ({ email, password }: FormikValues) => {
+      try {
+        const response = await axios.post(
+          'http://localhost:3000/api/auth/login',
+          { email, password },
+          {
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            withCredentials: true,
+          },
+        );
+
+        const result = await response.data;
+        console.log(result);
+      } catch (error) {
+        console.error(`Error: ${error}`);
+      }
     },
   });
   return (
