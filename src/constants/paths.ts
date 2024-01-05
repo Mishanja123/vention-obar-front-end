@@ -2,6 +2,7 @@ export enum PATHS {
   ROOT = '/',
   HOME = 'main',
   AUTH = '/auth',
+  LOGIN = 'login',
   MENU = '/menu',
   MENU_ITEM = '/menu/:id',
   CART = '/cart',
