@@ -32,10 +32,10 @@ const DeliveryAddressForm = () => {
 
   return (
     <div className={styles.delivery_address_section}>
-      <button className={styles.delivery_address_button}>
-        Add Delivery Address
-      </button>
       <form onSubmit={formik.handleSubmit} className={styles.delivery_form}>
+        <button className={styles.delivery_address_button}>
+          Add Delivery Address
+        </button>
         {deliveryAddressFormInputs.slice(0, 3).map((input, i) => (
           <label htmlFor={input.name} key={i}>
             <TextInput {...input} formik={formik} />
