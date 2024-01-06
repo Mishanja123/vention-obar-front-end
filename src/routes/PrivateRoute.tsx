@@ -1,19 +1,25 @@
-import { ReactNode, FC, useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import { ReactNode, FC, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuthContext } from '@/context/authContext';
+import { PATHS } from '@/constants/paths';
 
 interface PrivatePageProps {
   children: ReactNode;
-  redirectTo?: string;
 }
 
-const PrivatePage: FC<PrivatePageProps> = ({
-  children,
-  redirectTo = '/auth',
-}) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+const PrivatePage: FC<PrivatePageProps> = ({ children }) => {
+  const { loggedIn } = useAuthContext();
+  const navigate = useNavigate();
 
-  return isLoggedIn ? <Navigate to={redirectTo} /> : children;
+  useEffect(() => {
+    if (!loggedIn) {
+      navigate(PATHS.AUTH);
+    } else {
+      navigate(PATHS.ROOT);
+    }
+  }, [loggedIn, navigate]);
+
+  return children;
 };
 
 export default PrivatePage;

@@ -13,6 +13,7 @@ import { scrollToReservationForm } from '@/helpers/scrollToReservation.ts';
 import { ReservationForm } from '@/components/molecules';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
+import { useAuthContext } from '@/context/authContext';
 
 function HeaderNavLink({ to, children }: Props) {
   return (
@@ -29,6 +30,7 @@ function HeaderNavLink({ to, children }: Props) {
 function Header() {
   const location = useLocation();
   const path = location.pathname;
+  const { logOut } = useAuthContext();
 
   const mySwal = withReactContent(Swal);
 
@@ -70,6 +72,9 @@ function Header() {
           <GoPerson />
         </IconContext.Provider>
       </HeaderNavLink>
+      <Button variant="contained" onClick={() => logOut()}>
+        Log out
+      </Button>
     </div>
   );
 }

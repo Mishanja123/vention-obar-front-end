@@ -1,6 +1,7 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import { IDish } from '@/types/dish';
 import { DISHCATEGORY } from '@/constants/categoryDish';
+import axiosInstance from '../services/restaurantAPI'; // Adjust the path as needed
 
 interface MenuContextProps {
   category: DISHCATEGORY;
@@ -21,8 +22,10 @@ export const MenuProvider = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/dishes');
-        const { dishes } = await response.json();
+        const {
+          data: { dishes },
+        } = await axiosInstance.get('/dishes');
+
         setAllItems(dishes);
         setFilteredItems(dishes);
       } catch (error) {

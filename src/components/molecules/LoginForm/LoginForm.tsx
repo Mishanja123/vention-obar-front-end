@@ -1,12 +1,13 @@
-import axios from 'axios';
-import { useFormik, FormikValues } from 'formik';
+import { useNavigate } from 'react-router-dom';
+import { useFormik } from 'formik';
 import styles from './LoginForm.module.css';
 import { loginInputs } from '@/content/authForms/loginInputs';
 import { Button, TextInput } from '@/components/atoms';
 import { loginShema } from '@/validationSchemas/loginShema';
-import { useNavigate } from 'react-router-dom';
+import { useAuthContext } from '@/context/authContext';
 
 const LoginForm = () => {
+  const { login } = useAuthContext();
   const navigate = useNavigate();
 
   const formik = useFormik({
@@ -15,24 +16,8 @@ const LoginForm = () => {
       password: '',
     },
     validationSchema: loginShema,
-    onSubmit: async ({ email, password }: FormikValues) => {
-      try {
-        const response = await axios.post(
-          'http://localhost:3000/api/auth/login',
-          { email, password },
-          {
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            withCredentials: true,
-          },
-        );
-
-        const result = await response.data;
-        console.log(result);
-      } catch (error) {
-        console.error(`Error: ${error}`);
-      }
+    onSubmit: async ({ email, password }) => {
+      await login(email, password);
     },
   });
   return (

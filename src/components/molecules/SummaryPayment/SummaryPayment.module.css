@@ -1,8 +1,9 @@
 .summary_section {
-  width: 30rem;
-  padding: 1rem;
-  border: 0.2rem solid var(--background-color);
-  border-radius: 1rem;
+  border: 1px solid ;
+  width: 500px;
+  background: #fefefe;
+  border-radius: 20px;
+  padding: 20px;
   text-align: center;
 }
 
@@ -18,23 +19,10 @@
 .summary_item {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  position: relative;
+}
 
-  font-size: var(--font-size-l);
-  font-weight: 300;
-  color: var(--text-color);
-
-  &:nth-child(2)::after {
-    content: '';
-
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 0.2rem;
-
-    background-color: var(--background-color);
-  }
+.summary_item:last-child {
+  width: 100%;
 }
 
 .summary_item_accent {
