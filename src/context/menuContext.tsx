@@ -7,6 +7,10 @@ interface MenuContextProps {
   category: DISHCATEGORY;
   items: IDish[];
   setCategory: (category: DISHCATEGORY) => void;
+  postsPerPage: number;
+  totalPosts: number;
+  paginate: (pageNumber: number) => void;
+  currentPage: number;
 }
 
 const MenuContext = createContext<MenuContextProps>({} as MenuContextProps);
@@ -18,6 +22,8 @@ export const MenuProvider = ({ children }: { children: React.ReactNode }) => {
   );
   const [allItems, setAllItems] = useState<IDish[]>([]);
   const [filteredItems, setFilteredItems] = useState<IDish[]>([]);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [postsPerPage, _] = useState<number>(12);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -41,9 +47,26 @@ export const MenuProvider = ({ children }: { children: React.ReactNode }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [category]);
 
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = filteredItems.slice(indexOfFirstPost, indexOfLastPost);
+  let totalPosts = filteredItems.length;
+
+  const paginate = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+  };
+
   return (
     <MenuContext.Provider
-      value={{ category, items: filteredItems, setCategory }}>
+      value={{
+        category,
+        items: currentPosts,
+        setCategory,
+        postsPerPage,
+        totalPosts,
+        paginate,
+        currentPage,
+      }}>
       {children}
     </MenuContext.Provider>
   );

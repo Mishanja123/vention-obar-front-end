@@ -1,7 +1,7 @@
 import { RouterProvider } from 'react-router-dom';
 import router from './router/router';
-import './main.css';
 import AuthProvider from './context/authContext';
+
 function App() {
   // if (isFetchingCurrent) {
   //   return <Loader />;
