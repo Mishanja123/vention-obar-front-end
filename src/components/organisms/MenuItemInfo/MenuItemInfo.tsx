@@ -58,16 +58,18 @@ const MenuItemInfo = () => {
         </ul>
         <p className={styles.menu_item_portion}>Portion: {portion} grams</p>
         <p className={styles.menu_item_price}>Price: ${price.toFixed(2)}</p>
-        <button className={styles.menu_button_cart}>Add to cart</button>
-        {editing ? (
-          <button className={styles.menu_button} onClick={handleSaveClick}>
-            &#9745; Save
-          </button>
-        ) : (
-          <button className={styles.menu_button} onClick={handleEditClick}>
-            &#9998; Edit ingridients
-          </button>
-        )}
+        <div className={styles.buttons_container}>
+          {editing ? (
+            <button className={styles.menu_button} onClick={handleSaveClick}>
+              &#9745; Save
+            </button>
+          ) : (
+            <button className={styles.menu_button} onClick={handleEditClick}>
+              &#9998; Edit ingridients
+            </button>
+          )}
+          <button className={styles.menu_button_cart}>Add to cart</button>
+        </div>
       </div>
     </div>
   );
