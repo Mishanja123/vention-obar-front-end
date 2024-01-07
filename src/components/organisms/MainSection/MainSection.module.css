@@ -16,15 +16,16 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('../../../assets/images/obar-bg.webp');
+  background-image: url('../../../assets/images/obar-main-page-bg.jpeg');
   background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   filter: blur(5px);
 }
 .welcome_title {
   position: relative;
   z-index: 5;
-  color: var(--main-color);
+  color: var(--accent-color);
   font-family: var(--buttons-text-font);
   font-weight: var(--buttons-text-font-weight);
   font-size: var(--font-size-xxxl);
