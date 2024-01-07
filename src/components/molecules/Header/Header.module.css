@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: var(--desktop-padding);
+  /* padding: var(--desktop-padding); */
   background-color: var(--main-color);
   font-size: var(--font-size-l);
   color: var(--neutral-color);
@@ -28,7 +28,7 @@
 }
 
 .header_wrapper a.active {
-  color: lightblue;
+  color: var(--highlight-color);
 }
 
 .header_link_item {
