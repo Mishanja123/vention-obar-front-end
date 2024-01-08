@@ -31,8 +31,6 @@ const Footer = () => {
         <iframe
           title="map"
           src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2443.7609971178063!2d20.9812698!3d52.2295599!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecc9b0da23989%3A0x8b99449491e81456!2sProsta%2067%2C%2000-838%20Warszawa!5e0!3m2!1sru!2spl!4v1703200549259!5m2!1sru!2spl"
-          width="630"
-          height="310"
           className={styles.map}
           loading="lazy"></iframe>
       </div>

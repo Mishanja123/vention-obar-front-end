@@ -8,7 +8,9 @@ interface PrivatePageProps {
 }
 
 const PrivatePage: FC<PrivatePageProps> = ({ children }) => {
-  const { loggedIn } = useAuthContext();
+  // const { loggedIn } = useAuthContext();
+  const loggedIn = true;
+
   const navigate = useNavigate();
 
   useEffect(() => {
