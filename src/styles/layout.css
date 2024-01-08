@@ -19,7 +19,7 @@ body {
   line-height: var(--line-height-m);
   color: var(--primary-text);
 
-  background-color: var(--lightBG-color);
+  background-color: var(--background-color);
 }
 
 h1,

@@ -33,14 +33,16 @@ const Payment = () => {
   });
   return (
     <div>
-      <button className={styles.add_payment_button}>Add payment card</button>
       <form
         onSubmit={formik.handleSubmit}
         className={styles.delivery_address_form}>
+        <button className={styles.add_payment_button}>Add payment card</button>
         {paymentFormInputs.map((input, i) => (
           <div key={i} className={styles.payment_input_wrapper}>
             <label>{input.label}</label>
-            <TextInput {...input} formik={formik} />
+            <div className={styles.payment_input}>
+              <TextInput {...input} formik={formik} />
+            </div>
           </div>
         ))}
         <div className={styles.payment_input_wrapper}>
@@ -49,7 +51,9 @@ const Payment = () => {
           </label>
           <div className={styles.expiration_select_wrapper}>
             {cardExpirationDate.map((input) => (
-              <SelectInput formik={formik} {...input} key={input.name} />
+              <span className={styles.expiration_select_input} key={input.name}>
+                <SelectInput formik={formik} {...input} />
+              </span>
             ))}
           </div>
         </div>

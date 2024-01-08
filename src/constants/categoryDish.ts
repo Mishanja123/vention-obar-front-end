@@ -1,6 +1,6 @@
 export enum DISHCATEGORY {
-  SINRISE = 'Sunrise Specials',
-  CULINARY_CLASSICS = 'Culinary Classics',
-  BAR_BLISS = 'Bar Bliss',
-  CHEFS_PICK = 'Chefs Pick',
+  SINRISE = 'sunrise_specials',
+  CULINARY_CLASSICS = 'culinary_classics',
+  BAR_BLISS = 'bar_bliss',
+  CHEFS_PICK = 'chefs_pick',
 }

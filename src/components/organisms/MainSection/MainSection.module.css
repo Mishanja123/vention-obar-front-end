@@ -1,14 +1,36 @@
 .welcome_section {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 500px;
-  background-color: rgb(177, 176, 176);
+
+  overflow: hidden;
 }
 
+.welcome_section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../../assets/images/obar-main-page-bg.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(5px);
+}
 .welcome_title {
-  color: var(--main-color);
+  position: relative;
+  z-index: 5;
+  color: var(--accent-color);
+  font-family: var(--buttons-text-font);
+  font-weight: var(--buttons-text-font-weight);
+  font-size: var(--font-size-xxxl);
+  text-shadow: 1px 1px 1px #fff;
+  margin-bottom: 2rem;
 }
 
 .welcome_wrapper {
@@ -19,6 +41,6 @@
 }
 
 .form_container {
-  padding: var(--desktop-padding);;
+  padding: var(--desktop-padding);
   margin: 0 auto;
 }

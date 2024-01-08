@@ -1,5 +1,5 @@
 .footer {
-  background-color: var(--bg-footer);
+  background-color: var(--primary-background);
   padding: var(--desktop-padding);
   display: flex;
   justify-content: space-between;
@@ -9,10 +9,10 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  color: var(--secondary-accent-color);
 }
 
 .footer_heading {
-  color: var(--main-color);
   font-size: var(--font-size-xxxl);
   font-weight: var(--font-weight-regular);
 }
@@ -47,7 +47,7 @@
 
   &:hover {
     background-color: var(--accent-color);
-    color: var(--light-color);
+    color: var(--primary-text);
   }
 }
 
