@@ -1,7 +1,5 @@
-import { ReactNode, FC, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { ReactNode, FC } from 'react';
 import { useAuthContext } from '@/context/authContext';
-import { PATHS } from '@/constants/paths';
 
 interface PrivatePageProps {
   children: ReactNode;
@@ -9,17 +7,8 @@ interface PrivatePageProps {
 
 const PrivatePage: FC<PrivatePageProps> = ({ children }) => {
   const { loggedIn } = useAuthContext();
-  const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!loggedIn) {
-      navigate(PATHS.AUTH);
-    } else {
-      navigate(PATHS.ROOT);
-    }
-  }, [loggedIn, navigate]);
-
-  return children;
+  return <>{loggedIn ? children : null}</>;
 };
 
 export default PrivatePage;

@@ -1,7 +1,6 @@
 .text_input {
   width: 100%;
 
-
   padding-left: 0.6rem;
   margin-bottom: 1.8rem;
   padding: 1rem 0.5rem;
@@ -22,4 +21,12 @@
 
 .error_border {
   border: 0.125rem solid var(--error-color);
+}
+.password_button{
+  position: absolute;
+  top: 0.9rem;
+  right: 1rem;
+}
+.input_wrapper{
+  position: relative;
 }
