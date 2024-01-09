@@ -15,6 +15,11 @@ import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import { useAuthContext } from '@/context/authContext';
 
+type Props = {
+  to: string;
+  children: React.ReactNode;
+};
+
 function HeaderNavLink({ to, children }: Props) {
   return (
     <NavLink
@@ -80,8 +85,3 @@ function Header() {
 }
 
 export default Header;
-
-type Props = {
-  to: string;
-  children: React.ReactNode;
-};

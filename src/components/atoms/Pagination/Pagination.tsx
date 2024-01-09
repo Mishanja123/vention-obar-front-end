@@ -23,13 +23,19 @@ const Pagination = ({
       <ul className={styles.pagination}>
         {pageNumbers.map((number) => (
           <li key={number} className={styles.page_item}>
-            <a
+            <button
               onClick={() => paginate(number)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === 'Spacebar') {
+                  paginate(number);
+                }
+              }}
               className={`${styles.page_link} ${
                 number === currentPage ? styles.active : ''
-              }`}>
+              }`}
+              tabIndex={0}>
               {number}
-            </a>
+            </button>
           </li>
         ))}
       </ul>
