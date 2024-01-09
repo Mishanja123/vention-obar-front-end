@@ -14,7 +14,7 @@ const CheckoutPage = () => {
       <ProgressBar />
       <div className={styles.info_container}>
         <div className={styles.method_container}>
-          <h1>CheckoutPage</h1>
+          <h1>Checkout Page</h1>
           {path === PATHS.CHECKOUT && <OrderMethodSelection />}
           <Outlet />
         </div>

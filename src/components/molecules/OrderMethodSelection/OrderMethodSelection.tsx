@@ -20,15 +20,19 @@ const OrderMethodSelection: React.FC = () => {
   return (
     <div className={styles.main_container}>
       <FormControl>
-        <InputLabel id="deliveryAdress_selection">
+        {/* <InputLabel id="deliveryAdress_selection">
           Select a reservation method
-        </InputLabel>
+        </InputLabel> */}
         <Select
-          labelId="deliveryAdress_selection"
           id="deliveryAdress_selection"
+          displayEmpty
           label="Delivery Adress"
           value={method}
+          inputProps={{ 'aria-label': 'Without label' }}
           onChange={handleMethodChange}>
+          <MenuItem disabled value="">
+            <em>Select a reservation method</em>
+          </MenuItem>
           <MenuItem value={'Reservation'}>
             <NavLink to={PATHS.BOOK_TABLE} style={{ width: '100%' }}>
               Reserve a table
