@@ -42,19 +42,19 @@
   }
 
   @media screen and (min-width: 1450px) {
-    width: 150px;
-    height: 150px;
+    width: 10rem;
+    height: 10rem;
   }
 }
 .cart_item_title {
   @media screen and (min-width: 1450px) {
     font-size: var(--font-size-xxl);
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
   }
 }
-.cart_item_price{
+.cart_item_price {
   @media screen and (min-width: 1450px) {
     font-size: var(--font-size-xl);
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
   }
 }

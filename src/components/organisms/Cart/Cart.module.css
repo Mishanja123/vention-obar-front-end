@@ -7,7 +7,7 @@
     justify-content: space-between;
     align-items: flex-start;
     flex-direction: row;
-    gap: 50px;
+    gap: 3rem;
   }
 
   @media screen and (min-width: 876px) {
@@ -35,7 +35,7 @@
   font-family: var(--buttons-text-font);
   color: var(--main-color);
   text-align: start;
-  width: 300px;
+  width: 19rem;
   margin: 0 auto;
   &:hover {
     background-color: var(--main-color);
@@ -43,18 +43,17 @@
   }
 
   @media screen and (min-width: 876px) {
-    padding: 6px 16px;
+    padding: 0.3rem 1rem;
     width: 100%;
     font-size: var(--font-size-xxl);
     margin-bottom: 1rem;
   }
 
   @media screen and (min-width: 1450px) {
-    padding: 6px 16px;
     font-size: var(--font-size-xxl);
     text-align: center;
     margin: 0;
-    width: 200px;
+    width: 12.5rem;
   }
 }
 
@@ -86,6 +85,6 @@
   @media screen and (min-width: 1450px) {
     flex-direction: row-reverse;
     align-items: flex-start;
-    gap: 50px;
+    gap: 3rem;
   }
 }
