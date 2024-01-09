@@ -11,5 +11,12 @@
 .method_container {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+@media screen and (max-width: 876px) {
+  .info_container {
+    flex-direction: column;
+  }
 }
