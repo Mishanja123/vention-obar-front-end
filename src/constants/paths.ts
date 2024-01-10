@@ -1,6 +1,10 @@
 export enum PATHS {
   ROOT = '/',
   HOME = 'main',
+  ADMIN = '/admin',
+  DISHMANAGEMENT = 'dishmanagement',
+  USERMANAGEMENT = 'usermanagement',
+  ORDERSMANAGEMENT = 'ordersmanagement',
   AUTH = '/auth',
   LOGIN = 'login',
   MENU = '/menu',

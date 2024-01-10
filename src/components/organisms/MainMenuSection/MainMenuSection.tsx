@@ -19,18 +19,7 @@ const MainMenuSection = () => {
     <section id="menu" className={styles.menu_container}>
       <h2 className={styles.menu_heading}>Menu</h2>
       <ul className={styles.main_menu_list}>
-        <SliderWrapper
-          arrows={true}
-          dots={false}
-          autoplay={true}
-          autoplaySpeed={8000}
-          speed={500}
-          slidesToShow={4}
-          slidesToScroll={4}
-          swipeToSlide={true}
-          focusOnSelect={true}
-          centerMode={true}
-          centerPadding={-100}>
+        <SliderWrapper>
           {items.map((item) => (
             <MenuItem
               key={item.id}
