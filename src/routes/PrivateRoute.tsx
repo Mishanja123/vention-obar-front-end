@@ -9,6 +9,7 @@ interface PrivatePageProps {
 
 const PrivatePage: FC<PrivatePageProps> = ({ children }) => {
   const { loggedIn, isfetching } = useAuthContext();
+
   const navigate = useNavigate();
 
   return <>{loggedIn || isfetching ? children : navigate(PATHS.AUTH)}</>;

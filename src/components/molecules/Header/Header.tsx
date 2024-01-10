@@ -10,7 +10,7 @@ import { PATHS } from '@/constants/paths';
 import styles from './Header.module.css';
 import { Button } from '@/components/atoms/index.ts';
 import { scrollToReservationForm } from '@/helpers/scrollToReservation.ts';
-import { ReservationForm } from '@/components/molecules';
+import { MobileMenu, ReservationForm } from '@/components/molecules';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import { useAuthContext } from '@/context/authContext';
@@ -33,6 +33,8 @@ function HeaderNavLink({ to, children }: Props) {
 }
 
 function Header() {
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
   const location = useLocation();
   const path = location.pathname;
   const { logOut } = useAuthContext();
@@ -46,8 +48,18 @@ function Header() {
       confirmButtonText: 'Close',
     });
 
+  const openMenu = () => {
+    setIsMenuOpen(true);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
   return (
     <div className={styles.header_wrapper}>
+      <button className={styles.menuBtn} type="button" onClick={openMenu}>
+        OPENMENU
+      </button>
       <NavLink to={PATHS.ROOT} className={styles.logo_link}>
         <img
           src={homeLogo}
@@ -80,6 +92,8 @@ function Header() {
       <Button variant="contained" onClick={() => logOut()}>
         Log out
       </Button>
+
+      {isMenuOpen && <MobileMenu onClose={closeMenu} isMenuOpen={isMenuOpen} />}
     </div>
   );
 }
