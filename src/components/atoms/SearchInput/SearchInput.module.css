@@ -1,4 +1,14 @@
-.search {
-    border-radius: 0.2rem;
-    background-color: var(--accent-color);
+.container {
+  display: flex;
+  align-items: center;
+  /* background-color: var(--accent-color); */
+  border-radius: 0.5rem;
+}
+.searchContainer {
+  border-radius: 0.2rem;
+  width: 20rem;
+}
+
+.searchBar {
+  color: var(--accent-color);
 }
