@@ -1,0 +1,5 @@
+.cart_section {
+  @media screen and (min-width: 650px) {
+    padding: var(--tablet-internal-padding);
+  }
+}

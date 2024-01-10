@@ -13,13 +13,13 @@ type CartItemProps = {
 const CartItem = ({ imageURL, title, price, quantity }: CartItemProps) => {
   return (
     <li className={styles.cart_item_wrapper}>
-      <svg width="200" height="200">
+      <svg width="200" height="200" className={styles.cart_item_image}>
         <use href={`${imageURL}#icon-avatar`} aria-expanded="true"></use>
       </svg>
       <div>
         <div>
-          <h3>{title}</h3>
-          <p>{price}</p>
+          <h3 className={styles.cart_item_title}>{title}</h3>
+          <p className={styles.cart_item_price}>{price}</p>
         </div>
       </div>
       <QuantityCounter quantity={quantity} />
