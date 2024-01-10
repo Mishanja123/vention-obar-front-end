@@ -1,16 +1,16 @@
 import { PATHS } from '../constants/paths';
 
-import PrivatePage from '../routes/PrivateRoute';
 import AuthPage from '../pages/AuthPage/AuthPage';
 import { LoginForm, RegistrationForm } from '@/components/molecules';
+import PublicPage from '@/routes/PublicRoute';
 
 const authRoutes = [
   {
     path: PATHS.AUTH,
     element: (
-      <PrivatePage>
+      <PublicPage>
         <AuthPage />
-      </PrivatePage>
+      </PublicPage>
     ),
     children: [
       {
