@@ -23,7 +23,8 @@ export const MenuProvider = ({ children }: { children: React.ReactNode }) => {
   const [allItems, setAllItems] = useState<IDish[]>([]);
   const [filteredItems, setFilteredItems] = useState<IDish[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [postsPerPage, _] = useState<number>(12);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [postsPerPage, setPostsPerPage] = useState<number>(12);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -50,7 +51,7 @@ export const MenuProvider = ({ children }: { children: React.ReactNode }) => {
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = filteredItems.slice(indexOfFirstPost, indexOfLastPost);
-  let totalPosts = filteredItems.length;
+  const totalPosts = filteredItems.length;
 
   const paginate = (pageNumber: number) => {
     setCurrentPage(pageNumber);
