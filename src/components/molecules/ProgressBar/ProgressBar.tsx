@@ -27,7 +27,7 @@ const ProgressBar: React.FC = () => {
   }, [path]);
   return (
     <>
-      <ol className={styles.progressBar_container}>
+      {/* <ol className={styles.progressBar_container}>
         <li className={styles.stepContainer}>
           <div className={`${styles.circle} ${styles.isActive}`}></div>
           <p className={styles.progressBar_title}>Order Type</p>
@@ -48,7 +48,31 @@ const ProgressBar: React.FC = () => {
             }`}></div>
           <p className={styles.progressBar_title}>Payment</p>
         </li>
-      </ol>
+      </ol> */}
+      <div className={styles.progress_bar_wrapper}>
+        <div className={styles.container}>
+          <div className={styles.steps}>
+            <span className={`${styles.circle} ${styles.isActive}`}>1</span>
+            <span
+              className={`${styles.circle} ${
+                progress >= 1 ? styles.isActive : ''
+              }`}>
+              2
+            </span>
+            <span
+              className={`${styles.circle} ${
+                progress === 2 ? styles.isActive : ''
+              }`}>
+              3
+            </span>
+            <div className={styles.progress_bar}>
+              <span
+                className={`${styles.progress_bar_indicator}`}
+                style={{ width: `${(progress / (3 - 1)) * 100}%` }}></span>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };

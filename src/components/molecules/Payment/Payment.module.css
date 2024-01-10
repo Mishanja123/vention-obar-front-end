@@ -21,14 +21,20 @@
 
 .payment_input_wrapper {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
+  width: 35rem;
+}
+
+.payment_input {
+  width: 25rem;
 }
 
 .delivery_address_form {
   display: flex;
+  justify-content: center;
+  align-items: flex-start;
   flex-direction: column;
-  width: 37.5rem;
 }
 
 .payment_select_wrapper {
@@ -37,5 +43,11 @@
 
 .expiration_select_wrapper {
   display: flex;
+
   gap: 2.5rem;
+}
+
+.expiration_select_input {
+  border: 1px solid var(--background-color);
+  border-radius: 1rem;
 }

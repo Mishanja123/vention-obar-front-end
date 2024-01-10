@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { SiIfood } from 'react-icons/si';
 import { PiShoppingCartLight } from 'react-icons/pi';
 import { GoPerson } from 'react-icons/go';
 import { IconContext } from 'react-icons';
+import homeLogo from '@/assets/images/homeLogo.svg';
 
 import { SearchInput } from '@/components/atoms/index.ts';
 import { PATHS } from '@/constants/paths';
@@ -13,6 +13,7 @@ import { scrollToReservationForm } from '@/helpers/scrollToReservation.ts';
 import { ReservationForm } from '@/components/molecules';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
+import { useAuthContext } from '@/context/authContext';
 
 function HeaderNavLink({ to, children }: Props) {
   return (
@@ -29,6 +30,7 @@ function HeaderNavLink({ to, children }: Props) {
 function Header() {
   const location = useLocation();
   const path = location.pathname;
+  const { logOut } = useAuthContext();
 
   const mySwal = withReactContent(Swal);
 
@@ -42,10 +44,13 @@ function Header() {
   return (
     <div className={styles.header_wrapper}>
       <NavLink to={PATHS.ROOT} className={styles.logo_link}>
-        OBar
-        <IconContext.Provider value={{ className: styles.logo_img }}>
-          <SiIfood />
-        </IconContext.Provider>
+        <img
+          src={homeLogo}
+          alt="logo"
+          width={120}
+          height={60}
+          style={{ borderRadius: 20 }}
+        />
       </NavLink>
       <SearchInput />
       <HeaderNavLink to={PATHS.MENU}>Menu</HeaderNavLink>
@@ -67,6 +72,9 @@ function Header() {
           <GoPerson />
         </IconContext.Provider>
       </HeaderNavLink>
+      <Button variant="contained" onClick={() => logOut()}>
+        Log out
+      </Button>
     </div>
   );
 }

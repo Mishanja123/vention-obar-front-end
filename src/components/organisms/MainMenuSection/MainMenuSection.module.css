@@ -1,10 +1,11 @@
 .menu_container {
-  padding: var(--desktop-padding);;
+  padding: var(--desktop-padding);
 
   margin: auto;
   text-align: center;
 }
 .menu_heading {
+  font-size: var(--font-size-xxl);
   color: var(--main-color);
   margin-bottom: 1.3rem;
 }

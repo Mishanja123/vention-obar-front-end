@@ -3,12 +3,13 @@
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
-  max-width: 16rem;
+  width: 16rem;
   height: 23.75rem;
-  padding: 0 1rem;
-  border: 1px solid var(--text-color);
+  padding: 1rem;
+  border-radius: 1rem;
   text-align: center;
   list-style: none;
+  background-color: var(--neutral-color);
 }
 
 .menu_item_img {
