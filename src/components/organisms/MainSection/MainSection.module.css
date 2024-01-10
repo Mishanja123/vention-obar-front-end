@@ -28,9 +28,15 @@
   color: var(--accent-color);
   font-family: var(--buttons-text-font);
   font-weight: var(--buttons-text-font-weight);
-  font-size: var(--font-size-xxxl);
+  font-size: var(--font-size-xl);
   text-shadow: 1px 1px 1px #fff;
   margin-bottom: 2rem;
+  @media screen and (min-width: 876px) {
+    font-size: var(--font-size-xxl);
+  }
+  @media screen and (min-width: 1450px) {
+    font-size: var(--font-size-xxxl);
+  }
 }
 
 .welcome_wrapper {
