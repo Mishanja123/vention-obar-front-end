@@ -1,40 +1,55 @@
 .menu_item_container {
+  margin: auto;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  text-align: left;
+  gap: 5rem;
   color: var(--main-color);
   display: flex;
-  border: 2px solid var(--text-color);
-  padding: 3rem;
-}
-
-.menu_item_image {
-  flex: 1;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-image: url('../../../assets/icons/back.png');
+  background-size: auto;
+  background-position: center;
+  background-repeat: repeat;
 }
 
 .menu_item_details {
-  position: relative;
-  flex: 2;
+  backdrop-filter: blur(1px);
+  border-radius: 2rem;
+  padding: 2rem;
 }
 .dish_img {
-  margin-right: 3rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  margin-right: 2rem;
 }
 
 .menu_item_title {
-  font-size: var(--font-size-xxl);
-  margin: 0;
+  font-size: var(--font-size-xxxl);
+  margin-bottom: 3rem;
 }
+
+.edit_box {
+  max-width: 70%;
+  display: flex;
+  /* gap: 4rem; */
+}
+
 .ingredients_title {
-  margin-bottom: 0;
-  text-align: left;
+  margin-right: auto;
+  font-size: var(--font-size-xxl);
   color: var(--main-color);
   font-weight: var(--font-weight-bold);
 }
 .ingredients_list {
   margin: 0;
   padding: 0;
-  text-align: left;
-  list-style: none;
 }
-.menu_item_ingredients {
-  font-size: var(--font-size-m);
+.ingredients_item {
+  font-style: italic;
+  font-size: var(--font-size-l);
   margin-bottom: 0.5rem;
 }
 .required_span {
@@ -43,45 +58,38 @@
 }
 
 .menu_item_portion {
-  font-size: 0.875rem;
+  font-size: var(--font-size-s);
   margin-bottom: 0.5rem;
-  text-align: start;
 }
 
 .menu_item_price {
-  text-align: start;
   font-size: var(--font-size-l);
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.2rem;
 }
 
-.buttons_container {
+.button_box {
   display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .menu_button {
-  position: absolute;
-  top: 2.8125rem;
   border: none;
-  text-align: left;
   background-color: var(--accent-color);
   color: var(--main-color);
-  font-size: var(--font-size-m);
+  font-size: var(--font-size-s);
   cursor: pointer;
   transition: all 0.4s;
   border-radius: var(--border-radius);
+  padding: 0.1875rem 0.625rem;
 }
 
 .menu_button:hover {
-  transform: scale(1.1);
+  transform: scale(1.03);
 }
 
 .menu_button_cart {
-  font-weight: var(--font-weight-bold);
-  padding: 0.9375rem 2.1875rem;
+  padding: 1rem 2.3rem;
+  font-size: var(--font-size-l);
   border: none;
-  background-color: var(--bg-color);
   transition: all 0.4s;
   border: 2px solid var(--btn-rgba);
   cursor: pointer;

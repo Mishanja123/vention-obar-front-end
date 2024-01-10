@@ -1,50 +1,43 @@
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { useMediaQuery } from 'react-responsive';
 
 type SliderProps = {
-  arrows: boolean;
-  dots: boolean;
-  autoplay: boolean;
-  autoplaySpeed: number;
-  speed: number;
-  slidesToShow: number;
-  slidesToScroll: number;
-  swipeToSlide: boolean;
-  focusOnSelect: boolean;
-  centerMode: boolean;
-  centerPadding: number;
   children?: React.ReactNode;
 };
 
-const SliderWrapper: React.FC<SliderProps> = ({
-  arrows,
-  dots,
-  autoplay,
-  autoplaySpeed,
-  speed,
-  slidesToShow,
-  slidesToScroll,
-  swipeToSlide,
-  focusOnSelect,
-  centerMode,
-  centerPadding,
-  children,
-}) => {
+const SliderWrapper: React.FC<SliderProps> = ({ children }) => {
+  const toSkroll5 = useMediaQuery({ minWidth: 1450 });
+  const toSkroll4 = useMediaQuery({ minWidth: 1150 });
+  const toSkroll3 = useMediaQuery({ minWidth: 900 });
+  const toSkroll2 = useMediaQuery({ minWidth: 650 });
+  const toSkroll1 = useMediaQuery({ maxWidth: 450 });
+
+  let slidesToShow = 1;
+
+  if (toSkroll5) {
+    slidesToShow = 5;
+  } else if (toSkroll4) {
+    slidesToShow = 4;
+  } else if (toSkroll3) {
+    slidesToShow = 3;
+  } else if (toSkroll2) {
+    slidesToShow = 2;
+  } else if (toSkroll1) {
+    slidesToShow = 1;
+  }
+
   const sliderSettings = {
     className: 'slider',
-    arrows: arrows,
-    dots: dots,
-    autoplay: autoplay,
-    autoplaySpeed: autoplaySpeed,
-    speed: speed,
+    arrows: true,
+    dots: false,
+    autoplay: true,
+    autoplaySpeed: 8000,
+    speed: 500,
     infinite: true,
     slidesToShow: slidesToShow,
-    slidesToScroll: slidesToScroll,
-    swipeToSlide: swipeToSlide,
-    focusOnSelect: focusOnSelect,
-    centerMode: centerMode,
-    centerPadding: `${centerPadding}px`,
+    slidesToScroll: 1,
   };
 
   return (
