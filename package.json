@@ -10,7 +10,8 @@
     "prettier:fix": "prettier --write \"src/**/*.{ts,tsx}\"",
     "prettier:check": "prettier \"src/**/*.{ts,tsx}\"",
     "preview": "vite preview",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "host": "vite --host"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
