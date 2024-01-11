@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "start": "vite --host",
     "build": "tsc && vite build",
     "lint": "eslint . \"src/**/*.{ts,tsx}\"",
     "prettier:fix": "prettier --write \"src/**/*.{ts,tsx}\"",
@@ -21,6 +21,7 @@
     "@types/react-slick": "^0.23.13",
     "axios": "^1.6.4",
     "date-fns": "^2.30.0",
+    "esbuild": "^0.19.11",
     "formik": "^2.4.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -56,7 +57,7 @@
     "lint-staged": "^15.2.0",
     "prettier": "3.1.1",
     "typescript": "^5.3.3",
-    "vite": "^5.0.8"
+    "vite": "^5.0.11"
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
