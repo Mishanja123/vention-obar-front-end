@@ -3,6 +3,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import { PiShoppingCartLight } from 'react-icons/pi';
 import { GoPerson } from 'react-icons/go';
 import { IconContext } from 'react-icons';
+import { IoMenu } from 'react-icons/io5';
 import homeLogo from '@/assets/images/homeLogo.svg';
 
 import { SearchInput } from '@/components/atoms/index.ts';
@@ -34,6 +35,19 @@ function HeaderNavLink({ to, children }: Props) {
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [windowWidth, setWindowWidth] = React.useState(window.innerWidth);
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const location = useLocation();
   const path = location.pathname;
@@ -58,7 +72,9 @@ function Header() {
   return (
     <div className={styles.header_wrapper}>
       <button className={styles.menuBtn} type="button" onClick={openMenu}>
-        OPENMENU
+        <IconContext.Provider value={{ className: styles.openMenuBtn }}>
+          <IoMenu />
+        </IconContext.Provider>
       </button>
       <NavLink to={PATHS.ROOT} className={styles.logo_link}>
         <img
@@ -70,28 +86,36 @@ function Header() {
         />
       </NavLink>
       <SearchInput />
-      <HeaderNavLink to={PATHS.MENU}>Menu</HeaderNavLink>
-      <Button
-        variant="contained"
-        onClick={
-          path === PATHS.ROOT ? scrollToReservationForm : showReservationModal
-        }>
-        Reserve a table
-      </Button>
-      <HeaderNavLink to={PATHS.ORDERS}>Orders</HeaderNavLink>
-      <HeaderNavLink to={PATHS.CART}>
-        <IconContext.Provider value={{ className: styles.cart_img }}>
-          <PiShoppingCartLight />
-        </IconContext.Provider>
-      </HeaderNavLink>
-      <HeaderNavLink to={PATHS.ACCOUNT}>
-        <IconContext.Provider value={{ className: styles.profile_img }}>
-          <GoPerson />
-        </IconContext.Provider>
-      </HeaderNavLink>
-      <Button variant="contained" onClick={() => logOut()}>
-        Log out
-      </Button>
+      <div className={styles.navWrapper}>
+        <HeaderNavLink to={PATHS.MENU}>Menu</HeaderNavLink>
+        {windowWidth >= 876 && (
+          <Button
+            variant="contained"
+            onClick={
+              path === PATHS.ROOT
+                ? scrollToReservationForm
+                : showReservationModal
+            }>
+            Reserve a table
+          </Button>
+        )}
+        <HeaderNavLink to={PATHS.ORDERS}>Orders</HeaderNavLink>
+        <HeaderNavLink to={PATHS.CART}>
+          <IconContext.Provider value={{ className: styles.cart_img }}>
+            <PiShoppingCartLight />
+          </IconContext.Provider>
+        </HeaderNavLink>
+        <HeaderNavLink to={PATHS.ACCOUNT}>
+          <IconContext.Provider value={{ className: styles.profile_img }}>
+            <GoPerson />
+          </IconContext.Provider>
+        </HeaderNavLink>
+        {windowWidth >= 876 && (
+          <Button variant="contained" onClick={() => logOut()}>
+            Log out
+          </Button>
+        )}
+      </div>
 
       {isMenuOpen && <MobileMenu onClose={closeMenu} isMenuOpen={isMenuOpen} />}
     </div>
