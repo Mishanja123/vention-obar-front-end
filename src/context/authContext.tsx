@@ -88,13 +88,13 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const handleCurrentUser = async () => {
       try {
         setIsfetching(true);
-        const { data } = await axiosInstance.get('/auth/current-user');
+        const data = await axiosInstance.get('/auth/current-user');
 
         setIsfetching(true);
         setLoggedIn(true);
         setResponse(data);
       } catch (error) {
-        console.error(`Registration Error: ${error}`);
+        console.log(`Registration Error: ${error}`);
       } finally {
         setIsfetching(false);
       }
