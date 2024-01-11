@@ -60,7 +60,6 @@ const UserManagement: React.FC = () => {
       );
 
       const updatedUser: User = response.data;
-      console.log(updatedUser);
       setUsers((prev) =>
         prev.map((user) => (user.id === updatedUser.id ? updatedUser : user)),
       );
@@ -68,6 +67,17 @@ const UserManagement: React.FC = () => {
       setEditingModeIndex(-1);
     } catch (err) {
       console.log(err);
+    }
+  };
+
+  const handleDeleteUser = async (id: number) => {
+    try {
+      const response = await axiosInstance.delete(`/users/${id}`);
+      const data = await response.data;
+      console.log(data);
+      fetchUsers();
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -131,9 +141,16 @@ const UserManagement: React.FC = () => {
             <td>{user.UserCreditCardId ? 'null' : 'None'}</td>
             <td>
               {editingModeIndex === index ? (
-                <Button variant="outlined" onClick={() => handleSaveUser()}>
-                  Save
-                </Button>
+                <>
+                  <Button variant="outlined" onClick={() => handleSaveUser()}>
+                    Save
+                  </Button>
+                  <Button
+                    variant="outlined"
+                    onClick={() => handleDeleteUser(user.id)}>
+                    Delete
+                  </Button>
+                </>
               ) : (
                 <Button
                   variant="outlined"
