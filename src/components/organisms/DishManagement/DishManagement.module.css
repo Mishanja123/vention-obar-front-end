@@ -1,0 +1,39 @@
+.dish_table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.dish_table td,
+th {
+  border: 0.1rem solid var(--accent-color);
+  text-align: center;
+  padding: 1rem;
+}
+
+.dish_table tr:nth-child(even) {
+  background-color: var(--accent-color);
+}
+
+.action_buttons {
+  display: flex;
+  gap: 1rem;
+}
+.dish_input {
+  width: 100%;
+
+  padding-left: 0.6rem;
+  padding: 0.5rem 0.5rem;
+
+  border-radius: 1.25rem;
+  border: 1px solid var(--background-color);
+
+  font-family: var(--text-font);
+  font-weight: var(--text-font-weight);
+}
+
+.dish_management_section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}

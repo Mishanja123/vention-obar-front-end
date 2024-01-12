@@ -17,6 +17,7 @@ const OrderDelivery = () => {
   const [deliveryAdress, setDeliveryAdress] = useState('');
 
   const handleDeliveryAdressChange = (e: SelectChangeEvent<string>) => {
+    console.log(e.target.value);
     setDeliveryAdress(e.target.value as string);
   };
 
@@ -32,13 +33,16 @@ const OrderDelivery = () => {
   return (
     <div className={styles.main_container}>
       <FormControl>
-        <InputLabel id="method_selection">Select Delivery Adress</InputLabel>
         <Select
-          labelId="method_selection"
           id="method_selection"
+          displayEmpty
+          inputProps={{ 'aria-label': 'Without label' }}
           label="Method"
           value={deliveryAdress}
           onChange={handleDeliveryAdressChange}>
+          <MenuItem disabled value="">
+            <em>Select Delivery Adress</em>
+          </MenuItem>
           <MenuItem value={'existing'}>Existing Adress</MenuItem>
           <MenuItem value={'new'}>New Delivery Adress</MenuItem>
         </Select>

@@ -1,19 +1,27 @@
 .not_found_section {
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 1.5rem;
-  padding: var(--desktop-padding);;
+  height: 100vh;
+  padding: var(--desktop-padding);
 }
 
 .not_found_img {
   transform: rotate(-30deg);
-  margin-bottom: 2rem;
 }
 
 .not_found_paragraph {
+  max-width: 28rem;
+  font-size: var(--font-size-m);
   text-align: center;
-  width: 40%;
+
+  @media screen and (min-width: 876px) {
+    max-width: 40rem;
+    font-size: var(--font-size-xl);
+  }
+}
+.not_found_heading {
+  text-transform: uppercase;
 }

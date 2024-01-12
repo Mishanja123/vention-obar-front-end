@@ -1,5 +1,6 @@
 import { orders } from '@/content/ordersData/orders';
 import styles from './OrdersPageSection.module.css';
+import { Button } from '@/components/atoms';
 
 const OrdersPageSection = () => {
   return (
@@ -39,12 +40,19 @@ const OrdersPageSection = () => {
             </tbody>
             <tfoot>
               <tr>
-                <td colSpan="3">
+                <td colSpan={3}>
                   {`You reserved table for ${order.orderDate} at ${order.orderTime} for ${order.guests} guests`}
                 </td>
               </tr>
             </tfoot>
           </table>
+          <Button variant="contained">
+            {order.status === 'Cancelled' || order.status === 'Completed' ? (
+              <>Repeat order</>
+            ) : (
+              <>Cancel order</>
+            )}
+          </Button>
         </li>
       ))}
     </ul>

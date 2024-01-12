@@ -10,6 +10,7 @@ interface AuthContextProps {
   logOut: () => Promise<null>;
   loggedIn: boolean;
   response: unknown;
+  isfetching: boolean;
 }
 
 interface UserData {
@@ -27,6 +28,7 @@ export const useAuthContext = () => useContext(AuthContext);
 const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [response, setResponse] = useState<unknown>(null);
   const [loggedIn, setLoggedIn] = useState(false);
+  const [isfetching, setIsfetching] = useState(false);
 
   const login = async (email: string, password: string) => {
     try {
@@ -85,12 +87,16 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     const handleCurrentUser = async () => {
       try {
-        const { data } = await axiosInstance.get('/auth/current-user');
+        setIsfetching(true);
+        const data = await axiosInstance.get('/auth/current-user');
 
-        setResponse(data);
+        setIsfetching(true);
         setLoggedIn(true);
+        setResponse(data);
       } catch (error) {
-        console.error(`Registration Error: ${error}`);
+        console.log(`Registration Error: ${error}`);
+      } finally {
+        setIsfetching(false);
       }
     };
 
@@ -105,6 +111,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         loggedIn,
         logOut,
         response,
+        isfetching,
       }}>
       {children}
     </AuthContext.Provider>

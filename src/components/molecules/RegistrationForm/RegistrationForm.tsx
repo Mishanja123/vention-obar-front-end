@@ -5,7 +5,6 @@ import { Button, TextInput } from '@/components/atoms';
 import styles from './RegistrationForm.module.css';
 import { useNavigate } from 'react-router-dom';
 import { useAuthContext } from '@/context/authContext';
-
 const RegistrationForm = () => {
   const { register } = useAuthContext();
   const navigate = useNavigate();
