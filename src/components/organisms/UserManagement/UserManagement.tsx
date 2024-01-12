@@ -101,6 +101,7 @@ const UserManagement: React.FC = () => {
             <td>
               {editingModeIndex === index ? (
                 <input
+                  className={styles.edit_input}
                   type="text"
                   value={editedUser.first_name}
                   onChange={(e) =>
@@ -115,6 +116,7 @@ const UserManagement: React.FC = () => {
               {editingModeIndex === index ? (
                 <input
                   type="text"
+                  className={styles.edit_input}
                   value={editedUser.last_name}
                   onChange={(e) =>
                     setEditedUser({ ...editedUser, last_name: e.target.value })
@@ -128,6 +130,7 @@ const UserManagement: React.FC = () => {
               {editingModeIndex === index ? (
                 <input
                   type="text"
+                  className={styles.edit_input}
                   value={user.email}
                   onChange={(e) =>
                     setEditedUser({ ...editedUser, email: e.target.value })
@@ -141,7 +144,7 @@ const UserManagement: React.FC = () => {
             <td>{user.UserCreditCardId ? 'null' : 'None'}</td>
             <td>
               {editingModeIndex === index ? (
-                <>
+                <div className={styles.action_container}>
                   <Button variant="outlined" onClick={() => handleSaveUser()}>
                     Save
                   </Button>
@@ -150,7 +153,7 @@ const UserManagement: React.FC = () => {
                     onClick={() => handleDeleteUser(user.id)}>
                     Delete
                   </Button>
-                </>
+                </div>
               ) : (
                 <Button
                   variant="outlined"

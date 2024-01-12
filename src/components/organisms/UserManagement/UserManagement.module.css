@@ -13,3 +13,21 @@ th {
 .users_table tr:nth-child(even) {
   background-color: var(--accent-color);
 }
+
+.edit_input {
+  width: 100%;
+
+  padding-left: 0.6rem;
+  padding: 0.5rem 0.5rem;
+
+  border-radius: 1.25rem;
+  border: 1px solid var(--background-color);
+
+  font-family: var(--text-font);
+  font-weight: var(--text-font-weight);
+}
+
+.action_container {
+  display: flex;
+  justify-content: space-evenly;
+}
