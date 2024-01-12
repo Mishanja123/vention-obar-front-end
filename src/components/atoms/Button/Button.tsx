@@ -8,6 +8,7 @@ type Props = {
   type?: 'button' | 'submit' | 'reset' | undefined;
   isValid?: boolean;
   onClick?: () => void;
+  className?: string;
 };
 
 const Button = ({ variant, children, type, isValid, onClick }: Props) => {

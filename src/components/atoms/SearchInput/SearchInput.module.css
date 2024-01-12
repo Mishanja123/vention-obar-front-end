@@ -1,12 +1,18 @@
 .container {
+  width: 100%;
+  max-width: 20rem;
+
   display: flex;
   align-items: center;
   /* background-color: var(--accent-color); */
   border-radius: 0.5rem;
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
 }
 .searchContainer {
   border-radius: 0.2rem;
-  width: 20rem;
+  width: 100%;
+  max-width: 20rem;
 }
 
 .searchBar {
