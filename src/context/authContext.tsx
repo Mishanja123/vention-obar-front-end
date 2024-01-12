@@ -27,7 +27,12 @@ export const useAuthContext = () => useContext(AuthContext);
 
 const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [response, setResponse] = useState<unknown>(null);
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState<boolean>(() => {
+    const loggedInStatus = localStorage.getItem('loggedIn') ?? false;
+    if (loggedInStatus) {
+      return JSON.parse(loggedInStatus);
+    }
+  });
   const [isfetching, setIsfetching] = useState(false);
 
   const login = async (email: string, password: string) => {
@@ -39,9 +44,12 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
       setLoggedIn(true);
       const accessToken = headers.authorization.split(' ')[1];
-      setAccessToken(accessToken);
 
+      setAccessToken(accessToken);
+      localStorage.setItem('token', JSON.stringify(accessToken));
+      localStorage.setItem('loggedIn', 'true');
       setResponse(data);
+      return data;
     } catch (error) {
       console.error(`Login Error: ${error}`);
     }
@@ -72,9 +80,13 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   const logOut = async (): Promise<null> => {
     try {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { data } = await axiosInstance.get('/auth/logout');
-      console.log('🚀 : data', data);
       setLoggedIn(false);
+
+      localStorage.setItem('token', '');
+      localStorage.setItem('loggedIn', 'false');
+
       unsetAccessToken();
 
       return null;
@@ -86,6 +98,12 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     const handleCurrentUser = async () => {
+      const token = localStorage.getItem('token');
+
+      if (token && loggedIn) {
+        setAccessToken(JSON.parse(token));
+      }
+
       try {
         setIsfetching(true);
         const data = await axiosInstance.get('/auth/current-user');
@@ -101,7 +119,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     };
 
     handleCurrentUser();
-  }, []);
+  }, [loggedIn]);
 
   return (
     <AuthContext.Provider
