@@ -11,6 +11,7 @@ interface MenuContextProps {
   totalPosts: number;
   paginate: (pageNumber: number) => void;
   currentPage: number;
+  allItems: IDish[];
 }
 
 const MenuContext = createContext<MenuContextProps>({} as MenuContextProps);
@@ -67,6 +68,7 @@ export const MenuProvider = ({ children }: { children: React.ReactNode }) => {
         totalPosts,
         paginate,
         currentPage,
+        allItems,
       }}>
       {children}
     </MenuContext.Provider>
