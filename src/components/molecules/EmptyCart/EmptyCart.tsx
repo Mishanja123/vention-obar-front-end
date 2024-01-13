@@ -1,5 +1,5 @@
-import sprite from '@/assets/sprite.svg';
 import styles from './EmptyCart.module.css';
+import cart from '@/assets/images/cart.png';
 
 import { Button } from '@/components/atoms';
 
@@ -15,11 +15,12 @@ const EmptyCart = () => {
 
   return (
     <div className={styles.empty_cart_wrapper}>
-      <svg width="150" height="150" style={{ transform: 'rotate(45deg)' }}>
-        <use href={`${sprite}#icon-avatar`} aria-expanded="true"></use>
-      </svg>
+      <img src={cart} alt="cart" width={300} />
       <h2>Ooops! Your cart is empty </h2>
-      <p>Some funny text</p>
+      <p className={styles.empty_cart_text}>
+        Uh-oh! Your cart is feeling a bit lonely—time to fill it up with goodies
+        and turn those empty cart blues into a shopping spree symphony!
+      </p>
       <Button onClick={handleButtonClick} type="button" variant="contained">
         <p>Go to Menu</p>
       </Button>

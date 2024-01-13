@@ -42,7 +42,18 @@ const MenuItemInfo = () => {
       </div>
       <div className={styles.menu_item_details}>
         <h3 className={styles.menu_item_title}>{title}</h3>
-        <p className={styles.ingredients_title}>Ingredients:</p>
+        <div className={styles.edit_box}>
+          <p className={styles.ingredients_title}>Ingredients:</p>
+          {editing ? (
+            <button className={styles.menu_button} onClick={handleSaveClick}>
+              &#9745; Save
+            </button>
+          ) : (
+            <button className={styles.menu_button} onClick={handleEditClick}>
+              &#9998; Edit
+            </button>
+          )}
+        </div>
         <ul className={styles.ingredients_list}>
           {ingredients.map(({ title, is_required }, index) => (
             <li className={styles.ingredients_item} key={index}>
@@ -56,20 +67,10 @@ const MenuItemInfo = () => {
             </li>
           ))}
         </ul>
+
         <p className={styles.menu_item_portion}>Portion: {portion} grams</p>
         <p className={styles.menu_item_price}>Price: ${price.toFixed(2)}</p>
-        <div className={styles.buttons_container}>
-          {editing ? (
-            <button className={styles.menu_button} onClick={handleSaveClick}>
-              &#9745; Save
-            </button>
-          ) : (
-            <button className={styles.menu_button} onClick={handleEditClick}>
-              &#9998; Edit ingridients
-            </button>
-          )}
-          <button className={styles.menu_button_cart}>Add to cart</button>
-        </div>
+        <button className={styles.menu_button_cart}>Add to cart</button>
       </div>
     </div>
   );

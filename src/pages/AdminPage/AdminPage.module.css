@@ -1,0 +1,35 @@
+.logo_link {
+  display: none;
+
+  @media screen and (min-width: 867px) {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    font-size: var(--font-size-xl);
+  }
+}
+
+.logo_img {
+  width: 3rem;
+  height: 2.8rem;
+}
+
+.admin_section {
+  padding: var(--desktop-padding);
+}
+
+.admin_wrapper {
+  display: flex;
+  gap: 13rem;
+  margin-top: 1rem;
+}
+
+.admin_navigation_list {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+.admin_navigation {
+  display: flex;
+  align-items: center;
+}

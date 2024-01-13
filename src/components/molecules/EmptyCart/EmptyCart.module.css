@@ -1,5 +1,10 @@
 .empty_cart_wrapper {
-  margin-top: 10rem;
   place-items: center;
   display: grid;
+  gap: 2rem;
+}
+
+.empty_cart_text{
+  max-width: 20rem;
+  text-align: center;
 }

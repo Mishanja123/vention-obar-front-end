@@ -3,10 +3,6 @@ import router from './router/router';
 import AuthProvider from './context/authContext';
 
 function App() {
-  // if (isFetchingCurrent) {
-  //   return <Loader />;
-  // }
-
   return (
     <>
       <AuthProvider>

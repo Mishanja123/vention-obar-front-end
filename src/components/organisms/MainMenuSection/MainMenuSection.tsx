@@ -26,7 +26,7 @@ const MainMenuSection = () => {
           autoplaySpeed={8000}
           speed={500}
           slidesToShow={4}
-          slidesToScroll={4}
+          slidesToScroll={1}
           swipeToSlide={true}
           focusOnSelect={true}
           centerMode={true}
