@@ -7,3 +7,4 @@ export { default as SearchInput } from './SearchInput/SearchInput';
 export { default as TextInput } from './TextInput/TextInput';
 export { default as TimePicker } from './TimePicker/TimePicker';
 export { default as SliderWrapper } from './SliderWrapper/SliderWrapper';
+export { default as LinkWrapper } from './LinkWrapper/LinkWrapper';

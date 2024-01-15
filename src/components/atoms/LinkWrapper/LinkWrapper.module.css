@@ -1,0 +1,19 @@
+.link {
+  font-family: var(--links-font);
+  font-weight: var(--links-font-weight);
+  color: var(--accent-color);
+}
+
+a.active {
+  color: var(--highlight-color);
+}
+
+@media screen and (max-width: 876px) {
+  .link {
+    display: none;
+  }
+
+  a.active {
+    display: none;
+  }
+}

@@ -15,23 +15,7 @@ import { MobileMenu, ReservationForm } from '@/components/molecules';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import { useAuthContext } from '@/context/authContext';
-
-type Props = {
-  to: string;
-  children: React.ReactNode;
-};
-
-function HeaderNavLink({ to, children }: Props) {
-  return (
-    <NavLink
-      to={to}
-      className={({ isActive }) =>
-        isActive ? styles.active : styles.header_link_item
-      }>
-      {children}
-    </NavLink>
-  );
-}
+import { LinkWrapper } from '@/components/atoms/index.ts';
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -87,7 +71,7 @@ function Header() {
       </NavLink>
       <SearchInput />
       <div className={styles.navWrapper}>
-        <HeaderNavLink to={PATHS.MENU}>Menu</HeaderNavLink>
+        <LinkWrapper to={PATHS.MENU}>Menu</LinkWrapper>
         {windowWidth >= 876 && (
           <Button
             variant="contained"
@@ -99,17 +83,17 @@ function Header() {
             Reserve a table
           </Button>
         )}
-        <HeaderNavLink to={PATHS.ORDERS}>Orders</HeaderNavLink>
-        <HeaderNavLink to={PATHS.CART}>
+        <LinkWrapper to={PATHS.ORDERS}>Orders</LinkWrapper>
+        <LinkWrapper to={PATHS.CART}>
           <IconContext.Provider value={{ className: styles.cart_img }}>
             <PiShoppingCartLight />
           </IconContext.Provider>
-        </HeaderNavLink>
-        <HeaderNavLink to={PATHS.ACCOUNT}>
+        </LinkWrapper>
+        <LinkWrapper to={PATHS.ACCOUNT}>
           <IconContext.Provider value={{ className: styles.profile_img }}>
             <GoPerson />
           </IconContext.Provider>
-        </HeaderNavLink>
+        </LinkWrapper>
         {windowWidth >= 876 && (
           <Button variant="contained" onClick={() => logOut()}>
             Log out
