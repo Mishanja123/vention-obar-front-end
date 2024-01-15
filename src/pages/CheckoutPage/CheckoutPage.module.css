@@ -7,7 +7,16 @@
 .info_container {
   display: flex;
 }
+.checkout_title {
+  text-align: center;
+  padding-bottom: var(--desktop-tablet-padding);
 
+  @media screen and (min-width: 1370px) {
+    padding-bottom: var(--desktop-internal-padding);
+    align-items: flex-start;
+    flex-direction: row;
+  }
+}
 .method_container {
   flex: 1;
   display: flex;
@@ -20,5 +29,5 @@
   .info_container {
     flex-direction: column;
   }
-
 }
+/* 1370px */
