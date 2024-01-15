@@ -42,7 +42,10 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         password,
       });
 
-      setLoggedIn(true);
+      if (!loggedIn) {
+        setLoggedIn(true);
+      }
+
       const accessToken = headers.authorization.split(' ')[1];
 
       setAccessToken(accessToken);
@@ -100,7 +103,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const handleCurrentUser = async () => {
       const token = localStorage.getItem('token');
 
-      if (token && loggedIn) {
+      if (token) {
         setAccessToken(JSON.parse(token));
       }
 
@@ -112,6 +115,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         setResponse(data);
       } catch (error) {
         console.error(`Fetching Current User Error: ${error}`);
+        setLoggedIn(false);
       } finally {
         setIsfetching(false);
       }

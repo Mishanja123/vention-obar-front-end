@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import axiosInstance from '../services/restaurantAPI';
 import { OrderDish } from '@/types/orderItem';
 import { ICreditCard } from '@/types/creditCard';
@@ -11,6 +11,7 @@ interface CheckoutContextProps {
     withPreorder: boolean,
   ) => void;
   sendDeliveryOrTakeOut: (date: string, time: string) => void;
+  handlePaymentOrder: (type: string) => void;
   setDeliveryOrTakeOut: (type: string) => void;
   handleDeleteOrder: () => void;
   handlePaymentCardAdditing: (
@@ -41,6 +42,19 @@ export const CheckoutProvider = ({
   const [tableGuests, setTableGuests] = useState(0);
   const [creditCardData, setCreditCardData] = useState<ICreditCard>();
   console.log('🚀 : creditCardData', creditCardData);
+  console.log('🚀 : orderData', orderData);
+
+  const handlePaymentOrder = async (type: string) => {
+    const dishId = localStorage.getItem('dishId');
+    const paymentId = localStorage.getItem('paymentId');
+
+    const res = await axiosInstance.post('/payout', {
+      type,
+      dishId,
+      paymentId,
+    });
+    console.log('🚀 : res', res.data);
+  };
 
   const sendReservation = async (
     date: string,
@@ -55,6 +69,7 @@ export const CheckoutProvider = ({
       withPreorder,
     });
     setTableGuests(guests);
+    localStorage.setItem('dishId', JSON.stringify(res.data.message.id));
 
     setOrderData(res.data.message);
   };
@@ -65,15 +80,20 @@ export const CheckoutProvider = ({
       type: deliveryOrTakeOut,
       time,
     });
+    localStorage.setItem('dishId', JSON.stringify(res.data.message.id));
     setOrderData(res.data.message);
   };
 
   const handleDeleteOrder = async () => {
-    try {
-      const res = await axiosInstance.delete('/orders');
-      console.log('🚀 : res', res);
-    } catch (error) {
-      console.log(error);
+    const dishId = localStorage.getItem('dishId');
+    if (dishId) {
+      try {
+        const res = await axiosInstance.delete(`/orders/${dishId}`);
+        localStorage.setItem('dishId', '');
+        console.log('🚀 : res', res);
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 
@@ -94,11 +114,47 @@ export const CheckoutProvider = ({
         month,
         year,
       });
+
+      localStorage.setItem('paymentId', JSON.stringify(res.data.id));
       setCreditCardData(res.data);
     } catch (error) {
       console.log(error);
     }
   };
+  useEffect(() => {
+    const dishId = localStorage.getItem('dishId');
+    const paymentId = localStorage.getItem('paymentId');
+
+    const handleGetOrder = async (id: string) => {
+      try {
+        const res = await axiosInstance.get(`/orders/${id}`);
+        setOrderData(res.data.message);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    const handleGetOrderPaymentCard = async (id: string) => {
+      try {
+        const res = await axiosInstance.get(`/payment/${id}`);
+        setCreditCardData(res.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    if (paymentId) {
+      setTimeout(() => {
+        handleGetOrderPaymentCard(paymentId);
+      }, 2000);
+    }
+
+    if (dishId) {
+      setTimeout(() => {
+        handleGetOrder(dishId);
+      }, 1000);
+    }
+  }, []);
 
   return (
     <CheckoutContext.Provider
@@ -110,6 +166,7 @@ export const CheckoutProvider = ({
         handleDeleteOrder,
         tableGuests,
         handlePaymentCardAdditing,
+        handlePaymentOrder,
       }}>
       {children}
     </CheckoutContext.Provider>

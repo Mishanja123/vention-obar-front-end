@@ -34,7 +34,7 @@ const useSummaryButton = ({ path }: { path: string }) => {
             <p>Big thanks for choosing us! We're really grateful you stopped by. Your support means a lot, and we're thrilled to have you dine with us. Looking forward to serving you again soon and making your experience even better.</p>
             <p>Cheers, OceanBar Team</p>
           `,
-          confirmButtonColor: '#3085d6',
+          confirmButtonColor: '#182715',
           confirmButtonText: 'Main Page',
         }).then(() => {
           navigate(PATHS.ROOT);

@@ -69,7 +69,6 @@ const mainRoutes = [
             <CheckoutPage />
           </CheckoutProvider>
         ),
-
         children: [
           { path: PATHS.BOOK_TABLE, element: <OrderedReservarionForm /> },
           { path: PATHS.DELIVERY, element: <OrderDelivery /> },
