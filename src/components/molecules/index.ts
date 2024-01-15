@@ -1,8 +1,8 @@
 export { default as SharedLayout } from './SharedLayout/SharedLayout';
 export { default as CartItems } from './CartItem/CartItem';
 export { default as DeliveryAddressForm } from './DeliveryAddressForm/DeliveryAddressForm';
-export { default as Header } from './Header/Header';
-export { default as Footer } from './Footer/Footer';
+export { default as Header } from '../organisms/Header/Header';
+export { default as Footer } from '../organisms/Footer/Footer';
 export { default as LoginForm } from './LoginForm/LoginForm';
 export { default as MenuItem } from './MenuItem/MenuItem';
 export { default as Payment } from './Payment/Payment';
@@ -16,3 +16,4 @@ export { default as EmptyCart } from './EmptyCart/EmptyCart';
 export { default as QuantityCounter } from './QuantityCounter/QuantityCounter';
 export { default as ReservationForm } from './ReservationForm/ReservationForm';
 export { default as MobileMenu } from './MobileMenu/MobileMenu';
+export { default as Navigation } from './Navigation/Navigation';
