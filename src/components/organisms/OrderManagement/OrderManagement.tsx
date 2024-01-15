@@ -41,14 +41,18 @@ const OrderManagement: React.FC = () => {
         </tr>
       </thead>
       <tbody>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        {orders.map((order, index) => (
+          <tr key={index}>
+            <td>{order.id}</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        ))}
       </tbody>
     </table>
   );
