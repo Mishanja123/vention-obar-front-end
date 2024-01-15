@@ -1,7 +1,6 @@
 import { PATHS } from '@/constants/paths';
 import {
   FormControl,
-  InputLabel,
   MenuItem,
   Select,
   SelectChangeEvent,

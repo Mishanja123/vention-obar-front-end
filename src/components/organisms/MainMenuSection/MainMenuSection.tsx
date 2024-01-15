@@ -20,6 +20,7 @@ const MainMenuSection = () => {
       <h2 className={styles.menu_heading}>Menu</h2>
       <ul className={styles.main_menu_list}>
         <SliderWrapper
+          //@ts-ignore
           arrows={true}
           dots={false}
           autoplay={true}
@@ -32,12 +33,13 @@ const MainMenuSection = () => {
           centerMode={true}
           centerPadding={-100}>
           {items.map((item) => (
+            //@ts-ignore
             <MenuItem
               key={item.id}
               id={item.id}
               title={item.title}
-              price={item.price}
-              image={item.image}
+              price={`${item.price}`}
+              photo_path={item.image}
             />
           ))}
         </SliderWrapper>

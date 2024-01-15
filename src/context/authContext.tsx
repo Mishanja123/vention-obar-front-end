@@ -26,7 +26,18 @@ export const useAuthContext = () => useContext(AuthContext);
 
 const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [response, setResponse] = useState<unknown>(null);
+<<<<<<< Updated upstream
   const [loggedIn, setLoggedIn] = useState(false);
+=======
+
+  const [loggedIn, setLoggedIn] = useState<boolean>(() => {
+    const loggedInStatus = localStorage.getItem('loggedIn') ?? false;
+    if (loggedInStatus) {
+      return JSON.parse(loggedInStatus);
+    }
+  });
+  const [isfetching, setIsfetching] = useState(false);
+>>>>>>> Stashed changes
 
   const login = async (email: string, password: string) => {
     try {
@@ -60,7 +71,6 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         phone,
         password,
       });
-
       setResponse(data);
       console.log(data);
     } catch (error) {
@@ -70,6 +80,11 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   const logOut = async (): Promise<null> => {
     try {
+<<<<<<< Updated upstream
+=======
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      //@ts-ignore
+>>>>>>> Stashed changes
       const { data } = await axiosInstance.get('/auth/logout');
       console.log('🚀 : data', data);
       setLoggedIn(false);

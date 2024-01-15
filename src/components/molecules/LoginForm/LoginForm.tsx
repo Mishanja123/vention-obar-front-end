@@ -17,7 +17,15 @@ const LoginForm = () => {
     },
     validationSchema: loginShema,
     onSubmit: async ({ email, password }) => {
+<<<<<<< Updated upstream
       await login(email, password);
+=======
+      const response = await login(email, password);
+      //@ts-ignore
+      if (response) {
+        navigate(PATHS.ROOT);
+      }
+>>>>>>> Stashed changes
     },
   });
   return (

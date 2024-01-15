@@ -1,4 +1,4 @@
-import { CartStatus } from '@/constants/cartStatus';
+import { CARTSTATUS } from '@/constants/cartStatus';
 
 export type ICartItem = {
   id: string;
@@ -7,7 +7,7 @@ export type ICartItem = {
   quantity: number;
   price: number;
   type: number;
-  status: CartStatus;
+  status: CARTSTATUS;
   createdAt: Date;
   reservationDate: Date;
   reservationTime: Date;
