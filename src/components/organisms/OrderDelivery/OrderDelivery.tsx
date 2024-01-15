@@ -2,7 +2,6 @@ import { DeliveryAddressForm } from '@/components/molecules';
 import DateAndTimePicker from '@/components/molecules/DateAndTimePicker/DateAndTimePicker';
 import {
   FormControl,
-  InputLabel,
   MenuItem,
   Select,
   SelectChangeEvent,

@@ -4,11 +4,17 @@ import menuData from '@/menuData/menuData.json';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import { PATHS } from '@/constants/paths';
+import { useCheckoutContext } from '@/context/checkoutContext';
 
 const order = menuData.slice(0, 2);
 
 const OrderConfirmation = () => {
   const navigate = useNavigate();
+  const { orderData, handleDeleteOrder, tableGuests } = useCheckoutContext();
+
+  const orderDate = orderData.order_date?.split(' ')[0] ?? 'MM/DD/YY';
+  const orderTime = orderData.order_date?.split(' ')[1] ?? 'HH/MM';
+
   const handleCancelClick = () => {
     Swal.fire({
       title: 'Dear First Name!',
@@ -16,13 +22,17 @@ const OrderConfirmation = () => {
       icon: 'warning',
       showCancelButton: true,
       cancelButtonText: "Yes, I'm sure",
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
+      confirmButtonColor: '#182715',
+      cancelButtonColor: '#182715',
+      customClass: {
+        popup: styles.confirmation_modal,
+      },
       confirmButtonText: 'Procced to checkout!',
     }).then((result) => {
       if (result.isConfirmed) {
         navigate(`${PATHS.CHECKOUT}/${PATHS.ORDER_PAYMENT}`);
       } else {
+        handleDeleteOrder();
         navigate(`${PATHS.ROOT}`);
       }
     });
@@ -52,7 +62,8 @@ const OrderConfirmation = () => {
         </tbody>
       </table>
       <div className={styles.info_container}>
-        You are reserving table on MM/DD/YY at HH/MM for N guests
+        You are reserving table on {orderDate} at {orderTime} for {tableGuests}{' '}
+        guests
         <Button variant="contained" onClick={handleCancelClick}>
           Cancel
         </Button>

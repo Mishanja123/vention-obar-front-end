@@ -10,6 +10,7 @@ import styles from './DateAndTimePicker.module.css';
 import { useNavigate } from 'react-router-dom';
 import { PATHS } from '@/constants/paths';
 import { TimePicker } from '@/components/atoms';
+import { useCheckoutContext } from '@/context/checkoutContext';
 
 const today = new Date();
 let disablePast: boolean = true;
@@ -19,6 +20,7 @@ const startOfWorkingDay = setMinutes(setHours(startOfDay(new Date()), 8), 0);
 const DateAndTimePicker = () => {
   const navigate = useNavigate();
   const [minTime, setMinTime] = useState(today);
+  const { sendDeliveryOrTakeOut } = useCheckoutContext();
 
   const validationSchema = getValidationSchema(minTime);
   const formik = useFormik({
@@ -37,11 +39,15 @@ const DateAndTimePicker = () => {
         text: `Date: ${date}, Time: ${time}. Move on to confirmation process?`,
         icon: 'question',
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
+        confirmButtonColor: '#182715',
+        cancelButtonColor: '#182715',
         confirmButtonText: 'Yes',
+        customClass: {
+          popup: styles.confirmation_modal,
+        },
       }).then((result) => {
         if (result.isConfirmed) {
+          sendDeliveryOrTakeOut(date, time);
           navigate(`${PATHS.CHECKOUT}/${PATHS.ORDER_CONFIRMATION}`);
         }
       });

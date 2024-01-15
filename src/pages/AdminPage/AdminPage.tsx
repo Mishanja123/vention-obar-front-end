@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 
 import { PATHS } from '@/constants/paths';
 import { Button } from '@/components/atoms/index.ts';
@@ -7,6 +7,7 @@ import styles from './AdminPage.module.css';
 import logo from '@/assets/images/logo.svg';
 
 const AdminPage = () => {
+  const navigate = useNavigate();
   return (
     <section className={styles.admin_section}>
       <header>
@@ -23,7 +24,9 @@ const AdminPage = () => {
               <NavLink to={PATHS.ORDERSMANAGEMENT}>Orders management</NavLink>
             </li>
             <li>
-              <Button variant="contained">Log out</Button>
+              <Button variant="contained" onClick={() => navigate(PATHS.ROOT)}>
+                Log out
+              </Button>
             </li>
           </ul>
         </nav>

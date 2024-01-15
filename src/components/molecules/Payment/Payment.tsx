@@ -8,8 +8,11 @@ import { cardExpirationDate } from '@/content/accountForms/cardExpirationDate';
 
 import { TextInput } from '@/components/atoms';
 import SelectInput from '@/components/atoms/SelectInput/SelectInput';
+import { useCheckoutContext } from '@/context/checkoutContext';
 
 const Payment = () => {
+  const { handlePaymentCardAdditing } = useCheckoutContext();
+
   const formik = useFormik({
     initialValues: {
       addressTitle: '',
@@ -28,6 +31,14 @@ const Payment = () => {
       month,
       year,
     }: FormikValues) => {
+      handlePaymentCardAdditing(
+        addressTitle,
+        cardNumber,
+        cardholder,
+        cvvNumber,
+        month,
+        year,
+      );
       console.log(addressTitle, cardNumber, cardholder, cvvNumber, month, year);
     },
   });

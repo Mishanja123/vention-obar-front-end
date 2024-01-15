@@ -56,7 +56,7 @@ const SearchInput: React.FC = () => {
       <Autocomplete
         freeSolo
         options={matchedDishes.map((dish) => dish.title)}
-        onChange={(event, value) => navigateToDish(value)}
+        onChange={(_event, value) => navigateToDish(value)}
         className={styles.searchContainer}
         renderInput={(params) => (
           <TextField

@@ -10,17 +10,22 @@ import styles from './ReservationForm.module.css';
 import Button from '../../atoms/Button/Button';
 import Swal from 'sweetalert2';
 import { getValidationSchema } from '../../../validationSchemas/MainPageReservationFormSchema';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useCheckoutContext } from '@/context/checkoutContext';
+import { PATHS } from '@/constants/paths';
 
-//Date options
 const today = new Date();
 let disablePast: boolean = true;
 const currentTime = add(today, { minutes: 1 });
 const startOfWorkingDay = setMinutes(setHours(startOfDay(new Date()), 8), 0);
 
 const ReservationForm = () => {
-  //Minimum time for vaidation logic
   const [minTime, setMinTime] = useState(today);
+  const location = useLocation();
+  const navigate = useNavigate();
 
+  const { sendReservation } = useCheckoutContext();
+  const withPreorder = location.pathname === '/checkout/booktable';
   const validationSchema = getValidationSchema(minTime);
   const formik = useFormik({
     initialValues: {
@@ -29,26 +34,44 @@ const ReservationForm = () => {
       guests: 1,
     },
     validationSchema: validationSchema,
-    onSubmit: ({ date, time, guests }: FormikValues) => {
+    onSubmit: async ({ date, time, guests }: FormikValues) => {
       date = format(date, 'MM/dd/yyyy');
       time = format(time, 'HH:mm');
-
-      //Modal confirmation
       Swal.fire({
         title: 'Confirmation',
-        text: `You sure you want to reserve a table on this date: ${date}, time: ${time}, with this amount of guests: ${guests}`,
+        text: `Are you sure you want to reserve a table on this date: ${date}, time: ${time}, with ${guests} guests?`,
         icon: 'info',
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
+        confirmButtonColor: '#182715',
+        cancelButtonColor: '#182715',
         confirmButtonText: 'Confirm!',
+        customClass: {
+          popup: styles.confirmation_modal,
+        },
       }).then((result) => {
         if (result.isConfirmed) {
-          Swal.fire({
-            title: 'Confirmed!',
-            text: 'Thank you for your reservation! We are looking forward to see you!',
-            icon: 'success',
-          });
+          if (withPreorder) {
+            try {
+              sendReservation(date, time, guests, withPreorder);
+              Swal.fire({
+                title: 'Confirmed!',
+                text: 'Thank you for your reservation! We look forward to seeing you!',
+                icon: 'success',
+                confirmButtonColor: '#182715',
+                customClass: {
+                  popup: styles.confirmation_modal,
+                },
+              });
+              navigate(`${PATHS.CHECKOUT}/${PATHS.ORDER_CONFIRMATION}`);
+            } catch (error) {
+              console.error('Error sending reservation:', error);
+              Swal.fire({
+                title: 'Error',
+                text: 'An error occurred while processing your reservation. Please try again.',
+                icon: 'error',
+              });
+            }
+          }
         }
       });
     },
@@ -59,7 +82,7 @@ const ReservationForm = () => {
     const formattedCurrentDate = format(today, 'MM/dd/yyyy');
     if (formattedSelectedDate === formattedCurrentDate) {
       disablePast = true;
-      setMinTime(add(today, { minutes: 1 })); //adding 1 minute to avoid error
+      setMinTime(add(today, { minutes: 1 }));
     } else {
       disablePast = false;
       setMinTime(startOfWorkingDay);
@@ -70,7 +93,10 @@ const ReservationForm = () => {
     <div className={styles.reservationForm_container}>
       <form onSubmit={formik.handleSubmit} className={styles.reservationForm}>
         <h3 className={styles.reservation_form_title}>
-          Make a reservation without a preorder
+          Make a reservation{' '}
+          {location.pathname === '/checkout/booktable'
+            ? 'with a preorder'
+            : 'without a preorder'}
         </h3>
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <CalendarInput
