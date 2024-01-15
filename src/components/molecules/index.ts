@@ -1,5 +1,5 @@
 export { default as SharedLayout } from './SharedLayout/SharedLayout';
-export { default as CartItem } from './CartItem/CartItem';
+export { default as CartItems } from './CartItem/CartItem';
 export { default as DeliveryAddressForm } from './DeliveryAddressForm/DeliveryAddressForm';
 export { default as Header } from './Header/Header';
 export { default as Footer } from './Footer/Footer';
