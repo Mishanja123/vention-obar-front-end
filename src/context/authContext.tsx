@@ -29,7 +29,6 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [response, setResponse] = useState<unknown>(null);
   const [loggedIn, setLoggedIn] = useState<boolean>(() => {
     const loggedInStatus = localStorage.getItem('loggedIn') ?? false;
-
     if (loggedInStatus) {
       return JSON.parse(loggedInStatus);
     }
@@ -84,6 +83,8 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const logOut = async (): Promise<null> => {
     try {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      //@ts-ignore
+
       const { data } = await axiosInstance.get('/auth/logout');
       console.log('🚀 : data', data);
       setLoggedIn(false);

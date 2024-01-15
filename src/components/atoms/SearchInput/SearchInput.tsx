@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { Autocomplete } from '@mui/material';
 import TextField from '@mui/material/TextField';
-// import SearchIcon from '@mui/icons-material/Search';
+import SearchIcon from '@mui/icons-material/Search';
 
 import axiosInstance from '@/services/restaurantAPI';
 
@@ -49,36 +49,39 @@ const SearchInput: React.FC = () => {
     if (value) {
       const selectedDish = matchedDishes.find((dish) => dish.title === value);
       if (selectedDish) {
-        navigate(`/menu/:id${selectedDish.id}`);
+        navigate(`/menu/${selectedDish.id}`);
       }
     }
   };
 
   return (
-    <Autocomplete
-      freeSolo
-      options={matchedDishes.map((dish) => dish.title)}
-      onChange={(_event, value) => navigateToDish(value)}
-      className={styles.search_container}
-      renderInput={(params) => (
-        <TextField
-          {...params}
-          variant="filled"
-          color="success"
-          focused
-          className={styles.search_bar}
-          label="Search across all dishes..."
-          onChange={(e: ChangeEvent<HTMLInputElement>) =>
-            doDishMatch(e.target.value)
-          }
-          InputProps={{
-            style: { color: '#fff', fontSize: '0.9rem' },
-            ...params.InputProps,
-          }}
-        />
-      )}
-    />
-    // {/* <SearchIcon sx={{ fontSize: '2rem' }} color="success" /> */}
+    <div className={styles.container}>
+      <Autocomplete
+        freeSolo
+        options={matchedDishes.map((dish) => dish.title)}
+        //@ts-ignore
+        onChange={(event, value) => navigateToDish(value)}
+        className={styles.searchContainer}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            variant="filled"
+            color="success"
+            focused
+            className={styles.searchBar}
+            label="Search across all dishes..."
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              doDishMatch(e.target.value)
+            }
+            InputProps={{
+              style: { color: '#fff', fontSize: '0.9rem' },
+              ...params.InputProps,
+            }}
+          />
+        )}
+      />
+      <SearchIcon sx={{ fontSize: '2rem' }} color="success" />
+    </div>
   );
 };
 
