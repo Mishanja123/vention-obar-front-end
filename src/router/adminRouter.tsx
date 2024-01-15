@@ -2,7 +2,7 @@ import AdminPage from '@/pages/AdminPage/AdminPage';
 import { PATHS } from '../constants/paths';
 import {
   DishManagement,
-  OrdersManagement,
+  OrderManagement,
   UserManagement,
 } from '@/components/organisms';
 import MenuProvider from '@/context/menuContext';
@@ -21,7 +21,7 @@ const adminRouter = [
         ),
       },
       { path: PATHS.USERMANAGEMENT, element: <UserManagement /> },
-      { path: PATHS.ORDERSMANAGEMENT, element: <OrdersManagement /> },
+      { path: PATHS.ORDERSMANAGEMENT, element: <OrderManagement /> },
     ],
   },
 ];
