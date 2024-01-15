@@ -70,7 +70,6 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         phone,
         password,
       });
-
       setResponse(data);
       console.log(data);
     } catch (error) {
@@ -82,6 +81,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     try {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { data } = await axiosInstance.get('/auth/logout');
+      console.log('🚀 : data', data);
       setLoggedIn(false);
 
       localStorage.setItem('token', '');
@@ -108,11 +108,10 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         setIsfetching(true);
         const data = await axiosInstance.get('/auth/current-user');
 
-        setIsfetching(true);
         setLoggedIn(true);
         setResponse(data);
       } catch (error) {
-        console.log(`Registration Error: ${error}`);
+        console.error(`Fetching Current User Error: ${error}`);
       } finally {
         setIsfetching(false);
       }

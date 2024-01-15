@@ -42,3 +42,6 @@ td {
   max-width: fit-content;
   margin: 0 auto;
 }
+.confirmation_modal {
+  background-color: var(--background-color);
+}

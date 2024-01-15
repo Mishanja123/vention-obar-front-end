@@ -19,3 +19,7 @@
 .reservation_form_title {
   color: var(--main-color);
 }
+
+.confirmation_modal {
+  background-color: var(--background-color);
+}
