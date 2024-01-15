@@ -11,7 +11,6 @@ const MainSection = () => {
     <>
       <section className={styles.welcome_section}>
         <div className={styles.welcome_wrapper}>
-          {/* <img src="" alt="Ocean bar logo" /> */}
           <h1 className={styles.welcome_title}>
             Your Culinary Adventure Starts Here
           </h1>

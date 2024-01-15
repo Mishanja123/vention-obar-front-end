@@ -10,3 +10,6 @@ export { default as OrdersPageSection } from './OrdersPageSection/OrdersPageSect
 export { default as CheckoutSummary } from './CheckoutSummary/CheckoutSummary';
 export { default as NotFoundPageSection } from './NotFoundPageSection/NotFoundPageSection';
 export { default as ErrorPageSection } from './ErrorPageSection/ErrorPageSection';
+export { default as DishManagement } from './DishManagement/DishManagement';
+export { default as UserManagement } from './UserManagement/UserManagement';
+export { default as OrderManagement } from './OrderManagement/OrderManagement';

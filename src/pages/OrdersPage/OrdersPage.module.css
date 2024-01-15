@@ -1,4 +1,10 @@
 .orders_section {
   margin: 0 auto;
-  padding: var(--desktop-internal-padding);;
+  padding: var(--desktop-internal-padding);
+}
+
+@media screen and (max-width: 876px) {
+  .orders_section {
+    padding: 0;
+  }
 }

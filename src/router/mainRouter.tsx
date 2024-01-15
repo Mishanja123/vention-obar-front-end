@@ -25,14 +25,15 @@ import {
 } from '../components/organisms';
 import OrderPayment from '@/components/organisms/OrderPayment/OrderPayment';
 import NotFoundPage from '@/pages/NotFoundPage';
+import { CheckoutProvider } from '@/context/checkoutContext';
 
 const mainRoutes = [
   {
     path: PATHS.ROOT,
     element: (
-      <PrivatePage>
-        <SharedLayout />
-      </PrivatePage>
+      // <PrivatePage>
+      <SharedLayout />
+      // </PrivatePage>
     ),
     children: [
       { path: PATHS.ROOT, element: <MainPage /> },
@@ -63,7 +64,11 @@ const mainRoutes = [
       },
       {
         path: PATHS.CHECKOUT,
-        element: <CheckoutPage />,
+        element: (
+          <CheckoutProvider>
+            <CheckoutPage />
+          </CheckoutProvider>
+        ),
         children: [
           { path: PATHS.BOOK_TABLE, element: <OrderedReservarionForm /> },
           { path: PATHS.DELIVERY, element: <OrderDelivery /> },

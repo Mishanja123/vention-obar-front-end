@@ -1,4 +1,9 @@
 .dateAndTime_form {
   display: flex;
   flex-direction: column;
+  gap: 1rem;
+}
+
+.confirmation_modal {
+  background-color: var(--background-color);
 }

@@ -1,6 +1,6 @@
 import { DISHCATEGORY } from '@/constants/categoryDish';
 
-type Ingredients = {
+export type Ingredients = {
   title: string;
   is_required: boolean;
 };
