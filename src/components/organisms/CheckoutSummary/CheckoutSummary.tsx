@@ -26,7 +26,9 @@ const CheckoutSummary = ({ path }: { path: string }) => {
               // eslint-disable-next-line @typescript-eslint/ban-ts-comment
               // @ts-expect-error
               onClick();
-              handlePaymentOrder('online');
+              if (firstButtonLink === 'Pay $200 online') {
+                handlePaymentOrder('online');
+              }
             }}>
             <Button variant="contained" type="button">
               {firstButton}
@@ -38,7 +40,9 @@ const CheckoutSummary = ({ path }: { path: string }) => {
               // eslint-disable-next-line @typescript-eslint/ban-ts-comment
               // @ts-expect-error
               onClick();
-              handlePaymentOrder('offline');
+              if (firstButtonLink === 'I’ll pay on the spot') {
+                handlePaymentOrder('offline');
+              }
             }}>
             <Button variant="text" type="button">
               {secondButton}
