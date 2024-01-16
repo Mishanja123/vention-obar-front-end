@@ -14,7 +14,8 @@ const AccountPageSection = () => {
   }, [location.pathname, navigate]);
 
   const navLinkStyle = ({ isActive }: { isActive: boolean }) => ({
-    fontWeight: isActive ? '600' : '300',
+    backgroundColor: isActive ? '#182715' : '',
+    color: isActive ? '#daa520' : '',
   });
 
   return (

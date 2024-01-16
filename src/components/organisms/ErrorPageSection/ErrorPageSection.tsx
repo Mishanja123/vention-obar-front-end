@@ -1,33 +1,20 @@
 import Button from '../../atoms/Button/Button';
 
 import styles from './ErrorPageSection.module.css';
+import error from '@/assets/images/error.png';
 
-type ErrorPageSectionProps = {
-  errorCode?: number;
-  errorMessage?: string;
-};
-
-const ErrorPageSection: React.FC<ErrorPageSectionProps> = ({
-  errorCode,
-  errorMessage,
-}) => {
+const ErrorPageSection: React.FC = () => {
   const handleRefreshClick = () => {
     window.location.reload();
   };
 
   return (
     <section className={styles.error_section}>
-      <img
-        className={styles.error_img}
-        src="https://placehold.jp/180x150.png"
-        alt="Error"
-      />
-      <h1 className={styles.error_heading}>
-        Whoops, something went wrong with status: {errorCode}
-      </h1>
+      <img className={styles.error_img} src={error} alt="Error" width={400} />
+      <h1 className={styles.error_heading}>Oops! Something went wrong.</h1>
       <p className={styles.error_paragraph}>
-        error message: Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Quibusdam, duc{errorMessage}
+        We encountered an issue while processing your request. Don't worry, our
+        team is already on it. Please try again later.
       </p>
       <Button variant="contained" onClick={handleRefreshClick}>
         Refresh

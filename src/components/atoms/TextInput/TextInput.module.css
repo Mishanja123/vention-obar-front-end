@@ -1,7 +1,5 @@
 .text_input {
   width: 100%;
-
-
   padding-left: 0.6rem;
   margin-bottom: 1.8rem;
   padding: 1rem 0.5rem;
@@ -18,8 +16,21 @@
   padding: 0;
   margin: 0;
   margin-top: -2rem;
+  display: none;
+  @media screen and (min-width: 700px) {
+    display: block;
+    font-size: var(--font-size-s);
+  }
 }
 
 .error_border {
   border: 0.125rem solid var(--error-color);
+}
+.password_button{
+  position: absolute;
+  top: 0.9rem;
+  right: 1rem;
+}
+.input_wrapper{
+  position: relative;
 }

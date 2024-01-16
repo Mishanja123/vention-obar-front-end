@@ -5,7 +5,7 @@
   justify-content: center;
   align-items: center;
   gap: 1.5rem;
-  padding: var(--desktop-padding);;
+  padding: var(--desktop-padding);
 }
 
 .error_img {
@@ -15,5 +15,12 @@
 
 .error_paragraph {
   text-align: center;
-  width: 40%;
+  max-width: 28rem;
+  font-size: var(--font-size-m);
+
+  @media screen and (min-width: 876px) {
+    max-width: 40rem;
+
+    font-size: var(--font-size-xl);
+  }
 }

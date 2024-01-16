@@ -1,53 +1,74 @@
+.payment_address_form {
+  max-width: 568px;
+  width: 100%;
+  margin: auto;
+  @media screen and (min-width: 876px) {
+    margin: 0;
+  }
+}
+
 .add_payment_button {
-  width: 31rem;
-  margin-bottom: 1.8rem;
-  padding: 6px 16px;
-
-  border-radius: var(--border-radius);
+  width: 100%;
   color: var(--neutral-color);
-  font-size: var(--font-size-xxl);
+  font-size: var(--font-size-xl);
+  padding: 6px 16px;
+  border-radius: var(--border-radius);
+  margin-bottom: 1.8rem;
   background-color: var(--main-color);
-
-  margin-top: 1.8rem;
-
-  transition: var(--transaction);
   cursor: pointer;
-
+  transition: all 0.5s ease;
   &:hover {
     background-color: var(--accent-color);
     color: var(--light-color);
+  }
+  @media screen and (min-width: 876px) {
+    padding: 13px 16px;
+    font-size: var(--font-size-xxl);
+  }
+  &:last-child {
+    margin-top: 1.8rem;
   }
 }
 
 .payment_input_wrapper {
   display: flex;
+
+  gap: 1rem;
   align-items: center;
-  justify-content: space-between;
-  width: 35rem;
+  @media screen and (min-width: 320px) and (max-width: 435px) {
+    flex-direction: column;
+  }
+}
+
+.payment_label {
+  min-width: 120px;
 }
 
 .payment_input {
-  width: 25rem;
-}
-
-.delivery_address_form {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-}
-
-.payment_select_wrapper {
-  flex: 1;
+  width: 100%;
 }
 
 .expiration_select_wrapper {
   display: flex;
-
-  gap: 2.5rem;
+  gap: 1rem;
 }
 
 .expiration_select_input {
   border: 1px solid var(--background-color);
   border-radius: 1rem;
+}
+
+@media screen and (max-width: 876px) {
+  .add_payment_button {
+    width: auto;
+  }
+  .payment_input_wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    width: auto;
+  }
+
+  .payment_input {
+    width: 20rem;
+  }
 }
