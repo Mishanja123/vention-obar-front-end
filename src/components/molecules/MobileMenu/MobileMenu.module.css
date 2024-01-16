@@ -28,7 +28,7 @@
   left: -20rem;
   width: 20rem;
   height: 100%;
-  padding: 3rem 1.25rem 2.5rem 1.25rem;
+  padding: 4rem 1.25rem 2.5rem 1.25rem;
   background-color: rgba(0, 0, 0, 0.9);
   margin: 0;
   transform: translateX(0);
@@ -37,16 +37,6 @@
 
 .modal.active {
   transform: translateX(20rem);
-}
-
-.cart_img,
-.profile_img {
-  width: 3rem;
-  height: 2.8rem;
-}
-
-.modal a.active {
-  color: var(--highlight-color);
 }
 
 .closeMenuBtn {
@@ -59,12 +49,20 @@
   width: 2.5rem;
   height: 2.5rem;
 }
+
 .logo_link {
-  margin-right: auto;
-  margin-left: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
+
+.logo {
+  width: 9rem;
+  height: 9rem;
+}
+
 @media screen and (min-width: 550px) {
-  .logo_link {
+  .logo {
     display: none;
   }
 }

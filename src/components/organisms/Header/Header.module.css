@@ -8,51 +8,30 @@
   font-size: var(--font-size-l);
   color: var(--neutral-color);
 }
-.navWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  min-width: 518px;
-}
-.logo_link {
-  display: flex;
-  align-items: center;
-  gap: 0.2rem;
-  font-size: var(--font-size-xl);
-  color: var(--accent-color);
+
+.logo {
+  min-width: 6rem;
+  min-height: 6rem;
 }
 
-.logo_img {
-  margin-right: auto;
-  width: 3rem;
-  height: 2.8rem;
-}
-
-.header_link_item {
-  font-family: var(--links-font);
-  font-weight: var(--links-font-weight);
-  color: var(--accent-color);
-}
 @media screen and (max-width: 550px) {
-  .logo_link {
+  .logo {
     display: none;
   }
 }
+.menu_btn {
+  width: 40px;
+  height: 40px;
+}
+
 @media screen and (max-width: 876px) {
-  .header_link_item {
-    display: none;
-  }
-  .navWrapper {
-    display: none;
-  }
-  .openMenuBtn {
+  .open_menu_btn {
     width: 40px;
     height: 40px;
   }
 }
 @media screen and (min-width: 876px) {
-  .openMenuBtn {
+  .open_menu_btn {
     display: none;
   }
 }

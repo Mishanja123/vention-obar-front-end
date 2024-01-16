@@ -4,16 +4,6 @@
   color: var(--accent-color);
 }
 
-a.active {
+.active {
   color: var(--highlight-color);
-}
-
-@media screen and (max-width: 876px) {
-  .link {
-    display: none;
-  }
-
-  a.active {
-    display: none;
-  }
 }

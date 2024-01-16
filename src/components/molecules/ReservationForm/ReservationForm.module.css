@@ -8,12 +8,12 @@
   display: flex;
   flex-direction: column;
   border: 1px solid var(--accent-color);
-  padding: 50px 60px;
+  padding: 50px 80px;
   border-radius: 10px;
   gap: 20px;
 
-  @media screen and (min-width: 876px) {
-    padding: 50px 100px;
+  @media screen and (max-width: 876px) {
+    padding: 50px 40px;
   }
 }
 .reservation_form_title {
