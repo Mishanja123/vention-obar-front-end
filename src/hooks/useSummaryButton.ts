@@ -1,4 +1,5 @@
 import { PATHS } from '@/constants/paths';
+import { useCheckoutContext } from '@/context/checkoutContext';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
@@ -14,13 +15,16 @@ type ButtonConfig = {
 
 const useSummaryButton = ({ path }: { path: string }) => {
   const navigate = useNavigate();
-
+  const { handleDeleteOrder } = useCheckoutContext();
   const buttonConfig: ButtonConfig = {
     [PATHS.ORDER_CONFIRMATION]: {
       firstButton: 'Confirm',
       secondButton: 'Change order type',
       firstButtonLink: PATHS.ORDER_PAYMENT,
       secondButtonLink: PATHS.CHECKOUT,
+      onClick: () => {
+        handleDeleteOrder();
+      },
     },
     [PATHS.ORDER_PAYMENT]: {
       firstButton: 'Pay $200 online',

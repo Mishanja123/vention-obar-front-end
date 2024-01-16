@@ -29,6 +29,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [response, setResponse] = useState<unknown>(null);
   const [loggedIn, setLoggedIn] = useState<boolean>(() => {
     const loggedInStatus = localStorage.getItem('loggedIn') ?? false;
+
     if (loggedInStatus) {
       return JSON.parse(loggedInStatus);
     }
