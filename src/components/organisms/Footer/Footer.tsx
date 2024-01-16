@@ -1,6 +1,6 @@
 import { FaPhone } from 'react-icons/fa6';
 import { BsClockHistory } from 'react-icons/bs';
-import { scrollToReservationForm } from '@/helpers/scrollToReservation';
+import { scrollToReservationForm } from '@/helpers';
 import styles from './Footer.module.css';
 
 const Footer = () => {

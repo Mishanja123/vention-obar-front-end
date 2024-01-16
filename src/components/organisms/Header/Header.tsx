@@ -24,24 +24,18 @@ const Header = () => {
 
   return (
     <div className={styles.header_wrapper}>
-      <button className={styles.menuBtn} type="button" onClick={openMenu}>
-        <IconContext.Provider value={{ className: styles.openMenuBtn }}>
+      <button className={styles.menu_btn} type="button" onClick={openMenu}>
+        <IconContext.Provider value={{ className: styles.open_menu_btn }}>
           <IoMenu />
         </IconContext.Provider>
       </button>
-      <NavLink to={PATHS.ROOT} className={styles.logo_link}>
-        <img
-          src={homeLogo}
-          alt="logo"
-          width={120}
-          height={60}
-          style={{ borderRadius: 20 }}
-        />
+      <NavLink to={PATHS.ROOT}>
+        <img className={styles.logo} src={homeLogo} alt="logo" />
       </NavLink>
+
       <SearchInput />
-      <div className={styles.navWrapper}>
-        <Navigation />
-      </div>
+
+      <Navigation loc={'header'} />
 
       {isMenuOpen && <MobileMenu onClose={closeMenu} isMenuOpen={isMenuOpen} />}
     </div>
