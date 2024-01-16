@@ -1,24 +1,14 @@
 import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
 import styles from './SearchInput.module.css';
+import { useNavigate } from 'react-router-dom';
+import { ChangeEvent, useState } from 'react';
+import { IDish } from '@/types/dish';
+import axiosInstance from '@/services/restaurantAPI';
+import Autocomplete from '@mui/material/Autocomplete';
 
-function SearchInput() {
-  return (
-    <TextField
-      type="search"
-      label="Search..."
-      className={styles.search}
-      InputProps={{
-        endAdornment: <SearchIcon />,
-      }}
-    />
-  );
-}
-
-<<<<<<< Updated upstream
-=======
 const SearchInput: React.FC = () => {
-  const [matchedDishes, setMatchedDishes] = useState<Dish[]>([]);
+  const [matchedDishes, setMatchedDishes] = useState<IDish[]>([]);
   const navigate = useNavigate();
   let filteredTimeout: NodeJS.Timeout | null = null;
 
@@ -34,7 +24,7 @@ const SearchInput: React.FC = () => {
 
     filteredTimeout = setTimeout(async () => {
       try {
-        const response = await axiosInstance.post<{ dishes: Dish[] }>(
+        const response = await axiosInstance.post<{ dishes: IDish[] }>(
           '/matched-dishes',
           {
             title: query,
@@ -87,5 +77,4 @@ const SearchInput: React.FC = () => {
   );
 };
 
->>>>>>> Stashed changes
 export default SearchInput;

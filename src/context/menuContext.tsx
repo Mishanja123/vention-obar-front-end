@@ -23,13 +23,9 @@ export const MenuProvider = ({ children }: { children: React.ReactNode }) => {
   const [allItems, setAllItems] = useState<IDish[]>([]);
   const [filteredItems, setFilteredItems] = useState<IDish[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
-<<<<<<< Updated upstream
-  const [postsPerPage, _] = useState<number>(12);
-=======
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   //@ts-ignore
   const [postsPerPage, setPostsPerPage] = useState<number>(12);
->>>>>>> Stashed changes
 
   useEffect(() => {
     const fetchData = async () => {
