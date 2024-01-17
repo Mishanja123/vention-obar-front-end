@@ -1,5 +1,4 @@
 import { PATHS } from '@/constants/paths';
-import { useCheckoutContext } from '@/context/checkoutContext';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
@@ -10,27 +9,27 @@ type ButtonConfig = {
     firstButtonLink: string;
     secondButtonLink: string;
     onClick?: () => void;
+    disabled?: boolean;
   };
 };
 
 const useSummaryButton = ({ path }: { path: string }) => {
   const navigate = useNavigate();
-  const { handleDeleteOrder } = useCheckoutContext();
+
+  const paymentCardExist = !!localStorage.getItem('paymentId');
   const buttonConfig: ButtonConfig = {
     [PATHS.ORDER_CONFIRMATION]: {
       firstButton: 'Confirm',
       secondButton: 'Change order type',
       firstButtonLink: PATHS.ORDER_PAYMENT,
       secondButtonLink: PATHS.CHECKOUT,
-      onClick: () => {
-        handleDeleteOrder();
-      },
     },
     [PATHS.ORDER_PAYMENT]: {
       firstButton: 'Pay $200 online',
       secondButton: 'I’ll pay on the spot',
       firstButtonLink: PATHS.ORDER_PAYMENT,
       secondButtonLink: PATHS.ORDER_PAYMENT,
+
       onClick: () => {
         Swal.fire({
           title: 'Dear First Name!',
@@ -44,6 +43,7 @@ const useSummaryButton = ({ path }: { path: string }) => {
           navigate(PATHS.ROOT);
         });
       },
+      disabled: paymentCardExist,
     },
     default: {
       firstButton: 'Proceed',
@@ -58,12 +58,17 @@ const useSummaryButton = ({ path }: { path: string }) => {
   );
   const config = buttonConfig[matchingPaths[0]] || buttonConfig.default;
 
+  // Disable buttons if on the ORDER_PAYMENT path
+  const isOrderPaymentPath = path.includes(PATHS.ORDER_PAYMENT);
+  const disabled = isOrderPaymentPath ? config.disabled : true;
+
   return {
     firstButton: config.firstButton,
     secondButton: config.secondButton,
     firstButtonLink: config.firstButtonLink,
     secondButtonLink: config.secondButtonLink,
     onClick: config.onClick,
+    disabled,
   };
 };
 

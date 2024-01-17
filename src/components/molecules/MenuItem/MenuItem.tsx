@@ -8,17 +8,22 @@ type MenuItemProps = {
   id: string;
   title: string;
   price: number;
-  imageURL: string;
+  photo_path: string;
 };
 
-const MenuItem: React.FC<MenuItemProps> = ({ title, price, imageURL, id }) => {
+const MenuItem: React.FC<MenuItemProps> = ({
+  title,
+  price,
+  photo_path,
+  id,
+}) => {
   const { addToCart } = useCartContext();
   return (
     <li className={styles.menu_item}>
       <Link className={styles.menu_link} to={`${PATHS.MENU_ITEM}${id}`}>
         <img
           className={styles.menu_item_img}
-          src={imageURL}
+          src={photo_path}
           alt="Dish_picture"
         />
         <p className={styles.menu_item_title}>{title}</p>
