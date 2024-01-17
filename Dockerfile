@@ -16,5 +16,3 @@ EXPOSE 5173
 
 # Start the serve command to serve the static files
 CMD ["serve", "-s", "dist", "-l", "5173"]
-
-

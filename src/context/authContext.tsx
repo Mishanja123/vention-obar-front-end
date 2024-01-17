@@ -27,17 +27,12 @@ export const useAuthContext = () => useContext(AuthContext);
 
 const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [response, setResponse] = useState<unknown>(null);
-<<<<<<< HEAD
-=======
-
->>>>>>> b41b753 (ob108:fix-fixed all errors and configured dockerfile to build suitable for aws image)
   const [loggedIn, setLoggedIn] = useState<boolean>(() => {
     const loggedInStatus = localStorage.getItem('loggedIn') ?? false;
     if (loggedInStatus) {
       return JSON.parse(loggedInStatus);
     }
   });
-  //@ts-expect-error
   const [isfetching, setIsfetching] = useState(false);
 
   const login = async (email: string, password: string) => {
@@ -87,12 +82,6 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   const logOut = async (): Promise<null> => {
     try {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      //@ts-ignore
-<<<<<<< HEAD
-
-=======
->>>>>>> b41b753 (ob108:fix-fixed all errors and configured dockerfile to build suitable for aws image)
       const { data } = await axiosInstance.get('/auth/logout');
       console.log('🚀 : data', data);
       setLoggedIn(false);
