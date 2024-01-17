@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const HOST = import.meta.env.VITE_BACKEND_HOST;
+const HOST = import.meta.env.VITE_BACKEND_HOST; //create env file with this naming
 
 export const axiosInstance = axios.create({
   baseURL: `http://${HOST}:3000/api`,
