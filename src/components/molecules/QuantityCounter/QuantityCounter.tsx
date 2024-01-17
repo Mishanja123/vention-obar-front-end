@@ -3,6 +3,7 @@ import styles from './QuantityCounter.module.css';
 import { CiCirclePlus } from 'react-icons/ci';
 import { CiCircleMinus } from 'react-icons/ci';
 import { CartItem } from '@/models/cart.model';
+import { IconContext } from 'react-icons';
 
 type QuantityCounterProps = {
   quantity: { quantity: number };
@@ -30,8 +31,10 @@ const QuantityCounter = ({
 
   return (
     <div className={styles.quantity}>
-      <button onClick={addToCart}>
-        <CiCircleMinus />
+      <button className={styles.counter_btn} onClick={addToCart}>
+        <IconContext.Provider value={{ className: styles.counter_icon }}>
+          <CiCircleMinus />
+        </IconContext.Provider>
       </button>
       <input
         type="text"
@@ -41,8 +44,10 @@ const QuantityCounter = ({
         max="30"
         readOnly
       />
-      <button onClick={removeFromCart}>
-        <CiCirclePlus />
+      <button className={styles.counter_btn} onClick={removeFromCart}>
+        <IconContext.Provider value={{ className: styles.counter_icon }}>
+          <CiCirclePlus />
+        </IconContext.Provider>
       </button>
     </div>
   );
