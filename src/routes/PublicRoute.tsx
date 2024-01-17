@@ -10,7 +10,6 @@ interface PublicPageProps {
 const PublicPage: FC<PublicPageProps> = ({ children }) => {
   const { loggedIn, isfetching } = useAuthContext();
   const navigate = useNavigate();
-
   useEffect(() => {
     if (loggedIn || isfetching) {
       navigate(PATHS.ROOT);

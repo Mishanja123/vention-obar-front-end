@@ -11,7 +11,8 @@
   }
 
   @media screen and (min-width: 1450px) {
-    gap: 2rem;
+    /* gap: 2rem; */
+    /* align-items: center; */
   }
 }
 
@@ -43,6 +44,28 @@
   }
 
   @media screen and (min-width: 1450px) {
+    width: 15rem;
+    height: 10rem;
+  }
+}
+
+.title_wrapper {
+  width: 150px;
+  
+  @media screen and (min-width: 876px) {
+    width: 300px;
+  }
+  @media screen and (min-width: 1450px) {
+    width: 200px;
+  }
+}
+
+.cart_item_title {
+  font-size: var(--font-size-m);
+
+  @media screen and (min-width: 1450px) {
+    font-size: var(--font-size-xl);
+    margin-bottom: 1rem;
   }
 }
 

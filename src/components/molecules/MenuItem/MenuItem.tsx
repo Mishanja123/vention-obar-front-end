@@ -2,35 +2,17 @@ import React from 'react';
 import styles from './MenuItem.module.css';
 import { PATHS } from '@/constants/paths';
 import { Link } from 'react-router-dom';
-import { CartItem } from '@/models/cart.model';
+import { useCartContext } from '@/context/cartContext';
 
 type MenuItemProps = {
   id: string;
   title: string;
   price: number;
   imageURL: string;
-  addToCart: (item: CartItem) => void;
 };
 
-const MenuItem: React.FC<MenuItemProps> = ({
-  title,
-  price,
-  imageURL,
-  id,
-  addToCart,
-}) => {
-  const item: CartItem = {
-    id,
-    title,
-    price,
-    quantity: 1,
-    imageURL,
-  };
-
-  const handleAddToCart = () => {
-    addToCart(item);
-  };
-
+const MenuItem: React.FC<MenuItemProps> = ({ title, price, imageURL, id }) => {
+  const { addToCart } = useCartContext();
   return (
     <li className={styles.menu_item}>
       <Link className={styles.menu_link} to={`${PATHS.MENU_ITEM}${id}`}>
@@ -42,7 +24,9 @@ const MenuItem: React.FC<MenuItemProps> = ({
         <p className={styles.menu_item_title}>{title}</p>
         <p className={styles.menu_item_price}>{price}$</p>
       </Link>
-      <button onClick={handleAddToCart} className={styles.add_to_cart_btn}>
+      <button
+        onClick={() => addToCart(Number(id))}
+        className={styles.add_to_cart_btn}>
         Add to cart
       </button>
     </li>

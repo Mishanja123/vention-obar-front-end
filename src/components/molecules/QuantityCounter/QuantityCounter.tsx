@@ -1,40 +1,24 @@
-// import { useState } from 'react';
+import { useCartContext } from '@/context/cartContext';
 import styles from './QuantityCounter.module.css';
 import { CiCirclePlus } from 'react-icons/ci';
 import { CiCircleMinus } from 'react-icons/ci';
-import { CartItem } from '@/models/cart.model';
-import { IconContext } from 'react-icons';
 
 type QuantityCounterProps = {
-  quantity: { quantity: number };
-  addToCart: (item: CartItem) => void;
-  removeFromCart: (item: CartItem) => void;
+  quantity: number;
+  dishId: number;
 };
-const QuantityCounter = ({
-  quantity,
-  addToCart,
-  removeFromCart,
-}: QuantityCounterProps) => {
-  // const [currentQuantity, setQuantity] = useState(quantity);
+const QuantityCounter = ({ quantity, dishId }: QuantityCounterProps) => {
+  const { updateCartItemQuantity } = useCartContext();
 
-  // const handleDecrease = () => {
-  //   if (currentQuantity > 1) {
-  //     setQuantity(currentQuantity - 1);
-  //   }
-  // };
-
-  // const handleIncrease = () => {
-  //   if (currentQuantity < 30) {
-  //     setQuantity(currentQuantity + 1);
-  //   }
-  // };
+  const exidedMaxQuantity = quantity >= 30;
+  const exidedMinQuantity = quantity <= 1;
 
   return (
     <div className={styles.quantity}>
-      <button className={styles.counter_btn} onClick={addToCart}>
-        <IconContext.Provider value={{ className: styles.counter_icon }}>
-          <CiCircleMinus />
-        </IconContext.Provider>
+      <button
+        disabled={exidedMinQuantity}
+        onClick={() => updateCartItemQuantity(dishId, -1)}>
+        <CiCircleMinus />
       </button>
       <input
         type="text"
@@ -44,10 +28,11 @@ const QuantityCounter = ({
         max="30"
         readOnly
       />
-      <button className={styles.counter_btn} onClick={removeFromCart}>
-        <IconContext.Provider value={{ className: styles.counter_icon }}>
-          <CiCirclePlus />
-        </IconContext.Provider>
+
+      <button
+        disabled={exidedMaxQuantity}
+        onClick={() => updateCartItemQuantity(dishId, 1)}>
+        <CiCirclePlus />
       </button>
     </div>
   );

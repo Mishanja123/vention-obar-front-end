@@ -1,66 +1,43 @@
 import { CartItems, EmptyCart, SummaryPayment } from '@/components/molecules';
-import { useCartService } from '@/hooks/useCartService';
 import styles from './Cart.module.css';
 import { Button } from '@/components/atoms';
 import { Link } from 'react-router-dom';
 import { PATHS } from '@/constants/paths';
-import { CartItem } from '@/models/cart.model';
-
-const cartItemss = [
-  {
-    id: '1',
-    imageURL: '',
-    title: 'Title',
-    price: 600,
-    quantity: 5,
-  },
-  {
-    id: '2',
-    imageURL: '',
-    title: 'Title',
-    price: 700,
-    quantity: 7,
-  },
-  {
-    id: '3',
-    imageURL: '',
-    title: 'Title',
-    price: 800,
-    quantity: 9,
-  },
-];
+import { useCartContext } from '@/context/cartContext';
 
 const Cart = () => {
-  // const { cart, clearCart, addToCart, removeFromCart } = useCartService();
-  // console.log(cart.items);
-  // if (cart.items.length === 0) {
-  //   return <EmptyCart />;
-  // }
+  const { cartItems, removeAllFromCart } = useCartContext();
 
-  // const handleAddToCart = (item: CartItem) => {
-  //   addToCart(item);
-  // };
-  // const handleRemoveFromCart = (item: CartItem) => {
-  //   removeFromCart(item);
-  // };
+  const allDishesQuantity = cartItems?.dishes?.reduce((total, item) => {
+    const allDishes = total + item.quantity;
+    return allDishes;
+  }, 0);
 
-  return (
+  return cartItems?.dishes?.length === 0 ? (
+    <EmptyCart />
+  ) : (
     <div className={styles.cart}>
       <div className={styles.cart_list_wrapper}>
-        <button className={styles.cart_remove_all_btn}>Remove all</button>
+        <button
+          onClick={() => removeAllFromCart()}
+          className={styles.cart_remove_all_btn}>
+          Remove all
+        </button>
         <ul className={styles.cart_list}>
-          {cartItemss.map((item) => (
+          {cartItems?.dishes?.map((item) => (
             <CartItems
-              key={item.id}
-              {...item}
-              // addToCart={handleAddToCart}
-              // removeFromCart={handleRemoveFromCart}
+              key={item.dishData.id}
+              quantity={item.quantity}
+              {...item.dishData}
             />
           ))}
         </ul>
       </div>
 
-      <SummaryPayment quantity={20} subtotal={50} total={500}>
+      <SummaryPayment
+        quantity={allDishesQuantity}
+        subtotal={cartItems?.subTotal}
+        total={cartItems?.total}>
         <Link to={PATHS.CHECKOUT}>
           <Button variant="contained" type="button">
             Checkout

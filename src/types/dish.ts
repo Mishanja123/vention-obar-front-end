@@ -6,7 +6,7 @@ export type Ingredients = {
 };
 
 export type IDish = {
-  id: string;
+  id: number;
   title: string;
   price: string;
   photo_path: string;
