@@ -11,9 +11,15 @@ const order = menuData.slice(0, 2);
 const OrderConfirmation = () => {
   const navigate = useNavigate();
   const { orderData, handleDeleteOrder, tableGuests } = useCheckoutContext();
+  const orderDate = orderData.order_date?.split(' ')[0] || 'MM/DD/YY';
+  const orderTime = orderData.order_date?.split(' ')[1] || 'HH/MM';
 
-  const orderDate = orderData.order_date?.split(' ')[0] ?? 'MM/DD/YY';
-  const orderTime = orderData.order_date?.split(' ')[1] ?? 'HH/MM';
+  const orderInfo =
+    orderData.type === 'delivery'
+      ? `Your order will be delivered on ${orderDate} at ${orderTime}`
+      : orderData.type === 'take_away'
+        ? `Your can collect order on ${orderDate} at ${orderTime}`
+        : `You are reserving table on ${orderDate} at ${orderTime} for ${tableGuests}`;
 
   const handleCancelClick = () => {
     Swal.fire({
@@ -62,8 +68,7 @@ const OrderConfirmation = () => {
         </tbody>
       </table>
       <div className={styles.info_container}>
-        You are reserving table on {orderDate} at {orderTime} for {tableGuests}{' '}
-        guests
+        <p>{orderInfo}</p>
         <Button variant="contained" onClick={handleCancelClick}>
           Cancel
         </Button>

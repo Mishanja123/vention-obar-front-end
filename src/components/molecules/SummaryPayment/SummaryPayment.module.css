@@ -2,7 +2,7 @@
   border-radius: 1rem;
   text-align: center;
   padding: var(--mobile-padding);
-  width: 19rem;
+  width: 100%;
   margin: 0 auto;
 
   background-image: url('../../../assets/icons/back.png');
@@ -10,7 +10,7 @@
   background-size: cover;
 
   @media screen and (min-width: 876px) {
-    width: 25rem;
+    /* width: 25rem; */
     padding: 1rem;
     flex: 1;
   }
@@ -36,12 +36,10 @@
     font-size: var(--font-size-xxl);
   }
 }
-.summary_list {
-  list-style: none;
-}
+
 .summary_item {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   font-size: var(--font-size-m);
 
   @media screen and (min-width: 876px) {
@@ -52,17 +50,13 @@
   }
 }
 
-.summary_item:last-child {
-  width: 100%;
-}
-
 .summary_item_accent {
   font-weight: var(--font-weight-regular);
 }
 
 .summary_total {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 
   margin-top: 1rem;
   margin-bottom: 1rem;

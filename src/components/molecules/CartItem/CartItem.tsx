@@ -32,7 +32,7 @@ const CartItems = ({
       <div>
         <div className={styles.title_wrapper}>
           <h3 className={styles.cart_item_title}>{title}</h3>
-          <p className={styles.cart_item_price}>{price}</p>
+          <p className={styles.cart_item_price}>{price}$</p>
         </div>
       </div>
       <QuantityCounter dishId={id} quantity={quantity} />
