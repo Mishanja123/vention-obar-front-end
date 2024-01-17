@@ -2,7 +2,6 @@ import { DeliveryAddressForm } from '@/components/molecules';
 import DateAndTimePicker from '@/components/molecules/DateAndTimePicker/DateAndTimePicker';
 import {
   FormControl,
-  InputLabel,
   MenuItem,
   Select,
   SelectChangeEvent,
@@ -28,6 +27,8 @@ const OrderDelivery = () => {
       title: <p>Add your delivery adress</p>,
       html: <DeliveryAddressForm />,
       confirmButtonText: 'Close',
+      confirmButtonColor: '#182715',
+      background: '#fff5e1',
     });
 
   return (
