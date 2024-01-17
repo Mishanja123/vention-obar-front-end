@@ -18,11 +18,7 @@ type MenuItemData = {
 
 const MenuItemInfo = () => {
   const params = useParams();
-  const stringId = params.id;
-  let id: number;
-  if (stringId) {
-    id = parseInt(stringId.slice(3));
-  }
+  const id = parseInt(params.id);
   const [editing, setEditing] = useState(false);
   const dish: MenuItemData | undefined = dishMoreInfo.find(
     (item) => item.id === id,

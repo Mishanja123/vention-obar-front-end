@@ -46,7 +46,7 @@ const mainRoutes = [
             element: <MenuList />,
           },
           {
-            path: PATHS.MENU_ITEM,
+            path: `${PATHS.MENU_ITEM}:id`,
             element: <MenuItemInfo />,
           },
         ],
