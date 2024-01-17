@@ -31,9 +31,9 @@ const mainRoutes = [
   {
     path: PATHS.ROOT,
     element: (
-      // <PrivatePage>
-      <SharedLayout />
-      // </PrivatePage>
+      <PrivatePage>
+        <SharedLayout />
+      </PrivatePage>
     ),
     children: [
       { path: PATHS.ROOT, element: <MainPage /> },
