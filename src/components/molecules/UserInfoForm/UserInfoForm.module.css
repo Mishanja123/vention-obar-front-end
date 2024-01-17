@@ -38,4 +38,5 @@
 .user_info_form {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }

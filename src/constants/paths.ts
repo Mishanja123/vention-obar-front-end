@@ -8,7 +8,7 @@ export enum PATHS {
   AUTH = '/auth',
   LOGIN = 'login',
   MENU = '/menu',
-  MENU_ITEM = '/menu/:id',
+  MENU_ITEM = '/menu/',
   CART = '/cart',
   ACCOUNT = '/account',
   USER_INFO = 'userInfoForm',

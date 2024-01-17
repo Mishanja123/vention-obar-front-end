@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import dishMoreInfo from '@/menuData/dishMoreInfo.json';
 import styles from './MenuItemInfo.module.css';
+import { useParams } from 'react-router-dom';
 
 type MenuItemData = {
   id: number;
@@ -16,9 +17,11 @@ type MenuItemData = {
 };
 
 const MenuItemInfo = () => {
+  const params = useParams();
+  const id = parseInt(params.id);
   const [editing, setEditing] = useState(false);
   const dish: MenuItemData | undefined = dishMoreInfo.find(
-    (item) => item.id === 1,
+    (item) => item.id === id,
   );
 
   if (!dish) {
