@@ -27,6 +27,8 @@ const OrderDelivery = () => {
       title: <p>Add your delivery adress</p>,
       html: <DeliveryAddressForm />,
       confirmButtonText: 'Close',
+      confirmButtonColor: '#182715',
+      background: '#fff5e1',
     });
 
   return (
