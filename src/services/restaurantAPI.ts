@@ -21,10 +21,10 @@ axiosInstance.interceptors.response.use(
       try {
         const { headers } = await axiosInstance.get('/auth/refresh');
         const newAccessToken = headers.authorization.split(' ')[1];
-        console.log('🚀 : newAccessToken', newAccessToken);
-        localStorage.setItem('token', JSON.stringify(newAccessToken));
 
         setAccessToken(newAccessToken);
+
+        localStorage.setItem('token', JSON.stringify(newAccessToken));
 
         return await axiosInstance(error.config);
         // eslint-disable-next-line @typescript-eslint/no-shadow
