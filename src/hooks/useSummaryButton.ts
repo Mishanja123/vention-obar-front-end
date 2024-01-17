@@ -23,7 +23,22 @@ const useSummaryButton = ({ path }: { path: string }) => {
       firstButtonLink: PATHS.ORDER_PAYMENT,
       secondButtonLink: PATHS.CHECKOUT,
       onClick: () => {
-        handleDeleteOrder();
+        Swal.fire({
+          title: 'Are you sure?',
+          html: '<p>Are you sure you want to change your order type?</p>',
+          showConfirmButton: true,
+          showCancelButton: true,
+          confirmButtonColor: '#182715',
+          confirmButtonText: 'Yes, take me to change order page',
+          cancelButtonColor: '#b80f0a',
+          cancelButtonText: 'Cancel',
+          background: '#fff5e1',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            navigate(PATHS.CHECKOUT);
+            handleDeleteOrder();
+          }
+        });
       },
     },
     [PATHS.ORDER_PAYMENT]: {
@@ -40,6 +55,7 @@ const useSummaryButton = ({ path }: { path: string }) => {
           `,
           confirmButtonColor: '#182715',
           confirmButtonText: 'Main Page',
+          background: '#fff5e1',
         }).then(() => {
           navigate(PATHS.ROOT);
         });

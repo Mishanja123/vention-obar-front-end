@@ -16,6 +16,7 @@ const CheckoutSummary = ({ path }: { path: string }) => {
     onClick,
   } = useSummaryButton({ path });
   const { handlePaymentOrder } = useCheckoutContext();
+  // console.log(secondButton);
   return (
     <div className={styles.summary_section}>
       <SummaryPayment quantity={20} subtotal={50} total={500}>
@@ -25,7 +26,7 @@ const CheckoutSummary = ({ path }: { path: string }) => {
             onClick={() => {
               // eslint-disable-next-line @typescript-eslint/ban-ts-comment
               // @ts-expect-error
-              onClick();
+              if (firstButton !== 'Confirm') onClick();
               if (firstButtonLink === 'Pay $200 online') {
                 handlePaymentOrder('online');
               }
@@ -34,12 +35,11 @@ const CheckoutSummary = ({ path }: { path: string }) => {
               {firstButton}
             </Button>
           </Link>
-          <Link
-            to={secondButtonLink}
+          <div
             onClick={() => {
               // eslint-disable-next-line @typescript-eslint/ban-ts-comment
               // @ts-expect-error
-              onClick();
+              if (secondButton === 'Change order type') onClick();
               if (firstButtonLink === 'I’ll pay on the spot') {
                 handlePaymentOrder('offline');
               }
@@ -47,7 +47,7 @@ const CheckoutSummary = ({ path }: { path: string }) => {
             <Button variant="text" type="button">
               {secondButton}
             </Button>
-          </Link>
+          </div>
           {path.includes(PATHS.ORDER_PAYMENT) && (
             <Link to={PATHS.ORDER_CONFIRMATION}>
               <Button variant="text" type="button">
