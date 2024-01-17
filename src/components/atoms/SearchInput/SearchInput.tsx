@@ -8,15 +8,23 @@ import SearchIcon from '@mui/icons-material/Search';
 import axiosInstance from '@/services/restaurantAPI';
 
 import styles from './SearchInput.module.css';
+import { useNavigate } from 'react-router-dom';
+import { ChangeEvent, useState } from 'react';
+import { IDish } from '@/types/dish';
+import axiosInstance from '@/services/restaurantAPI';
+import Autocomplete from '@mui/material/Autocomplete';
 
+<<<<<<< HEAD
 interface Dish {
   id: string;
   title: string;
   // Add other properties as needed
 }
 
+=======
+>>>>>>> b41b753 (ob108:fix-fixed all errors and configured dockerfile to build suitable for aws image)
 const SearchInput: React.FC = () => {
-  const [matchedDishes, setMatchedDishes] = useState<Dish[]>([]);
+  const [matchedDishes, setMatchedDishes] = useState<IDish[]>([]);
   const navigate = useNavigate();
   let filteredTimeout: NodeJS.Timeout | null = null;
 
@@ -32,7 +40,7 @@ const SearchInput: React.FC = () => {
 
     filteredTimeout = setTimeout(async () => {
       try {
-        const response = await axiosInstance.post<{ dishes: Dish[] }>(
+        const response = await axiosInstance.post<{ dishes: IDish[] }>(
           '/matched-dishes',
           {
             title: query,

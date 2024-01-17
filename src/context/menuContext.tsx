@@ -24,6 +24,11 @@ export const MenuProvider = ({ children }: { children: React.ReactNode }) => {
   const [allItems, setAllItems] = useState<IDish[]>([]);
   const [filteredItems, setFilteredItems] = useState<IDish[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
+<<<<<<< HEAD
+=======
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  //@ts-ignore
+>>>>>>> b41b753 (ob108:fix-fixed all errors and configured dockerfile to build suitable for aws image)
   const [postsPerPage, setPostsPerPage] = useState<number>(12);
 
   useEffect(() => {

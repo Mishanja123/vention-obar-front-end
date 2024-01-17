@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const HOST = import.meta.env.VITE_DATABASE_HOST;
+const HOST = import.meta.env.VITE_BACKEND_HOST;
 
 export const axiosInstance = axios.create({
   baseURL: `http://${HOST}:3000/api`,
