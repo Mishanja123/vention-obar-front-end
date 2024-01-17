@@ -1,6 +1,4 @@
 import styles from './MenuList.module.css';
-
-import { CartItem } from '@/models/cart.model';
 import { MenuItem } from '@/components/molecules';
 import { useMenuContext } from '@/context/menuContext';
 import Pagination from '@/components/atoms/Pagination/Pagination';
