@@ -15,6 +15,7 @@ import MenuPage from '../pages/MenuPage';
 import { PATHS } from '../constants/paths';
 
 import PrivatePage from '../routes/PrivateRoute';
+
 import CheckoutPage from '../pages/CheckoutPage/CheckoutPage';
 import OrdersPage from '../pages/OrdersPage/OrdersPage';
 import {
@@ -31,9 +32,9 @@ const mainRoutes = [
   {
     path: PATHS.ROOT,
     element: (
-      // <PrivatePage>
-      <SharedLayout />
-      // </PrivatePage>
+      <PrivatePage>
+        <SharedLayout />
+      </PrivatePage>
     ),
     children: [
       { path: PATHS.ROOT, element: <MainPage /> },
