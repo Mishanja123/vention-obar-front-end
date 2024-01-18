@@ -28,7 +28,6 @@ export const useCartContext = () => useContext(CartContext);
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   const [cartItems, setCartItems] = useState<CartItems>({} as CartItems);
   const [isLoadingCart, setIsLoadingCart] = useState(true);
-  console.log('🚀 : cartItems', cartItems);
 
   useEffect(() => {
     const fetchCart = async () => {

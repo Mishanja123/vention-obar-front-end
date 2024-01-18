@@ -1,6 +1,5 @@
 import { SummaryPayment } from '@/components/molecules';
 import { Button } from '@/components/atoms';
-
 import styles from './CheckoutSummary.module.css';
 import { PATHS } from '@/constants/paths';
 import { Link } from 'react-router-dom';
@@ -14,16 +13,14 @@ const CheckoutSummary = ({ path }: { path: string }) => {
     secondButton,
     firstButtonLink,
     secondButtonLink,
-    onClick,
+    onClickFirstButton,
+    onClickSecondButton,
     disabled,
   } = useSummaryButton({ path });
-  const { handlePaymentOrder, orderData, handleDeleteOrder } =
-    useCheckoutContext();
-  console.log('🚀 : paymentCardExist', disabled);
-
+  const { orderData } = useCheckoutContext();
   const { cartItems, allDishesQuantity } = useCartContext();
 
-  const forbidProceeing =
+  const forbidProceeding =
     (firstButton === 'Proceed' && typeof orderData === 'string') ||
     Object.keys(orderData).length === 0;
 
@@ -35,34 +32,17 @@ const CheckoutSummary = ({ path }: { path: string }) => {
         total={cartItems?.total}>
         <div className={styles.summary_btn_wrapper}>
           <Link
-            className={forbidProceeing || !disabled ? styles.inactive : ''}
+            className={forbidProceeding || disabled ? styles.inactive : ''}
             to={firstButtonLink}
-            onClick={() => {
-              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              // @ts-expect-error
-              onClick();
-              if (firstButton === 'Pay $200 online') {
-                handlePaymentOrder('online');
-              }
-            }}>
+            onClick={onClickFirstButton}>
             <Button variant="contained" type="button">
               {firstButton}
             </Button>
           </Link>
           <Link
-            className={!disabled ? styles.inactive : ''}
+            className={disabled ? styles.inactive : ''}
             to={secondButtonLink}
-            onClick={() => {
-              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              // @ts-expect-error
-              onClick();
-              if (secondButton === 'I’ll pay on the spot') {
-                handlePaymentOrder('offline');
-              }
-              if (secondButton === 'Change order type') {
-                handleDeleteOrder();
-              }
-            }}>
+            onClick={onClickSecondButton}>
             <Button variant="text" type="button">
               {secondButton}
             </Button>

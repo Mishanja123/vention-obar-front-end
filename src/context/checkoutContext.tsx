@@ -42,7 +42,6 @@ export const CheckoutProvider = ({
   const [tableGuests, setTableGuests] = useState(0);
   const [creditCardData, setCreditCardData] = useState<ICreditCard>();
   console.log('🚀 : creditCardData', creditCardData);
-  console.log('🚀 : orderData', orderData);
 
   const handlePaymentOrder = async (type: string) => {
     const dishId = localStorage.getItem('dishId');
@@ -127,6 +126,7 @@ export const CheckoutProvider = ({
       console.log(error);
     }
   };
+
   useEffect(() => {
     const dishId = localStorage.getItem('dishId');
     const paymentId = localStorage.getItem('paymentId');
