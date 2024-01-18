@@ -1,13 +1,14 @@
 import { useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import { IconContext } from 'react-icons';
 import { PiShoppingCartLight } from 'react-icons/pi';
 import { GoPerson } from 'react-icons/go';
 
 import { PATHS } from '@/constants/paths';
-import { useAuthContext } from '@/context/authContext';
 import { scrollToReservationForm } from '@/helpers';
 import { showReservationModal } from '@/helpers';
+import { logout } from '@/redux/auth/operations';
 
 import { LinkWrapper } from '@/components/atoms/index.ts';
 import { Button } from '@/components/atoms/index.ts';
@@ -20,9 +21,9 @@ type Props = {
 
 const Navigation: React.FC<Props> = ({ loc }) => {
   const location = useLocation();
-  const path = location.pathname;
+  const dispatch = useDispatch<any>();
 
-  const { logOut } = useAuthContext();
+  const path = location.pathname;
 
   return (
     <div className={`${styles[loc]}`}>
@@ -45,7 +46,7 @@ const Navigation: React.FC<Props> = ({ loc }) => {
           <GoPerson />
         </IconContext.Provider>
       </LinkWrapper>
-      <Button variant="contained" onClick={() => logOut()}>
+      <Button variant="contained" onClick={() => dispatch(logout())}>
         Log out
       </Button>
     </div>

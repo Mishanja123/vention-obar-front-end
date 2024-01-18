@@ -1,23 +1,23 @@
 import { ReactNode, FC, useEffect } from 'react';
-import { useAuthContext } from '@/context/authContext';
 import { useNavigate } from 'react-router-dom';
 import { PATHS } from '@/constants/paths';
+import { useAuth } from '@/hooks/useAuth';
 
 interface PublicPageProps {
   children: ReactNode;
 }
 
 const PublicPage: FC<PublicPageProps> = ({ children }) => {
-  const { loggedIn, isfetching } = useAuthContext();
+  const { loggedIn, isFetching } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (loggedIn || isfetching) {
+    if (loggedIn || isFetching) {
       navigate(PATHS.ROOT);
     }
-  }, [loggedIn, isfetching, navigate]);
+  }, [loggedIn, isFetching, navigate]);
 
-  return <>{!loggedIn && !isfetching ? children : null}</>;
+  return <>{!loggedIn && !isFetching ? children : null}</>;
 };
 
 export default PublicPage;
