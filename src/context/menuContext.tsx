@@ -25,6 +25,7 @@ export const MenuProvider = ({ children }: { children: React.ReactNode }) => {
   const [filteredItems, setFilteredItems] = useState<IDish[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  //@ts-ignore
   const [postsPerPage, setPostsPerPage] = useState<number>(12);
 
   useEffect(() => {
