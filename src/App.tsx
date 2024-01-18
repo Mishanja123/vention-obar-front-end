@@ -1,13 +1,23 @@
 import { RouterProvider } from 'react-router-dom';
 import router from './router/router';
-import AuthProvider from './context/authContext';
+import { useAuth } from './hooks/useAuth';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { refreshUser } from './redux/auth/operations';
 
 function App() {
-  return (
+  const dispatch = useDispatch<any>();
+  const { isFetching } = useAuth();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
+  return isFetching ? (
+    <div>Loading</div>
+  ) : (
     <>
-      <AuthProvider>
-        <RouterProvider router={router} />
-      </AuthProvider>
+      <RouterProvider router={router} />
     </>
   );
 }
