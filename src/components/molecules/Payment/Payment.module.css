@@ -2,6 +2,9 @@
   max-width: 568px;
   width: 100%;
   margin: auto;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  background-image: url('../../../assets/icons/back.png');
   @media screen and (min-width: 876px) {
     margin: 0;
   }

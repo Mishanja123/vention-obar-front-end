@@ -9,11 +9,14 @@ type Props = {
   isValid?: boolean;
   onClick?: () => void;
   className?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  ref?: any;
 };
 
-const Button = ({ variant, children, type, isValid, onClick }: Props) => {
+const Button = ({ variant, children, type, isValid, onClick, ref }: Props) => {
   return (
     <MUIButton
+      ref={ref}
       onClick={onClick}
       variant={variant}
       type={type}

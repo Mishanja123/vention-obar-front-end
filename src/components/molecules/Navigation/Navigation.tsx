@@ -15,11 +15,11 @@ import { Button } from '@/components/atoms/index.ts';
 
 import styles from './Navigation.module.css';
 
-type Props = {
+type ILocationProp = {
   loc: string;
 };
 
-const Navigation: React.FC<Props> = ({ loc }) => {
+const Navigation: React.FC<ILocationProp> = ({ loc }) => {
   const location = useLocation();
   const dispatch = useDispatch<any>();
 

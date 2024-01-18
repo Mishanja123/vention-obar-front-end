@@ -1,19 +1,28 @@
 import { Button } from '@/components/atoms';
 import styles from './OrderConfirmation.module.css';
-import menuData from '@/menuData/menuData.json';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import { PATHS } from '@/constants/paths';
 import { useCheckoutContext } from '@/context/checkoutContext';
-
-const order = menuData.slice(0, 2);
+import { useCartContext } from '@/context/cartContext';
 
 const OrderConfirmation = () => {
   const navigate = useNavigate();
-  const { orderData, handleDeleteOrder, tableGuests } = useCheckoutContext();
 
-  const orderDate = orderData.order_date?.split(' ')[0] ?? 'MM/DD/YY';
-  const orderTime = orderData.order_date?.split(' ')[1] ?? 'HH/MM';
+  const { cartItems } = useCartContext();
+
+  const { orderData, handleDeleteOrder, tableGuests } = useCheckoutContext();
+  const orderDate = orderData.order_date?.split(' ')[0] || 'MM/DD/YY';
+  const orderTime = orderData.order_date?.split(' ')[1] || 'HH/MM';
+
+  const orderInfo =
+    orderData.type === 'delivery'
+      ? `Your order will be delivered on ${orderDate} at ${orderTime}`
+      : orderData.type === 'take_away'
+        ? `Your can collect order on ${orderDate} at ${orderTime}`
+        : `You are reserving table on ${orderDate} at ${orderTime} for ${tableGuests}  ${
+            tableGuests === 1 ? 'guest' : 'guests'
+          }`;
 
   const handleCancelClick = () => {
     Swal.fire({
@@ -39,7 +48,7 @@ const OrderConfirmation = () => {
   };
   return (
     <div className={styles.order_container}>
-      <h3>Order No: id</h3>
+      {/* <h3>Order No: id</h3> */}
       <table className={styles.order_table}>
         <thead>
           <tr>
@@ -49,21 +58,24 @@ const OrderConfirmation = () => {
           </tr>
         </thead>
         <tbody>
-          {order.map((dish) => (
-            <tr key={dish.id}>
+          {cartItems?.dishes?.map((dish) => (
+            <tr key={dish.dishData.id}>
               <td className={styles.dish_info}>
-                <img src={dish.image} alt={dish.title} />
-                <h5>{dish.title}</h5>
+                <img
+                  width={200}
+                  src={dish.dishData.photo_path}
+                  alt={dish.dishData.title}
+                />
+                <h5>{dish.dishData.title}</h5>
               </td>
-              <td>1</td>
-              <td>{dish.price}</td>
+              <td>{dish.quantity}</td>
+              <td>{dish.subtotal.toFixed(2)}</td>
             </tr>
           ))}
         </tbody>
       </table>
       <div className={styles.info_container}>
-        You are reserving table on {orderDate} at {orderTime} for {tableGuests}{' '}
-        guests
+        <p>{orderInfo}</p>
         <Button variant="contained" onClick={handleCancelClick}>
           Cancel
         </Button>

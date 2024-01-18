@@ -8,7 +8,6 @@
     "types": [
       "node"
     ],
-    /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
@@ -19,7 +18,6 @@
     "esModuleInterop": true,
     "jsx": "preserve",
 
-    /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,

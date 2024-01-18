@@ -1,4 +1,4 @@
-import { userRole } from '@/constants/userRole';
+import { USERROLE } from '@/constants/userRole';
 
 export type UserInfo = {
   firstName: string;
@@ -6,6 +6,6 @@ export type UserInfo = {
   email: string;
   phone: string;
   password: string;
-  role: userRole;
+  role: USERROLE;
   avatar: string;
 };

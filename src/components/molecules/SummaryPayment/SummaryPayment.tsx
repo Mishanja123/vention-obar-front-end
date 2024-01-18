@@ -25,11 +25,15 @@ const SummaryPayment = ({
         </li>
         <li className={styles.summary_item}>
           <p>Subtotal:</p>
-          <span className={styles.summary_item_accent}>{subtotal}</span>
+          <span className={styles.summary_item_accent}>
+            {subtotal?.toFixed(2)}
+          </span>
         </li>
         <li className={styles.summary_total}>
           <p>Total:</p>
-          <span className={styles.summary_item_accent}>{total}</span>
+          <span className={styles.summary_item_accent}>
+            {total?.toFixed(2)}
+          </span>
         </li>
       </ul>
       {children}
