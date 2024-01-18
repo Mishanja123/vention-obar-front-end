@@ -5,7 +5,6 @@ import sprite from '@/assets/sprite.svg';
 import styles from './CartItem.module.css';
 import { IDish } from '@/types/dish';
 import { useCartContext } from '@/context/cartContext';
-
 interface CartItemProps extends IDish {
   quantity: number;
 }

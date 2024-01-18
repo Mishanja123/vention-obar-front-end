@@ -6,16 +6,11 @@ import {
   UserManagement,
 } from '@/components/organisms';
 import MenuProvider from '@/context/menuContext';
-import PublicRoute from '@/routes/PublicRoute';
 
 const adminRouter = [
   {
     path: PATHS.ADMIN,
-    element: (
-      <PublicRoute>
-        <AdminPage />
-      </PublicRoute>
-    ),
+    element: <AdminPage />,
     children: [
       {
         path: PATHS.DISHMANAGEMENT,

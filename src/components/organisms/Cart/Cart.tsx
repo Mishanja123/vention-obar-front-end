@@ -6,12 +6,12 @@ import { PATHS } from '@/constants/paths';
 import { useCartContext } from '@/context/cartContext';
 
 const Cart = () => {
-  const { cartItems, removeAllFromCart } = useCartContext();
+  const { cartItems, removeAllFromCart, isLoadingCart, allDishesQuantity } =
+    useCartContext();
 
-  const allDishesQuantity = cartItems?.dishes?.reduce((total, item) => {
-    const allDishes = total + item.quantity;
-    return allDishes;
-  }, 0);
+  if (isLoadingCart) {
+    return <div>loading</div>;
+  }
 
   return cartItems?.dishes?.length === 0 ? (
     <EmptyCart />

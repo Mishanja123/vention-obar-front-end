@@ -115,8 +115,8 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         setLoggedIn(true);
         setResponse(data);
       } catch (error) {
-        console.error(`Fetching Current User Error: ${error}`);
         setLoggedIn(false);
+        return null;
       } finally {
         setIsfetching(false);
       }

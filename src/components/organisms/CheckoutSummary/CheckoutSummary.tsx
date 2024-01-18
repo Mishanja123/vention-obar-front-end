@@ -1,11 +1,11 @@
 import { SummaryPayment } from '@/components/molecules';
 import { Button } from '@/components/atoms';
-
 import styles from './CheckoutSummary.module.css';
 import { PATHS } from '@/constants/paths';
 import { Link } from 'react-router-dom';
 import useSummaryButton from '@/hooks/useSummaryButton';
 import { useCheckoutContext } from '@/context/checkoutContext';
+import { useCartContext } from '@/context/cartContext';
 
 const CheckoutSummary = ({ path }: { path: string }) => {
   const {
@@ -13,37 +13,36 @@ const CheckoutSummary = ({ path }: { path: string }) => {
     secondButton,
     firstButtonLink,
     secondButtonLink,
-    onClick,
+    onClickFirstButton,
+    onClickSecondButton,
+    disabled,
   } = useSummaryButton({ path });
-  const { handlePaymentOrder } = useCheckoutContext();
-  // console.log(secondButton);
+  const { orderData } = useCheckoutContext();
+  const { cartItems, allDishesQuantity } = useCartContext();
+
+  const forbidProceeding =
+    (firstButton === 'Proceed' && typeof orderData === 'string') ||
+    Object.keys(orderData).length === 0;
+
   return (
     <div className={styles.summary_section}>
-      <SummaryPayment quantity={20} subtotal={50} total={500}>
+      <SummaryPayment
+        quantity={allDishesQuantity}
+        subtotal={cartItems?.subTotal}
+        total={cartItems?.total}>
         <div className={styles.summary_btn_wrapper}>
           <Link
+            className={forbidProceeding || disabled ? styles.inactive : ''}
             to={firstButtonLink}
-            onClick={() => {
-              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              // @ts-expect-error
-              if (firstButton !== 'Confirm') onClick();
-              if (firstButtonLink === 'Pay $200 online') {
-                handlePaymentOrder('online');
-              }
-            }}>
+            onClick={onClickFirstButton}>
             <Button variant="contained" type="button">
               {firstButton}
             </Button>
           </Link>
-          <div
-            onClick={() => {
-              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              // @ts-expect-error
-              if (secondButton === 'Change order type') onClick();
-              if (firstButtonLink === 'I’ll pay on the spot') {
-                handlePaymentOrder('offline');
-              }
-            }}>
+          <Link
+            className={disabled ? styles.inactive : ''}
+            to={secondButtonLink}
+            onClick={onClickSecondButton}>
             <Button variant="text" type="button">
               {secondButton}
             </Button>
