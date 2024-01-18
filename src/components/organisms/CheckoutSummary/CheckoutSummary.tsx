@@ -41,12 +41,12 @@ const CheckoutSummary = ({ path }: { path: string }) => {
           </Link>
           <Link
             className={disabled ? styles.inactive : ''}
-            to={secondButtonLink}
-            onClick={onClickSecondButton}>
+            onClick={onClickSecondButton}
+            to={secondButton === 'Change order type' ? '#' : secondButtonLink}>
             <Button variant="text" type="button">
               {secondButton}
             </Button>
-          </div>
+          </Link>
           {path.includes(PATHS.ORDER_PAYMENT) && (
             <Link to={PATHS.ORDER_CONFIRMATION}>
               <Button variant="text" type="button">
