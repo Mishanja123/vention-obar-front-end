@@ -10,6 +10,8 @@ interface CartItems {
 }
 interface CartContextProps {
   cartItems: CartItems;
+  allDishesQuantity: number;
+  isLoadingCart: boolean;
   addToCart: (productId: number) => Promise<void>;
   removeAllFromCart: () => Promise<void>;
   removeFromCartById: (productId: number) => Promise<void>;
@@ -25,6 +27,7 @@ export const useCartContext = () => useContext(CartContext);
 
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   const [cartItems, setCartItems] = useState<CartItems>({} as CartItems);
+  const [isLoadingCart, setIsLoadingCart] = useState(true);
 
   useEffect(() => {
     const fetchCart = async () => {
@@ -33,6 +36,8 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
         setCartItems(data);
       } catch (error) {
         console.error('Error fetching cart:', error);
+      } finally {
+        setIsLoadingCart(false);
       }
     };
 
@@ -83,6 +88,11 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     }
   };
 
+  const allDishesQuantity = cartItems?.dishes?.reduce((total, item) => {
+    const allDishes = total + item.quantity;
+    return allDishes;
+  }, 0);
+
   return (
     <CartContext.Provider
       value={{
@@ -91,6 +101,8 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
         removeAllFromCart,
         removeFromCartById,
         updateCartItemQuantity,
+        isLoadingCart,
+        allDishesQuantity,
       }}>
       {children}
     </CartContext.Provider>

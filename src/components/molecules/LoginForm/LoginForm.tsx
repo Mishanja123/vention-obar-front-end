@@ -5,7 +5,6 @@ import { loginInputs } from '@/content/authForms/loginInputs';
 import { Button, TextInput } from '@/components/atoms';
 import { loginShema } from '@/validationSchemas/loginShema';
 import { useAuthContext } from '@/context/authContext';
-import { PATHS } from '@/constants/paths';
 
 const LoginForm = () => {
   const { login } = useAuthContext();
