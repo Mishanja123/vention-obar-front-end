@@ -48,6 +48,7 @@ const useSummaryButton = ({ path }: { path: string }) => {
           `,
           confirmButtonColor: '#182715',
           confirmButtonText: 'Main Page',
+          background: '#fff5e1',
         }).then(() => {
           navigate(PATHS.ROOT);
           window.location.reload();

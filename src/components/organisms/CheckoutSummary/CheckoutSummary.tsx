@@ -46,7 +46,7 @@ const CheckoutSummary = ({ path }: { path: string }) => {
             <Button variant="text" type="button">
               {secondButton}
             </Button>
-          </Link>
+          </div>
           {path.includes(PATHS.ORDER_PAYMENT) && (
             <Link to={PATHS.ORDER_CONFIRMATION}>
               <Button variant="text" type="button">
