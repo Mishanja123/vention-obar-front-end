@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-shadow */
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import dishMoreInfo from '@/menuData/dishMoreInfo.json';
 import styles from './MenuItemInfo.module.css';
 import { useParams } from 'react-router-dom';
+import axiosInstance from '@/services/restaurantAPI';
 
 type MenuItemData = {
   id: number;
@@ -18,18 +19,28 @@ type MenuItemData = {
 
 const MenuItemInfo = () => {
   const params = useParams();
-  //@ts-ignore
-  const id = parseInt(params.id);
+  const id = parseInt(params.id ?? '0', 10);
   const [editing, setEditing] = useState(false);
-  const dish: MenuItemData | undefined = dishMoreInfo.find(
-    (item) => item.id === id,
-  );
+  const [dish, setDish] = useState();
+  const getDish = async (id: number) => {
+    try {
+      const response = await axiosInstance.get(`/dishes/${id}`);
+      const dish = response.data.dish;
+      setDish(dish);
+    } catch (error) {
+      console.error('Error fetching data: ', error);
+    }
+  };
+
+  useEffect(() => {
+    getDish(id);
+  }, []);
 
   if (!dish) {
     return <div>Loading...</div>;
   }
 
-  const { title, price, image, portion, ingredients } = dish;
+  const { title, price, image, portion, ingredients }: MenuItemData = dish;
 
   const handleEditClick = () => {
     setEditing(!editing);
@@ -73,7 +84,7 @@ const MenuItemInfo = () => {
         </ul>
 
         <p className={styles.menu_item_portion}>Portion: {portion} grams</p>
-        <p className={styles.menu_item_price}>Price: ${price.toFixed(2)}</p>
+        <p className={styles.menu_item_price}>Price: ${price}</p>
         <button className={styles.menu_button_cart}>Add to cart</button>
       </div>
     </div>
