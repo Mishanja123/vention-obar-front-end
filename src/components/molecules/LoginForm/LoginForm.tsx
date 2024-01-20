@@ -4,11 +4,13 @@ import styles from './LoginForm.module.css';
 import { loginInputs } from '@/content/authForms/loginInputs';
 import { Button, TextInput } from '@/components/atoms';
 import { loginShema } from '@/validationSchemas/loginShema';
-import { useAuthContext } from '@/context/authContext';
+import { PATHS } from '@/constants/paths';
+import { useDispatch } from 'react-redux';
+import { login } from '@/redux/auth/operations';
 
 const LoginForm = () => {
-  const { login } = useAuthContext();
   const navigate = useNavigate();
+  const dispatch = useDispatch<any>();
 
   const formik = useFormik({
     initialValues: {
@@ -16,9 +18,8 @@ const LoginForm = () => {
       password: '',
     },
     validationSchema: loginShema,
-    onSubmit: async ({ email, password }) => {
-      const response = await login(email, password);
-      //@ts-ignore
+    onSubmit: async (values) => {
+      const response = dispatch(login(values));
       if (response) {
         navigate(PATHS.ROOT);
       }
