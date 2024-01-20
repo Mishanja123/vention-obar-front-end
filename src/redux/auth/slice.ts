@@ -31,6 +31,8 @@ const authSlice = createSlice({
       // Register //
       .addCase(register.fulfilled, (state) => {
         state.loggedIn = true;
+        state.isFetching = false;
+
         console.log('Successful Registred.');
       })
       .addCase(register.rejected, (_, action) => {
