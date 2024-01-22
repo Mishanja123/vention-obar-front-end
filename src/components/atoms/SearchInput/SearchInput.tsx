@@ -7,10 +7,10 @@ import { IDish } from '@/types/dish';
 import axiosInstance from '@/services/restaurantAPI';
 import Autocomplete from '@mui/material/Autocomplete';
 
-interface Dish {
-  id: string;
-  title: string;
-}
+// interface Dish {
+//   id: string;
+//   title: string;
+// }
 
 const SearchInput: React.FC = () => {
   const [matchedDishes, setMatchedDishes] = useState<IDish[]>([]);

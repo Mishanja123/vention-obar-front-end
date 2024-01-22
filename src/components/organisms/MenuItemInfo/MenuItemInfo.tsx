@@ -18,6 +18,7 @@ type MenuItemData = {
 
 const MenuItemInfo = () => {
   const params = useParams();
+  //@ts-ignore
   const id = parseInt(params.id);
   const [editing, setEditing] = useState(false);
   const dish: MenuItemData | undefined = dishMoreInfo.find(
