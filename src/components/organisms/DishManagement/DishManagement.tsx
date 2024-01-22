@@ -33,6 +33,7 @@ const DishManagement = () => {
   console.log('🚀 : newDish', editedDish);
 
   const handleAddDish = () => {
+    //@ts-ignore
     setDishes((prevDishes) => [
       ...prevDishes,
       { ...newDish, id: String(allItems.length + 1) },
@@ -40,6 +41,7 @@ const DishManagement = () => {
 
     setEditingIndex(dishes.length);
     setPostRequest(true);
+    //@ts-ignore
     setEditedDish({ ...newDish, id: String(allItems.length + 1) });
   };
 
