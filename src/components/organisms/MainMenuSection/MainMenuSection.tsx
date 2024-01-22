@@ -38,7 +38,7 @@ const MainMenuSection = () => {
               key={item.id}
               id={item.id}
               title={item.title}
-              price={`${item.price}`}
+              price={item.price}
               photo_path={item.image}
             />
           ))}
