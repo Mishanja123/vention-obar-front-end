@@ -3,24 +3,42 @@ import { Button } from '@/components/atoms';
 import { useEffect, useState } from 'react';
 import axiosInstance from '@/services/restaurantAPI';
 import { Order } from '@/types/ordersList';
+import { EmptyOrder } from '@/components/molecules';
 
 const OrdersPageSection = () => {
   const [allOrders, setallOrders] = useState<Order[]>([]);
 
+  const getAllOrders = async () => {
+    try {
+      const res = await axiosInstance.get('/orders');
+      setallOrders(res.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
   useEffect(() => {
-    const handleGetAllOrders = async () => {
-      try {
-        const res = await axiosInstance.get('/orders');
-        setallOrders(res.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    handleGetAllOrders();
+    getAllOrders();
   }, []);
 
-  return (
+  const handleDeleteOrder = async (id: number) => {
+    try {
+      await axiosInstance.delete(`/orders/${id}`);
+      await getAllOrders();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleRepeatOrder = async (id: number) => {
+    try {
+      await axiosInstance.post(`/orders-repeat/${id}`);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  return allOrders.length === 0 ? (
+    <EmptyOrder />
+  ) : (
     <ul className={styles.orders_list}>
       {allOrders.map((order) => (
         <li key={order.id} className={styles.orders_item}>
@@ -80,13 +98,19 @@ const OrdersPageSection = () => {
               </tr>
             </tfoot>
           </table>
-          <Button variant="contained">
-            {order.status === 'canceled' || order.status === 'completed' ? (
-              <>Repeat order</>
-            ) : (
-              <>Cancel order</>
-            )}
-          </Button>
+          {order.status === 'canceled' || order.status === 'completed' ? (
+            <Button
+              variant="contained"
+              onClick={() => handleRepeatOrder(order.id)}>
+              Repeat order
+            </Button>
+          ) : (
+            <Button
+              variant="contained"
+              onClick={() => handleDeleteOrder(order.id)}>
+              Cancel order
+            </Button>
+          )}
         </li>
       ))}
     </ul>

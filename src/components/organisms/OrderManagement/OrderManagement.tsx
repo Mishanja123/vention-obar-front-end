@@ -33,8 +33,18 @@ const OrderManagement: React.FC = () => {
 
   const handleDeleteOrder = async (id: number) => {
     try {
-      const response = await axiosInstance.delete(`/orders/${id}`);
-      const data = await response.data;
+      await axiosInstance.delete(`/orders/${id}`);
+      fetchOrders();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleCloseOrder = async (id: number) => {
+    try {
+      await axiosInstance.patch(`/api/orders-update/${id}`, {
+        status: 'completed',
+      });
       fetchOrders();
     } catch (error) {
       console.log(error);
@@ -76,6 +86,11 @@ const OrderManagement: React.FC = () => {
                 variant="outlined"
                 onClick={() => handleDeleteOrder(order.id)}>
                 Delete
+              </Button>
+              <Button
+                variant="outlined"
+                onClick={() => handleCloseOrder(order.id)}>
+                Close
               </Button>
             </td>
           </tr>
