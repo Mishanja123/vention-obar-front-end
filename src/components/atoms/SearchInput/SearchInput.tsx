@@ -77,7 +77,7 @@ const SearchInput: React.FC = () => {
           />
         )}
       />
-      <SearchIcon sx={{ fontSize: '2rem' }} color="success" />
+      {/* <SearchIcon sx={{ fontSize: '2rem' }} color="success" /> */}
     </div>
   );
 };

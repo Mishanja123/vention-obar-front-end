@@ -25,7 +25,7 @@ const Header = () => {
   return (
     <div className={styles.header_wrapper}>
       <button className={styles.menu_btn} type="button" onClick={openMenu}>
-        <IconContext.Provider value={{ className: styles.open_menu_btn }}>
+        <IconContext.Provider value={{ className: styles.menu_icon }}>
           <IoMenu />
         </IconContext.Provider>
       </button>
