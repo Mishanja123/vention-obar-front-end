@@ -5,12 +5,12 @@ import { Button, TextInput } from '@/components/atoms';
 import styles from './RegistrationForm.module.css';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { register, login } from '@/redux/auth/operations';
+import { register } from '@/store/auth/operations';
+import { RootState } from '@/store/store';
 
 const RegistrationForm = () => {
   const navigate = useNavigate();
-  // @ts-expect-error Fixed in next PR
-  const dispatch = useDispatch<unknown>();
+  const dispatch = useDispatch<RootState>();
 
   const formik = useFormik({
     initialValues: {

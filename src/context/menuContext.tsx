@@ -24,6 +24,7 @@ export const MenuProvider = ({ children }: { children: React.ReactNode }) => {
   const [allItems, setAllItems] = useState<IDish[]>([]);
   const [filteredItems, setFilteredItems] = useState<IDish[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
+
   const POSTSPERPAGE = 12;
 
   useEffect(() => {

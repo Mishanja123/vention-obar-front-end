@@ -6,6 +6,7 @@ import styles from './MainMenuSection.module.css';
 
 type MenuItemData = {
   id: number;
+  id: number;
   title: string;
   price: number;
   image: string;
@@ -20,7 +21,7 @@ const MainMenuSection = () => {
       <h2 className={styles.menu_heading}>Menu</h2>
       <ul className={styles.main_menu_list}>
         <SliderWrapper
-          // @ts-expect-error for now
+          // @ts-expect-error existing value
           arrows={true}
           dots={false}
           autoplay={true}
