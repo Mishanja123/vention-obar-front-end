@@ -10,7 +10,8 @@ import { login } from '@/redux/auth/operations';
 
 const LoginForm = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch<any>();
+  //@ts-expect-error for now
+  const dispatch = useDispatch<unknown>();
 
   const formik = useFormik({
     initialValues: {

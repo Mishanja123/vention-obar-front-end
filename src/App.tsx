@@ -6,10 +6,12 @@ import { useEffect } from 'react';
 import { refreshUser } from './redux/auth/operations';
 
 function App() {
-  const dispatch = useDispatch<any>();
+  // @ts-expect-error for now
+  const dispatch = useDispatch<unknown>();
   const { isFetching } = useAuth();
 
   useEffect(() => {
+    // @ts-expect-error for now
     dispatch(refreshUser());
   }, [dispatch]);
 
