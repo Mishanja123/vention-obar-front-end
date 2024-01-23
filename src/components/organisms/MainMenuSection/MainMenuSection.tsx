@@ -1,19 +1,18 @@
-import menuData from '@/menuData/menuData.json';
+import { useMenuContext } from '@/context/menuContext';
+
 import { SliderWrapper } from '@/components/atoms';
 import { MenuItem } from '@/components/molecules';
+import { DISHCATEGORY } from '@/constants/categoryDish';
 
 import styles from './MainMenuSection.module.css';
-
-type MenuItemData = {
-  id: string;
-  title: string;
-  price: number;
-  image: string;
-  category: string;
-};
+import { useEffect } from 'react';
 
 const MainMenuSection = () => {
-  const items: MenuItemData[] = menuData;
+  const { items, setCategory } = useMenuContext();
+
+  useEffect(() => {
+    setCategory(DISHCATEGORY.CHEFS_PICK);
+  }, []);
 
   return (
     <section id="menu" className={styles.menu_container}>
@@ -32,16 +31,12 @@ const MainMenuSection = () => {
           focusOnSelect={true}
           centerMode={true}
           centerPadding={-100}>
-          {items.map((item) => (
+          {items && items.length > 0 ? (
             //@ts-ignore
-            <MenuItem
-              key={item.id}
-              id={item.id}
-              title={item.title}
-              price={item.price}
-              photo_path={item.image}
-            />
-          ))}
+            items.map((item) => <MenuItem key={item.id} {...item} />)
+          ) : (
+            <p>Loading...</p>
+          )}
         </SliderWrapper>
       </ul>
     </section>
