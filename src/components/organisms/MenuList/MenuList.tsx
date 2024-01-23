@@ -1,6 +1,5 @@
 import styles from './MenuList.module.css';
 
-import { CartItem } from '@/models/cart.model';
 import { MenuItem } from '@/components/molecules';
 import { useMenuContext } from '@/context/menuContext';
 import Pagination from '@/components/atoms/Pagination/Pagination';
@@ -13,6 +12,7 @@ const MenuList = () => {
     <>
       <ul className={styles.menu_list}>
         {items && items.length > 0 ? (
+          //@ts-ignore
           items.map((item) => <MenuItem key={item.id} {...item} />)
         ) : (
           <p>Loading...</p>

@@ -1,18 +1,60 @@
-import { orders } from '@/content/ordersData/orders';
 import styles from './OrdersPageSection.module.css';
 import { Button } from '@/components/atoms';
+import { useEffect, useState } from 'react';
+import axiosInstance from '@/services/restaurantAPI';
+import { Order } from '@/types/ordersList';
+import { EmptyOrder } from '@/components/molecules';
 
 const OrdersPageSection = () => {
-  return (
+  const [allOrders, setallOrders] = useState<Order[]>([]);
+
+  const getAllOrders = async () => {
+    try {
+      const res = await axiosInstance.get('/orders');
+      setallOrders(res.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  useEffect(() => {
+    getAllOrders();
+  }, []);
+
+  const handleDeleteOrder = async (id: number) => {
+    try {
+      await axiosInstance.delete(`/orders/${id}`);
+      await getAllOrders();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleRepeatOrder = async (id: number) => {
+    try {
+      await axiosInstance.post(`/orders-repeat/${id}`);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  return allOrders.length === 0 ? (
+    <EmptyOrder />
+  ) : (
     <ul className={styles.orders_list}>
-      {orders.map((order) => (
+      {allOrders.map((order) => (
         <li key={order.id} className={styles.orders_item}>
           <div className={styles.orders_status_wrapper}>
             <div>
-              <p>Order No: {order.orderNumber}</p>
+              <p>Order No: {order.id}</p>
               <p>Status: {order.status}</p>
             </div>
-            <p>Date: {order.orderDate}</p>
+            <p>
+              Date:{' '}
+              {new Date(order.createdAt).toLocaleDateString('en-US', {
+                month: '2-digit',
+                day: '2-digit',
+                year: '2-digit',
+              })}
+            </p>
           </div>
           <table className={styles.order_table}>
             <thead className={styles.order_table_header}>
@@ -23,36 +65,52 @@ const OrdersPageSection = () => {
               </tr>
             </thead>
             <tbody className={styles.table_body}>
-              {order.cart.map((item, index, cart) => (
+              {order.dishes.map((item, index) => (
                 <tr key={index} className={styles.order_table_item}>
                   <td className={styles.orders_image}>
-                    <svg width="150" height="150">
-                      <use
-                        href={`${item.dishURL}#icon-avatar`}
-                        aria-expanded="true"></use>
-                    </svg>
-                    <h3 className={styles.order_title}>{item.title}</h3>
+                    <img
+                      width={150}
+                      height={150}
+                      src={item.dishData.photo_path!}
+                      alt="dish"
+                    />
+                    <h3 className={styles.order_title}>
+                      {item.dishData.title}
+                    </h3>
                   </td>
-                  <td>{cart.length}</td>
-                  <td>{item.price}</td>
+                  <td className={styles.order_quantity}>{item.quantity}</td>
+                  <td>{item.subtotal.toFixed(2)}</td>
                 </tr>
               ))}
             </tbody>
             <tfoot>
               <tr>
                 <td colSpan={3}>
-                  {`You reserved table for ${order.orderDate} at ${order.orderTime} for ${order.guests} guests`}
+                  {order.type === 'reservation_with_preorder' ||
+                  order.type === 'reservation'
+                    ? `You reserved table for ${
+                        order.order_date.split(' ')[0]
+                      } at ${order.order_date.split(' ')[1]} for ${
+                        order.guests
+                      } guests`
+                    : ''}
                 </td>
               </tr>
             </tfoot>
           </table>
-          <Button variant="contained">
-            {order.status === 'Cancelled' || order.status === 'Completed' ? (
-              <>Repeat order</>
-            ) : (
-              <>Cancel order</>
-            )}
-          </Button>
+          {order.status === 'canceled' || order.status === 'completed' ? (
+            <Button
+              variant="contained"
+              onClick={() => handleRepeatOrder(order.id)}>
+              Repeat order
+            </Button>
+          ) : (
+            <Button
+              variant="contained"
+              onClick={() => handleDeleteOrder(order.id)}>
+              Cancel order
+            </Button>
+          )}
         </li>
       ))}
     </ul>

@@ -1,19 +1,19 @@
-import React, { useState, ChangeEvent } from 'react';
 import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
-import { Autocomplete } from '@mui/material';
-import axiosInstance from '@/services/restaurantAPI';
 import styles from './SearchInput.module.css';
 import { useNavigate } from 'react-router-dom';
+import { ChangeEvent, useState } from 'react';
+import { IDish } from '@/types/dish';
+import axiosInstance from '@/services/restaurantAPI';
+import Autocomplete from '@mui/material/Autocomplete';
 
-interface Dish {
-  id: string;
-  title: string;
-  // Add other properties as needed
-}
+// interface Dish {
+//   id: string;
+//   title: string;
+// }
 
 const SearchInput: React.FC = () => {
-  const [matchedDishes, setMatchedDishes] = useState<Dish[]>([]);
+  const [matchedDishes, setMatchedDishes] = useState<IDish[]>([]);
   const navigate = useNavigate();
   let filteredTimeout: NodeJS.Timeout | null = null;
 
@@ -29,7 +29,7 @@ const SearchInput: React.FC = () => {
 
     filteredTimeout = setTimeout(async () => {
       try {
-        const response = await axiosInstance.post<{ dishes: Dish[] }>(
+        const response = await axiosInstance.post<{ dishes: IDish[] }>(
           '/matched-dishes',
           {
             title: query,
@@ -46,7 +46,7 @@ const SearchInput: React.FC = () => {
     if (value) {
       const selectedDish = matchedDishes.find((dish) => dish.title === value);
       if (selectedDish) {
-        navigate(`/menu/:id${selectedDish.id}`);
+        navigate(`/menu/${selectedDish.id}`);
       }
     }
   };
@@ -56,7 +56,8 @@ const SearchInput: React.FC = () => {
       <Autocomplete
         freeSolo
         options={matchedDishes.map((dish) => dish.title)}
-        onChange={(_event, value) => navigateToDish(value)}
+        //@ts-ignore
+        onChange={(event, value) => navigateToDish(value)}
         className={styles.searchContainer}
         renderInput={(params) => (
           <TextField
@@ -76,7 +77,7 @@ const SearchInput: React.FC = () => {
           />
         )}
       />
-      <SearchIcon sx={{ fontSize: '2rem' }} color="success" />
+      {/* <SearchIcon sx={{ fontSize: '2rem' }} color="success" /> */}
     </div>
   );
 };

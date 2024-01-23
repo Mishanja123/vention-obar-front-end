@@ -1,18 +1,23 @@
 import { useState } from 'react';
-import { useFormik, FormikValues } from 'formik';
+import { useLocation, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { useFormik, FormikValues } from 'formik';
 import { add, format, setHours, setMinutes, startOfDay } from 'date-fns';
-import CalendarInput from '../../atoms/CalendarInput/CalendarInput';
-import TimePicker from '../../atoms/TimePicker/TimePicker';
-import NumberInput from '../../atoms/NumberInput/NumberInput';
-import styles from './ReservationForm.module.css';
-import Button from '../../atoms/Button/Button';
-import Swal from 'sweetalert2';
-import { getValidationSchema } from '../../../validationSchemas/MainPageReservationFormSchema';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { useCheckoutContext } from '@/context/checkoutContext';
+
 import { PATHS } from '@/constants/paths';
+import { getValidationSchema } from '@/validationSchemas/MainPageReservationFormSchema';
+import { useCheckoutContext } from '@/context/checkoutContext';
+
+import {
+  Button,
+  CalendarInput,
+  NumberInput,
+  TimePicker,
+} from '@/components/atoms';
+
+import styles from './ReservationForm.module.css';
 
 const today = new Date();
 let disablePast: boolean = true;

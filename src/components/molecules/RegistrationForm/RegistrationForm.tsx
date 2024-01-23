@@ -4,10 +4,12 @@ import { userInfoFormInputs } from '@/content/accountForms/userInfoFormInputs';
 import { Button, TextInput } from '@/components/atoms';
 import styles from './RegistrationForm.module.css';
 import { useNavigate } from 'react-router-dom';
-import { useAuthContext } from '@/context/authContext';
+import { useDispatch } from 'react-redux';
+import { register, login } from '@/redux/auth/operations';
+
 const RegistrationForm = () => {
-  const { register } = useAuthContext();
   const navigate = useNavigate();
+  const dispatch = useDispatch<any>();
 
   const formik = useFormik({
     initialValues: {
@@ -19,7 +21,10 @@ const RegistrationForm = () => {
     },
     validationSchema: userFormSchema,
     onSubmit: async (values) => {
-      await register(values);
+      console.log(values);
+      dispatch(register(values));
+      const { email, password } = values;
+      await dispatch(login({ email, password }));
     },
   });
 

@@ -1,4 +1,4 @@
-export const scrollToReservationForm = () => {
+const scrollToReservationForm = () => {
   const reservationForm = document.getElementById('reservationForm');
 
   if (reservationForm) {
@@ -7,3 +7,5 @@ export const scrollToReservationForm = () => {
     });
   }
 };
+
+export default scrollToReservationForm;

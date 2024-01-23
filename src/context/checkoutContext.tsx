@@ -42,18 +42,23 @@ export const CheckoutProvider = ({
   const [tableGuests, setTableGuests] = useState(0);
   const [creditCardData, setCreditCardData] = useState<ICreditCard>();
   console.log('🚀 : creditCardData', creditCardData);
-  console.log('🚀 : orderData', orderData);
 
   const handlePaymentOrder = async (type: string) => {
     const dishId = localStorage.getItem('dishId');
     const paymentId = localStorage.getItem('paymentId');
 
-    const res = await axiosInstance.post('/payout', {
-      type,
-      dishId,
-      paymentId,
-    });
-    console.log('🚀 : res', res.data);
+    try {
+      const res = await axiosInstance.post('/payout', {
+        type,
+        dishId,
+        paymentId,
+      });
+      console.log('🚀 : res', res.data);
+      localStorage.setItem('dishId', '');
+      localStorage.setItem('paymentId', '');
+    } catch (error) {
+      console.log('🚀 : res', error);
+    }
   };
 
   const sendReservation = async (
@@ -88,9 +93,9 @@ export const CheckoutProvider = ({
     const dishId = localStorage.getItem('dishId');
     if (dishId) {
       try {
-        const res = await axiosInstance.delete(`/orders/${dishId}`);
+        await axiosInstance.delete(`/orders/${dishId}`);
         localStorage.setItem('dishId', '');
-        console.log('🚀 : res', res);
+        setOrderData({} as OrderDish);
       } catch (error) {
         console.log(error);
       }
@@ -121,6 +126,7 @@ export const CheckoutProvider = ({
       console.log(error);
     }
   };
+
   useEffect(() => {
     const dishId = localStorage.getItem('dishId');
     const paymentId = localStorage.getItem('paymentId');

@@ -1,20 +1,18 @@
 .container {
-  width: 100%;
-  max-width: 20rem;
-
-  display: flex;
-  align-items: center;
-  /* background-color: var(--accent-color); */
-  border-radius: 0.5rem;
-  margin-left: 2.5rem;
-  margin-right: 2.5rem;
+  width: 20rem;
 }
-.searchContainer {
-  border-radius: 0.2rem;
-  width: 100%;
-  max-width: 20rem;
+.search_container {
+  width: 20rem;
+  margin-right: 2rem;
 }
 
-.searchBar {
+.search_bar {
+  width: auto;
   color: var(--accent-color);
+}
+
+@media screen and (max-width: 876px) {
+  .search_container {
+    width: 60%;
+  }
 }

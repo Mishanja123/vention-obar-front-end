@@ -1,0 +1,10 @@
+.empty_order_wrapper {
+  place-items: center;
+  display: grid;
+  gap: 2rem;
+}
+
+.empty_order_text {
+  max-width: 20rem;
+  text-align: center;
+}

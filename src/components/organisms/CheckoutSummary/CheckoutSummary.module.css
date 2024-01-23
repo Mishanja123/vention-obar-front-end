@@ -13,3 +13,7 @@
   align-items: center;
   flex: 1;
 }
+
+.inactive {
+  pointer-events: none;
+}

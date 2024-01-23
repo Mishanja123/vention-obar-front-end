@@ -15,6 +15,7 @@ import MenuPage from '../pages/MenuPage';
 import { PATHS } from '../constants/paths';
 
 import PrivatePage from '../routes/PrivateRoute';
+
 import CheckoutPage from '../pages/CheckoutPage/CheckoutPage';
 import OrdersPage from '../pages/OrdersPage/OrdersPage';
 import {
@@ -26,14 +27,17 @@ import {
 import OrderPayment from '@/components/organisms/OrderPayment/OrderPayment';
 import NotFoundPage from '@/pages/NotFoundPage';
 import { CheckoutProvider } from '@/context/checkoutContext';
+import CartProvider from '../context/cartContext';
 
 const mainRoutes = [
   {
     path: PATHS.ROOT,
     element: (
-      // <PrivatePage>
-      <SharedLayout />
-      // </PrivatePage>
+      <PrivatePage>
+        <CartProvider>
+          <SharedLayout />
+        </CartProvider>
+      </PrivatePage>
     ),
     children: [
       { path: PATHS.ROOT, element: <MainPage /> },
@@ -46,7 +50,7 @@ const mainRoutes = [
             element: <MenuList />,
           },
           {
-            path: PATHS.MENU_ITEM,
+            path: `${PATHS.MENU_ITEM}:id`,
             element: <MenuItemInfo />,
           },
         ],
