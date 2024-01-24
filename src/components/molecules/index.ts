@@ -13,6 +13,7 @@ export { default as UserInfoForm } from './UserInfoForm/UserInfoForm';
 export { default as OrderedReservarionForm } from './OrderedReservarionForm/OrderedReservarionForm';
 export { default as OrderConfirmation } from './OrderConfirmation/OrderConfirmation';
 export { default as EmptyCart } from './EmptyCart/EmptyCart';
+export { default as EmptyOrder } from './EmptyOrder/EmptyOrder';
 export { default as QuantityCounter } from './QuantityCounter/QuantityCounter';
 export { default as ReservationForm } from './ReservationForm/ReservationForm';
 export { default as MobileMenu } from './MobileMenu/MobileMenu';

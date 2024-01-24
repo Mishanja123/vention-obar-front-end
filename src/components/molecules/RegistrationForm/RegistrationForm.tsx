@@ -5,7 +5,7 @@ import { Button, TextInput } from '@/components/atoms';
 import styles from './RegistrationForm.module.css';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { register } from '@/redux/auth/operations';
+import { register, login } from '@/redux/auth/operations';
 
 const RegistrationForm = () => {
   const navigate = useNavigate();
@@ -23,6 +23,8 @@ const RegistrationForm = () => {
     onSubmit: async (values) => {
       console.log(values);
       dispatch(register(values));
+      const { email, password } = values;
+      await dispatch(login({ email, password }));
     },
   });
 
