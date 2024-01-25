@@ -22,7 +22,7 @@ const OrdersPageSection = () => {
 
   const handleDeleteOrder = async (id: number) => {
     try {
-      await axiosInstance.delete(`/orders/${id}`);
+      await axiosInstance.delete(`/order/${id}`);
       await getAllOrders();
     } catch (error) {
       console.log(error);
@@ -31,7 +31,7 @@ const OrdersPageSection = () => {
 
   const handleRepeatOrder = async (id: number) => {
     try {
-      await axiosInstance.post(`/orders-repeat/${id}`);
+      await axiosInstance.post(`/order-repeat/${id}`);
     } catch (error) {
       console.log(error);
     }
