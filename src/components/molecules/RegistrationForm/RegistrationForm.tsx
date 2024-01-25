@@ -9,7 +9,8 @@ import { register, login } from '@/redux/auth/operations';
 
 const RegistrationForm = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch<any>();
+  // @ts-expect-error Fixed in next PR
+  const dispatch = useDispatch<unknown>();
 
   const formik = useFormik({
     initialValues: {

@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-shadow */
 import { useEffect, useState } from 'react';
-import dishMoreInfo from '@/menuData/dishMoreInfo.json';
 import styles from './MenuItemInfo.module.css';
 import { useParams } from 'react-router-dom';
 import axiosInstance from '@/services/restaurantAPI';
@@ -34,7 +33,7 @@ const MenuItemInfo = () => {
 
   useEffect(() => {
     getDish(id);
-  }, []);
+  }, [id]);
 
   if (!dish) {
     return <div>Loading...</div>;

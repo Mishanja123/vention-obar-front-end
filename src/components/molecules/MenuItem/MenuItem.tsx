@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useCartContext } from '@/context/cartContext';
 
 type MenuItemProps = {
-  id: string;
+  id: number;
   title: string;
   price: number;
   photo_path: string;
