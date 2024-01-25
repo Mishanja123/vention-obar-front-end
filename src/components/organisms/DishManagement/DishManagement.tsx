@@ -6,18 +6,29 @@ import { IDish, Ingredients } from '@/types/dish';
 import { DISHCATEGORY } from '@/constants/categoryDish';
 import { useMenuContext } from '@/context/menuContext';
 import IngredientsComponent from '@/components/molecules/IngredientsComponent/IngredientsComponent';
+import LoadingButtonFC from '@/components/atoms/LoadingButton/LoadingButton';
+import useMutation from '@/hooks/useMutation';
+
+const URL = '/dish-images';
+const validFileTypes = ['image/jpeg', 'image/png', 'image/jpg'];
 
 const DishManagement = () => {
+  const {
+    mutate: uploadImage,
+    isLoading: uploading,
+    error: uploadError,
+  } = useMutation({ url: URL });
   const [dishes, setDishes] = useState<IDish[]>([]);
   const [editingIndex, setEditingIndex] = useState<number | null>(null);
   const [editedDish, setEditedDish] = useState<IDish>({} as IDish);
   const [postRequest, setPostRequest] = useState<boolean>(false);
+  const [dishImage, setDishImage] = useState([]);
   const { allItems } = useMenuContext();
   const [newDish, setNewDish] = useState<Omit<IDish, 'id'>>({
     title: '',
     category: DISHCATEGORY.BAR_BLISS,
     price: '0',
-    photo_path: 'https://placehold.co/400',
+    photo_path: '',
     weight_grams: 0,
     ingredients: [
       {
@@ -32,6 +43,41 @@ const DishManagement = () => {
   });
   console.log('🚀 : newDish', editedDish);
 
+  const handleImageUpload = async (file) => {
+    try {
+      if (!validFileTypes.find((type) => type === file.type)) {
+        console.error('Invalid file type');
+        return;
+      }
+
+      const form = new FormData();
+      form.append('image', file);
+
+      await uploadImage({ file: form });
+    } catch (error) {
+      console.error('Error uploading image:', error);
+    }
+  };
+
+  const getS3ImageUrl = async (file) => {
+    try {
+      const response = await axiosInstance.post('/dish-image', {
+        name: file.name,
+      });
+      const image = response.data.data;
+      console.log(image);
+      return image;
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const handleSetImage = async (e) => {
+    const file = e.target.files[0];
+    await handleImageUpload(file);
+    const photo_path = await getS3ImageUrl(file);
+    setEditedDish({ ...editedDish, photo_path });
+  };
   const handleAddDish = () => {
     //@ts-ignore
     setDishes((prevDishes) => [
@@ -114,6 +160,7 @@ const DishManagement = () => {
             <th>Title</th>
             <th>Category</th>
             <th>Price</th>
+            <th>Dish picture</th>
             <th>Weight/g</th>
             <th>Ingredients</th>
             <th>Actions</th>
@@ -175,6 +222,39 @@ const DishManagement = () => {
               </td>
               <td>
                 {editingIndex === index ? (
+                  <div className="">
+                    <>
+                      {editedDish.photo_path ? (
+                        <img
+                          src={editedDish.photo_path}
+                          width={150}
+                          height={150}
+                        />
+                      ) : (
+                        <div className="">
+                          <LoadingButtonFC
+                            uploading={uploading}
+                            editMode={editingIndex === index}
+                            handleChange={handleSetImage}
+                          />
+                          {uploadError && (
+                            <div className="">Error occurred</div>
+                          )}
+                        </div>
+                      )}
+                    </>
+                  </div>
+                ) : (
+                  <img
+                    src={dish.photo_path}
+                    width={150}
+                    height={150}
+                    alt="dish picture"
+                  />
+                )}
+              </td>
+              <td>
+                {editingIndex === index ? (
                   <input
                     className={styles.dish_input}
                     value={editedDish.price.toString()}
@@ -227,7 +307,7 @@ const DishManagement = () => {
           ))}
           {editingIndex === null && (
             <tr>
-              <td colSpan={7}>
+              <td colSpan={8}>
                 <Button variant="outlined" onClick={handleAddDish}>
                   Add Dish
                 </Button>
@@ -236,6 +316,7 @@ const DishManagement = () => {
           )}
         </tbody>
       </table>
+      <button onClick={getS3ImageUrl}>get</button>
     </section>
   );
 };

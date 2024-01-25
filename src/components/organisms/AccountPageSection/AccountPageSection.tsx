@@ -21,7 +21,7 @@ const AccountPageSection = () => {
 
   setTimeout(() => {
     setIsLoading(false);
-  }, 2000);
+  }, 500);
 
   return (
     <section className={styles.account_section}>
