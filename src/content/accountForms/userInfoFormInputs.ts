@@ -14,7 +14,7 @@ export const userInfoFormInputs = [
   },
   {
     name: 'email',
-    placeholder: 'E-mail',
+    placeholder: 'Email',
     type: 'email',
     id: 'email',
   },
