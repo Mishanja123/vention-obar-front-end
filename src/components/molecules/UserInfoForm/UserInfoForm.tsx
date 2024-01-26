@@ -39,6 +39,7 @@ const UserInfoForm = () => {
           phone: phone,
         });
         const updatedUser = response.data;
+        console.log('updatedUser', updatedUser);
       } catch (err) {
         console.log(err);
       }
@@ -50,7 +51,7 @@ const UserInfoForm = () => {
       try {
         const userData = await getUserInfo();
         const userInformation = userData?.user;
-        setUserId(userInformation?.id!);
+        setUserId(userInformation?.id);
         formik.setValues({
           firstName: userInformation?.first_name || '',
           lastName: userInformation?.last_name || '',
@@ -63,7 +64,7 @@ const UserInfoForm = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [formik]);
 
   return (
     <div className={styles.user_info_section}>
