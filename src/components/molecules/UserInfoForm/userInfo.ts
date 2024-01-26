@@ -1,6 +1,7 @@
 import axiosInstance from '@/services/restaurantAPI';
 
 interface UserInfo {
+  avatar: string;
   id: number;
   first_name: string;
   last_name: string;
