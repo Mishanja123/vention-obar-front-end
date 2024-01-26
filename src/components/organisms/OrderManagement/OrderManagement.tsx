@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import axiosInstance from '@/services/restaurantAPI';
 import styles from './OrderManagement.module.css';
 import { Button } from '@/components/atoms';
-import { title } from 'process';
 
 interface Order {
   id: number;
@@ -11,9 +10,7 @@ interface Order {
   status: string;
   dishes: [];
 }
-/* interface EditedOrder {
 
-} */
 const OrderManagement: React.FC = () => {
   const [orders, setOrders] = useState<Order[]>([]);
 
@@ -21,7 +18,7 @@ const OrderManagement: React.FC = () => {
     try {
       const response = await axiosInstance.get('/orders-admin');
       const fetchedOrders: { orders: Order[] } = await response.data;
-
+      // @ts-expect-error unknown
       setOrders(fetchedOrders);
     } catch (error) {
       console.log('Ooops, looks like there is an error ' + error);

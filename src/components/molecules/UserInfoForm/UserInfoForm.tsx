@@ -50,6 +50,7 @@ const UserInfoForm = () => {
           phone: phone,
         });
         const updatedUser = response.data;
+        console.log('updatedUser', updatedUser);
       } catch (err) {
         console.log(err);
       }
@@ -65,6 +66,7 @@ const UserInfoForm = () => {
         const userInformation = userData?.user;
         setUserId(userInformation?.id!);
         setAvatar(userInformation?.avatar);
+        setUserId(userInformation?.id);
         formik.setValues({
           firstName: userInformation?.first_name || '',
           lastName: userInformation?.last_name || '',
@@ -77,7 +79,7 @@ const UserInfoForm = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [formik]);
 
   const handleChange = async (e) => {
     const file = e.target.files[0];

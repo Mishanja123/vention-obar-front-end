@@ -1,0 +1,19 @@
+.skeleton_navigation_tab {
+  margin: 1rem auto;
+  width: 95% !important;
+}
+.skeleton_form {
+  width: 50% !important;
+
+  margin: 1rem auto;
+}
+.skeleton_swiper {
+  width: 50% !important;
+}
+.skeleton_swiper_list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}

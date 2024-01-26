@@ -41,7 +41,6 @@ const DishManagement = () => {
       },
     ],
   });
-  console.log('🚀 : newDish', editedDish);
 
   const handleImageUpload = async (file) => {
     try {
@@ -79,16 +78,14 @@ const DishManagement = () => {
     setEditedDish({ ...editedDish, photo_path });
   };
   const handleAddDish = () => {
-    //@ts-ignore
     setDishes((prevDishes) => [
       ...prevDishes,
-      { ...newDish, id: String(allItems.length + 1) },
+      { ...newDish, id: allItems.length + 1 },
     ]);
 
     setEditingIndex(dishes.length);
     setPostRequest(true);
-    //@ts-ignore
-    setEditedDish({ ...newDish, id: String(allItems.length + 1) });
+    setEditedDish({ ...newDish, id: allItems.length + 1 });
   };
 
   const handleDishEdit = (index: number) => {
