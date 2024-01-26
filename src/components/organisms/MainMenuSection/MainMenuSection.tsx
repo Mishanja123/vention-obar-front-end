@@ -19,7 +19,7 @@ const MainMenuSection = () => {
       <h2 className={styles.menu_heading}>Menu</h2>
       <ul className={styles.main_menu_list}>
         <SliderWrapper
-          //@ts-ignore
+          // @ts-expect-error for now
           arrows={true}
           dots={false}
           autoplay={true}

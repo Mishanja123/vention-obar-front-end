@@ -4,6 +4,7 @@ import MainSection from '../../components/organisms/MainSection/MainSection';
 import { Footer } from '@/components/molecules';
 
 import styles from './MainPage.module.css';
+
 const MainPage = () => {
   return (
     <>

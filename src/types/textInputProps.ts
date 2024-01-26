@@ -11,4 +11,5 @@ export type TextInputProps = {
   placeholder: string;
   type: string;
   id: string;
+  disabled?: boolean;
 };

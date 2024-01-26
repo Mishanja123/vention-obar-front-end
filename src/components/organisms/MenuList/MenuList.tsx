@@ -15,7 +15,6 @@ const MenuList = () => {
     <>
       <ul className={styles.menu_list}>
         {items && items.length > 0 ? (
-          //@ts-ignore
           items.map((item) => <MenuItem key={item.id} {...item} />)
         ) : (
           <p>Loading...</p>
