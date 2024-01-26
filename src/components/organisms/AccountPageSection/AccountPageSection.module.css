@@ -18,6 +18,45 @@
     margin: 0;
   }
 }
+
+.skeleton_container {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+  justify-content: center;
+  align-items: center;
+  @media screen and (min-width: 876px) {
+    flex-direction: row;
+    align-items: unset;
+  }
+}
+
+.user_profilePhoto {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  /* align-items: center; */
+  @media screen and (min-width: 876px) {
+    /* align-items: unset; */
+  }
+}
+
+.account_navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* .skeleton_navigation_tab {
+  width: 100%;
+  max-width: 250px;
+} */
+
+/* .user_profile_form {
+  width: 650px;
+  height: 300px;
+} */
+
 .account_item {
   width: 200px;
   text-decoration: none;

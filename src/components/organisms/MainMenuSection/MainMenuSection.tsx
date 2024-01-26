@@ -5,7 +5,7 @@ import { MenuItem } from '@/components/molecules';
 import styles from './MainMenuSection.module.css';
 
 type MenuItemData = {
-  id: string;
+  id: number;
   title: string;
   price: number;
   image: string;
@@ -20,7 +20,7 @@ const MainMenuSection = () => {
       <h2 className={styles.menu_heading}>Menu</h2>
       <ul className={styles.main_menu_list}>
         <SliderWrapper
-          //@ts-ignore
+          // @ts-expect-error for now
           arrows={true}
           dots={false}
           autoplay={true}
@@ -33,7 +33,6 @@ const MainMenuSection = () => {
           centerMode={true}
           centerPadding={-100}>
           {items.map((item) => (
-            //@ts-ignore
             <MenuItem
               key={item.id}
               id={item.id}
