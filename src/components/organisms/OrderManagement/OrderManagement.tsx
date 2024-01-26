@@ -6,7 +6,7 @@ import { Button } from '@/components/atoms';
 interface Order {
   id: number;
   UserId: number;
-  order_date: string;
+  orderDate: string;
   status: string;
   dishes: [];
 }
@@ -18,6 +18,7 @@ const OrderManagement: React.FC = () => {
     try {
       const response = await axiosInstance.get('/orders-admin');
       const fetchedOrders: { orders: Order[] } = await response.data;
+      console.log(response.data);
       // @ts-expect-error unknown
       setOrders(fetchedOrders);
     } catch (error) {
@@ -39,7 +40,7 @@ const OrderManagement: React.FC = () => {
 
   const handleCloseOrder = async (id: number) => {
     try {
-      await axiosInstance.patch(`/api/orders-update/${id}`, {
+      await axiosInstance.patch(`/api/order-update/${id}`, {
         status: 'completed',
       });
       fetchOrders();
@@ -67,7 +68,7 @@ const OrderManagement: React.FC = () => {
             <td>{index}</td>
             <td>{order.id}</td>
             <td>{order.UserId}</td>
-            <td>{order.order_date}</td>
+            <td>{order.orderDate}</td>
             <td>{order.status}</td>
             <td>
               {order.dishes.map((dish) => (
