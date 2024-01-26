@@ -1,12 +1,15 @@
-import styles from './MenuList.module.css';
+import { useMenuContext } from '@/context/menuContext';
 
 import { MenuItem } from '@/components/molecules';
-import { useMenuContext } from '@/context/menuContext';
 import Pagination from '@/components/atoms/Pagination/Pagination';
+
+import styles from './MenuList.module.css';
 
 const MenuList = () => {
   const { items, postsPerPage, totalPosts, paginate, currentPage } =
     useMenuContext();
+
+  console.log(items);
 
   return (
     <>
