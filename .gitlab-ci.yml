@@ -1,5 +1,5 @@
 variables:
-  ECR_REGISTRY: 510481412586.dkr.ecr.eu-central-1.amazonaws.com
+  ECR_REGISTRY: 874528017305.dkr.ecr.eu-central-1.amazonaws.com
   APP_NAME: obar-frontend
   AWS_DEFAULT_REGION: eu-central-1
   TAG: latest
