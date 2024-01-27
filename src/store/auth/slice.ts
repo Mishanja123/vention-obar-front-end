@@ -1,8 +1,4 @@
-import {
-  ActionReducerMapBuilder,
-  createSlice,
-  // PayloadAction,
-} from '@reduxjs/toolkit';
+import { ActionReducerMapBuilder, createSlice } from '@reduxjs/toolkit';
 import { register, login, logout, refreshUser } from './operations';
 
 interface State {

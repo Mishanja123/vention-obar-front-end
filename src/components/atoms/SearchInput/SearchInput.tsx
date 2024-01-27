@@ -50,7 +50,7 @@ const SearchInput: React.FC = () => {
       <Autocomplete
         freeSolo
         options={matchedDishes.map((dish) => dish.title)}
-        // @ts-expect-error for now
+        //@ts-expect-error fo now
         onChange={(event, value) => navigateToDish(value)}
         className={styles.searchContainer}
         renderInput={(params) => (

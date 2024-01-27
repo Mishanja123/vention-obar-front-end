@@ -2,11 +2,12 @@ import { RouterProvider } from 'react-router-dom';
 import router from './router/router';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { refreshUser } from './redux/auth/operations';
+import { refreshUser } from './store/auth/operations';
+import { RootState, TypedDispatch } from './store/store';
 
 function App() {
-  // @ts-expect-error for now
-  const dispatch = useDispatch<unknown>();
+  const dispatch = useDispatch<TypedDispatch<RootState>>();
+  const { isFetching } = useAuth();
 
   useEffect(() => {
     // @ts-expect-error for now

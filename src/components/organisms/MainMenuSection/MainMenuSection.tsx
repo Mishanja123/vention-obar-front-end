@@ -5,6 +5,7 @@ import { MenuItem } from '@/components/molecules';
 import { DISHCATEGORY } from '@/constants/categoryDish';
 
 import styles from './MainMenuSection.module.css';
+
 import { useEffect } from 'react';
 
 const MainMenuSection = () => {
@@ -19,7 +20,7 @@ const MainMenuSection = () => {
       <h2 className={styles.menu_heading}>Menu</h2>
       <ul className={styles.main_menu_list}>
         <SliderWrapper
-          // @ts-expect-error for now
+          // @ts-expect-error existing value
           arrows={true}
           dots={false}
           autoplay={true}

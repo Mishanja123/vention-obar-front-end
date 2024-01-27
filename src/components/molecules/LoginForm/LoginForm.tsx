@@ -6,12 +6,12 @@ import { Button, TextInput } from '@/components/atoms';
 import { loginShema } from '@/validationSchemas/loginShema';
 import { PATHS } from '@/constants/paths';
 import { useDispatch } from 'react-redux';
-import { login } from '@/redux/auth/operations';
+import { login } from '@/store/auth/operations';
+import { RootState, TypedDispatch } from '@/store/store';
 
 const LoginForm = () => {
   const navigate = useNavigate();
-  //@ts-expect-error for now
-  const dispatch = useDispatch<unknown>();
+  const dispatch = useDispatch<TypedDispatch<RootState>>();
 
   const formik = useFormik({
     initialValues: {

@@ -8,13 +8,13 @@ import { GoPerson } from 'react-icons/go';
 import { PATHS } from '@/constants/paths';
 import { scrollToReservationForm } from '@/helpers';
 import { showReservationModal } from '@/helpers';
-import { logout } from '@/redux/auth/operations';
+import { logout } from '@/store/auth/operations';
 
 import { LinkWrapper } from '@/components/atoms/index.ts';
 import { Button } from '@/components/atoms/index.ts';
 
 import styles from './Navigation.module.css';
-import { useCartContext } from '@/context/cartContext';
+import { RootState, TypedDispatch } from '@/store/store';
 
 type ILocationProp = {
   loc: string;
@@ -22,9 +22,8 @@ type ILocationProp = {
 
 const Navigation: React.FC<ILocationProp> = ({ loc }) => {
   const location = useLocation();
-  // @ts-expect-error fixed in another PR
-  const dispatch = useDispatch<unknown>();
-  const { cartItems } = useCartContext();
+  const dispatch = useDispatch<TypedDispatch<RootState>>();
+
   const path = location.pathname;
 
   return (
