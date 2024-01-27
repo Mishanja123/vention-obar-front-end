@@ -9,8 +9,6 @@ const MenuList = () => {
   const { items, postsPerPage, totalPosts, paginate, currentPage } =
     useMenuContext();
 
-  console.log(items);
-
   return (
     <>
       <ul className={styles.menu_list}>

@@ -5,7 +5,7 @@ import { Button, TextInput } from '@/components/atoms';
 import styles from './RegistrationForm.module.css';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { register } from '@/store/auth/operations';
+import { login, register } from '@/store/auth/operations';
 import { RootState } from '@/store/store';
 
 const RegistrationForm = () => {

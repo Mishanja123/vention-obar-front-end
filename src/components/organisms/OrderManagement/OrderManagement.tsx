@@ -2,13 +2,19 @@ import { useEffect, useState } from 'react';
 import axiosInstance from '@/services/restaurantAPI';
 import styles from './OrderManagement.module.css';
 import { Button } from '@/components/atoms';
-
+interface Dish {
+  dishData: {
+    id: number;
+    title: string;
+  };
+  quantity: number;
+}
 interface Order {
   id: number;
   UserId: number;
   orderDate: string;
   status: string;
-  dishes: [];
+  dishes: Dish[];
 }
 
 const OrderManagement: React.FC = () => {
