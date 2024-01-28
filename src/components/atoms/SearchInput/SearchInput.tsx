@@ -1,5 +1,4 @@
 import TextField from '@mui/material/TextField';
-import SearchIcon from '@mui/icons-material/Search';
 import styles from './SearchInput.module.css';
 import { useNavigate } from 'react-router-dom';
 import { ChangeEvent, useState } from 'react';

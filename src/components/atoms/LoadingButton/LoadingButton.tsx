@@ -1,11 +1,10 @@
-import React from 'react';
 import { LoadingButton } from '@mui/lab';
 import { CloudUpload } from '@mui/icons-material';
 import styles from './LoadingButton.module.css';
 
 interface ILoadingButton {
   uploading: any;
-  editMode: Boolean;
+  editMode: boolean;
   handleChange: (e: any) => void;
 }
 
