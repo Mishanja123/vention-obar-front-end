@@ -15,13 +15,13 @@
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
     "jsx": "react-jsx",
-
+    "baseUrl": "./",
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["src/*"]
     }
   },
   "include": ["src"],
