@@ -20,7 +20,7 @@ const LoginForm = () => {
     },
     validationSchema: loginShema,
     onSubmit: async (values) => {
-      const response = dispatch(login(values));
+      const response = await dispatch(login(values));
       if (response) {
         navigate(PATHS.ROOT);
       }

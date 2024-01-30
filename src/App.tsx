@@ -7,10 +7,8 @@ import { RootState, TypedDispatch } from './store/store';
 
 function App() {
   const dispatch = useDispatch<TypedDispatch<RootState>>();
-  const { isFetching } = useAuth();
 
   useEffect(() => {
-    // @ts-expect-error for now
     dispatch(refreshUser());
   }, [dispatch]);
 

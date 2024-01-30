@@ -15,6 +15,7 @@ import { Button } from '@/components/atoms/index.ts';
 
 import styles from './Navigation.module.css';
 import { RootState, TypedDispatch } from '@/store/store';
+import { useCartContext } from '@/context/cartContext';
 
 type ILocationProp = {
   loc: string;
@@ -23,7 +24,7 @@ type ILocationProp = {
 const Navigation: React.FC<ILocationProp> = ({ loc }) => {
   const location = useLocation();
   const dispatch = useDispatch<TypedDispatch<RootState>>();
-
+  const { cartItems } = useCartContext();
   const path = location.pathname;
 
   return (

@@ -71,7 +71,7 @@ const OrdersPageSection = () => {
                     <img
                       width={150}
                       height={150}
-                      src={item.dishData.photo_path!}
+                      src={item.dishData.photoPath!}
                       alt="dish"
                     />
                     <h3 className={styles.order_title}>
