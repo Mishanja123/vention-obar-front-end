@@ -1,6 +1,6 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { UnknownAction, configureStore } from '@reduxjs/toolkit';
 import { authReducer } from './auth/slice';
-
+import { ThunkDispatch } from 'redux-thunk';
 import {
   persistStore,
   persistReducer,
@@ -31,4 +31,8 @@ export const store = configureStore({
       },
     }),
 });
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
+export type TypedDispatch<T> = ThunkDispatch<T, unknown, UnknownAction>;
 export const persistor = persistStore(store);

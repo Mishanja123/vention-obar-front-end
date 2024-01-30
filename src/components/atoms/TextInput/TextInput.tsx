@@ -9,6 +9,7 @@ const TextInput: React.FC<TextInputProps> = ({
   placeholder,
   type,
   id,
+  disabled,
 }) => {
   const [showPassword, setShowPassword] = useState(false);
   const { handleChange, values, errors, touched } = formik;
@@ -35,6 +36,7 @@ const TextInput: React.FC<TextInputProps> = ({
         onChange={handleChange}
         placeholder={placeholder}
         id={id}
+        disabled={disabled}
       />
       {type === 'password' && (
         <div

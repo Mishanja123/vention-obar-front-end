@@ -10,13 +10,13 @@ interface CartItemProps extends IDish {
 }
 
 const CartItems = ({
-  photo_path,
+  photoPath,
   title,
   price,
   quantity,
   id,
 }: CartItemProps) => {
-  console.log('🚀 : photo_path', photo_path);
+  console.log('🚀 : photoPath', photoPath);
   const { removeFromCartById } = useCartContext();
 
   const handleRemoveFromCart = () => {

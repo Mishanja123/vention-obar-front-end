@@ -2,7 +2,7 @@ interface DishData {
   id: number;
   title: string;
   price: string;
-  photo_path: string | null;
+  photoPath: string | null;
   ingredients: { title: string; is_required: boolean }[];
   category:
     | 'bar_bliss'

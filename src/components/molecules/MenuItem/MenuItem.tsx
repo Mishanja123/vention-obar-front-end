@@ -3,27 +3,16 @@ import styles from './MenuItem.module.css';
 import { PATHS } from '@/constants/paths';
 import { Link } from 'react-router-dom';
 import { useCartContext } from '@/context/cartContext';
+import { IDish } from '@/types/dish';
 
-type MenuItemProps = {
-  id: string;
-  title: string;
-  price: number;
-  photo_path: string;
-};
-
-const MenuItem: React.FC<MenuItemProps> = ({
-  title,
-  price,
-  photo_path,
-  id,
-}) => {
+const MenuItem: React.FC<IDish> = ({ id, title, price, photoPath }) => {
   const { addToCart } = useCartContext();
   return (
     <li className={styles.menu_item}>
       <Link className={styles.menu_link} to={`${PATHS.MENU_ITEM}${id}`}>
         <img
           className={styles.menu_item_img}
-          src={photo_path}
+          src={photoPath}
           alt="Dish_picture"
         />
         <p className={styles.menu_item_title}>{title}</p>

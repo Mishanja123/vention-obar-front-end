@@ -28,16 +28,20 @@ import OrderPayment from '@/components/organisms/OrderPayment/OrderPayment';
 import NotFoundPage from '@/pages/NotFoundPage';
 import { CheckoutProvider } from '@/context/checkoutContext';
 import CartProvider from '../context/cartContext';
+import { ErrorBoundary } from 'react-error-boundary';
+import ErrorFallbackComponent from '@/components/ErrorFallbackComponent/ErrorFallbackComponent';
 
 const mainRoutes = [
   {
     path: PATHS.ROOT,
     element: (
-      <PrivatePage>
-        <CartProvider>
-          <SharedLayout />
-        </CartProvider>
-      </PrivatePage>
+      <ErrorBoundary FallbackComponent={ErrorFallbackComponent}>
+        <PrivatePage>
+          <CartProvider>
+            <SharedLayout />
+          </CartProvider>
+        </PrivatePage>
+      </ErrorBoundary>
     ),
     children: [
       { path: PATHS.ROOT, element: <MainPage /> },
