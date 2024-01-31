@@ -48,6 +48,7 @@
     "@babel/eslint-parser": "^7.23.3",
     "@rollup/plugin-alias": "^5.1.0",
     "@rollup/plugin-replace": "^5.0.5",
+    "@rollup/plugin-replace": "^5.0.5",
     "@testing-library/jest-dom": "^6.2.0",
     "@types/jest": "^29.5.11",
     "@types/jsdom": "^21.1.6",
