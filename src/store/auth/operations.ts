@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axiosInstance from '@/services/restaurantAPI';
 import { setToken } from './slice';
+import { RootState } from '@/store/store';
 
 interface RegisterData {
   firstName: string;
@@ -21,10 +22,6 @@ export const setAccessToken = (accessToken: string) => {
 export const unsetAccessToken = () => {
   axiosInstance.defaults.headers.common.Authorization = '';
 };
-/*
- * POST @ /auth/register
- * body: { name, email, phone, password, }
- */
 export const register = createAsyncThunk(
   '/auth/sign-up',
   async (
@@ -40,17 +37,13 @@ export const register = createAsyncThunk(
         password,
       });
 
-      return data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      console.log(data);
+    } catch (error: unknown) {
+      return thunkAPI.rejectWithValue(error);
     }
   },
 );
 
-/*
- * POST @  /auth/login
- * body: { email, password }
- */
 export const login = createAsyncThunk(
   '/auth/login',
   async ({ email, password }: LoginData, thunkAPI) => {
@@ -65,32 +58,24 @@ export const login = createAsyncThunk(
       thunkAPI.dispatch(setToken(accessToken));
 
       return data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+    } catch (error: unknown) {
+      return thunkAPI.rejectWithValue(error);
     }
   },
 );
 
-/*
- * get @ /auth/logout
- * headers: Authorization: Bearer token +
- */
 export const logout = createAsyncThunk('/auth/logout', async (_, thunkAPI) => {
   try {
     await axiosInstance.get('/auth/logout');
     unsetAccessToken();
-  } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
+  } catch (error: unknown) {
+    return thunkAPI.rejectWithValue(error);
   }
 });
 
-/*
- * GET @ /users/current
- * headers: Authorization: Bearer token
- */
 export const refreshUser = createAsyncThunk(
   'auth/refresh',
-  async (_, thunkAPI) => {
+  async (_, thunkAPI: RootState) => {
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
 
@@ -106,8 +91,8 @@ export const refreshUser = createAsyncThunk(
       thunkAPI.dispatch(setToken(newAccessToken));
 
       setAccessToken(newAccessToken);
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+    } catch (error: unknown) {
+      return thunkAPI.rejectWithValue(error);
     }
   },
 );

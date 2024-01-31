@@ -5,8 +5,16 @@ import MainMenuSection from '../MainMenuSection/MainMenuSection';
 import Button from '../../atoms/Button/Button';
 
 import styles from './MainSection.module.css';
+import { useAuth } from '@/hooks/useAuth';
+import MainSectionSkeleton from '@/components/molecules/MainSectionSkeleton/MainSectionSkeleton';
 
 const MainSection = () => {
+  const { isFetching } = useAuth();
+
+  if (isFetching) {
+    return <MainSectionSkeleton />;
+  }
+
   return (
     <>
       <section className={styles.welcome_section}>
