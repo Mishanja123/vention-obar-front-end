@@ -7,7 +7,7 @@ interface IFn {
   userId?: number | null;
 }
 
-const useMutation = ({ url }) => {
+const useMutation = ({ url }: { url: string }) => {
   const [state, setState] = useState({
     isLoading: false,
     error: '',

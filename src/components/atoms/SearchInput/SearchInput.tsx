@@ -6,11 +6,6 @@ import { IDish } from '@/types/dish';
 import axiosInstance from '@/services/restaurantAPI';
 import Autocomplete from '@mui/material/Autocomplete';
 
-// interface Dish {
-//   id: string;
-//   title: string;
-// }
-
 const SearchInput: React.FC = () => {
   const [matchedDishes, setMatchedDishes] = useState<IDish[]>([]);
   const navigate = useNavigate();
@@ -55,7 +50,7 @@ const SearchInput: React.FC = () => {
       <Autocomplete
         freeSolo
         options={matchedDishes.map((dish) => dish.title)}
-        //@ts-ignore
+        //@ts-expect-error fo now
         onChange={(event, value) => navigateToDish(value)}
         className={styles.searchContainer}
         renderInput={(params) => (

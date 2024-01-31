@@ -9,7 +9,7 @@ export type IDish = {
   id: number;
   title: string;
   price: string;
-  photo_path: string;
+  photoPath: string;
   category: DISHCATEGORY;
   ingredients: Ingredients[];
   weight_grams: number;
