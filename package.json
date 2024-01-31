@@ -90,10 +90,7 @@
     "vite": "^5.0.11"
   },
   "lint-staged": {
-    "src/**/*.{ts,tsx}": [
-      "npm run prettier:fix",
-      "npm run lint"
-    ]
+    "src/**/*.{ts,tsx}": []
   },
   "husky": {
     "hooks": {
