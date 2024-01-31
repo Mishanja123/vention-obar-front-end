@@ -30,8 +30,8 @@ export const register = createAsyncThunk(
   ) => {
     try {
       const { data } = await axiosInstance.post('/auth/sign-up', {
-        first_name: firstName,
-        last_name: lastName,
+        firstName,
+        lastName,
         email,
         phone,
         password,
