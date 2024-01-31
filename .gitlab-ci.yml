@@ -1,0 +1,27 @@
+variables:
+  ECR_REGISTRY: 874528017305.dkr.ecr.eu-central-1.amazonaws.com
+  APP_NAME: obar-frontend
+  AWS_DEFAULT_REGION: eu-central-1
+  TAG: latest
+
+stages:
+  - build
+
+
+build:
+  stage: build
+  image: docker:20.10
+  services:
+    - docker:dind
+  script:
+    - docker info
+    - docker build -f Dockerfile.prod -t $APP_NAME .
+    - docker tag $APP_NAME:$TAG $ECR_REGISTRY/$APP_NAME:$TAG
+    - apk add --no-cache python3
+    - apk add --no-cache py3-pip
+    - pip3 install awscli
+    - aws configure set aws_access_key_id AKIA4XHPOROMT72RJR4Y
+    - aws configure set aws_secret_access_key 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
+    - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $ECR_REGISTRY
+    - docker push $ECR_REGISTRY/$APP_NAME:$TAG
+

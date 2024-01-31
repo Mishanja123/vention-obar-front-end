@@ -1,8 +1,9 @@
-import styles from './MenuList.module.css';
+import { useMenuContext } from '@/context/menuContext';
 
 import { MenuItem } from '@/components/molecules';
-import { useMenuContext } from '@/context/menuContext';
 import Pagination from '@/components/atoms/Pagination/Pagination';
+
+import styles from './MenuList.module.css';
 
 const MenuList = () => {
   const { items, postsPerPage, totalPosts, paginate, currentPage } =
@@ -12,7 +13,6 @@ const MenuList = () => {
     <>
       <ul className={styles.menu_list}>
         {items && items.length > 0 ? (
-          //@ts-ignore
           items.map((item) => <MenuItem key={item.id} {...item} />)
         ) : (
           <p>Loading...</p>

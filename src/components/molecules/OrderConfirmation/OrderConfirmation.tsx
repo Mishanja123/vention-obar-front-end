@@ -63,7 +63,7 @@ const OrderConfirmation = () => {
               <td className={styles.dish_info}>
                 <img
                   width={200}
-                  src={dish.dishData.photo_path}
+                  src={dish.dishData.photoPath}
                   alt={dish.dishData.title}
                 />
                 <h5>{dish.dishData.title}</h5>

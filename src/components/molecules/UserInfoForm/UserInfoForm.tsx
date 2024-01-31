@@ -1,4 +1,5 @@
 import { useFormik, FormikValues } from 'formik';
+import React from 'react';
 import styles from './UserInfoForm.module.css';
 import { userInfoFormInputs } from '@/content/accountForms/userInfoFormInputs';
 import { userFormSchema } from '@/validationSchemas/userFormSchema';
@@ -19,11 +20,9 @@ const UserInfoForm = () => {
   const [editMode, setEditMode] = useState<boolean>(false);
   const [userId, setUserId] = useState<number>();
   const [avatar, setAvatar] = useState<string>();
-  const {
-    mutate: uploadImage,
-    isLoading: uploading,
-    error: uploadError,
-  } = useMutation({ url: URL });
+  const { mutate: uploadImage, isLoading: uploading } = useMutation({
+    url: URL,
+  });
   const [error, setError] = useState('');
   const formik = useFormik({
     initialValues: {
@@ -50,6 +49,7 @@ const UserInfoForm = () => {
           phone: phone,
         });
         const updatedUser = response.data;
+        console.log('updatedUser', updatedUser);
       } catch (err) {
         console.log(err);
       }
@@ -63,8 +63,9 @@ const UserInfoForm = () => {
         const userData = await getUserInfo();
         console.log(userData);
         const userInformation = userData?.user;
-        setUserId(userInformation?.id!);
+        setUserId(userInformation?.id);
         setAvatar(userInformation?.avatar);
+        setUserId(userInformation?.id);
         formik.setValues({
           firstName: userInformation?.first_name || '',
           lastName: userInformation?.last_name || '',
@@ -77,9 +78,12 @@ const UserInfoForm = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [formik]);
 
-  const handleChange = async (e) => {
+  const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!e.target.files || e.target.files.length === 0) {
+      return;
+    }
     const file = e.target.files[0];
 
     if (!validFileTypes.find((type) => type === file.type)) {

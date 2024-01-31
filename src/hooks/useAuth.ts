@@ -3,7 +3,7 @@ import {
   selectIsLoggedIn,
   selectResponse,
   selectIsFetching,
-} from '@/redux/auth/selectors';
+} from '@/store/auth/selectors';
 
 export const useAuth = () => {
   const loggedIn = useSelector(selectIsLoggedIn);
