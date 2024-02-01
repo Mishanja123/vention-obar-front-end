@@ -22,6 +22,7 @@ export const setAccessToken = (accessToken: string) => {
 export const unsetAccessToken = () => {
   axiosInstance.defaults.headers.common.Authorization = '';
 };
+
 export const register = createAsyncThunk(
   '/auth/sign-up',
   async (
@@ -29,7 +30,7 @@ export const register = createAsyncThunk(
     thunkAPI,
   ) => {
     try {
-      const { data } = await axiosInstance.post('/auth/sign-up', {
+      await axiosInstance.post('/auth/sign-up', {
         firstName,
         lastName,
         email,
@@ -37,7 +38,7 @@ export const register = createAsyncThunk(
         password,
       });
 
-      console.log(data);
+      return 'all good';
     } catch (error: unknown) {
       return thunkAPI.rejectWithValue(error);
     }
@@ -88,9 +89,8 @@ export const refreshUser = createAsyncThunk(
 
       const newAccessToken = headers.authorization.split(' ')[1];
 
-      thunkAPI.dispatch(setToken(newAccessToken));
-
       setAccessToken(newAccessToken);
+      thunkAPI.dispatch(setToken(newAccessToken));
     } catch (error: unknown) {
       return thunkAPI.rejectWithValue(error);
     }
