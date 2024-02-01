@@ -2,7 +2,6 @@ import SelectInput from './SelectInput';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 describe('code snippet', () => {
-
   it('should render select input element with empty string as placeholder when placeholder prop is not passed', () => {
     // Arrange
     const formik = {
