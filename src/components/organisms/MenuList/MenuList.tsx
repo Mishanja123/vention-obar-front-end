@@ -6,14 +6,14 @@ import Pagination from '@/components/atoms/Pagination/Pagination';
 import styles from './MenuList.module.css';
 
 const MenuList = () => {
-  const { items, postsPerPage, totalPosts, paginate, currentPage } =
+  const { allItems, postsPerPage, totalPosts, paginate, currentPage } =
     useMenuContext();
 
   return (
     <>
       <ul className={styles.menu_list}>
-        {items && items.length > 0 ? (
-          items.map((item) => <MenuItem key={item.id} {...item} />)
+        {allItems && allItems.length > 0 ? (
+          allItems.map((item) => <MenuItem key={item.id} {...item} />)
         ) : (
           <p>Loading...</p>
         )}
