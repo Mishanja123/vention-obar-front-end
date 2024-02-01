@@ -6,11 +6,12 @@ import { Button, TextInput } from '@/components/atoms';
 import { loginShema } from '@/validationSchemas/loginShema';
 import { PATHS } from '@/constants/paths';
 import { useDispatch } from 'react-redux';
-import { login } from '@/redux/auth/operations';
+import { login } from '@/store/auth/operations';
+import { RootState, TypedDispatch } from '@/store/store';
 
 const LoginForm = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch<any>();
+  const dispatch = useDispatch<TypedDispatch<RootState>>();
 
   const formik = useFormik({
     initialValues: {
@@ -19,7 +20,7 @@ const LoginForm = () => {
     },
     validationSchema: loginShema,
     onSubmit: async (values) => {
-      const response = dispatch(login(values));
+      const response = await dispatch(login(values));
       if (response) {
         navigate(PATHS.ROOT);
       }

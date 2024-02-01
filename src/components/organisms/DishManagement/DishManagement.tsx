@@ -22,13 +22,13 @@ const DishManagement = () => {
   const [editingIndex, setEditingIndex] = useState<number | null>(null);
   const [editedDish, setEditedDish] = useState<IDish>({} as IDish);
   const [postRequest, setPostRequest] = useState<boolean>(false);
-  const [dishImage, setDishImage] = useState([]);
+  // const [dishImage, setDishImage] = useState([]);
   const { allItems } = useMenuContext();
   const [newDish, setNewDish] = useState<Omit<IDish, 'id'>>({
     title: '',
     category: DISHCATEGORY.BAR_BLISS,
     price: '0',
-    photo_path: '',
+    photoPath: '',
     weight_grams: 0,
     ingredients: [
       {
@@ -41,9 +41,8 @@ const DishManagement = () => {
       },
     ],
   });
-  console.log('🚀 : newDish', editedDish);
 
-  const handleImageUpload = async (file) => {
+  const handleImageUpload = async (file: File) => {
     try {
       if (!validFileTypes.find((type) => type === file.type)) {
         console.error('Invalid file type');
@@ -59,7 +58,7 @@ const DishManagement = () => {
     }
   };
 
-  const getS3ImageUrl = async (file) => {
+  const getS3ImageUrl = async (file: File) => {
     try {
       const response = await axiosInstance.post('/dish-image', {
         name: file.name,
@@ -72,23 +71,24 @@ const DishManagement = () => {
     }
   };
 
-  const handleSetImage = async (e) => {
+  const handleSetImage = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!e.target.files || e.target.files.length === 0) {
+      return;
+    }
     const file = e.target.files[0];
     await handleImageUpload(file);
-    const photo_path = await getS3ImageUrl(file);
-    setEditedDish({ ...editedDish, photo_path });
+    const photoPath = await getS3ImageUrl(file);
+    setEditedDish({ ...editedDish, photoPath });
   };
   const handleAddDish = () => {
-    //@ts-ignore
     setDishes((prevDishes) => [
       ...prevDishes,
-      { ...newDish, id: String(allItems.length + 1) },
+      { ...newDish, id: allItems.length + 1 },
     ]);
 
     setEditingIndex(dishes.length);
     setPostRequest(true);
-    //@ts-ignore
-    setEditedDish({ ...newDish, id: String(allItems.length + 1) });
+    setEditedDish({ ...newDish, id: allItems.length + 1 });
   };
 
   const handleDishEdit = (index: number) => {
@@ -125,7 +125,7 @@ const DishManagement = () => {
         title: '',
         category: DISHCATEGORY.BAR_BLISS,
         price: '0',
-        photo_path: 'https://placehold.co/400',
+        photoPath: 'https://placehold.co/400',
         weight_grams: 0,
         ingredients: [],
       });
@@ -224,11 +224,12 @@ const DishManagement = () => {
                 {editingIndex === index ? (
                   <div className="">
                     <>
-                      {editedDish.photo_path ? (
+                      {editedDish.photoPath ? (
                         <img
-                          src={editedDish.photo_path}
+                          src={editedDish.photoPath}
                           width={150}
                           height={150}
+                          alt="dish"
                         />
                       ) : (
                         <div className="">
@@ -246,10 +247,10 @@ const DishManagement = () => {
                   </div>
                 ) : (
                   <img
-                    src={dish.photo_path}
+                    src={dish.photoPath}
                     width={150}
                     height={150}
-                    alt="dish picture"
+                    alt="dish"
                   />
                 )}
               </td>
@@ -316,7 +317,7 @@ const DishManagement = () => {
           )}
         </tbody>
       </table>
-      <button onClick={getS3ImageUrl}>get</button>
+      <button onClick={() => getS3ImageUrl}>get</button>
     </section>
   );
 };
