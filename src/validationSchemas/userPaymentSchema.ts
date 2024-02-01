@@ -5,7 +5,7 @@ export const paymentSchema = object({
   cardNumber: string()
     .matches(/^\d{16}$/, 'Card number must be a 16-digit number')
     .required('Card number is required'),
-  cardholder: string().required('Cardholder name is required'),
+  cardHolder: string().required('cardHolder name is required'),
   cvvNumber: string()
     .matches(/^\d{3}$/, 'CVV must be a 3-digit number')
     .required('CVV is required'),

@@ -17,7 +17,7 @@ interface CheckoutContextProps {
   handlePaymentCardAdditing: (
     addressTitle: string,
     cardNumber: string,
-    cardholder: string,
+    cardHolder: string,
     cvvNumber: number,
     month: number,
     year: number,
@@ -105,7 +105,7 @@ export const CheckoutProvider = ({
   const handlePaymentCardAdditing = async (
     addressTitle: string,
     cardNumber: string,
-    cardholder: string,
+    cardHolder: string,
     cvvNumber: number,
     month: number,
     year: number,
@@ -114,7 +114,7 @@ export const CheckoutProvider = ({
       const res = await axiosInstance.post('/payment', {
         addressTitle,
         cardNumber,
-        cardholder,
+        cardHolder,
         cvvNumber,
         month,
         year,

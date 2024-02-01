@@ -5,8 +5,8 @@ import styles from './UserManagement.module.css';
 
 interface User {
   id: number;
-  first_name: string;
-  last_name: string;
+  firstName: string;
+  lastName: string;
   email: string;
   UserAddressId?: number | null;
   UserCreditCardId?: number | null;
@@ -14,8 +14,8 @@ interface User {
 
 interface EditedUser {
   id?: number; // Assuming you don't want to edit the ID
-  first_name: string;
-  last_name: string;
+  firstName: string;
+  lastName: string;
   email: string;
   UserAddressId?: number | null;
   UserCreditCardId?: number | null;
@@ -25,8 +25,8 @@ const UserManagement: React.FC = () => {
   const [users, setUsers] = useState<User[]>([]);
   const [editingModeIndex, setEditingModeIndex] = useState<number>(-1);
   const [editedUser, setEditedUser] = useState<EditedUser>({
-    first_name: '',
-    last_name: '',
+    firstName: '',
+    lastName: '',
     email: '',
   });
 
@@ -103,13 +103,13 @@ const UserManagement: React.FC = () => {
                 <input
                   className={styles.edit_input}
                   type="text"
-                  value={editedUser.first_name}
+                  value={editedUser.firstName}
                   onChange={(e) =>
-                    setEditedUser({ ...editedUser, first_name: e.target.value })
+                    setEditedUser({ ...editedUser, firstName: e.target.value })
                   }
                 />
               ) : (
-                user.first_name
+                user.firstName
               )}
             </td>
             <td>
@@ -117,13 +117,13 @@ const UserManagement: React.FC = () => {
                 <input
                   type="text"
                   className={styles.edit_input}
-                  value={editedUser.last_name}
+                  value={editedUser.lastName}
                   onChange={(e) =>
-                    setEditedUser({ ...editedUser, last_name: e.target.value })
+                    setEditedUser({ ...editedUser, lastName: e.target.value })
                   }
                 />
               ) : (
-                user.last_name
+                user.lastName
               )}
             </td>
             <td>
