@@ -39,7 +39,6 @@ const Payment = () => {
         month,
         year,
       );
-      console.log(addressTitle, cardNumber, cardholder, cvvNumber, month, year);
     },
   });
   return (
