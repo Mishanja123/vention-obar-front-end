@@ -17,7 +17,7 @@ const Payment = () => {
     initialValues: {
       addressTitle: '',
       cardNumber: '',
-      cardholder: '',
+      cardHolder: '',
       cvvNumber: '',
       month: '',
       year: '',
@@ -26,7 +26,7 @@ const Payment = () => {
     onSubmit: ({
       addressTitle,
       cardNumber,
-      cardholder,
+      cardHolder,
       cvvNumber,
       month,
       year,
@@ -34,12 +34,11 @@ const Payment = () => {
       handlePaymentCardAdditing(
         addressTitle,
         cardNumber,
-        cardholder,
+        cardHolder,
         cvvNumber,
         month,
         year,
       );
-      console.log(addressTitle, cardNumber, cardholder, cvvNumber, month, year);
     },
   });
   return (

@@ -67,12 +67,13 @@ const UserInfoForm = () => {
         setAvatar(userInformation?.avatar);
         setUserId(userInformation?.id);
         formik.setValues({
-          firstName: userInformation?.first_name || '',
-          lastName: userInformation?.last_name || '',
+          firstName: userInformation?.firstName || '',
+          lastName: userInformation?.lastName || '',
           email: userInformation?.email || '',
           phone: userInformation?.phone || '',
           password: '',
         });
+        return;
       } catch (err) {
         console.error(err);
       }

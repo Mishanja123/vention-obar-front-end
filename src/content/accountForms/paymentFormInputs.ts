@@ -14,11 +14,11 @@ export const paymentFormInputs = [
     id: 'cardNumber',
   },
   {
-    name: 'cardholder',
+    name: 'cardHolder',
     placeholder: 'Ex. John Doe',
     type: 'text',
     label: 'Name on card',
-    id: 'cardholder',
+    id: 'cardHolder',
   },
   {
     name: 'cvvNumber',
