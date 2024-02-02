@@ -43,7 +43,7 @@ const UserInfoForm = () => {
       console.log(firstName, lastName, email, phone, password);
       try {
         const response = await axiosInstance.patch(`/users/${userId}`, {
-          first_name: firstName,
+          firstName: firstName,
           lastName: lastName,
           email: email,
           phone: phone,
@@ -61,7 +61,6 @@ const UserInfoForm = () => {
     const fetchData = async () => {
       try {
         const userData = await getUserInfo();
-        console.log(userData);
         const userInformation = userData?.user;
         setUserId(userInformation?.id);
         setAvatar(userInformation?.avatar);
@@ -73,13 +72,15 @@ const UserInfoForm = () => {
           phone: userInformation?.phone || '',
           password: '',
         });
+        console.log(userData);
+
         return;
       } catch (err) {
         console.error(err);
       }
     };
     fetchData();
-  }, [formik]);
+  }, []);
 
   const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files || e.target.files.length === 0) {
