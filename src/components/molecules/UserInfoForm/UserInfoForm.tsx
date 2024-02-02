@@ -43,7 +43,7 @@ const UserInfoForm = () => {
       console.log(firstName, lastName, email, phone, password);
       try {
         const response = await axiosInstance.patch(`/users/${userId}`, {
-          first_name: firstName,
+          firstName: firstName,
           lastName: lastName,
           email: email,
           phone: phone,
@@ -79,7 +79,7 @@ const UserInfoForm = () => {
       }
     };
     fetchData();
-  }, [formik]);
+  }, []);
 
   const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files || e.target.files.length === 0) {
