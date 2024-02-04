@@ -27,7 +27,7 @@ const RegistrationForm = () => {
     onSubmit: async (values) => {
       const { email, password } = values;
 
-      const res = dispatch(register(values));
+      const res = await dispatch(register(values));
       if (res.payload === SUCCESS) {
         await dispatch(login({ email, password }));
       }
