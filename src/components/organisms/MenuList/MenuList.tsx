@@ -2,6 +2,7 @@ import { useMenuContext } from '@/context/menuContext';
 
 import { MenuItem } from '@/components/molecules';
 import Pagination from '@/components/atoms/Pagination/Pagination';
+import MenuPageSkeleton from '@/components/molecules/MenuPageSkeleton/MenuPageSkeleton';
 
 import styles from './MenuList.module.css';
 
@@ -15,12 +16,10 @@ const MenuList = () => {
         {allItems && allItems.length > 0 ? (
           allItems.map((item) => <MenuItem key={item.id} {...item} />)
         ) : (
-          <p>Loading...</p>
+          <MenuPageSkeleton />
         )}
       </ul>
-      {totalPosts < 12 ? (
-        ''
-      ) : (
+      {totalPosts >= 12 && (
         <Pagination
           postsPerPage={postsPerPage}
           totalPosts={totalPosts}
