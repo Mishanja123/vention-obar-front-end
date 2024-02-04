@@ -61,7 +61,6 @@ const UserInfoForm = () => {
     const fetchData = async () => {
       try {
         const userData = await getUserInfo();
-        console.log(userData);
         const userInformation = userData?.user;
         setUserId(userInformation?.id);
         setAvatar(userInformation?.avatar);
@@ -73,6 +72,7 @@ const UserInfoForm = () => {
           phone: userInformation?.phone || '',
           password: '',
         });
+
         return;
       } catch (err) {
         console.error(err);

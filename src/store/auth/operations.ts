@@ -3,6 +3,7 @@ import axiosInstance from '@/services/restaurantAPI';
 import { setToken } from './slice';
 import { RootState } from '@/store/store';
 
+export const SUCCESS = 'success';
 interface RegisterData {
   firstName: string;
   lastName: string;
@@ -38,7 +39,7 @@ export const register = createAsyncThunk(
         password,
       });
 
-      return 'all good';
+      return SUCCESS;
     } catch (error: unknown) {
       return thunkAPI.rejectWithValue(error);
     }

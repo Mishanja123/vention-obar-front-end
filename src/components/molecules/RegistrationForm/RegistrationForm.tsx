@@ -5,7 +5,7 @@ import { Button, TextInput } from '@/components/atoms';
 import styles from './RegistrationForm.module.css';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { login, register } from '@/store/auth/operations';
+import { SUCCESS, login, register } from '@/store/auth/operations';
 import { RootState } from '@/store/store';
 import { useAuth } from '@/hooks/useAuth';
 
@@ -27,9 +27,10 @@ const RegistrationForm = () => {
     onSubmit: async (values) => {
       const { email, password } = values;
 
-      const res = await dispatch(register(values));
-      if (res.payload === 'all good')
+      const res = dispatch(register(values));
+      if (res.payload === SUCCESS) {
         await dispatch(login({ email, password }));
+      }
     },
   });
 
