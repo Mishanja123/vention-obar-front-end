@@ -7,9 +7,12 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { login, register } from '@/store/auth/operations';
 import { RootState } from '@/store/store';
+import { useAuth } from '@/hooks/useAuth';
 
 const RegistrationForm = () => {
   const navigate = useNavigate();
+
+  const { isFetching } = useAuth();
   const dispatch = useDispatch<RootState>();
 
   const formik = useFormik({
@@ -22,10 +25,11 @@ const RegistrationForm = () => {
     },
     validationSchema: userFormSchema,
     onSubmit: async (values) => {
-      console.log(values);
-      dispatch(register(values));
       const { email, password } = values;
-      await dispatch(login({ email, password }));
+
+      const res = await dispatch(register(values));
+      if (res.payload === 'all good')
+        await dispatch(login({ email, password }));
     },
   });
 
@@ -39,7 +43,10 @@ const RegistrationForm = () => {
           </label>
         ))}
         <div className={styles.registration_btn}>
-          <Button variant="contained" type="submit">
+          <Button
+            variant="contained"
+            type="submit"
+            isValid={isFetching ? true : false}>
             Sign-up
           </Button>
         </div>

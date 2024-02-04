@@ -1,14 +1,15 @@
 /* eslint-disable @typescript-eslint/no-shadow */
 import { useEffect, useState } from 'react';
-import styles from './MenuItemInfo.module.css';
+import styles from './DishDetails.module.css';
 import { useParams } from 'react-router-dom';
 import axiosInstance from '@/services/restaurantAPI';
+import { useCartContext } from '@/context/cartContext';
 
 type MenuItemData = {
   id: number;
   title: string;
   price: number;
-  image: string;
+  photoPath: string;
   portion: number;
   ingredients: {
     title: string;
@@ -16,11 +17,14 @@ type MenuItemData = {
   }[];
 };
 
-const MenuItemInfo = () => {
+const DishDetails = () => {
   const params = useParams();
   const id = parseInt(params.id ?? '0', 10);
   const [editing, setEditing] = useState(false);
   const [dish, setDish] = useState();
+
+  const { addToCart } = useCartContext();
+
   const getDish = async (id: number) => {
     try {
       const response = await axiosInstance.get(`/dishes/${id}`);
@@ -39,8 +43,8 @@ const MenuItemInfo = () => {
     return <div>Loading...</div>;
   }
 
-  const { title, price, image, portion, ingredients }: MenuItemData = dish;
-
+  const { title, price, photoPath, portion, ingredients }: MenuItemData = dish;
+  console.log(dish);
   const handleEditClick = () => {
     setEditing(!editing);
   };
@@ -52,7 +56,7 @@ const MenuItemInfo = () => {
   return (
     <div className={styles.menu_item_container}>
       <div className={styles.menu_item_image}>
-        <img src={image} alt={title} className={styles.dish_img} />
+        <img src={photoPath} alt={title} className={styles.dish_img} />
       </div>
       <div className={styles.menu_item_details}>
         <h3 className={styles.menu_item_title}>{title}</h3>
@@ -81,13 +85,16 @@ const MenuItemInfo = () => {
             </li>
           ))}
         </ul>
-
         <p className={styles.menu_item_portion}>Portion: {portion} grams</p>
         <p className={styles.menu_item_price}>Price: ${price}</p>
-        <button className={styles.menu_button_cart}>Add to cart</button>
+        <button
+          onClick={() => addToCart(Number(id))}
+          className={styles.menu_button_cart}>
+          Add to cart
+        </button>{' '}
       </div>
     </div>
   );
 };
 
-export default MenuItemInfo;
+export default DishDetails;

@@ -1,17 +1,15 @@
 import { useSelector } from 'react-redux';
-import {
-  selectIsLoggedIn,
-  selectResponse,
-  selectIsFetching,
-} from '@/store/auth/selectors';
+import { selectIsLoggedIn, selectIsFetching } from '@/store/auth/selectors';
 
-export const useAuth = () => {
+interface AuthState {
+  loggedIn: boolean;
+  isFetching: boolean;
+}
+export const useAuth = (): AuthState => {
   const loggedIn = useSelector(selectIsLoggedIn);
-  const response = useSelector(selectResponse);
   const isFetching = useSelector(selectIsFetching);
   return {
     loggedIn,
-    response,
     isFetching,
   };
 };

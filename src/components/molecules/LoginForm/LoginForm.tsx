@@ -8,9 +8,11 @@ import { PATHS } from '@/constants/paths';
 import { useDispatch } from 'react-redux';
 import { login } from '@/store/auth/operations';
 import { RootState, TypedDispatch } from '@/store/store';
+import { useAuth } from '@/hooks/useAuth';
 
 const LoginForm = () => {
   const navigate = useNavigate();
+  const { isFetching } = useAuth();
   const dispatch = useDispatch<TypedDispatch<RootState>>();
 
   const formik = useFormik({
@@ -26,6 +28,7 @@ const LoginForm = () => {
       }
     },
   });
+
   return (
     <div className={styles.login_wrapper}>
       <form onSubmit={formik.handleSubmit} className={styles.login_form}>
@@ -39,7 +42,10 @@ const LoginForm = () => {
           </label>
         ))}
         <div className={styles.login_btn}>
-          <Button variant="contained" type="submit">
+          <Button
+            variant="contained"
+            type="submit"
+            isValid={isFetching ? true : false}>
             Login
           </Button>
         </div>
