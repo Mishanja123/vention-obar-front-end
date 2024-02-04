@@ -72,7 +72,6 @@ const UserInfoForm = () => {
           phone: userInformation?.phone || '',
           password: '',
         });
-        console.log(userData);
 
         return;
       } catch (err) {
