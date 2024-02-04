@@ -11,6 +11,7 @@ import useMutation from '@/hooks/useMutation';
 import { useNavigate } from 'react-router-dom';
 import { PATHS } from '@/constants/paths';
 import LoadingButtonFC from '@/components/atoms/LoadingButton/LoadingButton';
+import avatarHolderPic from '@/assets/images/avatar-icon-holder.jpeg';
 
 const URL = '/images';
 const validFileTypes = ['image/jpeg', 'image/png', 'image/jpg'];
@@ -99,7 +100,7 @@ const UserInfoForm = () => {
     <div className={styles.user_info_section}>
       <div className={styles.user_image_wrapper}>
         <div className={styles.image}>
-          <img src={avatar} alt="profile pic" />
+          <img src={avatar ? avatar : avatarHolderPic} alt="profile pic" />
         </div>
         <LoadingButtonFC
           uploading={uploading}
