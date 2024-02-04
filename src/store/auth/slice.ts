@@ -26,12 +26,16 @@ const authSlice = createSlice({
 
       // Register //
       .addCase(register.fulfilled, (state) => {
-        state.loggedIn = true;
         state.isFetching = false;
 
         console.log('Successful Registred.');
       })
-      .addCase(register.rejected, (_, action) => {
+      .addCase(register.pending, (state) => {
+        state.isFetching = true;
+      })
+      .addCase(register.rejected, (state, action) => {
+        state.isFetching = false;
+
         console.error('Registration failed:', action.error);
       })
 
@@ -41,7 +45,12 @@ const authSlice = createSlice({
         state.isFetching = false;
         console.log('Successful Logged in.');
       })
-      .addCase(login.rejected, (_, action) => {
+      .addCase(login.pending, (state) => {
+        state.isFetching = true;
+      })
+      .addCase(login.rejected, (state, action) => {
+        state.isFetching = false;
+
         console.error('Login failed:', action.error);
       })
 
@@ -50,19 +59,24 @@ const authSlice = createSlice({
         state.token = null;
         state.loggedIn = false;
         state.isFetching = false;
+
         console.log('Successful Logout.');
       })
-      .addCase(logout.rejected, () => {
+      .addCase(logout.pending, (state) => {
+        state.isFetching = true;
+      })
+      .addCase(logout.rejected, (state) => {
+        state.isFetching = false;
         console.log('Something is wrong');
       })
 
       // Refresh //
-      .addCase(refreshUser.pending, (state) => {
-        state.isFetching = true;
-      })
       .addCase(refreshUser.fulfilled, (state) => {
         state.loggedIn = true;
         state.isFetching = false;
+      })
+      .addCase(refreshUser.pending, (state) => {
+        state.isFetching = true;
       })
       .addCase(refreshUser.rejected, (state) => {
         state.isFetching = false;

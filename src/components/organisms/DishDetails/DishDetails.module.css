@@ -21,9 +21,10 @@
   padding: 2rem;
 }
 .dish_img {
-  padding: 2rem;
+  max-width: 395px;
+  /* padding: 2rem; */
   border-radius: 1rem;
-  margin-right: 2rem;
+  /* margin-right: 2rem; */
 }
 
 .menu_item_title {
