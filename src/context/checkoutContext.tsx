@@ -50,7 +50,7 @@ export const CheckoutProvider = ({
     try {
       const res = await axiosInstance.post('/payout', {
         type,
-        dishId,
+        orderId: dishId,
         paymentId,
       });
       console.log('🚀 : res', res.data);
@@ -74,7 +74,7 @@ export const CheckoutProvider = ({
       withPreorder,
     });
     setTableGuests(guests);
-    localStorage.setItem('dishId', JSON.stringify(res.data.message.id));
+    localStorage.setItem('dishId', JSON.stringify(res.data.reservation.id));
 
     setOrderData(res.data.message);
   };
@@ -119,8 +119,7 @@ export const CheckoutProvider = ({
         month,
         year,
       });
-
-      localStorage.setItem('paymentId', JSON.stringify(res.data.id));
+      localStorage.setItem('paymentId', JSON.stringify(res.data));
       setCreditCardData(res.data);
     } catch (error) {
       console.log(error);
