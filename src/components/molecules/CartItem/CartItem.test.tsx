@@ -1,13 +1,14 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import CartItems from './CartItem';
+import { DISHCATEGORY } from '@/constants/categoryDish';
 
 const mockDish = {
   id: 1,
   photoPath: 'path/to/photo',
   title: 'Test Dish',
-  price: '10',
+  price: '10$',
   quantity: 2,
-  category: 'Main Course',
+  category: DISHCATEGORY.BAR_BLISS,
   ingredients: ['Ingredient 1', 'Ingredient 2'],
   weight_grams: 200,
 };
@@ -21,10 +22,12 @@ describe('CartItem Component', () => {
         title={mockDish.title}
         price={mockDish.price}
         quantity={mockDish.quantity}
+        category={mockDish.category}
+        ingredients={[]}
+        weight_grams={0}
       />,
     );
 
-    // Проверяем отображение заголовка, цены и изображения
     expect(screen.getByText('Test Dish')).toBeInTheDocument();
     expect(screen.getByText('$10')).toBeInTheDocument();
     expect(screen.getByRole('img', { name: 'avatar' })).toBeInTheDocument();
@@ -36,12 +39,21 @@ describe('CartItem Component', () => {
       ...mockDish,
       removeFromCartById: removeFromCartByIdMock,
     };
-    render(<CartItems {...mockDishWithHandler} />);
+    render(
+      <CartItems
+        id={mockDishWithHandler.id}
+        photoPath={mockDishWithHandler.photoPath}
+        title={mockDishWithHandler.title}
+        price={mockDishWithHandler.price}
+        quantity={mockDishWithHandler.quantity}
+        category={mockDishWithHandler.category}
+        ingredients={[]}
+        weight_grams={0}
+      />,
+    );
 
-    // Находим иконку удаления и эмулируем клик
-    fireEvent.click(screen.getByRole('button', { name: 'trash' }));
+    fireEvent.click(screen.getByTestId(1));
 
-    // Проверяем, что функция removeFromCartById вызывается с правильным аргументом
     expect(removeFromCartByIdMock).toHaveBeenCalledWith('1');
   });
 
@@ -51,14 +63,23 @@ describe('CartItem Component', () => {
       ...mockDish,
       removeFromCartById: removeFromCartByIdMock,
     };
-    render(<CartItems {...mockDishWithHandler} />);
+    render(
+      <CartItems
+        id={mockDishWithHandler.id}
+        photoPath={mockDishWithHandler.photoPath}
+        title={mockDishWithHandler.title}
+        price={mockDishWithHandler.price}
+        quantity={mockDishWithHandler.quantity}
+        category={mockDishWithHandler.category}
+        ingredients={[]}
+        weight_grams={0}
+      />,
+    );
 
-    // Находим иконку удаления и эмулируем нажатие клавиши Enter
-    fireEvent.keyDown(screen.getByRole('button', { name: 'trash' }), {
+    fireEvent.keyDown(screen.getByTestId(1), {
       key: 'Enter',
     });
 
-    // Проверяем, что функция removeFromCartById вызывается с правильным аргументом
     expect(removeFromCartByIdMock).toHaveBeenCalledWith('1');
   });
 });
