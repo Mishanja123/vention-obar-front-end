@@ -93,7 +93,7 @@ export const CheckoutProvider = ({
     const dishId = localStorage.getItem('dishId');
     if (dishId) {
       try {
-        await axiosInstance.delete(`/orders/${dishId}`);
+        await axiosInstance.delete(`/order/${dishId}`);
         localStorage.setItem('dishId', '');
         setOrderData({} as OrderDish);
       } catch (error) {

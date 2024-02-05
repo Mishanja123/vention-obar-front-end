@@ -16,7 +16,6 @@ const CartItems = ({
   quantity,
   id,
 }: CartItemProps) => {
-  console.log('🚀 : photoPath', photoPath);
   const { removeFromCartById } = useCartContext();
 
   const handleRemoveFromCart = () => {
@@ -25,9 +24,7 @@ const CartItems = ({
 
   return (
     <li className={styles.cart_item_wrapper}>
-      <svg width="200" height="200" className={styles.cart_item_image}>
-        <use href={`${sprite}#icon-avatar`} aria-expanded="true"></use>
-      </svg>
+      <img className={styles.cart_item_img} src={photoPath} alt="dish" />
       <div>
         <div className={styles.title_wrapper}>
           <h3 className={styles.cart_item_title}>{title}</h3>
