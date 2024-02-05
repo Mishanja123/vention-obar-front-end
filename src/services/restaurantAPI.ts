@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const HOST = process.env.BASE_URL;
+// const HOST = process.env.BASE_URL;
+
+const HOST = '3.122.191.202';
 
 console.log(HOST);
 
