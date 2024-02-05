@@ -2,19 +2,17 @@ import QuantityCounter from '../QuantityCounter/QuantityCounter';
 import { IoTrash } from 'react-icons/io5';
 
 import styles from './CartItem.module.css';
-import { IDish } from '@/types/dish';
 import { useCartContext } from '@/context/cartContext';
-interface CartItemProps extends IDish {
+interface CartItemProps {
+  id: number;
+  photoPath: string;
+  title: string;
+  price: string;
   quantity: number;
 }
 
-const CartItems = ({
-  photoPath,
-  title,
-  price,
-  quantity,
-  id,
-}: CartItemProps) => {
+const CartItems = (props: CartItemProps) => {
+  const { photoPath, title, price, quantity, id } = props;
   const { removeFromCartById } = useCartContext();
 
   const handleRemoveFromCart = () => {
