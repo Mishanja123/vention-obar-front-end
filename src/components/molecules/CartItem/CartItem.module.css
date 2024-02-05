@@ -34,17 +34,19 @@
   height: 100px;
 
   @media screen and (min-width: 876px) {
+    width: 200px;
+    height: 200px;
   }
 
   @media screen and (min-width: 1450px) {
-    width: 15rem;
-    height: 10rem;
+    width: 200px;
+    height: 200px;
   }
 }
 
 .title_wrapper {
   width: 150px;
-  
+
   @media screen and (min-width: 876px) {
     width: 300px;
   }
