@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import { IconContext } from 'react-icons';
 import { PiShoppingCartLight } from 'react-icons/pi';
-import { GoPerson } from 'react-icons/go';
+import iconHolder from '@/assets/images/avatar-icon-holder.jpeg';
 
 import { PATHS } from '@/constants/paths';
 import { scrollToReservationForm } from '@/helpers';
@@ -16,6 +16,8 @@ import { Button } from '@/components/atoms/index.ts';
 import styles from './Navigation.module.css';
 import { RootState, TypedDispatch } from '@/store/store';
 import { useCartContext } from '@/context/cartContext';
+import axiosInstance from '@/services/restaurantAPI';
+import { useEffect, useState } from 'react';
 
 type ILocationProp = {
   loc: string;
@@ -23,10 +25,24 @@ type ILocationProp = {
 
 const Navigation: React.FC<ILocationProp> = ({ loc }) => {
   const location = useLocation();
+  const [userIcon, setUserIcon] = useState('');
   const dispatch = useDispatch<TypedDispatch<RootState>>();
   const { cartItems } = useCartContext();
   const path = location.pathname;
+  const getUser = async () => {
+    try {
+      const res = await axiosInstance.get('/me');
+      setUserIcon(res.data.user.avatar);
+    } catch (error) {
+      console.error('Error fetching user data:', error);
+    }
+  };
 
+  useEffect(() => {
+    getUser();
+  }, []);
+
+  console.log(userIcon);
   return (
     <div className={`${styles[loc]}`}>
       <LinkWrapper to={PATHS.MENU}>Menu</LinkWrapper>
@@ -51,9 +67,16 @@ const Navigation: React.FC<ILocationProp> = ({ loc }) => {
         </IconContext.Provider>
       </LinkWrapper>
       <LinkWrapper to={PATHS.ACCOUNT}>
-        <IconContext.Provider value={{ className: styles.profile_img }}>
+        <div className={styles.userIcon_container}>
+          {userIcon ? (
+            <img src={userIcon} alt="icon" />
+          ) : (
+            <img src={iconHolder} alt="icon" />
+          )}
+        </div>
+        {/* <IconContext.Provider value={{ className: styles.profile_img }}>
           <GoPerson />
-        </IconContext.Provider>
+        </IconContext.Provider> */}
       </LinkWrapper>
       <Button variant="contained" onClick={() => dispatch(logout())}>
         Log out

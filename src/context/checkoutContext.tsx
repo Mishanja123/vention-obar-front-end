@@ -85,7 +85,7 @@ export const CheckoutProvider = ({
       type: deliveryOrTakeOut,
       time,
     });
-    localStorage.setItem('dishId', JSON.stringify(res.data.reservation.id));
+    localStorage.setItem('dishId', JSON.stringify(res.data.order.id));
     setOrderData(res.data.message);
   };
 

@@ -13,8 +13,8 @@ const config: Config = {
     '\\.(gif|ttf|eot|svg|png|jpg)$': '<rootDir>/test/fileMock.ts',
     '\\.css$': 'identity-obj-proxy',
   },
-  tsConfig: 'tsconfig.jest.json',
-
+  //@ts-expect-error
+  tsConfig: 'tsconfig.json',
 };
 
 export default config;
