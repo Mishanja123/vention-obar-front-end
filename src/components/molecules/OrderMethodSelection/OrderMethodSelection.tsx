@@ -23,6 +23,7 @@ const OrderMethodSelection: React.FC = () => {
     <div className={styles.main_container}>
       <FormControl>
         <Select
+          data-testid="deliveryAdress_selection"
           id="deliveryAdress_selection"
           displayEmpty
           label="Delivery Adress"
