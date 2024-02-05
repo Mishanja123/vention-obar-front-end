@@ -14,7 +14,7 @@ const config: Config = {
     '\\.css$': 'identity-obj-proxy',
   },
   //@ts-expect-error
-  tsConfig: 'tsconfig.json',
+  tsConfig: 'tsconfig.jest.json',
 };
 
 export default config;
