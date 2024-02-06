@@ -41,7 +41,7 @@ export const CheckoutProvider = ({
   const [orderData, setOrderData] = useState({} as OrderDish);
   const [tableGuests, setTableGuests] = useState(0);
   const [creditCardData, setCreditCardData] = useState<ICreditCard>();
-  console.log('🚀 : creditCardData', creditCardData);
+  console.log('creditCardData', creditCardData);
 
   const handlePaymentOrder = async (type: string) => {
     const dishId = localStorage.getItem('dishId');
@@ -76,7 +76,7 @@ export const CheckoutProvider = ({
     setTableGuests(guests);
     localStorage.setItem('dishId', JSON.stringify(res.data.reservation.id));
 
-    setOrderData(res.data.message);
+    setOrderData(res.data.reservation);
   };
 
   const sendDeliveryOrTakeOut = async (date: string, time: string) => {
@@ -86,7 +86,7 @@ export const CheckoutProvider = ({
       time,
     });
     localStorage.setItem('dishId', JSON.stringify(res.data.order.id));
-    setOrderData(res.data.message);
+    setOrderData(res.data.order);
   };
 
   const handleDeleteOrder = async () => {
