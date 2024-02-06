@@ -1,11 +1,15 @@
-import React from 'react';
 import styles from './MenuItem.module.css';
 import { PATHS } from '@/constants/paths';
 import { Link } from 'react-router-dom';
 import { useCartContext } from '@/context/cartContext';
-import { IDish } from '@/types/dish';
-
-const MenuItem: React.FC<IDish> = ({ id, title, price, photoPath }) => {
+interface MenuItemProps {
+  id: number;
+  photoPath: string;
+  title: string;
+  price: string;
+}
+const MenuItem = (props: MenuItemProps) => {
+  const { photoPath, title, price, id } = props;
   const { addToCart } = useCartContext();
   return (
     <li className={styles.menu_item}>
