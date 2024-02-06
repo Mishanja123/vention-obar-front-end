@@ -42,7 +42,6 @@ const Navigation: React.FC<ILocationProp> = ({ loc }) => {
     getUser();
   }, []);
 
-  console.log(userIcon);
   return (
     <div className={`${styles[loc]}`}>
       <LinkWrapper to={PATHS.MENU}>Menu</LinkWrapper>

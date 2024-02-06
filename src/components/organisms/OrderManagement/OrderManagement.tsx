@@ -24,7 +24,6 @@ const OrderManagement: React.FC = () => {
     try {
       const response = await axiosInstance.get('/orders-admin');
       const fetchedOrders: { orders: Order[] } = await response.data;
-      console.log(response.data);
       // @ts-expect-error unknown
       setOrders(fetchedOrders);
     } catch (error) {
@@ -35,20 +34,27 @@ const OrderManagement: React.FC = () => {
     fetchOrders();
   }, []);
 
-  const handleDeleteOrder = async (id: number) => {
+  const handleCompleteOrder = async (id: number, status: string) => {
     try {
-      await axiosInstance.delete(`/orders/${id}`);
+      await axiosInstance.patch(`/order/${id}`, { status: status });
       fetchOrders();
     } catch (error) {
       console.log(error);
     }
   };
 
-  const handleCloseOrder = async (id: number) => {
+  const handleCancelOrder = async (id: number, status: string) => {
     try {
-      await axiosInstance.patch(`/api/order-update/${id}`, {
-        status: 'completed',
-      });
+      await axiosInstance.patch(`/order/${id}`, { status: status });
+      fetchOrders();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleDeleteOrder = async (id: number) => {
+    try {
+      await axiosInstance.delete(`/order/${id}`);
       fetchOrders();
     } catch (error) {
       console.log(error);
@@ -75,7 +81,16 @@ const OrderManagement: React.FC = () => {
             <td>{order.id}</td>
             <td>{order.UserId}</td>
             <td>{order.orderDate}</td>
-            <td>{order.status}</td>
+            <td
+              className={
+                order.status === 'canceled'
+                  ? styles.canceled
+                  : order.status === 'active'
+                    ? styles.active
+                    : styles.completed
+              }>
+              {order.status}
+            </td>
             <td>
               {order.dishes.map((dish) => (
                 <p key={dish.dishData.id}>
@@ -88,13 +103,18 @@ const OrderManagement: React.FC = () => {
             <td>
               <Button
                 variant="outlined"
-                onClick={() => handleDeleteOrder(order.id)}>
-                Delete
+                onClick={() => handleCompleteOrder(order.id, 'completed')}>
+                Complate
               </Button>
               <Button
                 variant="outlined"
-                onClick={() => handleCloseOrder(order.id)}>
-                Close
+                onClick={() => handleCancelOrder(order.id, 'canceled')}>
+                Cancel
+              </Button>
+              <Button
+                variant="outlined"
+                onClick={() => handleDeleteOrder(order.id)}>
+                Delete
               </Button>
             </td>
           </tr>
