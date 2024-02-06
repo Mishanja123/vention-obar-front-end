@@ -11,6 +11,7 @@ const OrdersPageSection = () => {
   const getAllOrders = async () => {
     try {
       const res = await axiosInstance.get('/orders');
+      console.log('🚀 : res', res);
       setallOrders(res.data);
     } catch (error) {
       console.error(error);
@@ -93,7 +94,15 @@ const OrdersPageSection = () => {
                       } at ${order.orderDate.split(' ')[1]} for ${
                         order.guests
                       } guests`
-                    : ''}
+                    : order.type === 'delivery'
+                      ? `Your order will be delivered on ${
+                          order.orderDate.split(' ')[0]
+                        } at ${order.orderDate.split(' ')[1]}`
+                      : order.type === 'take_away'
+                        ? `You can collect your order on ${
+                            order.orderDate.split(' ')[0]
+                          } at ${order.orderDate.split(' ')[1]}`
+                        : ''}
                 </td>
               </tr>
             </tfoot>
