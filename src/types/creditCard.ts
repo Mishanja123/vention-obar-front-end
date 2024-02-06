@@ -5,5 +5,5 @@ export type ICreditCard = {
   month: number;
   year: number;
   cvvNumber: number;
-  cardholder: string;
+  cardHolder: string;
 };

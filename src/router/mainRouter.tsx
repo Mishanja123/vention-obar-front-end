@@ -19,7 +19,7 @@ import PrivatePage from '../routes/PrivateRoute';
 import CheckoutPage from '../pages/CheckoutPage/CheckoutPage';
 import OrdersPage from '../pages/OrdersPage/OrdersPage';
 import {
-  MenuItemInfo,
+  DishDetails,
   MenuList,
   OrderDelivery,
   OrderTakeout,
@@ -55,7 +55,7 @@ const mainRoutes = [
           },
           {
             path: `${PATHS.MENU_ITEM}:id`,
-            element: <MenuItemInfo />,
+            element: <DishDetails />,
           },
         ],
       },

@@ -89,8 +89,8 @@ const OrdersPageSection = () => {
                   {order.type === 'reservation_with_preorder' ||
                   order.type === 'reservation'
                     ? `You reserved table for ${
-                        order.order_date.split(' ')[0]
-                      } at ${order.order_date.split(' ')[1]} for ${
+                        order.orderDate.split(' ')[0]
+                      } at ${order.orderDate.split(' ')[1]} for ${
                         order.guests
                       } guests`
                     : ''}

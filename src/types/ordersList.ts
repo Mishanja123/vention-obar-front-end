@@ -29,7 +29,7 @@ export interface Order {
   dishes: Dish[];
   subTotal: number;
   total: number;
-  order_date: string;
+  orderDate: string;
   guests: number;
   payment_id: string;
   status: 'active' | 'paid' | 'will_be_paid' | 'completed' | 'canceled';

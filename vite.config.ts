@@ -1,12 +1,17 @@
-import { defineConfig } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
-import alias from '@rollup/plugin-alias';
 
-export default defineConfig({
-  plugins: [react()],
-  resolve: {
-    alias: {
-      '@': '/src',
+export default defineConfig(({ command, mode }) => {
+  const env = loadEnv(mode, process.cwd(), '');
+  return {
+    plugins: [react()],
+    resolve: {
+      alias: {
+        '@': '/src',
+      },
     },
-  },
+    define: {
+      'process.env.BASE_URL': JSON.stringify(env.BASE_URL),
+    },
+  };
 });

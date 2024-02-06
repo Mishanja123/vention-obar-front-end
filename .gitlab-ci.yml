@@ -20,8 +20,8 @@ build:
     - apk add --no-cache python3
     - apk add --no-cache py3-pip
     - pip3 install awscli
-    - aws configure set aws_access_key_id AKIA4XHPOROMT72RJR4Y
-    - aws configure set aws_secret_access_key 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
+    - aws configure set aws_access_key_id AKIA36UQTWJAO6YMCO72
+    - aws configure set aws_secret_access_key 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
     - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $ECR_REGISTRY
     - docker push $ECR_REGISTRY/$APP_NAME:$TAG
 

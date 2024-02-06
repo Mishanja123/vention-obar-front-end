@@ -2,10 +2,11 @@ import React from 'react';
 import { icons } from '../../../assets/icons';
 
 interface IconProps {
-  iconName: keyof typeof icons;
+  iconName: string;
 }
 
 const Icon: React.FC<IconProps> = ({ iconName }) => {
+  //@ts-expect-error
   const IconComponent = icons[iconName];
 
   if (!IconComponent) {

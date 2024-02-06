@@ -17,7 +17,7 @@ interface CheckoutContextProps {
   handlePaymentCardAdditing: (
     addressTitle: string,
     cardNumber: string,
-    cardholder: string,
+    cardHolder: string,
     cvvNumber: number,
     month: number,
     year: number,
@@ -50,7 +50,7 @@ export const CheckoutProvider = ({
     try {
       const res = await axiosInstance.post('/payout', {
         type,
-        dishId,
+        orderId: dishId,
         paymentId,
       });
       console.log('🚀 : res', res.data);
@@ -74,7 +74,7 @@ export const CheckoutProvider = ({
       withPreorder,
     });
     setTableGuests(guests);
-    localStorage.setItem('dishId', JSON.stringify(res.data.message.id));
+    localStorage.setItem('dishId', JSON.stringify(res.data.reservation.id));
 
     setOrderData(res.data.message);
   };
@@ -85,7 +85,7 @@ export const CheckoutProvider = ({
       type: deliveryOrTakeOut,
       time,
     });
-    localStorage.setItem('dishId', JSON.stringify(res.data.message.id));
+    localStorage.setItem('dishId', JSON.stringify(res.data.order.id));
     setOrderData(res.data.message);
   };
 
@@ -93,7 +93,7 @@ export const CheckoutProvider = ({
     const dishId = localStorage.getItem('dishId');
     if (dishId) {
       try {
-        await axiosInstance.delete(`/orders/${dishId}`);
+        await axiosInstance.delete(`/order/${dishId}`);
         localStorage.setItem('dishId', '');
         setOrderData({} as OrderDish);
       } catch (error) {
@@ -105,7 +105,7 @@ export const CheckoutProvider = ({
   const handlePaymentCardAdditing = async (
     addressTitle: string,
     cardNumber: string,
-    cardholder: string,
+    cardHolder: string,
     cvvNumber: number,
     month: number,
     year: number,
@@ -114,13 +114,12 @@ export const CheckoutProvider = ({
       const res = await axiosInstance.post('/payment', {
         addressTitle,
         cardNumber,
-        cardholder,
+        cardHolder,
         cvvNumber,
         month,
         year,
       });
-
-      localStorage.setItem('paymentId', JSON.stringify(res.data.id));
+      localStorage.setItem('paymentId', JSON.stringify(res.data));
       setCreditCardData(res.data);
     } catch (error) {
       console.log(error);

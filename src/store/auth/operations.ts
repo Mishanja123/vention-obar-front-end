@@ -3,6 +3,7 @@ import axiosInstance from '@/services/restaurantAPI';
 import { setToken } from './slice';
 import { RootState } from '@/store/store';
 
+export const SUCCESS = 'success';
 interface RegisterData {
   firstName: string;
   lastName: string;
@@ -22,6 +23,7 @@ export const setAccessToken = (accessToken: string) => {
 export const unsetAccessToken = () => {
   axiosInstance.defaults.headers.common.Authorization = '';
 };
+
 export const register = createAsyncThunk(
   '/auth/sign-up',
   async (
@@ -29,15 +31,15 @@ export const register = createAsyncThunk(
     thunkAPI,
   ) => {
     try {
-      const { data } = await axiosInstance.post('/auth/sign-up', {
-        first_name: firstName,
-        last_name: lastName,
+      await axiosInstance.post('/auth/sign-up', {
+        firstName,
+        lastName,
         email,
         phone,
         password,
       });
 
-      console.log(data);
+      return SUCCESS;
     } catch (error: unknown) {
       return thunkAPI.rejectWithValue(error);
     }
@@ -88,9 +90,8 @@ export const refreshUser = createAsyncThunk(
 
       const newAccessToken = headers.authorization.split(' ')[1];
 
-      thunkAPI.dispatch(setToken(newAccessToken));
-
       setAccessToken(newAccessToken);
+      thunkAPI.dispatch(setToken(newAccessToken));
     } catch (error: unknown) {
       return thunkAPI.rejectWithValue(error);
     }

@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './ErrorFallBackComponent.module.css';
 import { useNavigate } from 'react-router-dom';
 import { PATHS } from '@/constants/paths';

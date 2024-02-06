@@ -68,7 +68,10 @@ const DeliveryAddressForm = () => {
     <div className={styles.delivery_address_section}>
       <form onSubmit={formik.handleSubmit} className={styles.delivery_form}>
         {formMode === 'add' && !userAddress.addressTitle && (
-          <button type="submit" className={styles.delivery_address_button}>
+          <button
+            type="submit"
+            data-testid="1"
+            className={styles.delivery_address_button}>
             Add Delivery Address
           </button>
         )}
@@ -76,6 +79,7 @@ const DeliveryAddressForm = () => {
         {formMode === 'edit' && (
           <button
             type="button"
+            data-testid="2"
             className={styles.delivery_address_button}
             onClick={handleSaveClick}>
             Edit Delivery Changes
@@ -83,7 +87,10 @@ const DeliveryAddressForm = () => {
         )}
 
         {formMode === 'add' && userAddress.addressTitle && (
-          <button type="submit" className={styles.delivery_address_button}>
+          <button
+            data-testid="3"
+            type="submit"
+            className={styles.delivery_address_button}>
             Save Delivery Address
           </button>
         )}

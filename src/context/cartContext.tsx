@@ -1,6 +1,7 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import axiosInstance from '../services/restaurantAPI';
 import { IDish } from '@/types/dish';
+import { useAuth } from '@/hooks/useAuth';
 interface CartItems {
   id: number;
   total: number;
@@ -28,12 +29,15 @@ export const useCartContext = () => useContext(CartContext);
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   const [cartItems, setCartItems] = useState<CartItems>({} as CartItems);
   const [isLoadingCart, setIsLoadingCart] = useState(true);
+  const { loggedIn } = useAuth();
 
   useEffect(() => {
     const fetchCart = async () => {
       try {
-        const { data } = await axiosInstance.get('/cart');
-        setCartItems(data);
+        if (loggedIn) {
+          const { data } = await axiosInstance.get('/cart');
+          setCartItems(data);
+        }
       } catch (error) {
         console.error('Error fetching cart:', error);
       } finally {
@@ -44,7 +48,7 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     setTimeout(() => {
       fetchCart();
     }, 1500);
-  }, []);
+  }, [loggedIn]);
 
   const addToCart = async (productId: number) => {
     try {
