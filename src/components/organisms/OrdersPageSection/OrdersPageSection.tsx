@@ -1,25 +1,19 @@
-import styles from './OrdersPageSection.module.css';
-import { Button } from '@/components/atoms';
 import { useEffect, useState } from 'react';
-import axiosInstance from '@/services/restaurantAPI';
-import { Order } from '@/types/ordersList';
-import { EmptyOrder } from '@/components/molecules';
-import { useCartContext } from '@/context/cartContext';
 import { useNavigate } from 'react-router-dom';
-import { PATHS } from '@/constants/paths';
 import Swal from 'sweetalert2';
 
-interface IDish {
-  dishData: {
-    id: number;
-  };
-  quantity: number;
-}
-interface IOrder {
-  dishes: IDish[];
-}
+import { useCartContext } from '@/context/cartContext';
+import axiosInstance from '@/services/restaurantAPI';
+import { PATHS } from '@/constants/paths';
+import { IOrder, IDish, OrderStatus, OrderType } from '@/types/ordersList';
+
+import { EmptyOrder } from '@/components/molecules';
+import { Button } from '@/components/atoms';
+
+import styles from './OrdersPageSection.module.css';
+
 const OrdersPageSection = () => {
-  const [allOrders, setallOrders] = useState<Order[]>([]);
+  const [allOrders, setallOrders] = useState<IOrder[]>([]);
   const [userName, setUserName] = useState('');
   const navigate = useNavigate();
 
@@ -77,7 +71,7 @@ const OrdersPageSection = () => {
       return;
     });
   };
-  const repeatOrder = async ({ dishes }: IOrder) => {
+  const repeatOrder = async (dishes: IDish[]) => {
     try {
       const dishObjects: { id: number; quantity: number }[] = dishes.map(
         (dish) => ({
@@ -96,7 +90,7 @@ const OrdersPageSection = () => {
     }
   };
 
-  const handleRepeatOrder = ({ dishes }: IOrder) => {
+  const handleRepeatOrder = (dishes: IDish[]) => {
     Swal.fire({
       title: `Dear ${userName}!`,
       text: 'Are you sure you want to repeat this order?',
@@ -110,26 +104,41 @@ const OrdersPageSection = () => {
       confirmButtonText: 'Yes',
     }).then((result) => {
       if (result.isConfirmed) {
-        repeatOrder({ dishes });
+        repeatOrder(dishes);
       }
       return;
     });
+  };
+
+  const filterOrders = (orders: IOrder[]): IOrder[] => {
+    const activeOrders = orders.filter(
+      (order) => order.status === OrderStatus.ACTIVE,
+    );
+    const completedOrders = orders.filter(
+      (order) => order.status === OrderStatus.COMPLETED,
+    );
+    const otherOrders = orders.filter(
+      (order) =>
+        order.status !== OrderStatus.ACTIVE &&
+        order.status !== OrderStatus.COMPLETED,
+    );
+    return [...activeOrders, ...completedOrders, ...otherOrders];
   };
 
   return allOrders.length === 0 ? (
     <EmptyOrder />
   ) : (
     <ul className={styles.orders_list}>
-      {allOrders.map((order) => (
+      {filterOrders(allOrders).map((order) => (
         <li key={order.id} className={styles.orders_item}>
           <div className={styles.orders_status_wrapper}>
             <div>
               <p>Order No: {order.id}</p>
               <p
                 className={
-                  order.status === 'canceled'
+                  order.status === OrderStatus.CANCELED
                     ? styles.canceled
-                    : order.status === 'completed'
+                    : order.status === OrderStatus.COMPLETED
                       ? styles.completed
                       : styles.active
                 }>
@@ -146,7 +155,7 @@ const OrdersPageSection = () => {
             </p>
           </div>
           <div className={styles.order_table_wrapper}>
-            {order.status !== 'active' && (
+            {order.status !== OrderStatus.ACTIVE && (
               <div className={styles.order_table_comleted}></div>
             )}
             <table className={styles.order_table}>
@@ -179,8 +188,8 @@ const OrdersPageSection = () => {
               <tfoot>
                 <tr>
                   <td colSpan={3}>
-                    {order.type === 'reservation_with_preorder' ||
-                    order.type === 'reservation'
+                    {order.type === OrderType.RESERVATION_WITH_PREORDER ||
+                    order.type === OrderType.RESERVATION
                       ? `You reserved table for ${
                           order.orderDate.split(' ')[0]
                         } at ${order.orderDate.split(' ')[1]} for ${
@@ -192,16 +201,17 @@ const OrdersPageSection = () => {
               </tfoot>
             </table>
           </div>
-          {order.status === 'canceled' || order.status === 'completed' ? (
+          {order.status === OrderStatus.CANCELED ||
+          order.status === OrderStatus.COMPLETED ? (
             <Button
               variant="contained"
-              onClick={() => handleRepeatOrder(order)}>
+              onClick={() => handleRepeatOrder(order.dishes)}>
               Repeat order
             </Button>
           ) : (
             <Button
               variant="contained"
-              onClick={() => handleCancelOrder(order.id, 'canceled')}>
+              onClick={() => handleCancelOrder(order.id, OrderStatus.CANCELED)}>
               Cancel order
             </Button>
           )}
