@@ -29,7 +29,7 @@ const DishManagement = () => {
     category: DISHCATEGORY.BAR_BLISS,
     price: '0',
     photoPath: '',
-    weight_grams: 0,
+    weightGrams: 0,
     ingredients: [
       {
         title: 'Ingredient 1',
@@ -126,7 +126,7 @@ const DishManagement = () => {
         category: DISHCATEGORY.BAR_BLISS,
         price: '0',
         photoPath: 'https://placehold.co/400',
-        weight_grams: 0,
+        weightGrams: 0,
         ingredients: [],
       });
     }
@@ -208,16 +208,16 @@ const DishManagement = () => {
                 {editingIndex === index ? (
                   <input
                     className={styles.dish_input}
-                    value={editedDish.weight_grams}
+                    value={editedDish.weightGrams}
                     onChange={(e) =>
                       setEditedDish({
                         ...editedDish,
-                        weight_grams: Number(e.target.value),
+                        weightGrams: Number(e.target.value),
                       })
                     }
                   />
                 ) : (
-                  dish.weight_grams
+                  dish.weightGrams
                 )}
               </td>
               <td>
