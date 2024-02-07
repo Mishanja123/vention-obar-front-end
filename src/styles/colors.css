@@ -14,6 +14,9 @@
   --additional-accent-color: #008080;
   --neutral-background: #fff5e1;
   --error-color: #860c0c;
+  --completed: green;
+  --active: #f6be00;
+  --cancel: red;
 
   --progress-bar-color: #aca7a7;
 }
