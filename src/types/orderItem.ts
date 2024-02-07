@@ -3,9 +3,9 @@ export type OrderDish = {
   UserId: number;
   createdAt: string;
   id: number;
-  order_date: string;
+  orderDate: string;
   status: string;
   type: string;
   updatedAt: string;
-  user_address_id: number;
+  userAddressId: number;
 };

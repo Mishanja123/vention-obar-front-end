@@ -12,8 +12,9 @@ const OrderConfirmation = () => {
   const { cartItems } = useCartContext();
 
   const { orderData, handleDeleteOrder, tableGuests } = useCheckoutContext();
-  const orderDate = orderData.order_date?.split(' ')[0] || 'MM/DD/YY';
-  const orderTime = orderData.order_date?.split(' ')[1] || 'HH/MM';
+
+  const orderDate = orderData.orderDate?.split(' ')[0] || 'MM/DD/YY';
+  const orderTime = orderData.orderDate?.split(' ')[1] || 'HH/MM';
 
   const orderInfo =
     orderData.type === 'delivery'
