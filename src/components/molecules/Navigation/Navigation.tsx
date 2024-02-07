@@ -18,6 +18,7 @@ import { RootState, TypedDispatch } from '@/store/store';
 import { useCartContext } from '@/context/cartContext';
 import axiosInstance from '@/services/restaurantAPI';
 import { useEffect, useState } from 'react';
+import Swal from 'sweetalert2';
 
 type ILocationProp = {
   loc: string;
@@ -29,6 +30,7 @@ const Navigation: React.FC<ILocationProp> = ({ loc }) => {
   const dispatch = useDispatch<TypedDispatch<RootState>>();
   const { cartItems } = useCartContext();
   const path = location.pathname;
+
   const getUser = async () => {
     try {
       const res = await axiosInstance.get('/me');
@@ -42,6 +44,20 @@ const Navigation: React.FC<ILocationProp> = ({ loc }) => {
     getUser();
   }, []);
 
+  const handleLogout = () => {
+    Swal.fire({
+      title: 'Are you sure you want to log out?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#182715',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, log me out!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        dispatch(logout());
+      }
+    });
+  };
   return (
     <div className={`${styles[loc]}`}>
       <LinkWrapper to={PATHS.MENU}>Menu</LinkWrapper>
@@ -77,7 +93,7 @@ const Navigation: React.FC<ILocationProp> = ({ loc }) => {
           <GoPerson />
         </IconContext.Provider> */}
       </LinkWrapper>
-      <Button variant="contained" onClick={() => dispatch(logout())}>
+      <Button variant="contained" onClick={handleLogout}>
         Log out
       </Button>
     </div>

@@ -18,3 +18,4 @@ export { default as QuantityCounter } from './QuantityCounter/QuantityCounter';
 export { default as ReservationForm } from './ReservationForm/ReservationForm';
 export { default as MobileMenu } from './MobileMenu/MobileMenu';
 export { default as Navigation } from './Navigation/Navigation';
+export { default as CartPageSkeleton } from './CartPageSkeleton/CartPageSkeleton';
