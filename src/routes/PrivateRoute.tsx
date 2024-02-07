@@ -11,12 +11,12 @@ const PrivatePage: FC<PrivatePageProps> = ({ children }) => {
   const { loggedIn, isFetching } = useAuth();
   const navigate = useNavigate();
   useEffect(() => {
-    if (!loggedIn) {
+    if (!loggedIn && !isFetching) {
       navigate(PATHS.AUTH);
     }
-  }, [loggedIn, navigate]);
+  }, [loggedIn, isFetching, navigate]);
 
-  return <>{loggedIn || isFetching ? children : null}</>;
+  return <>{loggedIn ? children : null}</>;
 };
 
 export default PrivatePage;
