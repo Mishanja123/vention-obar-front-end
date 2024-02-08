@@ -10,10 +10,16 @@ type QuantityCounterProps = {
 };
 
 const QuantityCounter = ({ quantity, dishId }: QuantityCounterProps) => {
-  const { updateCartItemQuantity } = useCartContext();
+  const { updateCartItemQuantity, removeFromCartById } = useCartContext();
 
   const exidedMaxQuantity = quantity >= 30;
-  const exidedMinQuantity = quantity <= 1;
+  const handleRemoveFromCart = () => {
+    if (quantity > 1) {
+      updateCartItemQuantity(dishId, -1);
+    } else {
+      removeFromCartById(dishId);
+    }
+  };
 
   const handleDecrease = () => {
     if (!exidedMinQuantity) {
@@ -55,7 +61,7 @@ const QuantityCounter = ({ quantity, dishId }: QuantityCounterProps) => {
 
   return (
     <div className={styles.quantity}>
-      <button disabled={exidedMinQuantity} onClick={handleDecrease}>
+      <button onClick={() => handleRemoveFromCart()}>
         <CiCircleMinus />
       </button>
       <input
