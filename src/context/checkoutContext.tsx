@@ -11,17 +11,11 @@ interface CheckoutContextProps {
     withPreorder: boolean,
   ) => void;
   sendDeliveryOrTakeOut: (date: string, time: string) => void;
+  updateCreditCardById: (creditCard: ICreditCard) => void;
   handlePaymentOrder: (type: string) => void;
   setDeliveryOrTakeOut: (type: string) => void;
   handleDeleteOrder: () => void;
-  handlePaymentCardAdditing: (
-    addressTitle: string,
-    cardNumber: string,
-    cardHolder: string,
-    cvvNumber: number,
-    month: number,
-    year: number,
-  ) => void;
+  handlePaymentCardAdditing: (creditCardInfo: Omit<ICreditCard, 'id'>) => void;
   orderData: OrderDish;
   tableGuests: number;
 }
@@ -43,17 +37,28 @@ export const CheckoutProvider = ({
   const [creditCardData, setCreditCardData] = useState<ICreditCard>();
   console.log('creditCardData', creditCardData);
 
+  const updateCreditCardById = async (creditCard: ICreditCard) => {
+    try {
+      const { data } = await axiosInstance.patch(
+        `/payment/${creditCard.id}`,
+        creditCard,
+      );
+      console.log('🚀 : updateCreditCardById : data', data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const handlePaymentOrder = async (type: string) => {
     const dishId = localStorage.getItem('dishId');
     const paymentId = localStorage.getItem('paymentId');
 
     try {
-      const res = await axiosInstance.post('/payout', {
+      await axiosInstance.post('/payout', {
         type,
         orderId: dishId,
         paymentId,
       });
-      console.log('🚀 : res', res.data);
       localStorage.setItem('dishId', '');
       localStorage.setItem('paymentId', '');
     } catch (error) {
@@ -103,21 +108,11 @@ export const CheckoutProvider = ({
   };
 
   const handlePaymentCardAdditing = async (
-    addressTitle: string,
-    cardNumber: string,
-    cardHolder: string,
-    cvvNumber: number,
-    month: number,
-    year: number,
+    creditCardInfo: Omit<ICreditCard, 'id'>,
   ) => {
     try {
       const res = await axiosInstance.post('/payment', {
-        addressTitle,
-        cardNumber,
-        cardHolder,
-        cvvNumber,
-        month,
-        year,
+        ...creditCardInfo,
       });
       localStorage.setItem('paymentId', JSON.stringify(res.data));
       setCreditCardData(res.data);
@@ -172,6 +167,7 @@ export const CheckoutProvider = ({
         tableGuests,
         handlePaymentCardAdditing,
         handlePaymentOrder,
+        updateCreditCardById,
       }}>
       {children}
     </CheckoutContext.Provider>

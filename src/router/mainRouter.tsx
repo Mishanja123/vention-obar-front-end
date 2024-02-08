@@ -67,7 +67,14 @@ const mainRoutes = [
         children: [
           { path: PATHS.USER_INFO, element: <UserInfoForm /> },
           { path: PATHS.DELIVERY_ADDRESS, element: <DeliveryAddressForm /> },
-          { path: PATHS.PAYMENT, element: <Payment /> },
+          {
+            path: PATHS.PAYMENT,
+            element: (
+              <CheckoutProvider>
+                <Payment />
+              </CheckoutProvider>
+            ),
+          },
         ],
       },
       {
