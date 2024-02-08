@@ -41,6 +41,20 @@
   border-radius: 1rem;
   margin: 1rem 0;
 }
+.order_table_wrapper {
+  position: relative;
+}
+.order_table_comleted {
+  position: absolute;
+
+  z-index: 1;
+  border-radius: 0.5rem;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
 .order_table_item {
   position: relative;
   padding: 2rem;
@@ -82,6 +96,18 @@
     width: auto;
   }
 }
-.order_quantity{
+.order_quantity {
   text-align: center;
+}
+.canceled {
+  color: var(--cancel);
+}
+.active {
+  color: var(--active);
+}
+.completed {
+  color: var(--completed);
+}
+.confirmation_modal {
+  background-color: var(--background-color);
 }

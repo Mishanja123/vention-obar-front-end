@@ -10,10 +10,6 @@ th {
   padding: 1rem;
 }
 
-.orders_table tr:nth-child(even) {
-  background-color: var(--accent-color);
-}
-
 .edit_input {
   width: 100%;
 
@@ -30,4 +26,14 @@ th {
 .action_container {
   display: flex;
   justify-content: space-evenly;
+}
+
+.canceled {
+  color: var(--cancel);
+}
+.active {
+  color: var(--active);
+}
+.completed {
+  color: var(--completed);
 }
