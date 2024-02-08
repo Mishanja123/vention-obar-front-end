@@ -12,5 +12,5 @@ export type IDish = {
   photoPath: string;
   category: DISHCATEGORY;
   ingredients: Ingredients[];
-  weight_grams: number;
+  weightGrams: number;
 };

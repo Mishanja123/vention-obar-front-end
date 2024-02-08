@@ -44,7 +44,14 @@ const mainRoutes = [
       </ErrorBoundary>
     ),
     children: [
-      { path: PATHS.ROOT, element: <MainPage /> },
+      {
+        path: PATHS.ROOT,
+        element: (
+          <CheckoutProvider>
+            <MainPage />
+          </CheckoutProvider>
+        ),
+      },
       {
         path: PATHS.MENU,
         element: <MenuPage />,
