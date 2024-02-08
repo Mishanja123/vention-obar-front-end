@@ -81,7 +81,7 @@ export const CheckoutProvider = ({
 
   const sendDeliveryOrTakeOut = async (date: string, time: string) => {
     const res = await axiosInstance.post('/orders', {
-      orderDate: date,
+      date,
       type: deliveryOrTakeOut,
       time,
     });

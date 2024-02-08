@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const HOST = process.env.BASE_URL;
 
-const HOST = 'localhost';
+// const HOST = 'localhost';
 
 console.log(HOST);
 
