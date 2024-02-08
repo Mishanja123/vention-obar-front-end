@@ -35,6 +35,7 @@ const OrdersPageSection = () => {
   const getAllOrders = async () => {
     try {
       const res = await axiosInstance.get('/orders');
+      console.log('🚀 : res', res);
       setallOrders(res.data);
     } catch (error) {
       console.error(error);
@@ -165,44 +166,32 @@ const OrdersPageSection = () => {
                   <th>QTY</th>
                   <th>Price</th>
                 </tr>
-              </thead>
-              <tbody className={styles.table_body}>
-                {order.dishes.map((item, index) => (
-                  <tr key={index} className={styles.order_table_item}>
-                    <td className={styles.orders_image}>
-                      <img
-                        width={150}
-                        height={150}
-                        src={item.dishData.photoPath!}
-                        alt="dish"
-                      />
-                      <h3 className={styles.order_title}>
-                        {item.dishData.title}
-                      </h3>
-                    </td>
-                    <td className={styles.order_quantity}>{item.quantity}</td>
-                    <td>{item.subtotal.toFixed(2)}</td>
-                  </tr>
-                ))}
-              </tbody>
-              <tfoot>
-                <tr>
-                  <td colSpan={3}>
-                    {order.type === OrderType.RESERVATION_WITH_PREORDER ||
-                    order.type === OrderType.RESERVATION
-                      ? `You reserved table for ${
+              ))}
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colSpan={3}>
+                  {order.type === 'reservation_with_preorder' ||
+                  order.type === 'reservation'
+                    ? `You reserved table for ${
+                        order.orderDate.split(' ')[0]
+                      } at ${order.orderDate.split(' ')[1]} for ${
+                        order.guests
+                      } guests`
+                    : order.type === 'delivery'
+                      ? `Your order will be delivered on ${
                           order.orderDate.split(' ')[0]
-                        } at ${order.orderDate.split(' ')[1]} for ${
-                          order.guests
-                        } guests`
-                      : ''}
-                  </td>
-                </tr>
-              </tfoot>
-            </table>
-          </div>
-          {order.status === OrderStatus.CANCELED ||
-          order.status === OrderStatus.COMPLETED ? (
+                        } at ${order.orderDate.split(' ')[1]}`
+                      : order.type === 'take_away'
+                        ? `You can collect your order on ${
+                            order.orderDate.split(' ')[0]
+                          } at ${order.orderDate.split(' ')[1]}`
+                        : ''}
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+          {order.status === 'canceled' || order.status === 'completed' ? (
             <Button
               variant="contained"
               onClick={() => handleRepeatOrder(order.dishes)}>
