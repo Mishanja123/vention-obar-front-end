@@ -1,5 +1,6 @@
 import { ActionReducerMapBuilder, createSlice } from '@reduxjs/toolkit';
 import { register, login, logout, refreshUser } from './operations';
+import Swal from 'sweetalert2';
 
 interface State {
   token: string | null;
@@ -10,7 +11,7 @@ interface State {
 const initialState: State = {
   token: null,
   loggedIn: false,
-  isFetching: false,
+  isFetching: true,
 };
 
 const authSlice = createSlice({
@@ -27,15 +28,11 @@ const authSlice = createSlice({
       // Register //
       .addCase(register.fulfilled, (state) => {
         state.isFetching = false;
-
-        console.log('Successful Registred.');
       })
       .addCase(register.pending, (state) => {
         state.isFetching = true;
       })
-      .addCase(register.rejected, (state, action) => {
-        state.isFetching = false;
-
+      .addCase(register.rejected, (_, action) => {
         console.error('Registration failed:', action.error);
       })
 
@@ -43,15 +40,26 @@ const authSlice = createSlice({
       .addCase(login.fulfilled, (state) => {
         state.loggedIn = true;
         state.isFetching = false;
-        console.log('Successful Logged in.');
+        Swal.fire({
+          position: 'top',
+          icon: 'success',
+          title: 'Login Successful',
+          showConfirmButton: false,
+          timer: 1500,
+        });
       })
       .addCase(login.pending, (state) => {
         state.isFetching = true;
       })
-      .addCase(login.rejected, (state, action) => {
+      .addCase(login.rejected, (state) => {
         state.isFetching = false;
-
-        console.error('Login failed:', action.error);
+        Swal.fire({
+          position: 'top',
+          icon: 'error',
+          title: 'Login Failed',
+          showConfirmButton: false,
+          timer: 1500,
+        });
       })
 
       // Logout //
@@ -59,15 +67,29 @@ const authSlice = createSlice({
         state.token = null;
         state.loggedIn = false;
         state.isFetching = false;
-
+        Swal.fire({
+          position: 'top',
+          icon: 'success',
+          title: 'Logout Successful',
+          text: 'See you soon!',
+          showConfirmButton: false,
+          timer: 1500,
+        });
         console.log('Successful Logout.');
       })
       .addCase(logout.pending, (state) => {
         state.isFetching = true;
       })
-      .addCase(logout.rejected, (state) => {
+      .addCase(logout.rejected, (state, action) => {
         state.isFetching = false;
-        console.log('Something is wrong');
+        Swal.fire({
+          position: 'top',
+          icon: 'error',
+          title: 'Logout Failed',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        console.log('Something is wrong', action.error);
       })
 
       // Refresh //

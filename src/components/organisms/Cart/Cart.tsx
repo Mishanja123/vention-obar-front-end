@@ -1,4 +1,9 @@
-import { CartItems, EmptyCart, SummaryPayment } from '@/components/molecules';
+import {
+  CartItems,
+  CartPageSkeleton,
+  EmptyCart,
+  SummaryPayment,
+} from '@/components/molecules';
 import styles from './Cart.module.css';
 import { Button } from '@/components/atoms';
 import { Link } from 'react-router-dom';
@@ -10,7 +15,7 @@ const Cart = () => {
     useCartContext();
 
   if (isLoadingCart) {
-    return <div>loading</div>;
+    return <CartPageSkeleton />;
   }
 
   return cartItems?.dishes?.length === 0 ? (

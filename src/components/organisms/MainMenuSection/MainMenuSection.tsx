@@ -13,7 +13,7 @@ const MainMenuSection = () => {
 
   useEffect(() => {
     setCategory(DISHCATEGORY.CHEFS_PICK);
-  }, []);
+  }, [setCategory]);
 
   return (
     <section id="menu" className={styles.menu_container}>
@@ -33,7 +33,6 @@ const MainMenuSection = () => {
           centerMode={true}
           centerPadding={-100}>
           {items && items.length > 0 ? (
-            //@ts-ignore
             items.map((item) => <MenuItem key={item.id} {...item} />)
           ) : (
             <p>Loading...</p>

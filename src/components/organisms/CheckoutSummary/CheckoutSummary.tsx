@@ -40,7 +40,6 @@ const CheckoutSummary = ({ path }: { path: string }) => {
             </Button>
           </Link>
           <Link
-            className={disabled ? styles.inactive : ''}
             onClick={onClickSecondButton}
             to={secondButton === 'Change order type' ? '#' : secondButtonLink}>
             <Button variant="text" type="button">
