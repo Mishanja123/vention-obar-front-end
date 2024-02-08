@@ -3,6 +3,8 @@ import styles from './CreditCardsList.module.css';
 import axiosInstance from '@/services/restaurantAPI';
 import { ICreditCard } from '@/types/creditCard';
 import { useCheckoutContext } from '@/context/checkoutContext';
+import { paymentFormInputs } from '@/content/accountForms/paymentFormInputs';
+import ReusableForm from '../ReuseableForm/ReuseableForm';
 
 const CreditCardsList = () => {
   const [editingCard, setEditingCard] = useState<ICreditCard | null>(null);
@@ -47,76 +49,12 @@ const CreditCardsList = () => {
       {creditCards.map((card) => (
         <div key={card.id} className={styles.creditCard}>
           {editingCard && editingCard.id === card.id ? (
-            <form
-              key={card.id}
-              className={styles.payment_address_form}
-              onSubmit={(e) => {
-                e.preventDefault();
-                // You might want to validate form fields before saving
-                handleSave(editingCard);
-              }}>
-              {/* Render input fields for editing */}
-              <input
-                label="Address Title"
-                value={editingCard.addressTitle}
-                onChange={(e) =>
-                  setEditingCard({
-                    ...editingCard,
-                    addressTitle: e.target.value,
-                  })
-                }
-              />
-              <input
-                label="Card Number"
-                value={editingCard.cardNumber}
-                onChange={(e) =>
-                  setEditingCard({ ...editingCard, cardNumber: e.target.value })
-                }
-              />
-              <div className={styles.expiration}>
-                <input
-                  label="Month"
-                  value={editingCard.month}
-                  onChange={(e) =>
-                    setEditingCard({
-                      ...editingCard,
-                      month: e.target.value,
-                    })
-                  }
-                />
-                <input
-                  label="Year"
-                  value={editingCard.year}
-                  onChange={(e) =>
-                    setEditingCard({
-                      ...editingCard,
-                      year: e.target.value,
-                    })
-                  }
-                />
-              </div>
-              <input
-                label="CVV Number"
-                value={editingCard.cvvNumber}
-                onChange={(e) =>
-                  setEditingCard({
-                    ...editingCard,
-                    cvvNumber: e.target.value,
-                  })
-                }
-              />
-              <input
-                label="Card Holder"
-                value={editingCard.cardHolder}
-                onChange={(e) =>
-                  setEditingCard({ ...editingCard, cardHolder: e.target.value })
-                }
-              />
-              {/* Render other input fields for credit card details */}
-              <button type="submit" className={styles.saveButton}>
-                Save
-              </button>
-            </form>
+            <ReusableForm
+              initialValues={editingCard}
+              onSubmit={(values) => handleSave(values)}
+              formInputs={paymentFormInputs}
+              submitButtonLabel="Save"
+            />
           ) : (
             <>
               {/* Render credit card details */}

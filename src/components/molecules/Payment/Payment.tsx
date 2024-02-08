@@ -1,18 +1,19 @@
 import { useFormik, FormikValues } from 'formik';
 import { useEffect, useState } from 'react';
 
-import styles from './Payment.module.css';
+// import styles from './Payment.module.css';
 
 import { paymentSchema } from '@/validationSchemas/userPaymentSchema';
 import { paymentFormInputs } from '@/content/accountForms/paymentFormInputs';
-import { cardExpirationDate } from '@/content/accountForms/cardExpirationDate';
+// import { cardExpirationDate } from '@/content/accountForms/cardExpirationDate';
 
-import { TextInput } from '@/components/atoms';
-import SelectInput from '@/components/atoms/SelectInput/SelectInput';
+// import { TextInput } from '@/components/atoms';
+// import SelectInput from '@/components/atoms/SelectInput/SelectInput';
 import { useCheckoutContext } from '@/context/checkoutContext';
 import axiosInstance from '@/services/restaurantAPI';
 import { ICreditCard } from '@/types/creditCard';
 import CreditCardsList from '../CreditCardsList/CreditCardsList';
+import ReusableForm from '../ReuseableForm/ReuseableForm';
 
 const Payment = () => {
   const { handlePaymentCardAdditing } = useCheckoutContext();
@@ -48,33 +49,12 @@ const Payment = () => {
   });
   return (
     <>
-      <form
+      <ReusableForm
+        initialValues={formik.initialValues}
         onSubmit={formik.handleSubmit}
-        className={styles.payment_address_form}>
-        {paymentFormInputs.map((input, i) => (
-          <div key={i} className={styles.payment_input_wrapper}>
-            <label className={styles.payment_label}>{input.label}</label>
-            <div className={styles.payment_input}>
-              <TextInput {...input} formik={formik} />
-            </div>
-          </div>
-        ))}
-        <div className={styles.payment_input_wrapper}>
-          <label className={styles.payment_select_wrapper} htmlFor="month">
-            Expire date
-          </label>
-          <div className={styles.expiration_select_wrapper}>
-            {cardExpirationDate.map((input) => (
-              <span className={styles.expiration_select_input} key={input.name}>
-                <SelectInput formik={formik} {...input} />
-              </span>
-            ))}
-          </div>
-        </div>
-        <button type="submit" className={styles.add_payment_button}>
-          Add payment card
-        </button>
-      </form>
+        formInputs={paymentFormInputs}
+        submitButtonLabel="Add payment card"
+      />
       {creditCards.length > 0 && <CreditCardsList />}
     </>
   );
