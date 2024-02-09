@@ -2,7 +2,7 @@ import React, { createContext, useState, useContext, useEffect } from 'react';
 import axiosInstance from '../services/restaurantAPI';
 import { IDish } from '@/types/dish';
 import { useAuth } from '@/hooks/useAuth';
-import Swal from 'sweetalert2'; // Добавляем SweetAlert2
+import Swal from 'sweetalert2';
 
 interface CartItems {
   id: number;
@@ -43,7 +43,6 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
         }
       } catch (error) {
         console.error('Error fetching cart:', error);
-        // Добавляем уведомление об ошибке
         Swal.fire({
           icon: 'error',
           title: 'Error!',
