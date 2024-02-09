@@ -35,7 +35,6 @@ const OrdersPageSection = () => {
   const getAllOrders = async () => {
     try {
       const res = await axiosInstance.get('/orders');
-      console.log('🚀 : res', res);
       setallOrders(res.data);
     } catch (error) {
       console.error(error);

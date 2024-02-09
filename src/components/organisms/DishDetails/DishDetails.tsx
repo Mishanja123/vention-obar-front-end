@@ -1,9 +1,9 @@
-/* eslint-disable @typescript-eslint/no-shadow */
 import { useEffect, useState } from 'react';
 import styles from './DishDetails.module.css';
 import { useParams } from 'react-router-dom';
 import axiosInstance from '@/services/restaurantAPI';
 import { useCartContext } from '@/context/cartContext';
+import { Button } from '@/components/atoms';
 
 type MenuItemData = {
   id: number;
@@ -21,15 +21,18 @@ const DishDetails = () => {
   const params = useParams();
   const id = parseInt(params.id ?? '0', 10);
   const [editing, setEditing] = useState(false);
-  const [dish, setDish] = useState();
+  const [dish, setDish] = useState<MenuItemData | null>(null);
+  const [selectedIngredients, setSelectedIngredients] = useState<boolean[]>([]);
 
   const { addToCart } = useCartContext();
 
   const getDish = async (id: number) => {
     try {
       const response = await axiosInstance.get(`/dishes/${id}`);
-      const dish = response.data.dish;
-      setDish(dish);
+      const dishData: MenuItemData = response.data.dish;
+      setDish(dishData);
+      // Инициализируем массив выбранных ингредиентов
+      setSelectedIngredients(dishData.ingredients.map(() => false));
     } catch (error) {
       console.error('Error fetching data: ', error);
     }
@@ -44,13 +47,34 @@ const DishDetails = () => {
   }
 
   const { title, price, photoPath, portion, ingredients }: MenuItemData = dish;
-  console.log(dish);
+
   const handleEditClick = () => {
     setEditing(!editing);
+    const initialSelection = ingredients.map(
+      (ingredient) => !ingredient.is_required,
+    );
+    setSelectedIngredients(initialSelection);
   };
 
   const handleSaveClick = () => {
     setEditing(false);
+    const newIngredients = ingredients.map((ingredient, index) => {
+      if (!ingredient.is_required && !selectedIngredients[index]) {
+        return false;
+      }
+      return true;
+    });
+    setSelectedIngredients(newIngredients);
+  };
+
+  const handleIngredientToggle = (index: number) => {
+    const newSelectedIngredients = [...selectedIngredients];
+    newSelectedIngredients[index] = !newSelectedIngredients[index];
+    setSelectedIngredients(newSelectedIngredients);
+  };
+
+  const handleAddToCart = async () => {
+    addToCart(Number(id));
   };
 
   return (
@@ -75,23 +99,35 @@ const DishDetails = () => {
         <ul className={styles.ingredients_list}>
           {ingredients.map(({ title, is_required }, index) => (
             <li className={styles.ingredients_item} key={index}>
-              <span>{title}</span>
+              <span
+                style={{
+                  color:
+                    selectedIngredients[index] && !is_required && editing
+                      ? 'lightgray'
+                      : 'inherit',
+                }}>
+                {title}
+              </span>
               {is_required && editing ? (
                 <span className={styles.required_span}>required</span>
               ) : (
                 <></>
               )}
-              {editing && !is_required && <input type="checkbox" />}
+              {editing && !is_required && (
+                <input
+                  type="checkbox"
+                  checked={selectedIngredients[index]}
+                  onChange={() => handleIngredientToggle(index)}
+                />
+              )}
             </li>
           ))}
         </ul>
         <p className={styles.menu_item_portion}>Portion: {portion} grams</p>
         <p className={styles.menu_item_price}>Price: ${price}</p>
-        <button
-          onClick={() => addToCart(Number(id))}
-          className={styles.menu_button_cart}>
+        <Button variant="contained" onClick={() => handleAddToCart()}>
           Add to cart
-        </button>{' '}
+        </Button>
       </div>
     </div>
   );
