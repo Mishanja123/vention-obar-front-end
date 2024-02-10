@@ -171,8 +171,7 @@ const OrdersPageSection = () => {
                   <tr key={index} className={styles.order_table_item}>
                     <td className={styles.orders_image}>
                       <img
-                        width={150}
-                        height={150}
+                        className={styles.order_img}
                         src={item.dishData.photoPath!}
                         alt="dish"
                       />

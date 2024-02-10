@@ -89,9 +89,6 @@ const Navigation: React.FC<ILocationProp> = ({ loc }) => {
             <img src={iconHolder} alt="icon" />
           )}
         </div>
-        {/* <IconContext.Provider value={{ className: styles.profile_img }}>
-          <GoPerson />
-        </IconContext.Provider> */}
       </LinkWrapper>
       <Button variant="contained" onClick={handleLogout}>
         Log out

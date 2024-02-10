@@ -226,9 +226,8 @@ const DishManagement = () => {
                     <>
                       {editedDish.photoPath ? (
                         <img
+                          className={styles.dish_img}
                           src={editedDish.photoPath}
-                          width={150}
-                          height={150}
                           alt="dish"
                         />
                       ) : (
@@ -248,8 +247,7 @@ const DishManagement = () => {
                 ) : (
                   <img
                     src={dish.photoPath}
-                    width={150}
-                    height={150}
+                    className={styles.dish_img}
                     alt="dish"
                   />
                 )}

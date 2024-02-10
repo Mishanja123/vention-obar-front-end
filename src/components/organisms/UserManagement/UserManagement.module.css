@@ -10,10 +10,6 @@ th {
   padding: 1rem;
 }
 
-.users_table tr:nth-child(even) {
-  background-color: var(--accent-color);
-}
-
 .edit_input {
   width: 100%;
 

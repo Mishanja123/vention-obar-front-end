@@ -1,11 +1,10 @@
 .button {
   transition: var(--transaction) !important;
-  background-color: var(--main-color) !important;
+  background-color: var(--light-bg) !important;
   border: none !important;
   font-family: var(--buttons-text-font) !important;
   font-weight: var(--buttons-text-font-weight) !important;
   color: var(--neutral-color) !important;
-
   &:hover {
     background-color: var(--accent-color) !important;
     color: var(--light-color) !important;

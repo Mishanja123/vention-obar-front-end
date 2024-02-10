@@ -54,7 +54,6 @@ export const login = createAsyncThunk(
         email,
         password,
       });
-
       const accessToken = headers.authorization.split(' ')[1];
       setAccessToken(accessToken);
       thunkAPI.dispatch(setToken(accessToken));
@@ -86,12 +85,14 @@ export const refreshUser = createAsyncThunk(
     }
 
     try {
-      const { headers } = await axiosInstance.get('/auth/refresh');
+      const { data, headers } = await axiosInstance.get('/auth/refresh');
 
       const newAccessToken = headers.authorization.split(' ')[1];
 
       setAccessToken(newAccessToken);
       thunkAPI.dispatch(setToken(newAccessToken));
+
+      return data;
     } catch (error: unknown) {
       return thunkAPI.rejectWithValue(error);
     }

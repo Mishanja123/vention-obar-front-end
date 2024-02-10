@@ -17,7 +17,7 @@ const MainMenuSection = () => {
 
   return (
     <section id="menu" className={styles.menu_container}>
-      <h2 className={styles.menu_heading}>Menu</h2>
+      <h2 className={styles.menu_heading}>Chefs pick</h2>
       <ul className={styles.main_menu_list}>
         <SliderWrapper
           // @ts-expect-error existing value

@@ -23,11 +23,9 @@ const Cart = () => {
   ) : (
     <div className={styles.cart}>
       <div className={styles.cart_list_wrapper}>
-        <button
-          onClick={() => removeAllFromCart()}
-          className={styles.cart_remove_all_btn}>
+        <Button variant="contained" onClick={() => removeAllFromCart()}>
           Remove all
-        </button>
+        </Button>
         <ul className={styles.cart_list}>
           {cartItems?.dishes?.map((item) => (
             <CartItems

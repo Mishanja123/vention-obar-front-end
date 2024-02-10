@@ -4,7 +4,6 @@ import styles from './LoginForm.module.css';
 import { loginInputs } from '@/content/authForms/loginInputs';
 import { Button, TextInput } from '@/components/atoms';
 import { loginShema } from '@/validationSchemas/loginShema';
-import { PATHS } from '@/constants/paths';
 import { useDispatch } from 'react-redux';
 import { login } from '@/store/auth/operations';
 import { RootState, TypedDispatch } from '@/store/store';
@@ -22,10 +21,7 @@ const LoginForm = () => {
     },
     validationSchema: loginShema,
     onSubmit: async (values) => {
-      const response = await dispatch(login(values));
-      if (response) {
-        navigate(PATHS.ROOT);
-      }
+      await dispatch(login(values));
     },
   });
 

@@ -16,7 +16,7 @@
 .quantity_input {
   outline: none;
   width: 2.5rem;
-  padding: 0.5rem 0.6rem;
+  /* padding: 0.5rem 0.6rem; */
   background-color: transparent;
   border: none;
   border-radius: 50%;

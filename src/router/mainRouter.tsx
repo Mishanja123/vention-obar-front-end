@@ -30,6 +30,7 @@ import { CheckoutProvider } from '@/context/checkoutContext';
 import CartProvider from '../context/cartContext';
 import { ErrorBoundary } from 'react-error-boundary';
 import ErrorFallbackComponent from '@/components/ErrorFallbackComponent/ErrorFallbackComponent';
+import AdminRoute from '@/routes/AdminRoute';
 
 const mainRoutes = [
   {
@@ -37,9 +38,11 @@ const mainRoutes = [
     element: (
       <ErrorBoundary FallbackComponent={ErrorFallbackComponent}>
         <PrivatePage>
-          <CartProvider>
-            <SharedLayout />
-          </CartProvider>
+          <AdminRoute>
+            <CartProvider>
+              <SharedLayout />
+            </CartProvider>
+          </AdminRoute>
         </PrivatePage>
       </ErrorBoundary>
     ),

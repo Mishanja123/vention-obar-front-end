@@ -52,26 +52,25 @@ const SearchInput: React.FC = () => {
         options={matchedDishes.map((dish) => dish.title)}
         //@ts-expect-error fo now
         onChange={(event, value) => navigateToDish(value)}
-        className={styles.searchContainer}
+        className={styles.search_container}
         renderInput={(params) => (
           <TextField
             {...params}
-            variant="filled"
+            variant="outlined"
             color="success"
             focused
-            className={styles.searchBar}
-            label="Search across all dishes..."
+            className={styles.search_bar}
+            label="Searc dish"
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
               doDishMatch(e.target.value)
             }
             InputProps={{
-              style: { color: '#fff', fontSize: '0.9rem' },
+              style: { color: '#f1e9d9', fontSize: '0.9rem' },
               ...params.InputProps,
             }}
           />
         )}
       />
-      {/* <SearchIcon sx={{ fontSize: '2rem' }} color="success" /> */}
     </div>
   );
 };

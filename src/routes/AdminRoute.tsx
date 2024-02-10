@@ -7,29 +7,26 @@ interface PublicPageProps {
   children: ReactNode;
 }
 
-const PublicPage: FC<PublicPageProps> = ({ children }) => {
+const AdminRoute: FC<PublicPageProps> = ({ children }) => {
   const { loggedIn, isFetching, role } = useAuth();
   const navigate = useNavigate();
-  const user = role === 'user';
+  const admin = role === 'admin';
+  console.log(admin);
   useEffect(() => {
-    // if (loggedIn || isFetching) {
-    //   navigate(PATHS.ROOT);
-    // }
-
     if (isFetching) {
       return;
     }
 
     if (loggedIn) {
-      if (user) {
-        navigate(PATHS.ROOT);
-      } else {
+      if (admin) {
         navigate(PATHS.ADMIN);
+      } else {
+        navigate(PATHS.ROOT);
       }
     }
-  }, [loggedIn, isFetching, user, navigate]);
+  }, [loggedIn, isFetching, admin, navigate]);
 
-  return <>{!loggedIn ? children : null}</>;
+  return <>{loggedIn ? children : null}</>;
 };
 
-export default PublicPage;
+export default AdminRoute;

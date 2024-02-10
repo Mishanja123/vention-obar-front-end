@@ -22,11 +22,9 @@ const CartItems = (props: CartItemProps) => {
   return (
     <li className={styles.cart_item_wrapper}>
       <img src={photoPath} className={styles.cart_item_image} alt="dish" />
-      <div>
-        <div className={styles.title_wrapper}>
-          <h3 className={styles.cart_item_title}>{title}</h3>
-          <p className={styles.cart_item_price}>{price}$</p>
-        </div>
+      <div className={styles.title_wrapper}>
+        <h3 className={styles.cart_item_title}>{title}</h3>
+        <p className={styles.cart_item_price}>{price}$</p>
       </div>
       <QuantityCounter dishId={id} quantity={quantity} />
       <div

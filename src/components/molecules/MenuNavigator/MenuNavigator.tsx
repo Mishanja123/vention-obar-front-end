@@ -7,9 +7,9 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { PATHS } from '@/constants/paths';
 
 const MenuNavigator = () => {
-  const [activeCategory, setActiveCategory] = useState<DISHCATEGORY | null>(
-    null,
-  );
+  const [activeCategory, setActiveCategory] = useState<
+    DISHCATEGORY | DISHCATEGORY.SINRISE
+  >(DISHCATEGORY.SINRISE);
   const location = useLocation();
   const navigate = useNavigate();
   const { setCategory } = useMenuContext();

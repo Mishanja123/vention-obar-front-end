@@ -34,7 +34,6 @@ const UserManagement: React.FC = () => {
     try {
       const response = await axiosInstance.get('/users');
       const fetchedUsers: { users: User[] } = await response.data;
-      console.log(fetchedUsers);
       setUsers(fetchedUsers.users);
     } catch (error) {
       console.log('Ooops, looks like there is an error ' + error);

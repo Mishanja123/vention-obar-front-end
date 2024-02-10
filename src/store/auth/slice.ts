@@ -1,14 +1,24 @@
 import { ActionReducerMapBuilder, createSlice } from '@reduxjs/toolkit';
 import { register, login, logout, refreshUser } from './operations';
 import Swal from 'sweetalert2';
-
+export interface IUser {
+  avatar: string | null;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+}
 interface State {
+  user: IUser | null;
+  role: string | null;
   token: string | null;
   loggedIn: boolean;
   isFetching: boolean;
 }
 
 const initialState: State = {
+  user: null,
+  role: null,
   token: null,
   loggedIn: false,
   isFetching: true,
@@ -37,7 +47,13 @@ const authSlice = createSlice({
       })
 
       // Login //
-      .addCase(login.fulfilled, (state) => {
+      .addCase(login.fulfilled, (state, action) => {
+        const { user, userCredentials } = action.payload;
+        state.user = {
+          ...user,
+        };
+        state.role = userCredentials.role;
+
         state.loggedIn = true;
         state.isFetching = false;
         Swal.fire({
@@ -65,6 +81,8 @@ const authSlice = createSlice({
       // Logout //
       .addCase(logout.fulfilled, (state) => {
         state.token = null;
+        state.user = null;
+        state.role = null;
         state.loggedIn = false;
         state.isFetching = false;
         Swal.fire({
@@ -93,7 +111,12 @@ const authSlice = createSlice({
       })
 
       // Refresh //
-      .addCase(refreshUser.fulfilled, (state) => {
+      .addCase(refreshUser.fulfilled, (state, action) => {
+        const { user, userCredentials } = action.payload;
+        state.user = {
+          ...user,
+        };
+        state.role = userCredentials.role;
         state.loggedIn = true;
         state.isFetching = false;
       })

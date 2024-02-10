@@ -1,9 +1,3 @@
-.link {
-  font-family: var(--links-font);
-  font-weight: var(--links-font-weight);
-  color: var(--accent-color);
-}
-
 .active {
-  color: var(--highlight-color);
+  color: var(--accent-color);
 }
