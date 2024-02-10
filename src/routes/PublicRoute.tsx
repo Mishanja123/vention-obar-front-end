@@ -12,11 +12,7 @@ const PublicPage: FC<PublicPageProps> = ({ children }) => {
   const navigate = useNavigate();
   const user = role === 'user';
   useEffect(() => {
-    // if (loggedIn || isFetching) {
-    //   navigate(PATHS.ROOT);
-    // }
-
-    if (isFetching) {
+    if (!isFetching) {
       return;
     }
 
@@ -27,7 +23,7 @@ const PublicPage: FC<PublicPageProps> = ({ children }) => {
         navigate(PATHS.ADMIN);
       }
     }
-  }, [loggedIn, isFetching, user, navigate]);
+  }, [loggedIn, user, isFetching, navigate]);
 
   return <>{!loggedIn ? children : null}</>;
 };

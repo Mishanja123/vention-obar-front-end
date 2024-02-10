@@ -3,9 +3,10 @@ import { CloudUpload } from '@mui/icons-material';
 import styles from './LoadingButton.module.css';
 
 interface ILoadingButton {
-  uploading: any;
-  editMode: boolean;
-  handleChange: (e: any) => void;
+  uploading: boolean;
+  editMode?: boolean;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  children?: React.ReactNode;
 }
 
 const LoadingButtonFC = ({

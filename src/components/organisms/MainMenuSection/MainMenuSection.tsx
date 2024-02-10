@@ -1,12 +1,12 @@
+import { useEffect } from 'react';
+
 import { useMenuContext } from '@/context/menuContext';
+import { DISHCATEGORY } from '@/constants/categoryDish';
 
 import { SliderWrapper } from '@/components/atoms';
 import { MenuItem } from '@/components/molecules';
-import { DISHCATEGORY } from '@/constants/categoryDish';
 
 import styles from './MainMenuSection.module.css';
-
-import { useEffect } from 'react';
 
 const MainMenuSection = () => {
   const { items, setCategory } = useMenuContext();

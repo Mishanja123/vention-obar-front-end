@@ -1,10 +1,12 @@
-import TextField from '@mui/material/TextField';
-import styles from './SearchInput.module.css';
-import { useNavigate } from 'react-router-dom';
 import { ChangeEvent, useState } from 'react';
-import { IDish } from '@/types/dish';
-import axiosInstance from '@/services/restaurantAPI';
+import { useNavigate } from 'react-router-dom';
+import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
+
+import axiosInstance from '@/services/restaurantAPI';
+import { IDish } from '@/types/dish';
+
+import styles from './SearchInput.module.css';
 
 const SearchInput: React.FC = () => {
   const [matchedDishes, setMatchedDishes] = useState<IDish[]>([]);

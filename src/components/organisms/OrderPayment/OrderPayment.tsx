@@ -1,6 +1,5 @@
-import { Payment } from '@/components/molecules';
+import { useState } from 'react';
 import { FaCreditCard } from 'react-icons/fa';
-import styles from './OrderPayment.module.css';
 import {
   FormControl,
   InputLabel,
@@ -8,7 +7,10 @@ import {
   Select,
   SelectChangeEvent,
 } from '@mui/material';
-import { useState } from 'react';
+
+import { Payment } from '@/components/molecules';
+
+import styles from './OrderPayment.module.css';
 
 const OrderPayment = () => {
   const [method, setMethod] = useState('');

@@ -1,7 +1,7 @@
 import MenuProvider from '@/context/menuContext';
 
 import MainSection from '../../components/organisms/MainSection/MainSection';
-import { Footer } from '@/components/molecules';
+import { Footer } from '@/components/organisms';
 
 import styles from './MainPage.module.css';
 

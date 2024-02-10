@@ -1,15 +1,17 @@
-import { PATHS } from '@/constants/paths';
+import { useState } from 'react';
 import {
   FormControl,
   MenuItem,
   Select,
   SelectChangeEvent,
 } from '@mui/material';
-import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import styles from './OrderMethodSelection.module.css';
-import { ORDERTYPE } from '@/constants/orderType';
+
 import { useCheckoutContext } from '@/context/checkoutContext';
+import { PATHS } from '@/constants/paths';
+import { ORDERTYPE } from '@/constants/orderType';
+
+import styles from './OrderMethodSelection.module.css';
 
 const OrderMethodSelection: React.FC = () => {
   const [method, setMethod] = useState<string>('');

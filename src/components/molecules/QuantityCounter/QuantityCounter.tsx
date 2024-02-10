@@ -1,8 +1,10 @@
-import { useCartContext } from '@/context/cartContext';
-import styles from './QuantityCounter.module.css';
 import { CiCirclePlus } from 'react-icons/ci';
 import { CiCircleMinus } from 'react-icons/ci';
 import Swal from 'sweetalert2';
+
+import { useCartContext } from '@/context/cartContext';
+
+import styles from './QuantityCounter.module.css';
 
 type QuantityCounterProps = {
   quantity: number;
@@ -22,15 +24,14 @@ const QuantityCounter = ({ quantity, dishId }: QuantityCounterProps) => {
   };
 
   const handleDecrease = () => {
-    if (!exidedMinQuantity) {
-      updateCartItemQuantity(dishId, -1);
+    if (!exidedMaxQuantity) {
+      handleRemoveFromCart();
       Swal.fire({
         icon: 'success',
         title: 'Portion Decreased!',
         showConfirmButton: false,
         position: 'top-end',
         timer: 1500,
-        timerProgressBar: true,
         toast: true,
         customClass: {
           popup: 'swal2-toast',
@@ -49,7 +50,6 @@ const QuantityCounter = ({ quantity, dishId }: QuantityCounterProps) => {
         showConfirmButton: false,
         position: 'top-end',
         timer: 1500,
-        timerProgressBar: true,
         toast: true,
         customClass: {
           popup: 'swal2-toast',
@@ -61,7 +61,7 @@ const QuantityCounter = ({ quantity, dishId }: QuantityCounterProps) => {
 
   return (
     <div className={styles.quantity}>
-      <button onClick={() => handleRemoveFromCart()}>
+      <button onClick={handleDecrease}>
         <CiCircleMinus />
       </button>
       <input

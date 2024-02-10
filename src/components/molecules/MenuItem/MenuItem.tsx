@@ -1,8 +1,11 @@
-import styles from './MenuItem.module.css';
-import { PATHS } from '@/constants/paths';
 import { Link } from 'react-router-dom';
+
 import { useCartContext } from '@/context/cartContext';
+import { PATHS } from '@/constants/paths';
+
 import { Button } from '@/components/atoms';
+
+import styles from './MenuItem.module.css';
 interface MenuItemProps {
   id: number;
   photoPath: string;

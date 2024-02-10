@@ -1,14 +1,17 @@
+import { Link } from 'react-router-dom';
+
+import { PATHS } from '@/constants/paths';
+import { useCartContext } from '@/context/cartContext';
+
 import {
   CartItems,
   CartPageSkeleton,
   EmptyCart,
   SummaryPayment,
 } from '@/components/molecules';
-import styles from './Cart.module.css';
 import { Button } from '@/components/atoms';
-import { Link } from 'react-router-dom';
-import { PATHS } from '@/constants/paths';
-import { useCartContext } from '@/context/cartContext';
+
+import styles from './Cart.module.css';
 
 const Cart = () => {
   const { cartItems, removeAllFromCart, isLoadingCart, allDishesQuantity } =

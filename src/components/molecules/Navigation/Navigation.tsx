@@ -1,24 +1,24 @@
+import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { IconContext } from 'react-icons';
 import { PiShoppingCartLight } from 'react-icons/pi';
 import iconHolder from '@/assets/images/avatar-icon-holder.jpeg';
+import Swal from 'sweetalert2';
 
+import { RootState, TypedDispatch } from '@/store/store';
+import { logout } from '@/store/auth/operations';
+import axiosInstance from '@/services/restaurantAPI';
+import { useCartContext } from '@/context/cartContext';
 import { PATHS } from '@/constants/paths';
 import { scrollToReservationForm } from '@/helpers';
 import { showReservationModal } from '@/helpers';
-import { logout } from '@/store/auth/operations';
 
 import { LinkWrapper } from '@/components/atoms/index.ts';
 import { Button } from '@/components/atoms/index.ts';
 
 import styles from './Navigation.module.css';
-import { RootState, TypedDispatch } from '@/store/store';
-import { useCartContext } from '@/context/cartContext';
-import axiosInstance from '@/services/restaurantAPI';
-import { useEffect, useState } from 'react';
-import Swal from 'sweetalert2';
 
 type ILocationProp = {
   loc: string;

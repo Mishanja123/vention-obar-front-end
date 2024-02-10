@@ -1,8 +1,10 @@
-import QuantityCounter from '../QuantityCounter/QuantityCounter';
 import { IoTrash } from 'react-icons/io5';
 
-import styles from './CartItem.module.css';
 import { useCartContext } from '@/context/cartContext';
+
+import QuantityCounter from '../QuantityCounter/QuantityCounter';
+
+import styles from './CartItem.module.css';
 interface CartItemProps {
   id: number;
   photoPath: string;

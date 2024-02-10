@@ -1,13 +1,16 @@
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
+
+import { RootState } from '@/store/store';
+import { SUCCESS, login, register } from '@/store/auth/operations';
+import { useAuth } from '@/hooks/useAuth';
 import { userFormSchema } from '@/validationSchemas/userFormSchema';
 import { userInfoFormInputs } from '@/content/accountForms/userInfoFormInputs';
+
 import { Button, TextInput } from '@/components/atoms';
+
 import styles from './RegistrationForm.module.css';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { SUCCESS, login, register } from '@/store/auth/operations';
-import { RootState } from '@/store/store';
-import { useAuth } from '@/hooks/useAuth';
 
 const RegistrationForm = () => {
   const navigate = useNavigate();

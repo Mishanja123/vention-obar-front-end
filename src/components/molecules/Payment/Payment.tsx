@@ -1,14 +1,14 @@
 import { useFormik, FormikValues } from 'formik';
 
-import styles from './Payment.module.css';
-
-import { paymentSchema } from '@/validationSchemas/userPaymentSchema';
+import { useCheckoutContext } from '@/context/checkoutContext';
 import { paymentFormInputs } from '@/content/accountForms/paymentFormInputs';
 import { cardExpirationDate } from '@/content/accountForms/cardExpirationDate';
+import { paymentSchema } from '@/validationSchemas/userPaymentSchema';
 
 import { TextInput } from '@/components/atoms';
-import SelectInput from '@/components/atoms/SelectInput/SelectInput';
-import { useCheckoutContext } from '@/context/checkoutContext';
+import { SelectInput } from '@/components/atoms';
+
+import styles from './Payment.module.css';
 
 const Payment = () => {
   const { handlePaymentCardAdditing } = useCheckoutContext();

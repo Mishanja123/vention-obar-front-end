@@ -1,10 +1,13 @@
-import { Button } from '@/components/atoms';
-import styles from './OrderConfirmation.module.css';
-import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+
 import { PATHS } from '@/constants/paths';
 import { useCheckoutContext } from '@/context/checkoutContext';
 import { useCartContext } from '@/context/cartContext';
+
+import { Button } from '@/components/atoms';
+
+import styles from './OrderConfirmation.module.css';
 
 const OrderConfirmation = () => {
   const navigate = useNavigate();

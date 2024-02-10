@@ -1,6 +1,9 @@
-import { Button } from '@/components/atoms';
-import axiosInstance from '@/services/restaurantAPI';
 import { useEffect, useState } from 'react';
+
+import axiosInstance from '@/services/restaurantAPI';
+
+import { Button } from '@/components/atoms';
+
 import styles from './UserManagement.module.css';
 
 interface User {

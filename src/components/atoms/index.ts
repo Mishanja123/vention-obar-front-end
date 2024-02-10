@@ -9,3 +9,6 @@ export { default as TextInput } from './TextInput/TextInput';
 export { default as TimePicker } from './TimePicker/TimePicker';
 export { default as SliderWrapper } from './SliderWrapper/SliderWrapper';
 export { default as LinkWrapper } from './LinkWrapper/LinkWrapper';
+export { default as Pagination } from './Pagination/Pagination';
+export { default as LoadingButton } from './LoadingButton/LoadingButton';
+export { default as SelectInput } from './SelectInput/SelectInput';

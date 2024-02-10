@@ -1,8 +1,10 @@
-import Button from '../../atoms/Button/Button';
 import { NavLink } from 'react-router-dom';
-import { PATHS } from '@/constants/paths';
-import notFound from '@/assets/images/404.png';
 
+import { PATHS } from '@/constants/paths';
+
+import Button from '../../atoms/Button/Button';
+
+import notFound from '@/assets/images/404.png';
 import styles from './NotFoundPageSection.module.css';
 
 const NotFoundPageSection = () => {
@@ -15,7 +17,6 @@ const NotFoundPageSection = () => {
           src={notFound}
           alt="404 Not found"
         />
-        {/* <h1 className={styles.not_found_heading}>Page not found</h1> */}
         <p className={styles.not_found_paragraph}>
           Looks like this page is off exploring the digital cosmos.
         </p>

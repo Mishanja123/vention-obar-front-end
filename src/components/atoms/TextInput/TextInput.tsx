@@ -1,7 +1,9 @@
 import React, { ReactNode, useState, KeyboardEvent } from 'react';
-import styles from './TextInput.module.css';
-import { TextInputProps } from '@/types/textInputProps';
 import { BiShowAlt, BiHide } from 'react-icons/bi';
+
+import { TextInputProps } from '@/types/textInputProps';
+
+import styles from './TextInput.module.css';
 
 const TextInput: React.FC<TextInputProps> = ({
   formik,

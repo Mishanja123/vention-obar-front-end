@@ -1,10 +1,13 @@
 /* eslint-disable @typescript-eslint/no-shadow */
 import { useEffect, useState } from 'react';
-import styles from './DishDetails.module.css';
 import { useParams } from 'react-router-dom';
+
 import axiosInstance from '@/services/restaurantAPI';
 import { useCartContext } from '@/context/cartContext';
+
 import { Button } from '@/components/atoms';
+
+import styles from './DishDetails.module.css';
 
 type MenuItemData = {
   id: number;

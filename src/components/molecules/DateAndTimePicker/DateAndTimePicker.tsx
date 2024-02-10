@@ -1,16 +1,19 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useFormik, FormikValues } from 'formik';
+import { add, format, setHours, setMinutes, startOfDay } from 'date-fns';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-import { add, format, setHours, setMinutes, startOfDay } from 'date-fns';
-import { Button, CalendarInput } from '@/components/atoms';
 import Swal from 'sweetalert2';
-import { getValidationSchema } from '@/validationSchemas/dateAndTimePickerSchema';
-import styles from './DateAndTimePicker.module.css';
-import { useNavigate } from 'react-router-dom';
-import { PATHS } from '@/constants/paths';
-import { TimePicker } from '@/components/atoms';
+
 import { useCheckoutContext } from '@/context/checkoutContext';
+import { getValidationSchema } from '@/validationSchemas/dateAndTimePickerSchema';
+import { PATHS } from '@/constants/paths';
+
+import { Button, CalendarInput } from '@/components/atoms';
+import { TimePicker } from '@/components/atoms';
+
+import styles from './DateAndTimePicker.module.css';
 
 const today = new Date();
 let disablePast: boolean = true;
