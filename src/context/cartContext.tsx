@@ -152,7 +152,6 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
         showConfirmButton: false,
         position: 'top-end',
         timer: 1500,
-        timerProgressBar: true,
         toast: true,
         customClass: {
           popup: 'swal2-toast',
