@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import Swal from 'sweetalert2';
-import { LocalizationProvider } from '@mui/x-date-pickers';
-import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { useFormik, FormikValues } from 'formik';
 import { add, format, setHours, setMinutes, startOfDay } from 'date-fns';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import Swal from 'sweetalert2';
 
 import { PATHS } from '@/constants/paths';
 import { getValidationSchema } from '@/validationSchemas/MainPageReservationFormSchema';
@@ -21,7 +21,7 @@ import styles from './ReservationForm.module.css';
 
 const today = new Date();
 let disablePast: boolean = true;
-const currentTime = add(today, { minutes: 1 });
+const currentTime = add(today, { hours: 2 });
 const startOfWorkingDay = setMinutes(setHours(startOfDay(new Date()), 8), 0);
 
 const ReservationForm = () => {
@@ -48,7 +48,7 @@ const ReservationForm = () => {
         icon: 'info',
         showCancelButton: true,
         confirmButtonColor: '#182715',
-        cancelButtonColor: '#182715',
+        cancelButtonColor: '#d33',
         confirmButtonText: 'Confirm!',
         customClass: {
           popup: styles.confirmation_modal,

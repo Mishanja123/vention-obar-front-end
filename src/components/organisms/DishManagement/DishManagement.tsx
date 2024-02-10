@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react';
-import { Button } from '@/components/atoms';
+
 import axiosInstance from '@/services/restaurantAPI';
-import styles from './DishManagement.module.css';
-import { IDish, Ingredients } from '@/types/dish';
-import { DISHCATEGORY } from '@/constants/categoryDish';
 import { useMenuContext } from '@/context/menuContext';
+import useMutation from '@/hooks/useMutation';
+import { DISHCATEGORY } from '@/constants/categoryDish';
+import { IDish, Ingredients } from '@/types/dish';
+
+import { Button } from '@/components/atoms';
 import IngredientsComponent from '@/components/molecules/IngredientsComponent/IngredientsComponent';
 import LoadingButtonFC from '@/components/atoms/LoadingButton/LoadingButton';
-import useMutation from '@/hooks/useMutation';
+
+import styles from './DishManagement.module.css';
 
 const URL = '/dish-images';
 const validFileTypes = ['image/jpeg', 'image/png', 'image/jpg'];
@@ -226,9 +229,8 @@ const DishManagement = () => {
                     <>
                       {editedDish.photoPath ? (
                         <img
+                          className={styles.dish_img}
                           src={editedDish.photoPath}
-                          width={150}
-                          height={150}
                           alt="dish"
                         />
                       ) : (
@@ -248,8 +250,7 @@ const DishManagement = () => {
                 ) : (
                   <img
                     src={dish.photoPath}
-                    width={150}
-                    height={150}
+                    className={styles.dish_img}
                     alt="dish"
                   />
                 )}

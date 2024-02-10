@@ -1,12 +1,14 @@
-import { PATHS } from '@/constants/paths';
 import { NavLink } from 'react-router-dom';
-import ReservationForm from '../../molecules/ReservationForm/ReservationForm';
+
+import { useAuth } from '@/hooks/useAuth';
+import { PATHS } from '@/constants/paths';
+
+import MainSectionSkeleton from '@/components/molecules/MainSectionSkeleton/MainSectionSkeleton';
+import { ReservationForm } from '@/components/molecules';
 import MainMenuSection from '../MainMenuSection/MainMenuSection';
-import Button from '../../atoms/Button/Button';
+import { Button } from '@/components/atoms';
 
 import styles from './MainSection.module.css';
-import { useAuth } from '@/hooks/useAuth';
-import MainSectionSkeleton from '@/components/molecules/MainSectionSkeleton/MainSectionSkeleton';
 
 const MainSection = () => {
   const { isFetching } = useAuth();

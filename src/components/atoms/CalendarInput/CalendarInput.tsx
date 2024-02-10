@@ -1,8 +1,6 @@
-/* eslint-disable react/jsx-filename-extension */
+import { useMemo, useState } from 'react';
 import { DatePicker, DateValidationError } from '@mui/x-date-pickers';
 import { FormikHelpers, FormikValues } from 'formik';
-
-import React from 'react';
 
 interface CalendarInputProps {
   formik: {
@@ -17,9 +15,9 @@ const oneMonthLater: Date = new Date();
 oneMonthLater.setMonth(oneMonthLater.getMonth() + 1);
 
 const CalendarInput = ({ formik, fieldName, onChange }: CalendarInputProps) => {
-  const [error, setError] = React.useState<DateValidationError | null>(null);
+  const [error, setError] = useState<DateValidationError | null>(null);
 
-  const errorMessage = React.useMemo(() => {
+  const errorMessage = useMemo(() => {
     switch (error) {
       case 'maxDate': {
         return "Please select a date within a month after today's date";

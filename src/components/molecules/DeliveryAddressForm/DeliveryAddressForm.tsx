@@ -1,9 +1,12 @@
+import { useState } from 'react';
 import { useFormik, FormikValues } from 'formik';
-import styles from './DeliveryAddressForm.module.css';
+
 import { deliveryAddressFormSchema } from '@/validationSchemas/deliveryAddressFormSchema';
 import { deliveryAddressFormInputs } from '@/content/accountForms/deliveryAddressFormInputs';
+
 import { TextInput } from '@/components/atoms';
-import { useState } from 'react';
+
+import styles from './DeliveryAddressForm.module.css';
 
 interface IUserAddress {
   addressTitle: string;

@@ -1,13 +1,13 @@
 .menu_item_container {
   margin: auto;
-  width: 80%;
   display: flex;
   justify-content: center;
+  align-items: center;
   text-align: left;
   gap: 5rem;
   color: var(--main-color);
-  display: flex;
-  padding: 1rem;
+  padding: 3rem 3rem;
+
   border-radius: 1rem;
   background-image: url('../../../assets/icons/back.png');
   background-size: auto;
@@ -18,24 +18,15 @@
 .menu_item_details {
   backdrop-filter: blur(1px);
   border-radius: 2rem;
-  padding: 2rem;
 }
 .dish_img {
-  max-width: 395px;
-  /* padding: 2rem; */
+  max-height: 400px;
   border-radius: 1rem;
-  /* margin-right: 2rem; */
 }
 
 .menu_item_title {
   font-size: var(--font-size-xxxl);
   margin-bottom: 3rem;
-}
-
-.edit_box {
-  max-width: 70%;
-  display: flex;
-  /* gap: 4rem; */
 }
 
 .ingredients_title {
@@ -53,10 +44,6 @@
   font-size: var(--font-size-l);
   margin-bottom: 0.5rem;
 }
-.required_span {
-  margin-left: 0.5rem;
-  color: var(--error-color);
-}
 
 .menu_item_portion {
   font-size: var(--font-size-s);
@@ -68,52 +55,25 @@
   margin-bottom: 1.2rem;
 }
 
-.button_box {
-  display: flex;
-}
-
-.menu_button {
-  border: none;
-  background-color: var(--accent-color);
-  color: var(--main-color);
-  font-size: var(--font-size-s);
-  cursor: pointer;
-  transition: all 0.4s;
-  border-radius: var(--border-radius);
-  padding: 0.1875rem 0.625rem;
-}
-
-.menu_button:hover {
-  transform: scale(1.03);
-}
-
-.menu_button_cart {
-  padding: 1rem 2.3rem;
-  font-size: var(--font-size-l);
-  border: none;
-  transition: all 0.4s;
-  border: 2px solid var(--btn-rgba);
-  cursor: pointer;
-  background-color: var(--accent-color);
-  color: var(--main-color);
-  border-radius: var(--border-radius);
-}
-.menu_button_cart:hover {
-  border: 2px solid var(--text-color);
-  transform: scale(1.1);
-}
-
 @media screen and (max-width: 876px) {
   .menu_item_container {
     flex-direction: column;
     align-items: center;
+    gap: 1rem;
   }
-
-  .menu_button {
-    position: unset;
+  .menu_item_title {
+    font-size: var(--font-size-xxl);
+    margin-bottom: 2rem;
   }
-
-  .buttons_container {
-    gap: 0.5rem;
+  .ingredients_title {
+    margin-right: auto;
+    font-size: var(--font-size-xl);
+    color: var(--main-color);
+    font-weight: var(--font-weight-bold);
+  }
+  .ingredients_item {
+    font-style: italic;
+    font-size: var(--font-size-m);
+    margin-bottom: 0.5rem;
   }
 }

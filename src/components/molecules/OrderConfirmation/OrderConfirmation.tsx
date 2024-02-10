@@ -1,10 +1,13 @@
-import { Button } from '@/components/atoms';
-import styles from './OrderConfirmation.module.css';
-import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+
 import { PATHS } from '@/constants/paths';
 import { useCheckoutContext } from '@/context/checkoutContext';
 import { useCartContext } from '@/context/cartContext';
+
+import { Button } from '@/components/atoms';
+
+import styles from './OrderConfirmation.module.css';
 
 const OrderConfirmation = () => {
   const navigate = useNavigate();
@@ -33,7 +36,7 @@ const OrderConfirmation = () => {
       showCancelButton: true,
       cancelButtonText: "Yes, I'm sure",
       confirmButtonColor: 'rgb(24, 39, 21)',
-      cancelButtonColor: 'rgb(184, 15, 10)',
+      cancelButtonColor: '#d33',
       customClass: {
         popup: styles.confirmation_modal,
       },

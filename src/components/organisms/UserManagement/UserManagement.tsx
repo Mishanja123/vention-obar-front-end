@@ -1,6 +1,9 @@
-import { Button } from '@/components/atoms';
-import axiosInstance from '@/services/restaurantAPI';
 import { useEffect, useState } from 'react';
+
+import axiosInstance from '@/services/restaurantAPI';
+
+import { Button } from '@/components/atoms';
+
 import styles from './UserManagement.module.css';
 
 interface User {
@@ -34,7 +37,6 @@ const UserManagement: React.FC = () => {
     try {
       const response = await axiosInstance.get('/users');
       const fetchedUsers: { users: User[] } = await response.data;
-      console.log(fetchedUsers);
       setUsers(fetchedUsers.users);
     } catch (error) {
       console.log('Ooops, looks like there is an error ' + error);

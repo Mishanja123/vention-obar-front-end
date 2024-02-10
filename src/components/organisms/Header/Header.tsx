@@ -10,9 +10,12 @@ import { MobileMenu, Navigation } from '@/components/molecules';
 
 import homeLogo from '@/assets/images/homeLogo.svg';
 import styles from './Header.module.css';
+import { useAuth } from '@/hooks/useAuth';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { role } = useAuth();
+  const admin = role === 'admin';
 
   const openMenu = () => {
     setIsMenuOpen(true);
@@ -23,13 +26,13 @@ const Header = () => {
   };
 
   return (
-    <div className={styles.header_wrapper}>
+    <header className={styles.header_wrapper}>
       <button className={styles.menu_btn} type="button" onClick={openMenu}>
         <IconContext.Provider value={{ className: styles.menu_icon }}>
           <IoMenu />
         </IconContext.Provider>
       </button>
-      <NavLink to={PATHS.ROOT}>
+      <NavLink to={admin ? PATHS.ADMIN : PATHS.ROOT}>
         <img className={styles.logo} src={homeLogo} alt="logo" />
       </NavLink>
 
@@ -38,7 +41,7 @@ const Header = () => {
       <Navigation loc={'header'} />
 
       {isMenuOpen && <MobileMenu onClose={closeMenu} isMenuOpen={isMenuOpen} />}
-    </div>
+    </header>
   );
 };
 

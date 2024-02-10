@@ -1,17 +1,19 @@
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useFormik, FormikValues } from 'formik';
-import React from 'react';
-import styles from './UserInfoForm.module.css';
-import { userInfoFormInputs } from '@/content/accountForms/userInfoFormInputs';
-import { userFormSchema } from '@/validationSchemas/userFormSchema';
-import { TextInput } from '@/components/atoms';
-import { useEffect, useState } from 'react';
-import { getUserInfo } from './userInfo';
+
 import axiosInstance from '@/services/restaurantAPI';
 import useMutation from '@/hooks/useMutation';
-import { useNavigate } from 'react-router-dom';
+import { getUserInfo } from './userInfo';
 import { PATHS } from '@/constants/paths';
+import { userInfoFormInputs } from '@/content/accountForms/userInfoFormInputs';
+import { userFormSchema } from '@/validationSchemas/userFormSchema';
+
+import { TextInput } from '@/components/atoms';
 import LoadingButtonFC from '@/components/atoms/LoadingButton/LoadingButton';
+
 import avatarHolderPic from '@/assets/images/avatar-icon-holder.jpeg';
+import styles from './UserInfoForm.module.css';
 
 const URL = '/images';
 const validFileTypes = ['image/jpeg', 'image/png', 'image/jpg'];
@@ -34,14 +36,7 @@ const UserInfoForm = () => {
       password: '',
     },
     validationSchema: userFormSchema,
-    onSubmit: async ({
-      firstName,
-      lastName,
-      email,
-      phone,
-      password,
-    }: FormikValues) => {
-      console.log(firstName, lastName, email, phone, password);
+    onSubmit: async ({ firstName, lastName, email, phone }: FormikValues) => {
       try {
         const response = await axiosInstance.patch(`/users/${userId}`, {
           firstName: firstName,
@@ -96,6 +91,7 @@ const UserInfoForm = () => {
     form.append('image', file);
     await uploadImage({ file: form, userId });
   };
+
   return (
     <div className={styles.user_info_section}>
       <div className={styles.user_image_wrapper}>

@@ -1,10 +1,12 @@
-import TextField from '@mui/material/TextField';
-import styles from './SearchInput.module.css';
-import { useNavigate } from 'react-router-dom';
 import { ChangeEvent, useState } from 'react';
-import { IDish } from '@/types/dish';
-import axiosInstance from '@/services/restaurantAPI';
+import { useNavigate } from 'react-router-dom';
+import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
+
+import axiosInstance from '@/services/restaurantAPI';
+import { IDish } from '@/types/dish';
+
+import styles from './SearchInput.module.css';
 
 const SearchInput: React.FC = () => {
   const [matchedDishes, setMatchedDishes] = useState<IDish[]>([]);
@@ -52,26 +54,25 @@ const SearchInput: React.FC = () => {
         options={matchedDishes.map((dish) => dish.title)}
         //@ts-expect-error fo now
         onChange={(event, value) => navigateToDish(value)}
-        className={styles.searchContainer}
+        className={styles.search_container}
         renderInput={(params) => (
           <TextField
             {...params}
-            variant="filled"
+            variant="outlined"
             color="success"
             focused
-            className={styles.searchBar}
-            label="Search across all dishes..."
+            className={styles.search_bar}
+            label="Search dish"
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
               doDishMatch(e.target.value)
             }
             InputProps={{
-              style: { color: '#fff', fontSize: '0.9rem' },
+              style: { color: '#f1e9d9', fontSize: '0.9rem' },
               ...params.InputProps,
             }}
           />
         )}
       />
-      {/* <SearchIcon sx={{ fontSize: '2rem' }} color="success" /> */}
     </div>
   );
 };

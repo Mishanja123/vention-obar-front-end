@@ -8,13 +8,14 @@ const mySwal = withReactContent(Swal);
 
 const showReservationModal = () => {
   mySwal.fire({
-    title: 'Make a reservation',
+    // title: 'Make a reservation',
     html: (
       <BrowserRouter>
         <ReservationForm />
       </BrowserRouter>
     ),
     confirmButtonText: 'Close',
+    confirmButtonColor: '#d33',
   });
 };
 

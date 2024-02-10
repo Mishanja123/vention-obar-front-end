@@ -1,4 +1,5 @@
 import { Skeleton } from '@mui/material';
+
 import styles from './MenuPageSkeleton.module.css';
 
 function MenuPageSkeleton() {

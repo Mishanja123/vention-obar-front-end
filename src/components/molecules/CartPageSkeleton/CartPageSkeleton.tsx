@@ -1,4 +1,5 @@
 import { Skeleton } from '@mui/material';
+
 import styles from './CartPageSkeleton.module.css';
 
 function CartPageSkeleton() {

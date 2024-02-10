@@ -1,11 +1,14 @@
-import { SummaryPayment } from '@/components/molecules';
-import { Button } from '@/components/atoms';
-import styles from './CheckoutSummary.module.css';
-import { PATHS } from '@/constants/paths';
 import { Link } from 'react-router-dom';
-import useSummaryButton from '@/hooks/useSummaryButton';
+
+import { PATHS } from '@/constants/paths';
 import { useCheckoutContext } from '@/context/checkoutContext';
 import { useCartContext } from '@/context/cartContext';
+import useSummaryButton from '@/hooks/useSummaryButton';
+
+import { Button } from '@/components/atoms';
+import { SummaryPayment } from '@/components/molecules';
+
+import styles from './CheckoutSummary.module.css';
 
 const CheckoutSummary = ({ path }: { path: string }) => {
   const {

@@ -13,3 +13,5 @@ export { default as ErrorPageSection } from './ErrorPageSection/ErrorPageSection
 export { default as DishManagement } from './DishManagement/DishManagement';
 export { default as UserManagement } from './UserManagement/UserManagement';
 export { default as OrderManagement } from './OrderManagement/OrderManagement';
+export { default as Header } from './Header/Header';
+export { default as Footer } from './Footer/Footer';
