@@ -2,6 +2,7 @@ import { ActionReducerMapBuilder, createSlice } from '@reduxjs/toolkit';
 import { register, login, logout, refreshUser } from './operations';
 import Swal from 'sweetalert2';
 export interface IUser {
+  id: number;
   avatar: string | null;
   firstName: string;
   lastName: string;

@@ -62,7 +62,7 @@ const SearchInput: React.FC = () => {
             color="success"
             focused
             className={styles.search_bar}
-            label="Searc dish"
+            label="Search dish"
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
               doDishMatch(e.target.value)
             }
