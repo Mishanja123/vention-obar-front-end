@@ -36,7 +36,7 @@ const OrderConfirmation = () => {
       showCancelButton: true,
       cancelButtonText: "Yes, I'm sure",
       confirmButtonColor: 'rgb(24, 39, 21)',
-      cancelButtonColor: 'rgb(184, 15, 10)',
+      cancelButtonColor: '#d33',
       customClass: {
         popup: styles.confirmation_modal,
       },

@@ -48,7 +48,7 @@ const ReservationForm = () => {
         icon: 'info',
         showCancelButton: true,
         confirmButtonColor: '#182715',
-        cancelButtonColor: '#182715',
+        cancelButtonColor: '#d33',
         confirmButtonText: 'Confirm!',
         customClass: {
           popup: styles.confirmation_modal,

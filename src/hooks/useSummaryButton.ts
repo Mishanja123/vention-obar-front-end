@@ -36,7 +36,7 @@ const useSummaryButton = ({ path }: { path: string }) => {
           showCancelButton: true,
           confirmButtonColor: '#182715',
           confirmButtonText: 'Yes, take me to change order page',
-          cancelButtonColor: '#b80f0a',
+          cancelButtonColor: '#d33',
           cancelButtonText: 'Cancel',
           background: '#fff5e1',
         }).then((result) => {

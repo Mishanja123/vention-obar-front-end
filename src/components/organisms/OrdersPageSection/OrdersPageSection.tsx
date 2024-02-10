@@ -59,7 +59,7 @@ const OrdersPageSection = () => {
       showCancelButton: true,
       cancelButtonText: 'Not now',
       confirmButtonColor: '#182715',
-      cancelButtonColor: '#b80f0a',
+      cancelButtonColor: '#d33',
       customClass: {
         popup: styles.confirmation_modal,
       },
@@ -97,7 +97,7 @@ const OrdersPageSection = () => {
       showCancelButton: true,
       cancelButtonText: 'Not now',
       confirmButtonColor: '#182715',
-      cancelButtonColor: '#b80f0a',
+      cancelButtonColor: '#d33',
       customClass: {
         popup: styles.confirmation_modal,
       },
