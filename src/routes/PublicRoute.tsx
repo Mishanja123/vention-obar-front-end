@@ -8,22 +8,18 @@ interface PublicPageProps {
 }
 
 const PublicPage: FC<PublicPageProps> = ({ children }) => {
-  const { loggedIn, isFetching, role } = useAuth();
+  const { loggedIn, role } = useAuth();
   const navigate = useNavigate();
-  const user = role === 'user';
+  const admin = role === 'admin';
   useEffect(() => {
-    if (!isFetching) {
-      return;
-    }
-
     if (loggedIn) {
-      if (user) {
-        navigate(PATHS.ROOT);
-      } else {
+      if (admin) {
         navigate(PATHS.ADMIN);
+      } else {
+        navigate(PATHS.ROOT);
       }
     }
-  }, [loggedIn, user, isFetching, navigate]);
+  }, [loggedIn, admin, navigate]);
 
   return <>{!loggedIn ? children : null}</>;
 };

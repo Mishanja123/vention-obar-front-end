@@ -58,6 +58,7 @@ const Navigation: React.FC<ILocationProp> = ({ loc }) => {
       }
     });
   };
+
   return (
     <div className={`${styles[loc]}`}>
       <LinkWrapper to={PATHS.MENU}>Menu</LinkWrapper>

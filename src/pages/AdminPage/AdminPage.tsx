@@ -32,7 +32,14 @@ const AdminPage = () => {
     <section className={styles.admin_section}>
       <header>
         <nav className={styles.admin_navigation}>
-          <img src={logo} alt="logo" width={100} style={{ borderRadius: 20 }} />
+          <NavLink to={PATHS.ROOT}>
+            <img
+              src={logo}
+              alt="logo"
+              width={100}
+              style={{ borderRadius: 20 }}
+            />
+          </NavLink>
           <ul className={styles.admin_navigation_list}>
             <li>
               <NavLink
