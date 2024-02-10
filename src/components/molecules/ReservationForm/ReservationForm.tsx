@@ -21,7 +21,7 @@ import styles from './ReservationForm.module.css';
 
 const today = new Date();
 let disablePast: boolean = true;
-const currentTime = add(today, { minutes: 1 });
+const currentTime = add(today, { hours: 2 });
 const startOfWorkingDay = setMinutes(setHours(startOfDay(new Date()), 8), 0);
 
 const ReservationForm = () => {
