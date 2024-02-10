@@ -59,8 +59,8 @@ export const CheckoutProvider = ({
         orderId: dishId,
         paymentId,
       });
-      localStorage.setItem('dishId', '');
-      localStorage.setItem('paymentId', '');
+      localStorage.removeItem('dishId');
+      localStorage.removeItem('paymentId');
     } catch (error) {
       console.log('🚀 : res', error);
     }

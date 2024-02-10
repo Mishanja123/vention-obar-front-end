@@ -14,12 +14,13 @@ import axiosInstance from '@/services/restaurantAPI';
 import { ICreditCard } from '@/types/creditCard';
 import CreditCardsList from '../CreditCardsList/CreditCardsList';
 import ReusableForm from '../ReuseableForm/ReuseableForm';
-
+import styles from './Payment.module.css';
+import { useLocation } from 'react-router-dom';
 const Payment = () => {
   const { handlePaymentCardAdditing } = useCheckoutContext();
   const [creditCards, setCreditCards] = useState<ICreditCard[]>([]);
-  console.log('🚀 : creditCards', creditCards);
-
+  const location = useLocation();
+  
   useEffect(() => {
     const getAllCreditCards = async () => {
       try {
@@ -48,15 +49,19 @@ const Payment = () => {
     },
   });
   return (
-    <>
+    <section className="payment_section">
+      <h2 className={styles.payment_cards_title}>Add payment card</h2>
       <ReusableForm
         initialValues={formik.initialValues}
         onSubmit={formik.handleSubmit}
         formInputs={paymentFormInputs}
         submitButtonLabel="Add payment card"
       />
-      {creditCards.length > 0 && <CreditCardsList />}
-    </>
+      <h2 className={styles.payment_cards_title}>Your credit cards</h2>
+      {creditCards.length > 0 && location.pathname === '/account/payment' && (
+        <CreditCardsList />
+      )}
+    </section>
   );
 };
 

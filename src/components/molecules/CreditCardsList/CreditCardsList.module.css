@@ -1,15 +1,29 @@
-.payment_address_form {
-  max-width: 568px;
+
+.credit_card_wrapper{
   width: 100%;
-  margin: auto;
-  padding: 2rem;
+}
+
+.credit_cards_container {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  gap: 2rem;
+}
+
+.payment_address_list {
+  padding: 5rem;
+  max-width: 100%;
   border-radius: var(--border-radius);
   background-image: url('../../../assets/icons/back.png');
   @media screen and (min-width: 876px) {
     margin: 0;
   }
 }
-
+.payment_address_list_item{
+  margin-bottom: 1rem;
+  font-size: var(--font-size-xl);
+}
 .add_payment_button {
   width: 100%;
   color: var(--neutral-color);

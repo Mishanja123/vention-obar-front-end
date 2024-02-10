@@ -45,9 +45,9 @@ const CreditCardsList = () => {
   };
 
   return (
-    <div className={styles.creditCardsContainer}>
+    <div className={styles.credit_cards_container}>
       {creditCards.map((card) => (
-        <div key={card.id} className={styles.creditCard}>
+        <div key={card.id} className={styles.credit_card_wrapper}>
           {editingCard && editingCard.id === card.id ? (
             <ReusableForm
               initialValues={editingCard}
@@ -56,19 +56,31 @@ const CreditCardsList = () => {
               submitButtonLabel="Save"
             />
           ) : (
-            <>
-              {/* Render credit card details */}
-              <div>Address Title: {card.addressTitle}</div>
-              <div>Card Number: {card.cardNumber}</div>
-              <div>
+            <ul className={styles.payment_address_list}>
+              <li className={styles.payment_address_list_item}>
+                Address Title: {card.addressTitle}
+              </li>
+              <li className={styles.payment_address_list_item}>
+                Card Number: {card.cardNumber}
+              </li>
+              <li className={styles.payment_address_list_item}>
                 Expiration Date: {card.month}/{card.year}
-              </div>
-              <div>CVV Number: {card.cvvNumber}</div>
-              <div>Card Holder: {card.cardHolder}</div>
-              <button type="button" onClick={() => handleEdit(card)}>
-                Edit
-              </button>
-            </>
+              </li>
+              <li className={styles.payment_address_list_item}>
+                CVV Number: {card.cvvNumber}
+              </li>
+              <li className={styles.payment_address_list_item}>
+                Card Holder: {card.cardHolder}
+              </li>
+              <li className={styles.payment_address_list_item}>
+                <button
+                  className={styles.add_payment_button}
+                  type="button"
+                  onClick={() => handleEdit(card)}>
+                  Edit
+                </button>
+              </li>
+            </ul>
           )}
         </div>
       ))}

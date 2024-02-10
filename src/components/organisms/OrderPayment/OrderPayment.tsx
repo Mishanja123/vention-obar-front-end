@@ -8,14 +8,39 @@ import {
   Select,
   SelectChangeEvent,
 } from '@mui/material';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useCheckoutContext } from '@/context/checkoutContext';
+import axiosInstance from '@/services/restaurantAPI';
+import { ICreditCard } from '@/types/creditCard';
+import { FcCheckmark, FcCancel } from 'react-icons/fc';
 
 const OrderPayment = () => {
   const [method, setMethod] = useState('');
+  const [creditCards, setCreditCards] = useState<ICreditCard[]>([]);
+  const [selectedCardId, setSelectedCardId] = useState<number | null>(null); // Track selected card ID
+
 
   const handleMethodChange = (e: SelectChangeEvent<string>) => {
     setMethod(e.target.value as string);
+    setSelectedCardId(null); // Reset selected card ID when changing method
   };
+
+  const handleCreditCard = async (id: number) => {
+    setSelectedCardId(id);
+    localStorage.setItem('paymentId', JSON.stringify(id));
+  };
+
+  useEffect(() => {
+    const getAllCreditCards = async () => {
+      try {
+        const { data } = await axiosInstance.get('/payments');
+        setCreditCards(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    getAllCreditCards();
+  }, []);
 
   return (
     <div className={styles.main_container}>
@@ -39,6 +64,27 @@ const OrderPayment = () => {
             </Select>
           </FormControl>
           {method === 'New' && <Payment />}
+          {method === 'Existing' && (
+            <div>
+              <ul className={styles.card_list}>
+                {creditCards.map((card) => (
+                  <li key={card.id} className={styles.card_item}>
+                    <p>{card.cardNumber}</p>
+                    <p>{card.cardHolder}</p>
+                    <button
+                      className={styles.add_btn}
+                      onClick={() => handleCreditCard(card.id)}>
+                      {selectedCardId === card.id ? (
+                        <FcCheckmark />
+                      ) : (
+                        <FcCancel />
+                      )}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </div>
     </div>
