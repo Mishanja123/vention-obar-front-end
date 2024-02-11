@@ -16,7 +16,6 @@ const OrderDelivery = () => {
   const [deliveryAdress, setDeliveryAdress] = useState('');
 
   const handleDeliveryAdressChange = (e: SelectChangeEvent<string>) => {
-    console.log(e.target.value);
     setDeliveryAdress(e.target.value as string);
   };
 

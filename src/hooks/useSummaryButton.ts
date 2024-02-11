@@ -20,7 +20,6 @@ const useSummaryButton = ({ path }: { path: string }) => {
   const navigate = useNavigate();
   const paymentCardExist =
     !localStorage.getItem('paymentId') && path.includes(PATHS.ORDER_PAYMENT);
-  console.log('🚀 : paymentCardExist', paymentCardExist);
 
   const buttonConfig: ButtonConfig = {
     [PATHS.ORDER_CONFIRMATION]: {

@@ -17,12 +17,14 @@ const CheckoutSummary = ({ path }: { path: string }) => {
     onClickSecondButton,
     disabled,
   } = useSummaryButton({ path });
-  const { orderData } = useCheckoutContext();
+  const { orderData, selectedPaymentId } = useCheckoutContext();
   const { cartItems, allDishesQuantity } = useCartContext();
+  console.log('selectedPaymentId', selectedPaymentId);
 
   const forbidProceeding =
     (firstButton === 'Proceed' && typeof orderData === 'string') ||
-    Object.keys(orderData).length === 0;
+    !orderData ||
+    Object.keys(orderData)?.length === 0;
 
   return (
     <div className={styles.summary_section}>
@@ -32,7 +34,13 @@ const CheckoutSummary = ({ path }: { path: string }) => {
         total={cartItems?.total}>
         <div className={styles.summary_btn_wrapper}>
           <Link
-            className={forbidProceeding || disabled ? styles.inactive : ''}
+            className={
+              forbidProceeding ||
+              disabled ||
+              (!selectedPaymentId && path.includes(PATHS.ORDER_PAYMENT))
+                ? styles.inactive
+                : ''
+            }
             to={firstButtonLink}
             onClick={onClickFirstButton}>
             <Button variant="contained" type="button">

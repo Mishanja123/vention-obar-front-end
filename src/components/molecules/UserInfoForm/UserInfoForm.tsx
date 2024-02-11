@@ -41,7 +41,7 @@ const UserInfoForm = () => {
       phone,
       password,
     }: FormikValues) => {
-      console.log(firstName, lastName, email, phone, password);
+      console.log(password);
       try {
         const response = await axiosInstance.patch(`/users/${userId}`, {
           firstName: firstName,

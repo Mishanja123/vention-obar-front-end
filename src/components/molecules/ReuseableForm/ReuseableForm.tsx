@@ -2,7 +2,6 @@ import { useFormik } from 'formik';
 import { TextInput } from '@/components/atoms';
 import SelectInput from '@/components/atoms/SelectInput/SelectInput';
 import { cardExpirationDate } from '@/content/accountForms/cardExpirationDate';
-// import { paymentFormInputs } from '@/content/accountForms/paymentFormInputs';
 import styles from './ReuseableForm.module.css';
 import { paymentSchema } from '@/validationSchemas/userPaymentSchema';
 const ReusableForm = ({

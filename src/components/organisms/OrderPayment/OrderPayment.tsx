@@ -17,16 +17,17 @@ import { FcCheckmark, FcCancel } from 'react-icons/fc';
 const OrderPayment = () => {
   const [method, setMethod] = useState('');
   const [creditCards, setCreditCards] = useState<ICreditCard[]>([]);
-  const [selectedCardId, setSelectedCardId] = useState<number | null>(null); // Track selected card ID
-
+  const [selectedCardId, setSelectedCardId] = useState<number | null>(null);
+  const { setSelectedPaymentId } = useCheckoutContext();
 
   const handleMethodChange = (e: SelectChangeEvent<string>) => {
     setMethod(e.target.value as string);
-    setSelectedCardId(null); // Reset selected card ID when changing method
+    setSelectedCardId(null);
   };
 
   const handleCreditCard = async (id: number) => {
     setSelectedCardId(id);
+    setSelectedPaymentId(true);
     localStorage.setItem('paymentId', JSON.stringify(id));
   };
 

@@ -18,6 +18,8 @@ interface CheckoutContextProps {
   handlePaymentCardAdditing: (creditCardInfo: Omit<ICreditCard, 'id'>) => void;
   orderData: OrderDish;
   tableGuests: number;
+  selectedPaymentId: boolean;
+  setSelectedPaymentId: (selectedPaymentId: boolean) => void;
 }
 
 const CheckoutContext = createContext<CheckoutContextProps>(
@@ -34,8 +36,9 @@ export const CheckoutProvider = ({
   const [deliveryOrTakeOut, setDeliveryOrTakeOut] = useState<string>('');
   const [orderData, setOrderData] = useState({} as OrderDish);
   const [tableGuests, setTableGuests] = useState(0);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [creditCardData, setCreditCardData] = useState<ICreditCard>();
-  console.log('creditCardData', creditCardData);
+  const [selectedPaymentId, setSelectedPaymentId] = useState<boolean>(false);
 
   const updateCreditCardById = async (creditCard: ICreditCard) => {
     try {
@@ -43,7 +46,7 @@ export const CheckoutProvider = ({
         `/payment/${creditCard.id}`,
         creditCard,
       );
-      console.log('🚀 : updateCreditCardById : data', data);
+      console.log('updateCreditCardById : data', data);
     } catch (error) {
       console.log(error);
     }
@@ -62,7 +65,7 @@ export const CheckoutProvider = ({
       localStorage.removeItem('dishId');
       localStorage.removeItem('paymentId');
     } catch (error) {
-      console.log('🚀 : res', error);
+      console.log(error);
     }
   };
 
@@ -127,8 +130,8 @@ export const CheckoutProvider = ({
 
     const handleGetOrder = async (id: string) => {
       try {
-        const res = await axiosInstance.get(`/orders/${id}`);
-        setOrderData(res.data.message);
+        const res = await axiosInstance.get(`/order/${id}`);
+        setOrderData(res.data);
       } catch (error) {
         console.error(error);
       }
@@ -168,6 +171,8 @@ export const CheckoutProvider = ({
         handlePaymentCardAdditing,
         handlePaymentOrder,
         updateCreditCardById,
+        selectedPaymentId,
+        setSelectedPaymentId,
       }}>
       {children}
     </CheckoutContext.Provider>

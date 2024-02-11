@@ -44,7 +44,6 @@ const DishDetails = () => {
   }
 
   const { title, price, photoPath, portion, ingredients }: MenuItemData = dish;
-  console.log(dish);
   const handleEditClick = () => {
     setEditing(!editing);
   };
