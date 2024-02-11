@@ -4,35 +4,34 @@ import { useFormik, FormikValues } from 'formik';
 
 import axiosInstance from '@/services/restaurantAPI';
 import useMutation from '@/hooks/useMutation';
-import { getUserInfo } from './userInfo';
 import { PATHS } from '@/constants/paths';
 import { userInfoFormInputs } from '@/content/accountForms/userInfoFormInputs';
 import { userFormSchema } from '@/validationSchemas/userFormSchema';
-
 import { TextInput } from '@/components/atoms';
 import LoadingButtonFC from '@/components/atoms/LoadingButton/LoadingButton';
 
 import avatarHolderPic from '@/assets/images/avatar-icon-holder.jpeg';
 import styles from './UserInfoForm.module.css';
+import { useAuth } from '@/hooks/useAuth';
 
 const URL = '/images';
 const validFileTypes = ['image/jpeg', 'image/png', 'image/jpg'];
 
 const UserInfoForm = () => {
+  const { user } = useAuth();
+  const userId = user.id;
   const navigate = useNavigate();
   const [editMode, setEditMode] = useState<boolean>(false);
-  const [userId, setUserId] = useState<number>();
-  const [avatar, setAvatar] = useState<string>();
   const { mutate: uploadImage, isLoading: uploading } = useMutation({
     url: URL,
   });
   const [error, setError] = useState('');
   const formik = useFormik({
     initialValues: {
-      firstName: '',
-      lastName: '',
-      email: '',
-      phone: '',
+      firstName: user.firstName,
+      lastName: user.lastName,
+      email: user.email,
+      phone: user.phone,
       password: '',
     },
     validationSchema: userFormSchema,
@@ -50,32 +49,9 @@ const UserInfoForm = () => {
         console.log(err);
       }
       setEditMode(false);
-      navigate(PATHS.ACCOUNT);
+      navigate(0);
     },
   });
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const userData = await getUserInfo();
-        const userInformation = userData?.user;
-        setUserId(userInformation?.id);
-        setAvatar(userInformation?.avatar);
-        setUserId(userInformation?.id);
-        formik.setValues({
-          firstName: userInformation?.firstName || '',
-          lastName: userInformation?.lastName || '',
-          email: userInformation?.email || '',
-          phone: userInformation?.phone || '',
-          password: '',
-        });
-
-        return;
-      } catch (err) {
-        console.error(err);
-      }
-    };
-    fetchData();
-  }, []);
 
   const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files || e.target.files.length === 0) {
@@ -96,7 +72,10 @@ const UserInfoForm = () => {
     <div className={styles.user_info_section}>
       <div className={styles.user_image_wrapper}>
         <div className={styles.image}>
-          <img src={avatar ? avatar : avatarHolderPic} alt="profile pic" />
+          <img
+            src={user.avatar ? user.avatar : avatarHolderPic}
+            alt="profile pic"
+          />
         </div>
         <LoadingButtonFC
           uploading={uploading}
