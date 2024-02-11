@@ -49,7 +49,7 @@ const UserInfoForm = () => {
         console.log(err);
       }
       setEditMode(false);
-      navigate(0);
+      // navigate(0);
     },
   });
 
