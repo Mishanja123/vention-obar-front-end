@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
 import { useFormik, FormikValues } from 'formik';
 
 import axiosInstance from '@/services/restaurantAPI';
+import { useAuth } from '@/hooks/useAuth';
 import useMutation from '@/hooks/useMutation';
-import { PATHS } from '@/constants/paths';
 import { userInfoFormInputs } from '@/content/accountForms/userInfoFormInputs';
 import { userFormSchema } from '@/validationSchemas/userFormSchema';
 import { TextInput } from '@/components/atoms';
@@ -12,7 +11,6 @@ import LoadingButtonFC from '@/components/atoms/LoadingButton/LoadingButton';
 
 import avatarHolderPic from '@/assets/images/avatar-icon-holder.jpeg';
 import styles from './UserInfoForm.module.css';
-import { useAuth } from '@/hooks/useAuth';
 
 const URL = '/images';
 const validFileTypes = ['image/jpeg', 'image/png', 'image/jpg'];
@@ -20,7 +18,6 @@ const validFileTypes = ['image/jpeg', 'image/png', 'image/jpg'];
 const UserInfoForm = () => {
   const { user } = useAuth();
   const userId = user.id;
-  const navigate = useNavigate();
   const [editMode, setEditMode] = useState<boolean>(false);
   const { mutate: uploadImage, isLoading: uploading } = useMutation({
     url: URL,
@@ -49,7 +46,6 @@ const UserInfoForm = () => {
         console.log(err);
       }
       setEditMode(false);
-      // navigate(0);
     },
   });
 

@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
@@ -9,8 +8,8 @@ import Swal from 'sweetalert2';
 
 import { RootState, TypedDispatch } from '@/store/store';
 import { logout } from '@/store/auth/operations';
-import axiosInstance from '@/services/restaurantAPI';
 import { useCartContext } from '@/context/cartContext';
+import { useAuth } from '@/hooks/useAuth';
 import { PATHS } from '@/constants/paths';
 import { scrollToReservationForm } from '@/helpers';
 import { showReservationModal } from '@/helpers';
@@ -26,23 +25,11 @@ type ILocationProp = {
 
 const Navigation: React.FC<ILocationProp> = ({ loc }) => {
   const location = useLocation();
-  const [userIcon, setUserIcon] = useState('');
   const dispatch = useDispatch<TypedDispatch<RootState>>();
   const { cartItems } = useCartContext();
+  const { user } = useAuth();
+  const userIcon = user.avatar;
   const path = location.pathname;
-
-  const getUser = async () => {
-    try {
-      const res = await axiosInstance.get('/me');
-      setUserIcon(res.data.user.avatar);
-    } catch (error) {
-      console.error('Error fetching user data:', error);
-    }
-  };
-
-  useEffect(() => {
-    getUser();
-  }, []);
 
   const handleLogout = () => {
     Swal.fire({
