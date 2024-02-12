@@ -1,10 +1,10 @@
+import { useMemo, useState } from 'react';
+import { setHours, setMinutes, startOfDay, sub } from 'date-fns';
+import { FormikValues, FormikHelpers } from 'formik';
 import {
   TimePicker as MUITimePicker,
   TimeValidationError,
 } from '@mui/x-date-pickers';
-import { setHours, setMinutes, startOfDay, sub } from 'date-fns';
-import { FormikValues, FormikHelpers } from 'formik';
-import React from 'react';
 
 interface TimePickerProps {
   formik: {
@@ -26,9 +26,9 @@ const TimePicker = ({
   initialValue,
   pastEnabled,
 }: TimePickerProps) => {
-  const [error, setError] = React.useState<TimeValidationError | null>(null);
+  const [error, setError] = useState<TimeValidationError | null>(null);
 
-  const errorMessage = React.useMemo(() => {
+  const errorMessage = useMemo(() => {
     switch (error) {
       case 'disablePast': {
         return 'Please select a date in between our working hours';

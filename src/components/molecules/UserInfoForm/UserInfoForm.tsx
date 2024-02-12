@@ -1,47 +1,38 @@
+import React, { useState } from 'react';
 import { useFormik, FormikValues } from 'formik';
-import React from 'react';
-import styles from './UserInfoForm.module.css';
+
+import axiosInstance from '@/services/restaurantAPI';
+import { useAuth } from '@/hooks/useAuth';
+import useMutation from '@/hooks/useMutation';
 import { userInfoFormInputs } from '@/content/accountForms/userInfoFormInputs';
 import { userFormSchema } from '@/validationSchemas/userFormSchema';
 import { TextInput } from '@/components/atoms';
-import { useEffect, useState } from 'react';
-import { getUserInfo } from './userInfo';
-import axiosInstance from '@/services/restaurantAPI';
-import useMutation from '@/hooks/useMutation';
-import { useNavigate } from 'react-router-dom';
-import { PATHS } from '@/constants/paths';
 import LoadingButtonFC from '@/components/atoms/LoadingButton/LoadingButton';
+
 import avatarHolderPic from '@/assets/images/avatar-icon-holder.jpeg';
+import styles from './UserInfoForm.module.css';
 
 const URL = '/images';
 const validFileTypes = ['image/jpeg', 'image/png', 'image/jpg'];
 
 const UserInfoForm = () => {
-  const navigate = useNavigate();
+  const { user } = useAuth();
+  const userId = user.id;
   const [editMode, setEditMode] = useState<boolean>(false);
-  const [userId, setUserId] = useState<number>();
-  const [avatar, setAvatar] = useState<string>();
   const { mutate: uploadImage, isLoading: uploading } = useMutation({
     url: URL,
   });
   const [error, setError] = useState('');
   const formik = useFormik({
     initialValues: {
-      firstName: '',
-      lastName: '',
-      email: '',
-      phone: '',
+      firstName: user.firstName,
+      lastName: user.lastName,
+      email: user.email,
+      phone: user.phone,
       password: '',
     },
     validationSchema: userFormSchema,
-    onSubmit: async ({
-      firstName,
-      lastName,
-      email,
-      phone,
-      password,
-    }: FormikValues) => {
-      console.log(password);
+    onSubmit: async ({ firstName, lastName, email, phone }: FormikValues) => {
       try {
         const response = await axiosInstance.patch(`/users/${userId}`, {
           firstName: firstName,
@@ -55,32 +46,8 @@ const UserInfoForm = () => {
         console.log(err);
       }
       setEditMode(false);
-      navigate(PATHS.ACCOUNT);
     },
   });
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const userData = await getUserInfo();
-        const userInformation = userData?.user;
-        setUserId(userInformation?.id);
-        setAvatar(userInformation?.avatar);
-        setUserId(userInformation?.id);
-        formik.setValues({
-          firstName: userInformation?.firstName || '',
-          lastName: userInformation?.lastName || '',
-          email: userInformation?.email || '',
-          phone: userInformation?.phone || '',
-          password: '',
-        });
-
-        return;
-      } catch (err) {
-        console.error(err);
-      }
-    };
-    fetchData();
-  }, []);
 
   const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files || e.target.files.length === 0) {
@@ -96,11 +63,15 @@ const UserInfoForm = () => {
     form.append('image', file);
     await uploadImage({ file: form, userId });
   };
+
   return (
     <div className={styles.user_info_section}>
       <div className={styles.user_image_wrapper}>
         <div className={styles.image}>
-          <img src={avatar ? avatar : avatarHolderPic} alt="profile pic" />
+          <img
+            src={user.avatar ? user.avatar : avatarHolderPic}
+            alt="profile pic"
+          />
         </div>
         <LoadingButtonFC
           uploading={uploading}

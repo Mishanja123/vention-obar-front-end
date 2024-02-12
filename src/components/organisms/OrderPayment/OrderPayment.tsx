@@ -1,6 +1,5 @@
-import { Payment } from '@/components/molecules';
+import { useState } from 'react';
 import { FaCreditCard } from 'react-icons/fa';
-import styles from './OrderPayment.module.css';
 import {
   FormControl,
   InputLabel,

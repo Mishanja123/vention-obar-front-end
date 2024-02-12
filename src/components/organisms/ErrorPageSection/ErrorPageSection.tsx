@@ -1,7 +1,7 @@
 import Button from '../../atoms/Button/Button';
 
-import styles from './ErrorPageSection.module.css';
 import error from '@/assets/images/error.png';
+import styles from './ErrorPageSection.module.css';
 
 const ErrorPageSection: React.FC = () => {
   const handleRefreshClick = () => {

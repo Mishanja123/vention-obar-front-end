@@ -91,25 +91,27 @@ const OrderManagement: React.FC = () => {
               ))}
             </td>
             <td>
-              <Button
-                variant="outlined"
-                onClick={() =>
-                  handleCompleteOrder(order.id, OrderStatus.COMPLETED)
-                }>
-                Complate
-              </Button>
-              <Button
-                variant="outlined"
-                onClick={() =>
-                  handleCancelOrder(order.id, OrderStatus.CANCELED)
-                }>
-                Cancel
-              </Button>
-              <Button
-                variant="outlined"
-                onClick={() => handleDeleteOrder(order.id)}>
-                Delete
-              </Button>
+              <div className={styles.btn_wrap}>
+                <Button
+                  variant="outlined"
+                  onClick={() =>
+                    handleCompleteOrder(order.id, OrderStatus.COMPLETED)
+                  }>
+                  Complate
+                </Button>
+                <Button
+                  variant="outlined"
+                  onClick={() =>
+                    handleCancelOrder(order.id, OrderStatus.CANCELED)
+                  }>
+                  Cancel
+                </Button>
+                <Button
+                  variant="outlined"
+                  onClick={() => handleDeleteOrder(order.id)}>
+                  Delete
+                </Button>
+              </div>
             </td>
           </tr>
         ))}

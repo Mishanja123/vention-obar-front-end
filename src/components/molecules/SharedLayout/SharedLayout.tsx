@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 
-import { Header } from '../index.ts';
+import { Header } from '@/components/organisms';
 
 const SharedLayout = () => {
   return (

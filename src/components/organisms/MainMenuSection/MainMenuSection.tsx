@@ -1,12 +1,12 @@
+import { useEffect } from 'react';
+
 import { useMenuContext } from '@/context/menuContext';
+import { DISHCATEGORY } from '@/constants/categoryDish';
 
 import { SliderWrapper } from '@/components/atoms';
 import { MenuItem } from '@/components/molecules';
-import { DISHCATEGORY } from '@/constants/categoryDish';
 
 import styles from './MainMenuSection.module.css';
-
-import { useEffect } from 'react';
 
 const MainMenuSection = () => {
   const { items, setCategory } = useMenuContext();
@@ -17,7 +17,7 @@ const MainMenuSection = () => {
 
   return (
     <section id="menu" className={styles.menu_container}>
-      <h2 className={styles.menu_heading}>Menu</h2>
+      <h2 className={styles.menu_heading}>Chefs pick</h2>
       <ul className={styles.main_menu_list}>
         <SliderWrapper
           // @ts-expect-error existing value

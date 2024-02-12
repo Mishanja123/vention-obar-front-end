@@ -9,6 +9,11 @@ th {
   text-align: center;
   padding: 1rem;
 }
+.btn_wrap {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
 
 .edit_input {
   width: 100%;

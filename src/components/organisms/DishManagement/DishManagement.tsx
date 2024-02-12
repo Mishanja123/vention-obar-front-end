@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react';
-import { Button } from '@/components/atoms';
+
 import axiosInstance from '@/services/restaurantAPI';
-import styles from './DishManagement.module.css';
-import { IDish, Ingredients } from '@/types/dish';
-import { DISHCATEGORY } from '@/constants/categoryDish';
 import { useMenuContext } from '@/context/menuContext';
+import useMutation from '@/hooks/useMutation';
+import { DISHCATEGORY } from '@/constants/categoryDish';
+import { IDish, Ingredients } from '@/types/dish';
+
+import { Button } from '@/components/atoms';
 import IngredientsComponent from '@/components/molecules/IngredientsComponent/IngredientsComponent';
 import LoadingButtonFC from '@/components/atoms/LoadingButton/LoadingButton';
-import useMutation from '@/hooks/useMutation';
+
+import styles from './DishManagement.module.css';
 
 const URL = '/dish-images';
 const validFileTypes = ['image/jpeg', 'image/png', 'image/jpg'];
@@ -29,7 +32,7 @@ const DishManagement = () => {
     category: DISHCATEGORY.BAR_BLISS,
     price: '0',
     photoPath: '',
-    weight_grams: 0,
+    weightGrams: 0,
     ingredients: [
       {
         title: 'Ingredient 1',
@@ -126,7 +129,7 @@ const DishManagement = () => {
         category: DISHCATEGORY.BAR_BLISS,
         price: '0',
         photoPath: 'https://placehold.co/400',
-        weight_grams: 0,
+        weightGrams: 0,
         ingredients: [],
       });
     }
@@ -208,16 +211,16 @@ const DishManagement = () => {
                 {editingIndex === index ? (
                   <input
                     className={styles.dish_input}
-                    value={editedDish.weight_grams}
+                    value={editedDish.weightGrams}
                     onChange={(e) =>
                       setEditedDish({
                         ...editedDish,
-                        weight_grams: Number(e.target.value),
+                        weightGrams: Number(e.target.value),
                       })
                     }
                   />
                 ) : (
-                  dish.weight_grams
+                  dish.weightGrams
                 )}
               </td>
               <td>
@@ -226,9 +229,8 @@ const DishManagement = () => {
                     <>
                       {editedDish.photoPath ? (
                         <img
+                          className={styles.dish_img}
                           src={editedDish.photoPath}
-                          width={150}
-                          height={150}
                           alt="dish"
                         />
                       ) : (
@@ -248,8 +250,7 @@ const DishManagement = () => {
                 ) : (
                   <img
                     src={dish.photoPath}
-                    width={150}
-                    height={150}
+                    className={styles.dish_img}
                     alt="dish"
                   />
                 )}

@@ -4,21 +4,20 @@ import { useDispatch } from 'react-redux';
 import { IconContext } from 'react-icons';
 import { PiShoppingCartLight } from 'react-icons/pi';
 import iconHolder from '@/assets/images/avatar-icon-holder.jpeg';
+import Swal from 'sweetalert2';
 
+import { RootState, TypedDispatch } from '@/store/store';
+import { logout } from '@/store/auth/operations';
+import { useCartContext } from '@/context/cartContext';
+import { useAuth } from '@/hooks/useAuth';
 import { PATHS } from '@/constants/paths';
 import { scrollToReservationForm } from '@/helpers';
 import { showReservationModal } from '@/helpers';
-import { logout } from '@/store/auth/operations';
 
 import { LinkWrapper } from '@/components/atoms/index.ts';
 import { Button } from '@/components/atoms/index.ts';
 
 import styles from './Navigation.module.css';
-import { RootState, TypedDispatch } from '@/store/store';
-import { useCartContext } from '@/context/cartContext';
-import axiosInstance from '@/services/restaurantAPI';
-import { useEffect, useState } from 'react';
-import Swal from 'sweetalert2';
 
 type ILocationProp = {
   loc: string;
@@ -26,23 +25,11 @@ type ILocationProp = {
 
 const Navigation: React.FC<ILocationProp> = ({ loc }) => {
   const location = useLocation();
-  const [userIcon, setUserIcon] = useState('');
   const dispatch = useDispatch<TypedDispatch<RootState>>();
   const { cartItems } = useCartContext();
+  const { user } = useAuth();
+  const userIcon = user.avatar;
   const path = location.pathname;
-
-  const getUser = async () => {
-    try {
-      const res = await axiosInstance.get('/me');
-      setUserIcon(res.data.user.avatar);
-    } catch (error) {
-      console.error('Error fetching user data:', error);
-    }
-  };
-
-  useEffect(() => {
-    getUser();
-  }, []);
 
   const handleLogout = () => {
     Swal.fire({
@@ -58,6 +45,7 @@ const Navigation: React.FC<ILocationProp> = ({ loc }) => {
       }
     });
   };
+
   return (
     <div className={`${styles[loc]}`}>
       <LinkWrapper to={PATHS.MENU}>Menu</LinkWrapper>
@@ -89,9 +77,6 @@ const Navigation: React.FC<ILocationProp> = ({ loc }) => {
             <img src={iconHolder} alt="icon" />
           )}
         </div>
-        {/* <IconContext.Provider value={{ className: styles.profile_img }}>
-          <GoPerson />
-        </IconContext.Provider> */}
       </LinkWrapper>
       <Button variant="contained" onClick={handleLogout}>
         Log out

@@ -8,7 +8,6 @@ type Props = {
   type?: 'button' | 'submit' | 'reset' | undefined;
   isValid?: boolean;
   onClick?: () => void;
-  className?: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ref?: any;
 };

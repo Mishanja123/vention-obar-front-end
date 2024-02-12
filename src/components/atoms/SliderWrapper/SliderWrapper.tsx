@@ -1,7 +1,7 @@
+import { useMediaQuery } from 'react-responsive';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { useMediaQuery } from 'react-responsive';
 
 type SliderProps = {
   children?: React.ReactNode;

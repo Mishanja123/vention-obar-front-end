@@ -3,24 +3,24 @@
   flex-direction: row;
   justify-content: center;
   gap: 10em;
+  margin-bottom: 3rem;
 }
 
 .menu_navigation_btn {
   border: none;
   background-color: transparent;
   border-bottom: solid 2px var(--btn-rgba);
-  transition: all 0.4s;
+  transition: all 0.3s;
   color: var(--main-color);
 
-  padding-bottom: var(--desktop-internal-padding);
-}
-.menu_navigation_btn:hover {
-  border-bottom: solid 2px var(--text-color);
+  padding: 0.5rem;
 }
 .active {
-  transform: scale(1.1);
+  transform: scale(1.2);
+  color: var(--active);
   border-bottom: solid 2px var(--text-color);
   font-weight: var(--titles-subheadings-font-weight);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 @media screen and (max-width: 876px) {

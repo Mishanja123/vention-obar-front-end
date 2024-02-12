@@ -1,12 +1,14 @@
-import * as React from 'react';
-import { useState, useEffect } from 'react';
-import styles from './MobileMenu.module.css';
-import { IoIosClose } from 'react-icons/io';
-import { PATHS } from '@/constants/paths';
-import { IconContext } from 'react-icons';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import homeLogo from '@/assets/images/homeLogo.svg';
+import { IoIosClose } from 'react-icons/io';
+import { IconContext } from 'react-icons';
+
+import { PATHS } from '@/constants/paths';
+
 import { Navigation } from '@/components/molecules';
+
+import homeLogo from '@/assets/images/homeLogo.svg';
+import styles from './MobileMenu.module.css';
 
 type Props = {
   onClose: () => void;

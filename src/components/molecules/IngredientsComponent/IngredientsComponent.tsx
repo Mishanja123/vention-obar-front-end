@@ -1,4 +1,5 @@
 import { Ingredients } from '@/types/dish';
+
 import styles from './IngredientsComponent.module.css';
 
 interface IngredientsProps {

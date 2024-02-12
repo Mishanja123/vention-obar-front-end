@@ -59,7 +59,7 @@ const OrdersPageSection = () => {
       showCancelButton: true,
       cancelButtonText: 'Not now',
       confirmButtonColor: '#182715',
-      cancelButtonColor: '#b80f0a',
+      cancelButtonColor: '#d33',
       customClass: {
         popup: styles.confirmation_modal,
       },
@@ -97,7 +97,7 @@ const OrdersPageSection = () => {
       showCancelButton: true,
       cancelButtonText: 'Not now',
       confirmButtonColor: '#182715',
-      cancelButtonColor: '#b80f0a',
+      cancelButtonColor: '#d33',
       customClass: {
         popup: styles.confirmation_modal,
       },
@@ -171,8 +171,7 @@ const OrdersPageSection = () => {
                   <tr key={index} className={styles.order_table_item}>
                     <td className={styles.orders_image}>
                       <img
-                        width={150}
-                        height={150}
+                        className={styles.order_img}
                         src={item.dishData.photoPath!}
                         alt="dish"
                       />
@@ -195,7 +194,15 @@ const OrdersPageSection = () => {
                         } at ${order.orderDate.split(' ')[1]} for ${
                           order.guests
                         } guests`
-                      : ''}
+                      : order.type === OrderType.DELIVERY
+                        ? `Your order will be delivered on ${
+                            order.orderDate.split(' ')[0]
+                          } at ${order.orderDate.split(' ')[1]}`
+                        : order.type === OrderType.TAKE_AWAY
+                          ? `You can collect your order on ${
+                              order.orderDate.split(' ')[0]
+                            } at ${order.orderDate.split(' ')[1]}`
+                          : ''}
                   </td>
                 </tr>
               </tfoot>
