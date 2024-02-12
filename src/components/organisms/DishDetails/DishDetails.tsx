@@ -47,13 +47,6 @@ const DishDetails = () => {
   }
 
   const { title, price, photoPath, portion, ingredients }: MenuItemData = dish;
-  const handleEditClick = () => {
-    setEditing(!editing);
-  };
-
-  const handleSaveClick = () => {
-    setEditing(false);
-  };
 
   return (
     <div className={styles.menu_item_container}>

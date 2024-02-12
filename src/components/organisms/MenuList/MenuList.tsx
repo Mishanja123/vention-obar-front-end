@@ -7,7 +7,7 @@ import MenuPageSkeleton from '@/components/molecules/MenuPageSkeleton/MenuPageSk
 import styles from './MenuList.module.css';
 
 const MenuList = () => {
-  const { allItems, items, postsPerPage, totalPosts, paginate, currentPage } =
+  const { items, postsPerPage, totalPosts, paginate, currentPage } =
     useMenuContext();
 
   return (

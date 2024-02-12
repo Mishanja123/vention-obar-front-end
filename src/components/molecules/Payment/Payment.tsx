@@ -49,7 +49,7 @@ const Payment = () => {
       <h2 className={styles.payment_cards_title}>Add payment card</h2>
       <ReusableForm
         initialValues={formik.initialValues}
-        onSubmit={(values) => {
+        onSubmit={(values: ICreditCard) => {
           handlePaymentCardAdditing(values);
           setSelectedPaymentId(true);
         }}

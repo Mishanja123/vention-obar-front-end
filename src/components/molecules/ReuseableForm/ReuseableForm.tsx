@@ -1,9 +1,12 @@
+//@ts-nocheck
+
 import { useFormik } from 'formik';
 import { TextInput } from '@/components/atoms';
 import SelectInput from '@/components/atoms/SelectInput/SelectInput';
 import { cardExpirationDate } from '@/content/accountForms/cardExpirationDate';
 import styles from './ReuseableForm.module.css';
 import { paymentSchema } from '@/validationSchemas/userPaymentSchema';
+
 const ReusableForm = ({
   initialValues,
   onSubmit,

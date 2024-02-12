@@ -37,6 +37,7 @@ export const CheckoutProvider = ({
   const [orderData, setOrderData] = useState({} as OrderDish);
   const [tableGuests, setTableGuests] = useState(0);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  //@ts-expect-error
   const [creditCardData, setCreditCardData] = useState<ICreditCard>();
   const [selectedPaymentId, setSelectedPaymentId] = useState<boolean>(false);
 

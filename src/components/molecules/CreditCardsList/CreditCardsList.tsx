@@ -51,7 +51,7 @@ const CreditCardsList = () => {
           {editingCard && editingCard.id === card.id ? (
             <ReusableForm
               initialValues={editingCard}
-              onSubmit={(values) => handleSave(values)}
+              onSubmit={(values: ICreditCard) => handleSave(values)}
               formInputs={paymentFormInputs}
               submitButtonLabel="Save"
             />
