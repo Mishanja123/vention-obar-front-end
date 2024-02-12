@@ -2,6 +2,8 @@ import { PATHS } from '@/constants/paths';
 import { useCheckoutContext } from '@/context/checkoutContext';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { useAuth } from './useAuth';
+import { useCartContext } from '@/context/cartContext';
 type ButtonConfig = {
   [key: string]: {
     firstButton: string;
@@ -16,7 +18,8 @@ type ButtonConfig = {
 
 const useSummaryButton = ({ path }: { path: string }) => {
   const { handleDeleteOrder, handlePaymentOrder } = useCheckoutContext();
-
+  const { cartItems } = useCartContext();
+  const { user } = useAuth();
   const navigate = useNavigate();
   const paymentCardExist =
     !localStorage.getItem('paymentId') && path.includes(PATHS.ORDER_PAYMENT);
@@ -49,14 +52,14 @@ const useSummaryButton = ({ path }: { path: string }) => {
       disabled: false, // Always enabled
     },
     [PATHS.ORDER_PAYMENT]: {
-      firstButton: 'Pay $200 online',
+      firstButton: `Pay ${cartItems?.total} online`,
       secondButton: 'I’ll pay on the spot',
       firstButtonLink: PATHS.ORDER_PAYMENT,
       secondButtonLink: PATHS.ORDER_PAYMENT,
       onClickFirstButton: () => {
         handlePaymentOrder('online');
         Swal.fire({
-          title: 'Dear First Name!',
+          title: `Dear ${user.firstName}`,
           html: `
             <p>Big thanks for choosing us! We're really grateful you stopped by. Your support means a lot, and we're thrilled to have you dine with us. Looking forward to serving you again soon and making your experience even better.</p>
             <p>Cheers, OceanBar Team</p>
@@ -72,7 +75,7 @@ const useSummaryButton = ({ path }: { path: string }) => {
       onClickSecondButton: () => {
         handlePaymentOrder('offline');
         Swal.fire({
-          title: 'Dear First Name!',
+          title: `Dear ${user.firstName}`,
           html: `
             <p>Big thanks for choosing us! We're really grateful you stopped by. Your support means a lot, and we're thrilled to have you dine with us. Looking forward to serving you again soon and making your experience even better.</p>
             <p>Cheers, OceanBar Team</p>

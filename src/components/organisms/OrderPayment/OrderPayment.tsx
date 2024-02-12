@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { FaCreditCard } from 'react-icons/fa';
 import {
   FormControl,
@@ -12,7 +11,8 @@ import { useCheckoutContext } from '@/context/checkoutContext';
 import axiosInstance from '@/services/restaurantAPI';
 import { ICreditCard } from '@/types/creditCard';
 import { FcCheckmark, FcCancel } from 'react-icons/fc';
-
+import styles from './OrderPayment.module.css';
+import { Payment } from '@/components/molecules';
 const OrderPayment = () => {
   const [method, setMethod] = useState('');
   const [creditCards, setCreditCards] = useState<ICreditCard[]>([]);

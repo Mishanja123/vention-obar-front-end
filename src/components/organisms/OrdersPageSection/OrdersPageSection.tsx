@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 import { useCartContext } from '@/context/cartContext';
-import axiosInstance from '@/services/restaurantAPI';
+import { useAuth } from '@/hooks/useAuth';
 import { PATHS } from '@/constants/paths';
 import { IOrder, IDish, OrderStatus, OrderType } from '@/types/ordersList';
 
@@ -11,26 +11,13 @@ import { EmptyOrder } from '@/components/molecules';
 import { Button } from '@/components/atoms';
 
 import styles from './OrdersPageSection.module.css';
+import axiosInstance from '@/services/restaurantAPI';
 
 const OrdersPageSection = () => {
   const [allOrders, setallOrders] = useState<IOrder[]>([]);
-  const [userName, setUserName] = useState('');
   const navigate = useNavigate();
-
+  const { user } = useAuth();
   const { addToCart } = useCartContext();
-
-  const getUser = async () => {
-    try {
-      const res = await axiosInstance.get('/me');
-      setUserName(res.data.user.firstName);
-    } catch (error) {
-      console.error('Error fetching user data:', error);
-    }
-  };
-
-  useEffect(() => {
-    getUser();
-  }, []);
 
   const getAllOrders = async () => {
     try {
@@ -54,7 +41,7 @@ const OrdersPageSection = () => {
   };
   const handleCancelOrder = async (id: number, status: string) => {
     Swal.fire({
-      title: `Dear ${userName}!`,
+      title: `Dear ${user.firstName}!`,
       text: 'Are you sure you want to cancel this order?',
       showCancelButton: true,
       cancelButtonText: 'Not now',
@@ -92,7 +79,7 @@ const OrdersPageSection = () => {
 
   const handleRepeatOrder = (dishes: IDish[]) => {
     Swal.fire({
-      title: `Dear ${userName}!`,
+      title: `Dear ${user.firstName}!`,
       text: 'Are you sure you want to repeat this order?',
       showCancelButton: true,
       cancelButtonText: 'Not now',

@@ -47,7 +47,6 @@ const DeliveryAddressForm = () => {
       unit,
       flat,
     }: FormikValues) => {
-
       setUserAddress({
         addressTitle,
         city,
