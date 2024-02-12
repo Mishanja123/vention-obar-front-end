@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // const HOST = process.env.BASE_URL;
 
-const HOST = '3.122.191.202';
+const HOST = '3.120.224.255';
 
 console.log(HOST);
 
