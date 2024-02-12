@@ -29,7 +29,6 @@ const DeliveryAddressForm = () => {
 
   const [formMode, setFormMode] = useState<'add' | 'edit' | 'save'>('add');
 
-  console.log('🚀 : userAddress', userAddress);
   const formik = useFormik({
     initialValues: {
       addressTitle: '',
@@ -48,7 +47,6 @@ const DeliveryAddressForm = () => {
       unit,
       flat,
     }: FormikValues) => {
-      console.log(addressTitle, city, street, houseNumber, unit, flat);
 
       setUserAddress({
         addressTitle,
