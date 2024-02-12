@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const HOST = '3.120.224.255';
+const HOST = '54.93.202.73';
 
 // const HOST = 'localhost';
 
