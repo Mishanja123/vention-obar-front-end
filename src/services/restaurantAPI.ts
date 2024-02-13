@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const HOST = '3.79.63.62';
 
-// const HOST = 'localhost';
+const HOST = '3.120.224.255';
 
 console.log(HOST);
 
