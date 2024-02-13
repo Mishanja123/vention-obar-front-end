@@ -1,14 +1,3 @@
 {
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "Content-Security-Policy",
-          "value": "connect-src *"
-        }
-      ]
-    }
-  ],
   "rewrites": [{ "source": "/(.*)", "destination": "/" }]
 }
