@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // const HOST = import.meta.env.VITE_BACKEND_HOST; //create env file with this naming
 
-const HOST = '3.79.63.62';
+const HOST = '54.93.51.4';
 
 export const s3axiosInstance = axios.create({
   baseURL: `http://${HOST}:3000/api`,
