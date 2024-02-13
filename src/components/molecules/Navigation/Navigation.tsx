@@ -2,7 +2,6 @@ import { useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { IconContext } from 'react-icons';
-import { PiShoppingCartLight } from 'react-icons/pi';
 import { IoIosCart } from 'react-icons/io';
 import iconHolder from '@/assets/images/avatar-icon-holder.jpeg';
 import Swal from 'sweetalert2';
