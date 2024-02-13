@@ -1,6 +1,8 @@
 import { FormikErrors, FormikTouched, FormikValues } from 'formik';
-import styles from './NumberInput.module.css';
+
 import Icon from '../Icon/Icon';
+
+import styles from './NumberInput.module.css';
 
 interface NumberInputProps {
   formik: {
@@ -8,7 +10,7 @@ interface NumberInputProps {
     handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     handleBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
     errors: FormikErrors<{ guests: number }>;
-    touched: FormikTouched<FormikValues>; // Change the type to FormikTouched<FormikValues>
+    touched: FormikTouched<FormikValues>;
   };
   name: keyof FormikErrors<{ guests: number }>;
 }

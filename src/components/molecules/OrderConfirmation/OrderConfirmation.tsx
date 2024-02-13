@@ -1,10 +1,13 @@
-import { Button } from '@/components/atoms';
-import styles from './OrderConfirmation.module.css';
-import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+
 import { PATHS } from '@/constants/paths';
 import { useCheckoutContext } from '@/context/checkoutContext';
 import { useCartContext } from '@/context/cartContext';
+
+import { Button } from '@/components/atoms';
+
+import styles from './OrderConfirmation.module.css';
 
 const OrderConfirmation = () => {
   const navigate = useNavigate();
@@ -12,8 +15,9 @@ const OrderConfirmation = () => {
   const { cartItems } = useCartContext();
 
   const { orderData, handleDeleteOrder, tableGuests } = useCheckoutContext();
-  const orderDate = orderData.order_date?.split(' ')[0] || 'MM/DD/YY';
-  const orderTime = orderData.order_date?.split(' ')[1] || 'HH/MM';
+
+  const orderDate = orderData.orderDate?.split(' ')[0] || 'MM/DD/YY';
+  const orderTime = orderData.orderDate?.split(' ')[1] || 'HH/MM';
 
   const orderInfo =
     orderData.type === 'delivery'
@@ -31,8 +35,8 @@ const OrderConfirmation = () => {
       icon: 'warning',
       showCancelButton: true,
       cancelButtonText: "Yes, I'm sure",
-      confirmButtonColor: '#182715',
-      cancelButtonColor: '#182715',
+      confirmButtonColor: 'rgb(24, 39, 21)',
+      cancelButtonColor: '#d33',
       customClass: {
         popup: styles.confirmation_modal,
       },

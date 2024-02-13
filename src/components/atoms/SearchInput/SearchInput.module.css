@@ -8,7 +8,8 @@
 
 .search_bar {
   width: auto;
-  color: var(--accent-color);
+  border-radius: 10%;
+  color: black;
 }
 
 @media screen and (max-width: 876px) {

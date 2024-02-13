@@ -1,6 +1,7 @@
 :root {
   /* Colors */
   --main-color: #182715;
+  --light-bg: #233b1e;
   --accent-color: #e5b63f;
   --neutral-color: #f1e9d9;
   --highlight-color: #8dcc7e;
@@ -14,6 +15,9 @@
   --additional-accent-color: #008080;
   --neutral-background: #fff5e1;
   --error-color: #860c0c;
+  --completed: green;
+  --active: #f6be00;
+  --cancel: red;
 
   --progress-bar-color: #aca7a7;
 }

@@ -1,11 +1,14 @@
-import { SummaryPayment } from '@/components/molecules';
-import { Button } from '@/components/atoms';
-import styles from './CheckoutSummary.module.css';
-import { PATHS } from '@/constants/paths';
 import { Link } from 'react-router-dom';
-import useSummaryButton from '@/hooks/useSummaryButton';
+
+import { PATHS } from '@/constants/paths';
 import { useCheckoutContext } from '@/context/checkoutContext';
 import { useCartContext } from '@/context/cartContext';
+import useSummaryButton from '@/hooks/useSummaryButton';
+
+import { Button } from '@/components/atoms';
+import { SummaryPayment } from '@/components/molecules';
+
+import styles from './CheckoutSummary.module.css';
 
 const CheckoutSummary = ({ path }: { path: string }) => {
   const {
@@ -17,12 +20,14 @@ const CheckoutSummary = ({ path }: { path: string }) => {
     onClickSecondButton,
     disabled,
   } = useSummaryButton({ path });
-  const { orderData } = useCheckoutContext();
+  const { orderData, selectedPaymentId } = useCheckoutContext();
   const { cartItems, allDishesQuantity } = useCartContext();
+  console.log('selectedPaymentId', selectedPaymentId);
 
   const forbidProceeding =
     (firstButton === 'Proceed' && typeof orderData === 'string') ||
-    Object.keys(orderData).length === 0;
+    !orderData ||
+    Object.keys(orderData)?.length === 0;
 
   return (
     <div className={styles.summary_section}>
@@ -32,7 +37,13 @@ const CheckoutSummary = ({ path }: { path: string }) => {
         total={cartItems?.total}>
         <div className={styles.summary_btn_wrapper}>
           <Link
-            className={forbidProceeding || disabled ? styles.inactive : ''}
+            className={
+              forbidProceeding ||
+              disabled ||
+              (!selectedPaymentId && path.includes(PATHS.ORDER_PAYMENT))
+                ? styles.inactive
+                : ''
+            }
             to={firstButtonLink}
             onClick={onClickFirstButton}>
             <Button variant="contained" type="button">
@@ -40,7 +51,6 @@ const CheckoutSummary = ({ path }: { path: string }) => {
             </Button>
           </Link>
           <Link
-            className={disabled ? styles.inactive : ''}
             onClick={onClickSecondButton}
             to={secondButton === 'Change order type' ? '#' : secondButtonLink}>
             <Button variant="text" type="button">

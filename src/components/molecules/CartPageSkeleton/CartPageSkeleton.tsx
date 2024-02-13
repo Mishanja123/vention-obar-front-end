@@ -1,18 +1,18 @@
 import { Skeleton } from '@mui/material';
 
-import styles from './MenuPageSkeleton.module.css';
+import styles from './CartPageSkeleton.module.css';
 
-function MenuPageSkeleton() {
+function CartPageSkeleton() {
   return (
     <>
       <ul className={styles.skeleton_swiper_list}>
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => (
+        {[1, 2].map((item) => (
           <Skeleton
             animation="wave"
             variant="rounded"
-            width={256}
+            width={600}
             className={styles.skeleton_swiper_item}
-            height={380}
+            height={300}
             key={item}></Skeleton>
         ))}
       </ul>
@@ -20,4 +20,4 @@ function MenuPageSkeleton() {
   );
 }
 
-export default MenuPageSkeleton;
+export default CartPageSkeleton;

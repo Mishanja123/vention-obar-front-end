@@ -1,7 +1,9 @@
 import React from 'react';
-import styles from './MenuSection.module.css';
 import { Outlet } from 'react-router-dom';
+
 import MenuNavigator from '@/components/molecules/MenuNavigator/MenuNavigator';
+
+import styles from './MenuSection.module.css';
 
 type MenuSectionProps = object;
 

@@ -1,23 +1,23 @@
+import { useEffect } from 'react';
+
 import { useMenuContext } from '@/context/menuContext';
+import { DISHCATEGORY } from '@/constants/categoryDish';
 
 import { SliderWrapper } from '@/components/atoms';
 import { MenuItem } from '@/components/molecules';
-import { DISHCATEGORY } from '@/constants/categoryDish';
 
 import styles from './MainMenuSection.module.css';
-
-import { useEffect } from 'react';
 
 const MainMenuSection = () => {
   const { items, setCategory } = useMenuContext();
 
   useEffect(() => {
     setCategory(DISHCATEGORY.CHEFS_PICK);
-  }, []);
+  }, [setCategory]);
 
   return (
     <section id="menu" className={styles.menu_container}>
-      <h2 className={styles.menu_heading}>Menu</h2>
+      <h2 className={styles.menu_heading}>Chefs pick</h2>
       <ul className={styles.main_menu_list}>
         <SliderWrapper
           // @ts-expect-error existing value
@@ -33,7 +33,6 @@ const MainMenuSection = () => {
           centerMode={true}
           centerPadding={-100}>
           {items && items.length > 0 ? (
-            //@ts-ignore
             items.map((item) => <MenuItem key={item.id} {...item} />)
           ) : (
             <p>Loading...</p>

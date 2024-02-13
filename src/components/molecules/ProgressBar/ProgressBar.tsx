@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useLocation, Location } from 'react-router-dom';
-import styles from './ProgressBar.module.css';
+
 import { PATHS } from '@/constants/paths';
+
+import styles from './ProgressBar.module.css';
 
 const ProgressBar: React.FC = () => {
   const [progress, setProgress] = useState<number>(0);
@@ -27,28 +29,6 @@ const ProgressBar: React.FC = () => {
   }, [path]);
   return (
     <>
-      {/* <ol className={styles.progressBar_container}>
-        <li className={styles.stepContainer}>
-          <div className={`${styles.circle} ${styles.isActive}`}></div>
-          <p className={styles.progressBar_title}>Order Type</p>
-        </li>
-        <div className={styles.line}></div>
-        <li className={styles.stepContainer}>
-          <div
-            className={`${styles.circle} ${
-              progress >= 1 ? styles.isActive : ''
-            }`}></div>
-          <p className={styles.progressBar_title}>Confirmation</p>
-        </li>
-        <div className={styles.line}></div>
-        <li className={styles.stepContainer}>
-          <div
-            className={`${styles.circle} ${
-              progress === 2 ? styles.isActive : ''
-            }`}></div>
-          <p className={styles.progressBar_title}>Payment</p>
-        </li>
-      </ol> */}
       <div className={styles.progress_bar_wrapper}>
         <div className={styles.container}>
           <div className={styles.steps}>

@@ -1,9 +1,12 @@
+import { useState } from 'react';
 import { useFormik, FormikValues } from 'formik';
-import styles from './DeliveryAddressForm.module.css';
+
 import { deliveryAddressFormSchema } from '@/validationSchemas/deliveryAddressFormSchema';
 import { deliveryAddressFormInputs } from '@/content/accountForms/deliveryAddressFormInputs';
+
 import { TextInput } from '@/components/atoms';
-import { useState } from 'react';
+
+import styles from './DeliveryAddressForm.module.css';
 
 interface IUserAddress {
   addressTitle: string;
@@ -26,7 +29,6 @@ const DeliveryAddressForm = () => {
 
   const [formMode, setFormMode] = useState<'add' | 'edit' | 'save'>('add');
 
-  console.log('🚀 : userAddress', userAddress);
   const formik = useFormik({
     initialValues: {
       addressTitle: '',
@@ -45,8 +47,6 @@ const DeliveryAddressForm = () => {
       unit,
       flat,
     }: FormikValues) => {
-      console.log(addressTitle, city, street, houseNumber, unit, flat);
-
       setUserAddress({
         addressTitle,
         city,

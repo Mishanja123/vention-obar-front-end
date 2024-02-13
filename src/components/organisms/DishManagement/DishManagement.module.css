@@ -10,10 +10,11 @@ th {
   padding: 1rem;
 }
 
-.dish_table tr:nth-child(even) {
-  background-color: var(--accent-color);
+.dish_img {
+  border-radius: 1rem;
+  width: 150px;
+  height: 150px;
 }
-
 .action_buttons {
   display: flex;
   gap: 1rem;

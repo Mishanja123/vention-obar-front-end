@@ -1,7 +1,11 @@
-import styles from './MenuItem.module.css';
-import { PATHS } from '@/constants/paths';
 import { Link } from 'react-router-dom';
+
 import { useCartContext } from '@/context/cartContext';
+import { PATHS } from '@/constants/paths';
+
+import { Button } from '@/components/atoms';
+
+import styles from './MenuItem.module.css';
 interface MenuItemProps {
   id: number;
   photoPath: string;
@@ -22,11 +26,9 @@ const MenuItem = (props: MenuItemProps) => {
         <p className={styles.menu_item_title}>{title}</p>
         <p className={styles.menu_item_price}>{price}$</p>
       </Link>
-      <button
-        onClick={() => addToCart(Number(id))}
-        className={styles.add_to_cart_btn}>
+      <Button variant="contained" onClick={() => addToCart(Number(id))}>
         Add to cart
-      </button>
+      </Button>
     </li>
   );
 };

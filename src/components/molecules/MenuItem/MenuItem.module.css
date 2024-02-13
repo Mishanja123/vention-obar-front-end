@@ -8,14 +8,14 @@
   padding: 1rem;
   border-radius: 1rem;
   text-align: center;
-  list-style: none;
   background-color: var(--neutral-color);
 }
 
 .menu_item_img {
-  width: 11.25rem;
+  width: 224px;
   height: 10.625rem;
   margin-bottom: 1rem;
+  border-radius: 1rem;
 }
 .menu_item_title {
   font-size: var(--font-size-s);

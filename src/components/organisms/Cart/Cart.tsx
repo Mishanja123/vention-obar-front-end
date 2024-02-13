@@ -1,16 +1,24 @@
-import { CartItems, EmptyCart, SummaryPayment } from '@/components/molecules';
-import styles from './Cart.module.css';
-import { Button } from '@/components/atoms';
 import { Link } from 'react-router-dom';
+
 import { PATHS } from '@/constants/paths';
 import { useCartContext } from '@/context/cartContext';
+
+import {
+  CartItems,
+  CartPageSkeleton,
+  EmptyCart,
+  SummaryPayment,
+} from '@/components/molecules';
+import { Button } from '@/components/atoms';
+
+import styles from './Cart.module.css';
 
 const Cart = () => {
   const { cartItems, removeAllFromCart, isLoadingCart, allDishesQuantity } =
     useCartContext();
 
   if (isLoadingCart) {
-    return <div>loading</div>;
+    return <CartPageSkeleton />;
   }
 
   return cartItems?.dishes?.length === 0 ? (
@@ -18,11 +26,9 @@ const Cart = () => {
   ) : (
     <div className={styles.cart}>
       <div className={styles.cart_list_wrapper}>
-        <button
-          onClick={() => removeAllFromCart()}
-          className={styles.cart_remove_all_btn}>
+        <Button variant="contained" onClick={() => removeAllFromCart()}>
           Remove all
-        </button>
+        </Button>
         <ul className={styles.cart_list}>
           {cartItems?.dishes?.map((item) => (
             <CartItems

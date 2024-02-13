@@ -40,6 +40,7 @@
   height: 1.4rem;
   font-family: var(--text-font);
   background-color: var(--additional-accent-color);
+  color: var(--neutral-color);
 }
 .cart_wrapper {
   position: relative;

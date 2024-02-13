@@ -2,6 +2,8 @@ import React, { createContext, useState, useContext, useEffect } from 'react';
 import axiosInstance from '../services/restaurantAPI';
 import { IDish } from '@/types/dish';
 import { useAuth } from '@/hooks/useAuth';
+import Swal from 'sweetalert2';
+
 interface CartItems {
   id: number;
   total: number;
@@ -9,6 +11,7 @@ interface CartItems {
   userId: number;
   dishes: { dishData: IDish; quantity: number; subtotal: number }[];
 }
+
 interface CartContextProps {
   cartItems: CartItems;
   allDishesQuantity: number;
@@ -40,6 +43,11 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
         }
       } catch (error) {
         console.error('Error fetching cart:', error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Error!',
+          text: 'There was an error fetching your cart. Please try again later.',
+        });
       } finally {
         setIsLoadingCart(false);
       }
@@ -54,17 +62,83 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     try {
       const { data } = await axiosInstance.post('/cart', { productId });
       setCartItems(data);
+      Swal.fire({
+        icon: 'success',
+        title: 'Added to Cart!',
+        showConfirmButton: false,
+        position: 'top-end',
+        timer: 1500,
+        toast: true,
+        customClass: {
+          popup: 'swal2-toast',
+          title: 'swal2-toast-title',
+        },
+      });
     } catch (error) {
       console.error('Error adding to cart:', error);
+      await Swal.fire({
+        icon: 'error',
+        title: 'Error!',
+        text: 'There was an error adding to your cart. Please try again later.',
+        position: 'top-end',
+        toast: true,
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        customClass: {
+          popup: 'swal2-toast',
+          title: 'swal2-toast-title',
+        },
+      });
     }
   };
 
   const removeAllFromCart = async () => {
     try {
-      const { data } = await axiosInstance.delete('/cart');
-      setCartItems(data);
+      const { value: confirmed } = await Swal.fire({
+        icon: 'question',
+        title: 'Are you sure?',
+        text: 'Do you really want to remove all items from your cart?',
+        showCancelButton: true,
+        confirmButtonColor: '#182715',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, clear it!',
+        cancelButtonText: 'No, cancel!',
+      });
+
+      if (confirmed) {
+        const { data } = await axiosInstance.delete('/cart');
+        setCartItems(data);
+        await Swal.fire({
+          icon: 'success',
+          title: 'Cart Cleared!',
+          showConfirmButton: false,
+          position: 'top-end',
+          timer: 1500,
+          timerProgressBar: true,
+          toast: true,
+          customClass: {
+            popup: 'swal2-toast',
+            title: 'swal2-toast-title',
+          },
+        });
+      }
     } catch (error) {
       console.error('Error removing from cart:', error);
+      await Swal.fire({
+        icon: 'error',
+        title: 'Error!',
+        text: 'There was an error removing from your cart. Please try again later.',
+        position: 'top-end',
+        toast: true,
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        customClass: {
+          popup: 'swal2-toast',
+          title: 'swal2-toast-title',
+        },
+      });
     }
   };
 
@@ -72,8 +146,34 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     try {
       const { data } = await axiosInstance.delete(`/cart/${productId}`);
       setCartItems(data);
+      Swal.fire({
+        icon: 'success',
+        title: 'Dish Tossed!',
+        showConfirmButton: false,
+        position: 'top-end',
+        timer: 1500,
+        toast: true,
+        customClass: {
+          popup: 'swal2-toast',
+          title: 'swal2-toast-title',
+        },
+      });
     } catch (error) {
       console.error('Error removing from cart:', error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Error!',
+        text: 'There was an error removing from your cart. Please try again later.',
+        position: 'top-end',
+        toast: true,
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        customClass: {
+          popup: 'swal2-toast',
+          title: 'swal2-toast-title',
+        },
+      });
     }
   };
 
@@ -88,7 +188,21 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
       });
       setCartItems(data);
     } catch (error) {
-      console.error('Error removing from cart:', error);
+      console.error('Error updating cart:', error);
+      await Swal.fire({
+        icon: 'error',
+        title: 'Error!',
+        text: 'There was an error updating your cart. Please try again later.',
+        position: 'top-end',
+        toast: true,
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        customClass: {
+          popup: 'swal2-toast',
+          title: 'swal2-toast-title',
+        },
+      });
     }
   };
 

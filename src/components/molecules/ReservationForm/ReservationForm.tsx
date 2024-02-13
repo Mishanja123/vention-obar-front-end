@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import Swal from 'sweetalert2';
-import { LocalizationProvider } from '@mui/x-date-pickers';
-import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { useFormik, FormikValues } from 'formik';
 import { add, format, setHours, setMinutes, startOfDay } from 'date-fns';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import Swal from 'sweetalert2';
 
 import { PATHS } from '@/constants/paths';
 import { getValidationSchema } from '@/validationSchemas/MainPageReservationFormSchema';
@@ -21,15 +21,15 @@ import styles from './ReservationForm.module.css';
 
 const today = new Date();
 let disablePast: boolean = true;
-const currentTime = add(today, { minutes: 1 });
+const currentTime = add(today, { hours: 2 });
 const startOfWorkingDay = setMinutes(setHours(startOfDay(new Date()), 8), 0);
 
 const ReservationForm = () => {
+  const { sendReservation } = useCheckoutContext();
   const [minTime, setMinTime] = useState(today);
   const location = useLocation();
   const navigate = useNavigate();
 
-  const { sendReservation } = useCheckoutContext();
   const withPreorder = location.pathname === '/checkout/booktable';
   const validationSchema = getValidationSchema(minTime);
   const formik = useFormik({
@@ -48,34 +48,33 @@ const ReservationForm = () => {
         icon: 'info',
         showCancelButton: true,
         confirmButtonColor: '#182715',
-        cancelButtonColor: '#182715',
+        cancelButtonColor: '#d33',
         confirmButtonText: 'Confirm!',
         customClass: {
           popup: styles.confirmation_modal,
         },
       }).then((result) => {
         if (result.isConfirmed) {
-          if (withPreorder) {
-            try {
-              sendReservation(date, time, guests, withPreorder);
-              Swal.fire({
-                title: 'Confirmed!',
-                text: 'Thank you for your reservation! We look forward to seeing you!',
-                icon: 'success',
-                confirmButtonColor: '#182715',
-                customClass: {
-                  popup: styles.confirmation_modal,
-                },
-              });
+          try {
+            sendReservation(date, time, guests, withPreorder);
+            Swal.fire({
+              title: 'Confirmed!',
+              text: 'Thank you for your reservation! We look forward to seeing you!',
+              icon: 'success',
+              confirmButtonColor: '#182715',
+              customClass: {
+                popup: styles.confirmation_modal,
+              },
+            });
+            if (withPreorder)
               navigate(`${PATHS.CHECKOUT}/${PATHS.ORDER_CONFIRMATION}`);
-            } catch (error) {
-              console.error('Error sending reservation:', error);
-              Swal.fire({
-                title: 'Error',
-                text: 'An error occurred while processing your reservation. Please try again.',
-                icon: 'error',
-              });
-            }
+          } catch (error) {
+            console.error('Error sending reservation:', error);
+            Swal.fire({
+              title: 'Error',
+              text: 'An error occurred while processing your reservation. Please try again.',
+              icon: 'error',
+            });
           }
         }
       });

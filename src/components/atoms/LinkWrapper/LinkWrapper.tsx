@@ -11,9 +11,7 @@ const LinkWrapper = ({ to, children }: Props) => {
   return (
     <NavLink
       to={to}
-      className={({ isActive }) =>
-        isActive ? styles.active : styles.header_link_item
-      }>
+      className={({ isActive }) => (isActive ? styles.active : '')}>
       {children}
     </NavLink>
   );

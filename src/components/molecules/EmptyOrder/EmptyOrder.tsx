@@ -1,10 +1,11 @@
-import styles from './EmptyOrder.module.css';
-import cart from '@/assets/images/cart.png';
+import { useNavigate } from 'react-router-dom';
+
+import { PATHS } from '@/constants/paths';
 
 import { Button } from '@/components/atoms';
 
-import { useNavigate } from 'react-router-dom';
-import { PATHS } from '@/constants/paths';
+import cart from '@/assets/images/cart.png';
+import styles from './EmptyOrder.module.css';
 
 const EmptyOrder = () => {
   const navigate = useNavigate();

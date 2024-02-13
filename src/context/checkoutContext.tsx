@@ -11,19 +11,15 @@ interface CheckoutContextProps {
     withPreorder: boolean,
   ) => void;
   sendDeliveryOrTakeOut: (date: string, time: string) => void;
+  updateCreditCardById: (creditCard: ICreditCard) => void;
   handlePaymentOrder: (type: string) => void;
   setDeliveryOrTakeOut: (type: string) => void;
   handleDeleteOrder: () => void;
-  handlePaymentCardAdditing: (
-    addressTitle: string,
-    cardNumber: string,
-    cardHolder: string,
-    cvvNumber: number,
-    month: number,
-    year: number,
-  ) => void;
+  handlePaymentCardAdditing: (creditCardInfo: Omit<ICreditCard, 'id'>) => void;
   orderData: OrderDish;
   tableGuests: number;
+  selectedPaymentId: boolean;
+  setSelectedPaymentId: (selectedPaymentId: boolean) => void;
 }
 
 const CheckoutContext = createContext<CheckoutContextProps>(
@@ -40,24 +36,37 @@ export const CheckoutProvider = ({
   const [deliveryOrTakeOut, setDeliveryOrTakeOut] = useState<string>('');
   const [orderData, setOrderData] = useState({} as OrderDish);
   const [tableGuests, setTableGuests] = useState(0);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  //@ts-expect-error
   const [creditCardData, setCreditCardData] = useState<ICreditCard>();
-  console.log('🚀 : creditCardData', creditCardData);
+  const [selectedPaymentId, setSelectedPaymentId] = useState<boolean>(false);
+
+  const updateCreditCardById = async (creditCard: ICreditCard) => {
+    try {
+      const { data } = await axiosInstance.patch(
+        `/payment/${creditCard.id}`,
+        creditCard,
+      );
+      console.log('updateCreditCardById : data', data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handlePaymentOrder = async (type: string) => {
     const dishId = localStorage.getItem('dishId');
     const paymentId = localStorage.getItem('paymentId');
 
     try {
-      const res = await axiosInstance.post('/payout', {
+      await axiosInstance.post('/payout', {
         type,
         orderId: dishId,
         paymentId,
       });
-      console.log('🚀 : res', res.data);
-      localStorage.setItem('dishId', '');
-      localStorage.setItem('paymentId', '');
+      localStorage.removeItem('dishId');
+      localStorage.removeItem('paymentId');
     } catch (error) {
-      console.log('🚀 : res', error);
+      console.log(error);
     }
   };
 
@@ -76,17 +85,17 @@ export const CheckoutProvider = ({
     setTableGuests(guests);
     localStorage.setItem('dishId', JSON.stringify(res.data.reservation.id));
 
-    setOrderData(res.data.message);
+    setOrderData(res.data.reservation);
   };
 
   const sendDeliveryOrTakeOut = async (date: string, time: string) => {
     const res = await axiosInstance.post('/orders', {
-      orderDate: date,
+      date,
       type: deliveryOrTakeOut,
       time,
     });
     localStorage.setItem('dishId', JSON.stringify(res.data.order.id));
-    setOrderData(res.data.message);
+    setOrderData(res.data.order);
   };
 
   const handleDeleteOrder = async () => {
@@ -103,21 +112,11 @@ export const CheckoutProvider = ({
   };
 
   const handlePaymentCardAdditing = async (
-    addressTitle: string,
-    cardNumber: string,
-    cardHolder: string,
-    cvvNumber: number,
-    month: number,
-    year: number,
+    creditCardInfo: Omit<ICreditCard, 'id'>,
   ) => {
     try {
       const res = await axiosInstance.post('/payment', {
-        addressTitle,
-        cardNumber,
-        cardHolder,
-        cvvNumber,
-        month,
-        year,
+        ...creditCardInfo,
       });
       localStorage.setItem('paymentId', JSON.stringify(res.data));
       setCreditCardData(res.data);
@@ -132,8 +131,8 @@ export const CheckoutProvider = ({
 
     const handleGetOrder = async (id: string) => {
       try {
-        const res = await axiosInstance.get(`/orders/${id}`);
-        setOrderData(res.data.message);
+        const res = await axiosInstance.get(`/order/${id}`);
+        setOrderData(res.data);
       } catch (error) {
         console.error(error);
       }
@@ -172,6 +171,9 @@ export const CheckoutProvider = ({
         tableGuests,
         handlePaymentCardAdditing,
         handlePaymentOrder,
+        updateCreditCardById,
+        selectedPaymentId,
+        setSelectedPaymentId,
       }}>
       {children}
     </CheckoutContext.Provider>

@@ -16,7 +16,9 @@
   }
 
   @media screen and (min-width: 1450px) {
-    width: 31rem;
+    margin: 0;
+
+    width: 25rem;
     padding: 20px;
   }
 }
@@ -36,9 +38,7 @@
     font-size: var(--font-size-xxl);
   }
 }
-.summary_list {
-  list-style: none;
-}
+
 .summary_item {
   display: flex;
   justify-content: space-between;
@@ -46,9 +46,6 @@
 
   @media screen and (min-width: 876px) {
     font-size: var(--font-size-xl);
-  }
-
-  @media screen and (min-width: 1450px) {
   }
 }
 

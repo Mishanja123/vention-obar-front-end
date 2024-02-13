@@ -1,6 +1,8 @@
 import { ReactNode } from 'react';
-import styles from './SelectInput.module.css';
+
 import { SelectInputProps } from '@/types/selectInputProps';
+
+import styles from './SelectInput.module.css';
 
 const SelectInput: React.FC<SelectInputProps> = ({
   formik,

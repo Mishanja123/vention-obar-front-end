@@ -1,30 +1,19 @@
 import { useEffect, useState } from 'react';
+
 import axiosInstance from '@/services/restaurantAPI';
-import styles from './OrderManagement.module.css';
+import { IOrder, OrderStatus } from '@/types/ordersList';
+
 import { Button } from '@/components/atoms';
-interface Dish {
-  dishData: {
-    id: number;
-    title: string;
-  };
-  quantity: number;
-}
-interface Order {
-  id: number;
-  UserId: number;
-  orderDate: string;
-  status: string;
-  dishes: Dish[];
-}
+
+import styles from './OrderManagement.module.css';
 
 const OrderManagement: React.FC = () => {
-  const [orders, setOrders] = useState<Order[]>([]);
+  const [orders, setOrders] = useState<IOrder[]>([]);
 
   const fetchOrders = async () => {
     try {
       const response = await axiosInstance.get('/orders-admin');
-      const fetchedOrders: { orders: Order[] } = await response.data;
-      console.log(response.data);
+      const fetchedOrders: { orders: IOrder[] } = await response.data;
       // @ts-expect-error unknown
       setOrders(fetchedOrders);
     } catch (error) {
@@ -35,20 +24,27 @@ const OrderManagement: React.FC = () => {
     fetchOrders();
   }, []);
 
-  const handleDeleteOrder = async (id: number) => {
+  const handleCompleteOrder = async (id: number, status: string) => {
     try {
-      await axiosInstance.delete(`/orders/${id}`);
+      await axiosInstance.patch(`/order/${id}`, { status: status });
       fetchOrders();
     } catch (error) {
       console.log(error);
     }
   };
 
-  const handleCloseOrder = async (id: number) => {
+  const handleCancelOrder = async (id: number, status: string) => {
     try {
-      await axiosInstance.patch(`/api/order-update/${id}`, {
-        status: 'completed',
-      });
+      await axiosInstance.patch(`/order/${id}`, { status: status });
+      fetchOrders();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleDeleteOrder = async (id: number) => {
+    try {
+      await axiosInstance.delete(`/order/${id}`);
       fetchOrders();
     } catch (error) {
       console.log(error);
@@ -75,7 +71,16 @@ const OrderManagement: React.FC = () => {
             <td>{order.id}</td>
             <td>{order.UserId}</td>
             <td>{order.orderDate}</td>
-            <td>{order.status}</td>
+            <td
+              className={
+                order.status === OrderStatus.CANCELED
+                  ? styles.canceled
+                  : order.status === OrderStatus.ACTIVE
+                    ? styles.active
+                    : styles.completed
+              }>
+              {order.status}
+            </td>
             <td>
               {order.dishes.map((dish) => (
                 <p key={dish.dishData.id}>
@@ -86,16 +91,27 @@ const OrderManagement: React.FC = () => {
               ))}
             </td>
             <td>
-              <Button
-                variant="outlined"
-                onClick={() => handleDeleteOrder(order.id)}>
-                Delete
-              </Button>
-              <Button
-                variant="outlined"
-                onClick={() => handleCloseOrder(order.id)}>
-                Close
-              </Button>
+              <div className={styles.btn_wrap}>
+                <Button
+                  variant="outlined"
+                  onClick={() =>
+                    handleCompleteOrder(order.id, OrderStatus.COMPLETED)
+                  }>
+                  Complate
+                </Button>
+                <Button
+                  variant="outlined"
+                  onClick={() =>
+                    handleCancelOrder(order.id, OrderStatus.CANCELED)
+                  }>
+                  Cancel
+                </Button>
+                <Button
+                  variant="outlined"
+                  onClick={() => handleDeleteOrder(order.id)}>
+                  Delete
+                </Button>
+              </div>
             </td>
           </tr>
         ))}

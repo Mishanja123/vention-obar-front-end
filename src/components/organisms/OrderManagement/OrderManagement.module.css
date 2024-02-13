@@ -9,9 +9,10 @@ th {
   text-align: center;
   padding: 1rem;
 }
-
-.orders_table tr:nth-child(even) {
-  background-color: var(--accent-color);
+.btn_wrap {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .edit_input {
@@ -30,4 +31,14 @@ th {
 .action_container {
   display: flex;
   justify-content: space-evenly;
+}
+
+.canceled {
+  color: var(--cancel);
+}
+.active {
+  color: var(--active);
+}
+.completed {
+  color: var(--completed);
 }

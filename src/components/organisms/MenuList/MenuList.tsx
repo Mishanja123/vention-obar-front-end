@@ -7,14 +7,14 @@ import MenuPageSkeleton from '@/components/molecules/MenuPageSkeleton/MenuPageSk
 import styles from './MenuList.module.css';
 
 const MenuList = () => {
-  const { allItems, postsPerPage, totalPosts, paginate, currentPage } =
+  const { items, postsPerPage, totalPosts, paginate, currentPage } =
     useMenuContext();
 
   return (
     <>
       <ul className={styles.menu_list}>
-        {allItems && allItems.length > 0 ? (
-          allItems.map((item) => <MenuItem key={item.id} {...item} />)
+        {items && items.length > 0 ? (
+          items.map((item) => <MenuItem key={item.id} {...item} />)
         ) : (
           <MenuPageSkeleton />
         )}

@@ -15,7 +15,9 @@
 }
 
 .admin_section {
-  padding: var(--desktop-padding);
+  /* padding-top: 0; */
+  padding: 16px 60px 40px 60px;
+  /* padding: var(--desktop-padding); */
 }
 
 .admin_wrapper {
@@ -32,4 +34,9 @@
 .admin_navigation {
   display: flex;
   align-items: center;
+}
+.active {
+  font-size: var(--font-size-xl);
+  font-weight: var(--heading-font-weight);
+  color: var(--accent-color);
 }

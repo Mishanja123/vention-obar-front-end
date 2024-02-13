@@ -1,8 +1,10 @@
-import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
-import styles from './AccountPageSection.module.css';
-import { PATHS } from '@/constants/paths';
 import { useEffect, useState } from 'react';
+import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { Skeleton } from '@mui/material';
+
+import { PATHS } from '@/constants/paths';
+
+import styles from './AccountPageSection.module.css';
 
 const AccountPageSection = () => {
   const location = useLocation();
