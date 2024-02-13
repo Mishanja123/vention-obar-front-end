@@ -7,7 +7,7 @@ const HOST = '54.93.51.4';
 console.log(HOST);
 
 export const axiosInstance = axios.create({
-  baseURL: `http://${HOST}:3000/api`,
+  baseURL: `https://${HOST}:3000/api`,
   headers: { 'Content-Type': 'application/json' },
   withCredentials: true,
 });
