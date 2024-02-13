@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { IconContext } from 'react-icons';
 import { IoMenu } from 'react-icons/io5';
-
+import { MdAdminPanelSettings } from 'react-icons/md';
 import { PATHS } from '@/constants/paths';
 
 import { SearchInput } from '@/components/atoms/index.ts';
@@ -32,9 +32,16 @@ const Header = () => {
           <IoMenu />
         </IconContext.Provider>
       </button>
-      <NavLink to={admin ? PATHS.ADMIN : PATHS.ROOT}>
+      <NavLink to={PATHS.ROOT}>
         <img className={styles.logo} src={homeLogo} alt="logo" />
       </NavLink>
+      {admin && (
+        <NavLink to={PATHS.ADMIN}>
+          <IconContext.Provider value={{ className: styles.admin_icon }}>
+            <MdAdminPanelSettings />
+          </IconContext.Provider>
+        </NavLink>
+      )}
 
       <SearchInput />
 

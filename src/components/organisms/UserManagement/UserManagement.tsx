@@ -91,8 +91,6 @@ const UserManagement: React.FC = () => {
           <th>First Name</th>
           <th>Last Name</th>
           <th>Email</th>
-          <th>Delivery Address</th>
-          <th>Payments Info</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -142,8 +140,6 @@ const UserManagement: React.FC = () => {
                 user.email
               )}
             </td>
-            <td>{user.UserAddressId ? 'null' : 'None'}</td>
-            <td>{user.UserCreditCardId ? 'null' : 'None'}</td>
             <td>
               {editingModeIndex === index ? (
                 <div className={styles.action_container}>

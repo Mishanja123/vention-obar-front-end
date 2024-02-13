@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import { IconContext } from 'react-icons';
 import { PiShoppingCartLight } from 'react-icons/pi';
+import { IoIosCart } from 'react-icons/io';
 import iconHolder from '@/assets/images/avatar-icon-holder.jpeg';
 import Swal from 'sweetalert2';
 
@@ -65,7 +66,7 @@ const Navigation: React.FC<ILocationProp> = ({ loc }) => {
                 return total + item.quantity;
               }, 0)}
             </div>
-            <PiShoppingCartLight />
+            <IoIosCart />
           </div>
         </IconContext.Provider>
       </LinkWrapper>
