@@ -128,7 +128,7 @@ const DishManagement = () => {
         title: '',
         category: DISHCATEGORY.BAR_BLISS,
         price: '0',
-        photoPath: 'https://placehold.co/400',
+        photoPath: '',
         weightGrams: 0,
         ingredients: [],
       });
